@@ -189,3 +189,7 @@ Assessment: the tested single-process application is suitable for controlled sta
 - [ ] At desktop/mobile widths, navigate all sections and use keyboard controls, dialogs, long answers and scrollable tables. Confirm no HTML from evidence executes.
 - [ ] Review deployment HTTPS/Origin, trace/native dependencies, storage persistence, cleanup scheduling, backups and multi-worker quota behavior.
 - [ ] Remove only disposable fixtures and confirm existing data/integrity checks remain unchanged.
+
+## Current consolidated documentation
+
+This remains the dated Day 8 verification record. See the [final project report](final-project-report.md) and [final test-case register](final-test-cases.md) for later CSV lifecycle checks, all 25 original evaluation questions, separate manual acceptance slots and unresolved live/human-review gaps. Historical browser automation is not reclassified as manual testing.

@@ -143,6 +143,8 @@ Historical application validation (Day 9 Step 4): **184/184 database-enabled tes
 
 | Guide | Contents |
 | --- | --- |
+| [Final project report](docs/final-project-report.md) | Consolidated implementation, verified evidence and readiness limits |
+| [Final test cases](docs/final-test-cases.md) | All 25 original benchmark questions, 16 separate manual slots and functional/security/reliability evidence |
 | [Architecture](docs/architecture.md) | Components, four data flows, retrieval, agent and security boundaries |
 | [API](docs/api.md) | Actual endpoint contracts, sessions/CSRF, errors and pagination |
 | [Database](docs/database.md) | Tables, relationships, migration inventory and lifecycle |
