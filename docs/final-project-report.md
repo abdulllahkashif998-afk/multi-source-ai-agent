@@ -56,3 +56,7 @@ Repository setup and review: [database](database.md), [deployment](deployment.md
 ## Documentation validation for this update
 
 Checked that the register contains each original benchmark ID once, preserves every question and expected answer from the saved original fixture catalog, and retains the 6/6/6/4/3 grouping. Confirmed 16 distinct manual slots, all local Markdown file links resolving within the proposed 211-file manifest, clean `git diff --check`, and no detected provider-key/private-key/personal-identifier patterns in the five changed documentation files. These checks validate documentation consistency, not new AI answers. Application code and evaluation fixtures are unchanged; no live Groq request or database operation was run.
+
+## Delivery walkthrough and handover
+
+Use the [final demo guide](final-demo-guide.md) for the fictional-data walkthrough and expected results, and [project handover](project-handover.md) for repository/setup/configuration and deployment responsibilities. These are instructions, not newly verified acceptance results.

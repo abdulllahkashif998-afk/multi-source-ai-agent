@@ -1,6 +1,6 @@
 # Current architecture
 
-This guide describes the implementation through Day 9 Step 5. Historical day reports preserve earlier designs; current code is authoritative.
+This guide describes the implemented architecture; Day 10 adds generic CSV lifecycle operations documented in the [CSV lifecycle guide](day-10-csv-lifecycle.md). Historical day reports preserve earlier designs; current code is authoritative.
 
 ## Components and trust boundaries
 

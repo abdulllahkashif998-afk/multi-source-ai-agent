@@ -89,10 +89,12 @@ docs/evaluation/retrieval-quality-data/fixtures.json
 docs/evaluation/retrieval-quality-data/report.md
 docs/evaluation/retrieval-quality-data/results.json
 docs/evaluation/retrieval-quality.md
+docs/final-demo-guide.md
 docs/final-project-report.md
 docs/final-test-cases.md
 docs/frontend-styling-fix.md
 docs/github-staging-files.txt
+docs/project-handover.md
 eslint.config.mjs
 evaluation/answer-oracle.ts
 evaluation/answer-quality-cli.ts

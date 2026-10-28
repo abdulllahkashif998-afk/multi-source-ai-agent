@@ -2,14 +2,14 @@
 
 An authenticated workspace for asking questions about PDF/DOCX documents and querying CSV datasets. Document answers use retrieved evidence; the multi-source agent can combine document policies with structured CSV calculations and return source references.
 
-Implemented through Day 9 Step 5. Suitable for **controlled staging after the checks below**, not certified for public production. The full live 25-case answer benchmark and human semantic review remain incomplete.
+Includes the Day 10 delivery work, including generic CSV lifecycle management. Suitable for **controlled staging after the checks below**, not certified for public production. The full live 25-case answer benchmark and human semantic review remain incomplete.
 
 ## Features
 
 - Signup/login/logout, eight-hour server sessions, HTTP-only cookies and session-bound CSRF protection.
 - PDF/DOCX upload, owner-scoped listing, SHA-256 duplicate detection, explicit replacement/versioning, deletion and deferred file cleanup.
 - BGE embeddings through Ollama; PostgreSQL cosine and full-text search fused with Reciprocal Rank Fusion (RRF).
-- Generic CSV upload/type inference, schema discovery and validated filtering, sorting, COUNT/SUM/AVG and GROUP BY.
+- Generic CSV upload/type inference, schema discovery, atomic replacement with identical-content rejection, deletion and validated filtering, sorting, COUNT/SUM/AVG and GROUP BY.
 - Document RAG and a bounded multi-source agent using either Gemini or Groq, without automatic provider fallback.
 - Responsive Documents, Datasets and AI Chat pages; safe text rendering, citations and in-page conversation history.
 - Structured safe diagnostics, provider pacing/deadlines and reproducible fictional evaluation fixtures.
@@ -143,6 +143,8 @@ Historical application validation (Day 9 Step 4): **184/184 database-enabled tes
 
 | Guide | Contents |
 | --- | --- |
+| [Final demo guide](docs/final-demo-guide.md) | Fictional-data walkthrough, expected results and citation checks |
+| [Project handover](docs/project-handover.md) | Repository, setup, configuration, testing and deployment limits |
 | [Final project report](docs/final-project-report.md) | Consolidated implementation, verified evidence and readiness limits |
 | [Final test cases](docs/final-test-cases.md) | All 25 original benchmark questions, 16 separate manual slots and functional/security/reliability evidence |
 | [Architecture](docs/architecture.md) | Components, four data flows, retrieval, agent and security boundaries |

@@ -33,7 +33,7 @@ Common authentication errors: 401 UNAUTHENTICATED; 403 CSRF_REJECTED; 503 AUTH_N
 | POST | `/api/agent` | Document/CSV/multi-source agent |
 | GET | `/api/db-test`, `/api/test-csv`, `/api/test-search` | Disabled diagnostics; 404, `{success:false,error:"Not found."}` |
 
-There is no document download/detail GET, individual dataset-schema route, dataset-delete route, persistent conversation API, arbitrary SQL endpoint or health endpoint. Schema inspection is provided by the dataset list and the internal agent tool.
+There is no document download/detail GET, individual dataset-schema route, persistent conversation API, arbitrary SQL endpoint or health endpoint. Schema inspection is provided by the dataset list and the internal agent tool.
 
 ## Accounts
 
