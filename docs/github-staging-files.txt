@@ -9,6 +9,7 @@ app/api/auth/logout/route.ts
 app/api/auth/session/route.ts
 app/api/auth/signup/route.ts
 app/api/chat/route.ts
+app/api/datasets/[id]/route.ts
 app/api/datasets/query/route.ts
 app/api/datasets/route.ts
 app/api/db-test/route.ts
@@ -49,6 +50,7 @@ docs/ai-providers.md
 docs/api.md
 docs/architecture.md
 docs/database.md
+docs/day-10-csv-lifecycle.md
 docs/day-10-fresh-setup-security-review.md
 docs/day-10-github-review.md
 docs/day-10-rag-citation-investigation.md
@@ -139,6 +141,7 @@ src/lib/chat-handler.ts
 src/lib/chunk-text.ts
 src/lib/csv-query-schema.ts
 src/lib/dataset-client.ts
+src/lib/dataset-lifecycle.ts
 src/lib/db.ts
 src/lib/document-answer-schema.ts
 src/lib/document-client.ts
@@ -184,6 +187,7 @@ tests/browser/full-stack-ui.mjs
 tests/browser/styles-ui.mjs
 tests/chat.test.ts
 tests/dataset-client.test.ts
+tests/dataset-lifecycle.test.ts
 tests/document-client.test.ts
 tests/document-lifecycle.test.ts
 tests/document-list.test.ts

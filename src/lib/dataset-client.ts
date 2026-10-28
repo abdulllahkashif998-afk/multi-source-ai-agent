@@ -11,6 +11,10 @@ export type QueryDraft={operation:'rows'|'count'|'sum'|'avg';aggregateColumn:str
 export const emptyQuery=():QueryDraft=>({operation:'rows',aggregateColumn:'',groupBy:[],sortColumn:'',direction:'asc',limit:'20',filters:[]});
 const messages:Record<string,string>={
  INVALID_FILE:'Choose a nonempty CSV file up to 10 MiB.',
+ IDENTICAL_DATASET:'This dataset already contains the same data. No changes were made.',
+ MUTATION_FAILED:'The dataset could not be changed. Refresh the list before trying again.',
+ DATASET_UNAVAILABLE:'This dataset is no longer available. Refresh the list.',
+ MUTATION_INTERRUPTED:'The response was interrupted. Refresh the dataset list before trying again; the change may have completed.',
  IMPORT_FAILED:'This CSV could not be imported. Check for unique column headings and at least one consistent data row.',
  LIST_FAILED:'Datasets could not be loaded. Please try again.',
  QUERY_FAILED:'The query could not be completed. Check your settings or refresh the dataset list.',
@@ -50,15 +54,17 @@ export function buildDatasetPlan(dataset:DatasetItem,draft:QueryDraft):CSVQueryP
  const parsed=planSchema.safeParse({datasetId:dataset.id,filters,groupBy,...(aggregate?{aggregate}:{}),...(draft.sortColumn?{sort:{column:draft.sortColumn,direction:draft.direction}}:{}),limit:Number(draft.limit)});
  if(!parsed.success)throw invalid();return parsed.data;
 }
-async function send(path:string,init:RequestInit|undefined,signal:AbortSignal|undefined,operation:'list'|'upload'|'query'){
+async function send(path:string,init:RequestInit|undefined,signal:AbortSignal|undefined,operation:'list'|'upload'|'query'|'replace'|'delete'){
  let response:Response;
- const timeout=AbortSignal.timeout(operation==='upload'?45_000:15_000);
+ const timeout=AbortSignal.timeout(operation==='upload'||operation==='replace'?45_000:15_000);
  try{response=await fetch(path,{...init,credentials:'same-origin',cache:'no-store',signal:signal?AbortSignal.any([signal,timeout]):timeout});}
- catch{throw new DatasetUiError(operation==='upload'?'UPLOAD_INTERRUPTED':operation==='list'?'LIST_FAILED':'QUERY_FAILED');}
- let body;try{body=await response.json();}catch{throw new DatasetUiError(operation==='upload'?'UPLOAD_INTERRUPTED':operation==='list'?'LIST_FAILED':'QUERY_FAILED');}
+ catch{throw new DatasetUiError(operation==='upload'?'UPLOAD_INTERRUPTED':operation==='replace'||operation==='delete'?'MUTATION_INTERRUPTED':operation==='list'?'LIST_FAILED':'QUERY_FAILED');}
+ let body;try{body=await response.json();}catch{throw new DatasetUiError(operation==='upload'?'UPLOAD_INTERRUPTED':operation==='replace'||operation==='delete'?'MUTATION_INTERRUPTED':operation==='list'?'LIST_FAILED':'QUERY_FAILED');}
  if(response.status===401)throw new AuthUiError('UNAUTHENTICATED');
  if(response.status===403)throw new DatasetUiError('CSRF_REJECTED');
- if(!response.ok||body?.success!==true)throw new DatasetUiError(operation==='upload'?'IMPORT_FAILED':operation==='list'?'LIST_FAILED':'QUERY_FAILED');
+ if(response.status===409&&operation==='replace'&&body?.code==='IDENTICAL_DATASET')throw new DatasetUiError('IDENTICAL_DATASET');
+ if(response.status===404&&(operation==='replace'||operation==='delete'))throw new DatasetUiError('DATASET_UNAVAILABLE');
+ if(!response.ok||body?.success!==true)throw new DatasetUiError(operation==='upload'?'IMPORT_FAILED':operation==='replace'||operation==='delete'?'MUTATION_FAILED':operation==='list'?'LIST_FAILED':'QUERY_FAILED');
  return body;
 }
 export async function fetchDatasets(signal?:AbortSignal):Promise<DatasetItem[]>{
@@ -81,4 +87,19 @@ export async function runDatasetQuery(dataset:DatasetItem,draft:QueryDraft,signa
  const scalar=(value:unknown)=>value===null||typeof value==='string'||typeof value==='boolean'||(typeof value==='number'&&Number.isFinite(value));
  if(!Array.isArray(body.rows)||body.rows.length>plan.limit||!body.rows.every((row:unknown)=>row!==null&&typeof row==='object'&&!Array.isArray(row)&&Object.values(row).every(scalar)&&expectedColumns.every(name=>Object.hasOwn(row,name))))throw new DatasetUiError('QUERY_FAILED');
  return {plan,rows:body.rows as QueryRow[]};
+}
+
+export async function replaceDatasetFile(id:string,file:File,signal?:AbortSignal){
+ if(!idSchema.safeParse(id).success)throw new DatasetUiError('MUTATION_FAILED');
+ validateCSVFile(file);const session=await getBrowserSession();signal?.throwIfAborted();
+ const form=new FormData();form.set('file',file);
+ const body=await send(`/api/datasets/${id}`,{method:'PUT',headers:{'X-CSRF-Token':session.csrfToken},body:form},signal,'replace');
+ const result=z.object({datasetId:idSchema,importedRows:z.number().int().positive(),columns:z.array(columnSchema).min(1).max(100)}).safeParse(body);
+ if(!result.success||result.data.datasetId!==id)throw new DatasetUiError('MUTATION_INTERRUPTED');return result.data;
+}
+export async function removeDataset(id:string,signal?:AbortSignal){
+ if(!idSchema.safeParse(id).success)throw new DatasetUiError('MUTATION_FAILED');
+ const session=await getBrowserSession();signal?.throwIfAborted();
+ const body=await send(`/api/datasets/${id}`,{method:'DELETE',headers:{'X-CSRF-Token':session.csrfToken}},signal,'delete');
+ if(body.datasetId!==id)throw new DatasetUiError('MUTATION_INTERRUPTED');
 }

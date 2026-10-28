@@ -72,3 +72,28 @@ test('query responses preserve zero/false/null and reject missing or non-scalar 
  assert.deepEqual((await runDatasetQuery(dataset,emptyQuery())).rows,rows);
  for(const invalid of [[{team:'Alpha'}],[{team:'Alpha',amount:{private:'nested'},active:true}],Array.from({length:21},()=>({team:'Alpha',amount:1,active:true}))]){rows=invalid;await assert.rejects(runDatasetQuery(dataset,emptyQuery()),{code:'QUERY_FAILED'});}
 });
+
+test('CSV mutations use same-origin session CSRF, stable IDs and no client identity',async()=>{
+ const {replaceDatasetFile,removeDataset}=await import('../src/lib/dataset-client');const calls:string[]=[];
+ mock.method(globalThis,'fetch',async(url:string,init?:RequestInit)=>{
+  if(url==='/api/auth/session')return Response.json(session);
+  calls.push(init!.method!);assert.equal(url,'/api/datasets/8');assert.equal(init!.credentials,'same-origin');assert.equal((init!.headers as Record<string,string>)['X-CSRF-Token'],session.csrfToken);
+  if(init!.method==='PUT'){assert.ok(init!.body instanceof FormData);assert.deepEqual([...init!.body.keys()],['file']);return Response.json({success:true,datasetId:'8',importedRows:1,columns:[{name:'team',type:'text'}]});}
+  assert.equal(init!.body,undefined);return Response.json({success:true,datasetId:'8'});
+ });
+ await replaceDatasetFile('8',csv());await removeDataset('8');assert.deepEqual(calls,['PUT','DELETE']);
+});
+test('CSV mutations reject stale/missing IDs, session expiry, CSRF and uncertain transport without retries',async()=>{
+ const {replaceDatasetFile,removeDataset}=await import('../src/lib/dataset-client');let status=404,calls=0;
+ mock.method(globalThis,'fetch',async(url:string)=>{if(url==='/api/auth/session')return Response.json(session);calls++;if(status===0)throw Error('private transport');return Response.json({success:false,error:'private server detail'},{status});});
+ await assert.rejects(removeDataset('../8'),{code:'MUTATION_FAILED'});assert.equal(calls,0);
+ for(const [code,next] of [['DATASET_UNAVAILABLE',404],['CSRF_REJECTED',403],['UNAUTHENTICATED',401],['MUTATION_INTERRUPTED',0]] as const){status=next;await assert.rejects(removeDataset('8'),{code});}
+ assert.equal(calls,4);
+ const controller=new AbortController();controller.abort();await assert.rejects(replaceDatasetFile('8',csv(),controller.signal));assert.equal(calls,4);
+});
+
+test('identical CSV replacement displays a safe message and is not retried',async()=>{
+ const {replaceDatasetFile}=await import('../src/lib/dataset-client');let writes=0;
+ mock.method(globalThis,'fetch',async(url:string)=>{if(url==='/api/auth/session')return Response.json(session);writes++;return Response.json({success:false,code:'IDENTICAL_DATASET',error:'private server detail'},{status:409});});
+ await assert.rejects(replaceDatasetFile('8',csv()),{code:'IDENTICAL_DATASET',message:'This dataset already contains the same data. No changes were made.'});assert.equal(writes,1);
+});

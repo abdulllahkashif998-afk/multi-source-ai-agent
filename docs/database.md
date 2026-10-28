@@ -72,7 +72,7 @@ erDiagram
 
 Base IDs use sequence-backed defaults in the inspected schema; the newer event/generic-dataset tables use GENERATED ALWAYS AS IDENTITY. `uploaded_at` and legacy created_at fields can be null. New lifecycle versions must be positive. Document status values are lifecycle conventions in service SQL; the inspected table does not provide an enum/status CHECK. Do not assume arbitrary statuses are valid application states.
 
-JSONB column definitions are an array of `{name,type}`, with type number/boolean/text. Rows use original header keys and number/boolean/text/null values. Empty cells become null; type inference is per column. Generic import inserts all rows and publishes ready in a transaction, so incomplete imports do not become discoverable. There is no generic dataset lifecycle/delete API.
+JSONB column definitions are an array of `{name,type}`, with type number/boolean/text. Rows use original header keys and number/boolean/text/null values. Empty cells become null; type inference is per column. Generic import inserts all rows and publishes ready in a transaction, so incomplete imports do not become discoverable. Generic CSV replacement locks the owned ready dataset and atomically updates schema, filename, row count and rows under its stable ID. Deletion locks the same record, explicitly deletes its rows first (the existing FK is not cascading), then deletes metadata. No schema migration or stored CSV-file cleanup is needed. Structured queries use a repeatable-read read-only snapshot to keep schema and row reads consistent during replacement. Already completed or in-flight snapshots are not retroactively revoked.
 
 ## Retrieval and indexes
 

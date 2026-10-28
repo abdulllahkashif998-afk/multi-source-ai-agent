@@ -104,7 +104,7 @@ async function executeDatasetQuery(userId: number | string, input: unknown,signa
   const client = await pool.connect();
   try {
     signal?.throwIfAborted();
-    await timedQuery(()=>client.query('BEGIN READ ONLY'));
+    await timedQuery(()=>client.query('BEGIN ISOLATION LEVEL REPEATABLE READ READ ONLY'));
     await timedQuery(()=>client.query("SET LOCAL statement_timeout = '5s'"));
     const scoped = await timedQuery(()=>client.query("SELECT columns FROM generic_csv_datasets WHERE id=$1 AND user_id=$2 AND status='ready'", [plan.datasetId,userId]));
     if (!scoped.rows.length) throw new Error('Dataset unavailable');

@@ -34,9 +34,9 @@ try{
  const app=new Client({connectionString:url(name,'fresh_app')});await app.connect();
  try{const privileges=(await app.query("SELECT rolsuper,rolcreatedb,rolcreaterole,has_schema_privilege(current_user,'public','CREATE') AS schema_create FROM pg_roles WHERE rolname=current_user")).rows[0];if(Object.values(privileges).some(Boolean))throw Error('Runtime role has excessive privileges');}finally{await app.end();}
  let refused=false;try{await setupFreshDatabase({targetURL:url(name),confirmation:name});}catch{refused=true;}if(!refused)throw Error('Nonempty rerun was accepted');
- const env:NodeJS.ProcessEnv={...process.env,DATABASE_URL:url(name,'fresh_app'),RUN_AUTH_DB_TESTS:'1',RUN_LIFECYCLE_DB_TESTS:'1',RUN_SEARCH_DB_TESTS:'1',RUN_EVAL_DB_TESTS:'1'};
+ const env:NodeJS.ProcessEnv={...process.env,DATABASE_URL:url(name,'fresh_app'),RUN_CSV_LIFECYCLE_DB_TESTS:'1',RUN_AUTH_DB_TESTS:'1',RUN_LIFECYCLE_DB_TESTS:'1',RUN_SEARCH_DB_TESTS:'1',RUN_EVAL_DB_TESTS:'1'};
  delete env.GROQ_API_KEY;delete env.GOOGLE_GENERATIVE_AI_API_KEY;
- const tests=await run('npm',['test'],{env,maxBuffer:16*1024*1024});await writeFile('/tmp/day10-fresh-tests.log',tests.stdout+tests.stderr,{mode:0o600});console.log(tests.stdout.slice(-600));
+ let tests;try{tests=await run('npm',['test'],{env,maxBuffer:16*1024*1024});}catch(error){const failed=error as {stdout?:string;stderr?:string};await writeFile('/tmp/day10-fresh-tests.log',(failed.stdout??'')+(failed.stderr??''),{mode:0o600});throw Error('Fictional regression suite failed; inspect /tmp/day10-fresh-tests.log.');}await writeFile('/tmp/day10-fresh-tests.log',tests.stdout+tests.stderr,{mode:0o600});console.log(tests.stdout.slice(-600));
  console.log(JSON.stringify({freshDatabase:'passed',nonemptyRerun:'refused',liveProviderCalls:0}));
 }finally{
  if(started)await run(bin+'pg_ctl',['-D',data,'-w','stop','-m','fast']);

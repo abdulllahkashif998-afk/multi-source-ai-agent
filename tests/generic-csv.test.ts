@@ -40,7 +40,7 @@ test('denies foreign or incomplete datasets before querying rows and rolls back 
  }));
  try {
    await assert.rejects(runWithIdentity('2',()=>queryDataset(2, { datasetId: '7' })), /unavailable/);
-   assert.equal(calls[0], 'BEGIN READ ONLY');
+   assert.equal(calls[0], 'BEGIN ISOLATION LEVEL REPEATABLE READ READ ONLY');
    assert.ok(calls.some(s => s.includes('statement_timeout')));
    assert.ok(!calls.some(s => s.includes('FROM generic_csv_rows')));
    assert.equal(calls.at(-1), 'ROLLBACK');

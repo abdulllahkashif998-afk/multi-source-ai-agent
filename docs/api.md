@@ -27,6 +27,7 @@ Common authentication errors: 401 UNAUTHENTICATED; 403 CSRF_REJECTED; 503 AUTH_N
 | POST | `/api/documents/cleanup` | Retry current user's queued file cleanup |
 | GET | `/api/datasets` | Discover ready generic datasets and schemas |
 | POST | `/api/datasets` | Generic CSV upload |
+| PUT / DELETE | `/api/datasets/{id}` | Replace / delete an owned ready generic dataset |
 | POST | `/api/datasets/query` | Validated structured query |
 | POST | `/api/chat` | Document RAG |
 | POST | `/api/agent` | Document/CSV/multi-source agent |
@@ -91,6 +92,18 @@ POST `/api/datasets`: multipart `file`, nonempty `.csv`, at most 10 MiB. Parser 
 Success HTTP 200: `{success:true,datasetId,importedRows,columns:[{name,type}]}`. Import transaction publishes ready only after all rows succeed. Bad file/import returns HTTP 400 with safe error text, without a guaranteed code field.
 
 GET success: `{success:true,datasets:[{id,filename,columns,row_count}]}`. Only owned ready datasets, ascending ID, maximum 100. It does not provide a cursor or report hidden additional datasets.
+
+### Replacement and deletion
+
+Both endpoints require the verified session cookie, allowed Origin and session-bound `X-CSRF-Token`; user IDs from the browser never authorize access. IDs must be positive PostgreSQL bigint strings.
+
+- `PUT /api/datasets/{id}`: multipart `file`, using the upload parser/limits above; filename at most 255 characters with no path separators/control characters. Success HTTP 200: `{success:true,datasetId,importedRows,columns:[{name,type}]}`. The dataset ID, owner and original creation date remain unchanged. Schema, filename, row count and rows are replaced in one transaction. Invalid CSV or a database failure preserves the original. No version history is retained.
+- `DELETE /api/datasets/{id}`: no body. Success HTTP 200: `{success:true,datasetId}`. Deletes structured rows and metadata in one transaction. A second delete returns 404.
+- Both return safe `{success:false,code,error}` errors: 400 `INVALID_DATASET`/`INVALID_FILE`; 404 `DATASET_UNAVAILABLE` for missing, foreign or non-ready records; 409 `IDENTICAL_DATASET` for the same parsed schema and ordered typed rows on replacement (filename ignored, no data writes); 503 `DATASET_MUTATION_FAILED` for operational failures, including lock waits/timeouts. Session/CSRF errors remain 401/403 from the authentication wrapper. Responses use no-store.
+
+Mutations lock the same dataset row, with 5-second lock and 10-second statement limits. Concurrent valid replacements serialize; the last successful replacement wins. Concurrent deletion leaves no discoverable/queryable dataset after commit. Queries use one repeatable-read read-only snapshot, so an already-started query can finish with its earlier authorized evidence. Previously displayed answers are not retroactively withdrawn. Do not automatically retry a mutation after a lost response: refresh discovery first.
+
+Each ordinary POST upload still creates a separate dataset, including identical files. Replacement is explicit; for ordinary POST uploads, same filenames and identical CSV contents do not trigger updates or duplicate detection. See [manual acceptance](day-10-csv-lifecycle.md).
 
 ### Structured query
 

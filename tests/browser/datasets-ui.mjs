@@ -11,9 +11,9 @@ const result=[];
 async function visible(locator){await locator.waitFor({state:'visible'});}
 async function run(name,work,mobile=false){
  const context=await browser.newContext({baseURL,viewport:mobile?{width:390,height:844}:{width:1440,height:1000}});
- const state={datasets:[dataset],signedIn:true,listError:false,listDelay:0,uploadError:false,uploadDelay:0,uploadNetwork:false,queryStatus:200,queryDelay:0,queryRows:rows,expectedPlan:null,newId:'9',hideNewImport:false,queries:[],uploads:0};
+ const state={datasets:[dataset],signedIn:true,email:'fictional@example.test',mutationStatus:200,mutationDelay:0,mutations:[],listError:false,listDelay:0,uploadError:false,uploadDelay:0,uploadNetwork:false,queryStatus:200,queryDelay:0,queryRows:rows,expectedPlan:null,newId:'9',hideNewImport:false,queries:[],uploads:0};
  const page=await context.newPage(),errors=[];page.on('pageerror',error=>errors.push(error.message));
- await context.route('**/api/auth/session',route=>route.fulfill({status:state.signedIn?200:401,contentType:'application/json',body:JSON.stringify(state.signedIn?{success:true,name:'Fictional User',email:'fictional@example.test',csrfToken:'c'.repeat(64)}:{success:false,code:'UNAUTHENTICATED'})}));
+ await context.route('**/api/auth/session',route=>route.fulfill({status:state.signedIn?200:401,contentType:'application/json',body:JSON.stringify(state.signedIn?{success:true,name:'Fictional User',email:state.email,csrfToken:'c'.repeat(64)}:{success:false,code:'UNAUTHENTICATED'})}));
  await context.route('**/api/datasets',async route=>{
   if(route.request().method()==='GET'){
    if(state.listDelay)await new Promise(resolve=>setTimeout(resolve,state.listDelay));
@@ -26,6 +26,19 @@ async function run(name,work,mobile=false){
   const form=await new Request('http://fixture',{method:'POST',headers:request.headers(),body:request.postDataBuffer()}).formData();assert.deepEqual([...form.keys()],['file']);
   const next={...dataset,id:state.newId,filename:form.get('file').name};if(!state.hideNewImport)state.datasets.push(next);
   return route.fulfill({contentType:'application/json',body:JSON.stringify({success:true,datasetId:next.id,importedRows:3,columns})});
+ });
+ await context.route(/\/api\/datasets\/\d+$/,async route=>{
+  const request=route.request(),method=request.method();assert.ok(['PUT','DELETE'].includes(method));assert.equal(request.headers()['x-csrf-token'],'c'.repeat(64));assert.equal(request.headers().origin,new URL(baseURL).origin);
+  const id=new URL(request.url()).pathname.split('/').pop(),account=state.email;state.mutations.push(method);
+  if(state.mutationDelay)await new Promise(resolve=>setTimeout(resolve,state.mutationDelay));
+  if(state.mutationStatus!==200)return route.fulfill({status:state.mutationStatus,contentType:'application/json',body:JSON.stringify({success:false,code:state.mutationStatus===409?'IDENTICAL_DATASET':'MUTATION_FAILED',error:'private mutation detail'})});
+  let next;
+  if(method==='PUT'){
+   const form=await new Request('http://fixture',{method,headers:request.headers(),body:request.postDataBuffer()}).formData();assert.deepEqual([...form.keys()],['file']);
+   next={id,filename:form.get('file').name,row_count:1,columns:[{name:'region',type:'text'},{name:'score',type:'number'}]};
+  }
+  if(account===state.email)state.datasets=method==='DELETE'?state.datasets.filter(d=>d.id!==id):state.datasets.map(d=>d.id===id?next:d);
+  return route.fulfill({contentType:'application/json',body:JSON.stringify({success:true,datasetId:id,...(next?{importedRows:next.row_count,columns:next.columns}:{})})});
  });
  await context.route('**/api/datasets/query',async route=>{
   const request=route.request(),plan=request.postDataJSON();assert.equal(request.method(),'POST');assert.equal(request.headers()['x-csrf-token'],'c'.repeat(64));assert.equal(request.headers().origin,new URL(baseURL).origin);assert.ok(!('sql' in plan));assert.ok(!('userId' in plan));assert.ok(plan.limit>=1&&plan.limit<=100);
@@ -93,6 +106,35 @@ try{
  await run('Discovery limit is preserved and uploads outside it are explained',async(page,state)=>{
   state.datasets=Array.from({length:100},(_,index)=>({...dataset,id:String(100+index),filename:`Fictional ${index}.csv`}));state.newId='999';await open(page);await visible(page.getByText('Showing the first 100 available datasets. Discovery is limited by the current service.',{exact:true}));await page.getByLabel('Select CSV file',{exact:true}).setInputFiles(file);await page.getByRole('button',{name:'Upload CSV',exact:true}).click();await visible(page.getByText('CSV uploaded. This dataset is outside the current 100-dataset discovery limit.',{exact:true}));assert.equal(await page.locator('.dataset-select').count(),100);
  });
+
+ await run('Replacement validates file, preserves old data on failure and clears outdated schema/results',async(page,state)=>{
+  await open(page);await select(page);await execute(page);await page.getByRole('button',{name:`Replace ${dataset.filename}`,exact:true}).click();
+  const modal=page.getByRole('dialog');await visible(modal);assert.equal(await modal.getByRole('button',{name:'Cancel',exact:true}).evaluate(el=>el===document.activeElement),true);
+  await modal.getByLabel('Replacement CSV (up to 10 MiB)',{exact:true}).setInputFiles({name:'invalid.pdf',mimeType:'application/pdf',buffer:Buffer.from('x')});await visible(modal.getByRole('alert'));assert.equal(state.mutations.length,0);
+  const replacement={name:'revised.csv',mimeType:'text/csv',buffer:Buffer.from('region,score\nNorth,9')};await modal.getByLabel('Replacement CSV (up to 10 MiB)',{exact:true}).setInputFiles(replacement);
+  state.mutationStatus=400;await modal.getByRole('button',{name:'Replace dataset',exact:true}).click();await visible(modal.getByRole('alert'));assert.equal(state.datasets[0].filename,dataset.filename);assert.equal(await page.locator('.results-region').count(),0);
+  state.mutationStatus=200;state.mutationDelay=350;await modal.getByRole('button',{name:'Replace dataset',exact:true}).click();await visible(modal.getByText('Replacing and validating CSV…',{exact:true}));assert.equal(await modal.getByRole('button',{name:'Cancel',exact:true}).isDisabled(),true);
+  await visible(page.getByText('Dataset replaced successfully. Its ID is unchanged.',{exact:true}));await visible(page.getByRole('heading',{name:'revised.csv',exact:true}));assert.equal(await page.locator('.schema-panel li').count(),2);assert.equal(state.datasets[0].id,'7');assert.equal(await page.locator('.results-region').count(),0);
+ });
+ await run('Identical replacement shows a clear message and leaves original discovery unchanged',async(page,state)=>{
+  await open(page);await select(page);await execute(page);await page.getByRole('button',{name:`Replace ${dataset.filename}`,exact:true}).click();const modal=page.getByRole('dialog');
+  await modal.getByLabel('Replacement CSV (up to 10 MiB)',{exact:true}).setInputFiles(file);state.mutationStatus=409;
+  await modal.getByRole('button',{name:'Replace dataset',exact:true}).click();await visible(modal.getByText('This dataset already contains the same data. No changes were made.',{exact:true}));assert.equal(state.mutations.length,1);assert.equal(state.datasets[0].filename,dataset.filename);assert.equal(state.datasets[0].row_count,3);assert.ok(!(await modal.innerText()).includes('private mutation detail'));await modal.getByRole('button',{name:'Cancel',exact:true}).click();await select(page);await execute(page);assert.equal(await page.locator('.results-region tbody tr').count(),3);
+ });
+ await run('Deletion requires confirmation, removes the selection and returns to empty state',async(page,state)=>{
+  await open(page);await select(page);await execute(page);await page.getByRole('button',{name:`Delete ${dataset.filename}`,exact:true}).click();await page.getByRole('dialog').getByRole('button',{name:'Cancel',exact:true}).click();assert.equal(state.mutations.length,0);assert.equal(await page.locator('.results-region').count(),1);
+  await page.getByRole('button',{name:`Delete ${dataset.filename}`,exact:true}).click();await page.getByRole('dialog').getByRole('button',{name:'Delete dataset',exact:true}).click();await visible(page.getByText('Dataset deleted.',{exact:true}));await visible(page.getByRole('heading',{name:'Your first dataset starts here'}));assert.equal(await page.locator('.dataset-explorer').count(),0);assert.deepEqual(state.mutations,['DELETE']);
+ });
+ await run('Deletion CSRF and missing-dataset errors are safe and manually recoverable',async(page,state)=>{
+  await open(page);await page.getByRole('button',{name:`Delete ${dataset.filename}`,exact:true}).click();const modal=page.getByRole('dialog');state.mutationStatus=403;await modal.getByRole('button',{name:'Delete dataset',exact:true}).click();await visible(modal.getByRole('alert'));assert.ok(!(await modal.innerText()).includes('private mutation detail'));assert.equal(state.datasets.length,1);
+  state.mutationStatus=404;await modal.getByRole('button',{name:'Delete dataset',exact:true}).click();await visible(modal.getByText('This dataset is no longer available. Refresh the list.',{exact:true}));await page.keyboard.press('Escape');assert.equal(await modal.isVisible(),false);
+ });
+ await run('Verified account changes discard pending mutation UI and old private selections',async(page,state)=>{
+  await open(page);await select(page);await page.getByRole('button',{name:`Delete ${dataset.filename}`,exact:true}).click();state.mutationDelay=800;await page.getByRole('dialog').getByRole('button',{name:'Delete dataset',exact:true}).click();await visible(page.getByText('Deleting dataset…',{exact:true}));state.email='other-fictional@example.test';state.datasets=[];await page.evaluate(()=>window.dispatchEvent(new Event('focus')));await visible(page.getByRole('heading',{name:'Your first dataset starts here'}));await page.waitForTimeout(1000);assert.equal(await page.getByText('Dataset deleted.',{exact:true}).count(),0);assert.equal(await page.locator('.dataset-explorer').count(),0);
+ });
+ for(const mobile of [false,true])await run(`${mobile?'Mobile':'Desktop'} lifecycle dialog keyboard and responsive layout`,async(page)=>{
+  await open(page);await page.getByRole('button',{name:`Replace ${dataset.filename}`,exact:true}).click();const modal=page.getByRole('dialog');await visible(modal);await page.keyboard.press('Shift+Tab');assert.equal(await modal.evaluate(el=>el.contains(document.activeElement)),true);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({path:`/tmp/dataset-lifecycle-${mobile?'mobile':'desktop'}.png`,fullPage:true});await page.keyboard.press('Escape');assert.equal(await modal.isVisible(),false);
+ },mobile);
  for(const mobile of [false,true])await run(`${mobile?'Mobile':'Desktop'} schema/query/results layout and keyboard table scrolling`,async(page,state)=>{
   await open(page);await select(page);await page.getByLabel('Result',{exact:true}).selectOption('sum');await page.getByLabel('team',{exact:true}).check();state.queryRows=[{team:'Alpha',value:30},{team:'Beta',value:6}];await execute(page);await page.evaluate(()=>document.fonts.ready);
   assert.equal(await page.locator('.dataset-workspace').evaluate(el=>getComputedStyle(el).display),'grid');

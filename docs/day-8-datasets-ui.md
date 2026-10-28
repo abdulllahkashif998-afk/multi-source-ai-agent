@@ -129,3 +129,7 @@ Use the mocked browser suite for session expiry, CSRF rejection, network/server 
 - No dataset rename/delete/replace, download/export, import deduplication, automatic refresh polling, chart UI or AI Chat is introduced. Refresh explicitly to discover changes from other tabs.
 - Backend error responses are deliberately generic, so the UI cannot identify an exact CSV parser line or distinguish every service failure from an import validation failure.
 - A persisted-account live browser upload/query was not performed; use the fictional-file manual procedure before release. Broader browser and assistive-technology coverage remains useful.
+
+## Later lifecycle support
+
+Day 10 adds explicit Replace/Delete actions. This report retains its original phase scope and results; see [the current lifecycle guide](day-10-csv-lifecycle.md) for API behavior, tests and acceptance steps.
