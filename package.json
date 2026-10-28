@@ -2,25 +2,48 @@
   "name": "multi-source-ai-agent",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=22.17.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "node --conditions=react-server --import tsx --test --experimental-test-isolation=none tests/*.test.ts",
+    "evaluate": "node --conditions=react-server --import tsx evaluation/cli.ts",
+    "evaluate:retrieval": "node --conditions=react-server --import tsx evaluation/retrieval-quality.ts",
+    "evaluate:answers": "node --conditions=react-server --import tsx evaluation/answer-quality-cli.ts",
+    "evaluate:performance": "node --conditions=react-server --import tsx evaluation/performance-reliability.ts",
+    "db:setup:fresh": "node --import tsx src/scripts/setup-fresh-db.ts",
+    "test:fresh-db": "node --conditions=react-server --import tsx src/scripts/test-fresh-database.ts",
+    "security:check": "node --import tsx src/scripts/check-repository-security.ts"
   },
   "dependencies": {
+    "@ai-sdk/google": "^4.0.104",
+    "@ai-sdk/groq": "4.0.71",
+    "ai": "^7.0.150",
+    "csv-parse": "^7.0.3",
+    "mammoth": "^1.13.0",
     "next": "16.4.2",
+    "pdf-parse": "^2.4.5",
+    "pg": "^8.23.1",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "server-only": "^0.0.1",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "4.3.3",
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
+    "@types/pg": "^8.23.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.2",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }

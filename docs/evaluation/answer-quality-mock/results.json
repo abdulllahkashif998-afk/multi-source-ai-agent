@@ -1,0 +1,2891 @@
+{
+  "metadata": {
+    "mode": "mock",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "generatedAt": "2026-10-27T17:14:56.416Z",
+    "groqAttempts": 0
+  },
+  "summary": {
+    "planned": 25,
+    "executed": 25,
+    "notRun": 0,
+    "pass": 4,
+    "fail": 0,
+    "needsReview": 21,
+    "humanReviewed": 0,
+    "automaticPass": 25,
+    "categories": {}
+  },
+  "results": [
+    {
+      "id": "doc-01",
+      "category": "document",
+      "system": "chat",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 6.6909689999999955,
+      "answerDurationMs": 2.29979800000001,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [
+          {
+            "label": "target",
+            "expected": 15,
+            "tolerance": 0.000001,
+            "observed": [
+              15
+            ],
+            "correct": true
+          }
+        ],
+        "refusalCorrect": false
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "102",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101",
+            "102",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 2.29979800000001,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "The minimum monthly team total sales target is 15 units. [S1]",
+        "sources": [
+          {
+            "id": "S1",
+            "filename": "team-policy.docx",
+            "documentId": "1",
+            "chunkId": "101",
+            "chunkIndex": 0,
+            "pageNumber": null,
+            "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units.",
+            "quotes": [
+              "Orion team policy: the minimum monthly total sales target for each team is 15 units."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "doc-02",
+      "category": "document",
+      "system": "chat",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 0.811019999999985,
+      "answerDurationMs": 0.17633699999998953,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [
+          {
+            "label": "leave allowance",
+            "expected": 20,
+            "tolerance": 0.000001,
+            "observed": [
+              20
+            ],
+            "correct": true
+          }
+        ],
+        "refusalCorrect": false
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "102",
+            "101",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "102",
+            "101",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 0.17633699999998953,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "The annual paid leave allowance is 20 days. [S1]",
+        "sources": [
+          {
+            "id": "S1",
+            "filename": "leave-policy.pdf",
+            "documentId": "2",
+            "chunkId": "102",
+            "chunkIndex": 0,
+            "pageNumber": 2,
+            "text": "Orion employees receive 20 days of annual paid leave per calendar year.",
+            "quotes": [
+              "Orion employees receive 20 days of annual paid leave per calendar year."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "doc-03",
+      "category": "document",
+      "system": "chat",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 0.607024000000024,
+      "answerDurationMs": 0.19388500000002296,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [
+          {
+            "label": "return window",
+            "expected": 30,
+            "tolerance": 0.000001,
+            "observed": [
+              30
+            ],
+            "correct": true
+          }
+        ],
+        "refusalCorrect": false
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "103",
+            "101",
+            "102"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "103",
+            "101",
+            "102"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 0.19388500000002296,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "Unopened equipment may be returned within 30 days of delivery. [S1]",
+        "sources": [
+          {
+            "id": "S1",
+            "filename": "returns-policy.pdf",
+            "documentId": "3",
+            "chunkId": "103",
+            "chunkIndex": 0,
+            "pageNumber": 1,
+            "text": "Unopened equipment may be returned within 30 days of delivery.",
+            "quotes": [
+              "Unopened equipment may be returned within 30 days of delivery."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "doc-04",
+      "category": "document",
+      "system": "chat",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 0.45843600000000606,
+      "answerDurationMs": 0.10318499999993946,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [
+          {
+            "label": "approval threshold",
+            "expected": 500,
+            "tolerance": 0.000001,
+            "observed": [
+              500
+            ],
+            "correct": true
+          }
+        ],
+        "refusalCorrect": false
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "104",
+            "101",
+            "102"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "104",
+            "101",
+            "102"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 0.10318499999993946,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "Travel expenses above 500 credits require manager approval. [S1]",
+        "sources": [
+          {
+            "id": "S1",
+            "filename": "travel-policy.docx",
+            "documentId": "4",
+            "chunkId": "104",
+            "chunkIndex": 0,
+            "pageNumber": null,
+            "text": "Travel expenses above 500 credits require manager approval.",
+            "quotes": [
+              "Travel expenses above 500 credits require manager approval."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "doc-05",
+      "category": "document",
+      "system": "chat",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 0.9940260000000762,
+      "answerDurationMs": 0.07701000000008662,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [
+          {
+            "label": "acknowledgment deadline",
+            "expected": 2,
+            "tolerance": 0.000001,
+            "observed": [
+              2
+            ],
+            "correct": true
+          }
+        ],
+        "refusalCorrect": false
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "105",
+            "101",
+            "102"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "105",
+            "101",
+            "102"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 0.07701000000008662,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "A service incident must be acknowledged within 2 hours. [S1]",
+        "sources": [
+          {
+            "id": "S1",
+            "filename": "incident-policy.docx",
+            "documentId": "5",
+            "chunkId": "105",
+            "chunkIndex": 0,
+            "pageNumber": null,
+            "text": "A service incident must be acknowledged within 2 hours.",
+            "quotes": [
+              "A service incident must be acknowledged within 2 hours."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "doc-06",
+      "category": "document",
+      "system": "chat",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 0.44109500000001844,
+      "answerDurationMs": 0.07887700000003406,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [],
+        "refusalCorrect": false
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "106",
+            "101",
+            "102"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "106",
+            "101",
+            "102"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 0.07887700000003406,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "Invoice ZX-2048 is approved for the Harbor project. [S1]",
+        "sources": [
+          {
+            "id": "S1",
+            "filename": "invoice-register.pdf",
+            "documentId": "6",
+            "chunkId": "106",
+            "chunkIndex": 0,
+            "pageNumber": 3,
+            "text": "Invoice ZX-2048 is approved for the fictional Harbor project.",
+            "quotes": [
+              "Invoice ZX-2048 is approved for the fictional Harbor project."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "csv-01",
+      "category": "csv",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 20.607192000000055,
+      "answerDurationMs": 4.514156999999955,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [
+          {
+            "label": "record count",
+            "expected": 5,
+            "tolerance": 0.000001,
+            "observed": [
+              5
+            ],
+            "correct": true
+          }
+        ],
+        "refusalCorrect": false
+      },
+      "retrieval": [],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 4.514156999999955,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "The sales record count is 5. [C1]",
+        "sources": [
+          {
+            "id": "C1",
+            "filename": "sales.csv",
+            "type": "csv",
+            "datasetId": "201",
+            "text": "[{\"value\":5}]",
+            "quotes": [
+              "[{\"value\":5}]"
+            ],
+            "rows": [
+              {
+                "value": 5
+              }
+            ],
+            "plan": {
+              "datasetId": "201",
+              "filters": [],
+              "groupBy": [],
+              "aggregate": {
+                "op": "count"
+              },
+              "limit": 100
+            },
+            "possiblyTruncated": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "csv-02",
+      "category": "csv",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 3.8900840000000017,
+      "answerDurationMs": 2.8690639999999803,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [
+          {
+            "label": "total",
+            "expected": 51,
+            "tolerance": 0.000001,
+            "observed": [
+              51
+            ],
+            "correct": true
+          }
+        ],
+        "refusalCorrect": false
+      },
+      "retrieval": [],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 2.8690639999999803,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "The total sales amount is 51 units. [C1]",
+        "sources": [
+          {
+            "id": "C1",
+            "filename": "sales.csv",
+            "type": "csv",
+            "datasetId": "201",
+            "text": "[{\"value\":51}]",
+            "quotes": [
+              "[{\"value\":51}]"
+            ],
+            "rows": [
+              {
+                "value": 51
+              }
+            ],
+            "plan": {
+              "datasetId": "201",
+              "filters": [],
+              "groupBy": [],
+              "aggregate": {
+                "op": "sum",
+                "column": "amount"
+              },
+              "limit": 100
+            },
+            "possiblyTruncated": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "csv-03",
+      "category": "csv",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 2.4481660000000147,
+      "answerDurationMs": 1.7102230000000418,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [
+          {
+            "label": "mean",
+            "expected": 10.2,
+            "tolerance": 0.000001,
+            "observed": [
+              10.2
+            ],
+            "correct": true
+          }
+        ],
+        "refusalCorrect": false
+      },
+      "retrieval": [],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 1.7102230000000418,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "The average sales amount is 10.2 units. [C1]",
+        "sources": [
+          {
+            "id": "C1",
+            "filename": "sales.csv",
+            "type": "csv",
+            "datasetId": "201",
+            "text": "[{\"value\":10.2}]",
+            "quotes": [
+              "[{\"value\":10.2}]"
+            ],
+            "rows": [
+              {
+                "value": 10.2
+              }
+            ],
+            "plan": {
+              "datasetId": "201",
+              "filters": [],
+              "groupBy": [],
+              "aggregate": {
+                "op": "avg",
+                "column": "amount"
+              },
+              "limit": 100
+            },
+            "possiblyTruncated": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "csv-04",
+      "category": "csv",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 3.0726139999999305,
+      "answerDurationMs": 1.7713580000000775,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [
+          {
+            "label": "Alpha",
+            "expected": 30,
+            "tolerance": 0.000001,
+            "observed": [
+              30
+            ],
+            "correct": true
+          },
+          {
+            "label": "Beta",
+            "expected": 6,
+            "tolerance": 0.000001,
+            "observed": [
+              6
+            ],
+            "correct": true
+          },
+          {
+            "label": "Gamma",
+            "expected": 15,
+            "tolerance": 0.000001,
+            "observed": [
+              15
+            ],
+            "correct": true
+          }
+        ],
+        "refusalCorrect": false
+      },
+      "retrieval": [],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 1.7713580000000775,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "Alpha total is 30 units; Beta total is 6 units; Gamma total is 15 units. [C1]",
+        "sources": [
+          {
+            "id": "C1",
+            "filename": "sales.csv",
+            "type": "csv",
+            "datasetId": "201",
+            "text": "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]",
+            "quotes": [
+              "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]"
+            ],
+            "rows": [
+              {
+                "team": "Alpha",
+                "value": 30
+              },
+              {
+                "team": "Beta",
+                "value": 6
+              },
+              {
+                "team": "Gamma",
+                "value": 15
+              }
+            ],
+            "plan": {
+              "datasetId": "201",
+              "filters": [],
+              "groupBy": [
+                "team"
+              ],
+              "aggregate": {
+                "op": "sum",
+                "column": "amount"
+              },
+              "sort": {
+                "column": "team",
+                "direction": "asc"
+              },
+              "limit": 100
+            },
+            "possiblyTruncated": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "csv-05",
+      "category": "csv",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 3.044212000000016,
+      "answerDurationMs": 1.8448520000000599,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [],
+        "refusalCorrect": false
+      },
+      "retrieval": [],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 1.8448520000000599,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "East amounts in descending order are 20 and 10 units. [C1]",
+        "sources": [
+          {
+            "id": "C1",
+            "filename": "sales.csv",
+            "type": "csv",
+            "datasetId": "201",
+            "text": "[{\"team\":\"Alpha\",\"amount\":20,\"region\":\"East\"},{\"team\":\"Alpha\",\"amount\":10,\"region\":\"East\"}]",
+            "quotes": [
+              "[{\"team\":\"Alpha\",\"amount\":20,\"region\":\"East\"},{\"team\":\"Alpha\",\"amount\":10,\"region\":\"East\"}]"
+            ],
+            "rows": [
+              {
+                "team": "Alpha",
+                "amount": 20,
+                "region": "East"
+              },
+              {
+                "team": "Alpha",
+                "amount": 10,
+                "region": "East"
+              }
+            ],
+            "plan": {
+              "datasetId": "201",
+              "filters": [
+                {
+                  "column": "region",
+                  "op": "eq",
+                  "value": "East"
+                }
+              ],
+              "groupBy": [],
+              "sort": {
+                "column": "amount",
+                "direction": "desc"
+              },
+              "limit": 100
+            },
+            "possiblyTruncated": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "csv-06",
+      "category": "csv",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 2.5083529999999428,
+      "answerDurationMs": 1.7285359999999628,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [
+          {
+            "label": "expense count",
+            "expected": 1,
+            "tolerance": 0.000001,
+            "observed": [
+              1
+            ],
+            "correct": true
+          }
+        ],
+        "refusalCorrect": false
+      },
+      "retrieval": [],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 1.7285359999999628,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "The employee expense count above 500 credits is 1. [C1]",
+        "sources": [
+          {
+            "id": "C1",
+            "filename": "expenses.csv",
+            "type": "csv",
+            "datasetId": "202",
+            "text": "[{\"value\":1}]",
+            "quotes": [
+              "[{\"value\":1}]"
+            ],
+            "rows": [
+              {
+                "value": 1
+              }
+            ],
+            "plan": {
+              "datasetId": "202",
+              "filters": [
+                {
+                  "column": "cost",
+                  "op": "gt",
+                  "value": 500
+                }
+              ],
+              "groupBy": [],
+              "aggregate": {
+                "op": "count"
+              },
+              "limit": 100
+            },
+            "possiblyTruncated": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "combined-01",
+      "category": "combined",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 3.5743080000000873,
+      "answerDurationMs": 2.348610000000008,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [
+          {
+            "label": "Beta total",
+            "expected": 6,
+            "tolerance": 0.000001,
+            "observed": [
+              6
+            ],
+            "correct": true
+          },
+          {
+            "label": "Beta shortfall",
+            "expected": 9,
+            "tolerance": 0.000001,
+            "observed": [
+              9
+            ],
+            "correct": true
+          }
+        ],
+        "refusalCorrect": false
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "102",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101",
+            "102",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 2.348610000000008,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "Beta total is 6 units; the target is 15 units; Beta shortfall is 9 units. [D1] [C1]",
+        "sources": [
+          {
+            "id": "D1",
+            "filename": "team-policy.docx",
+            "type": "document",
+            "documentId": "1",
+            "chunkId": "101",
+            "chunkIndex": 0,
+            "pageNumber": null,
+            "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units.",
+            "quotes": [
+              "Orion team policy: the minimum monthly total sales target for each team is 15 units."
+            ]
+          },
+          {
+            "id": "C1",
+            "filename": "sales.csv",
+            "type": "csv",
+            "datasetId": "201",
+            "text": "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]",
+            "quotes": [
+              "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]"
+            ],
+            "rows": [
+              {
+                "team": "Alpha",
+                "value": 30
+              },
+              {
+                "team": "Beta",
+                "value": 6
+              },
+              {
+                "team": "Gamma",
+                "value": 15
+              }
+            ],
+            "plan": {
+              "datasetId": "201",
+              "filters": [],
+              "groupBy": [
+                "team"
+              ],
+              "aggregate": {
+                "op": "sum",
+                "column": "amount"
+              },
+              "sort": {
+                "column": "team",
+                "direction": "asc"
+              },
+              "limit": 100
+            },
+            "possiblyTruncated": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "combined-02",
+      "category": "combined",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 3.2822100000000773,
+      "answerDurationMs": 2.3965859999999566,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [
+          {
+            "label": "Alpha total",
+            "expected": 30,
+            "tolerance": 0.000001,
+            "observed": [
+              30
+            ],
+            "correct": true
+          },
+          {
+            "label": "Alpha surplus",
+            "expected": 15,
+            "tolerance": 0.000001,
+            "observed": [
+              15
+            ],
+            "correct": true
+          }
+        ],
+        "refusalCorrect": false
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "102",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101",
+            "102",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 2.3965859999999566,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "Alpha total is 30 units; the target is 15 units; Alpha surplus is 15 units. [D1] [C1]",
+        "sources": [
+          {
+            "id": "D1",
+            "filename": "team-policy.docx",
+            "type": "document",
+            "documentId": "1",
+            "chunkId": "101",
+            "chunkIndex": 0,
+            "pageNumber": null,
+            "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units.",
+            "quotes": [
+              "Orion team policy: the minimum monthly total sales target for each team is 15 units."
+            ]
+          },
+          {
+            "id": "C1",
+            "filename": "sales.csv",
+            "type": "csv",
+            "datasetId": "201",
+            "text": "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]",
+            "quotes": [
+              "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]"
+            ],
+            "rows": [
+              {
+                "team": "Alpha",
+                "value": 30
+              },
+              {
+                "team": "Beta",
+                "value": 6
+              },
+              {
+                "team": "Gamma",
+                "value": 15
+              }
+            ],
+            "plan": {
+              "datasetId": "201",
+              "filters": [],
+              "groupBy": [
+                "team"
+              ],
+              "aggregate": {
+                "op": "sum",
+                "column": "amount"
+              },
+              "sort": {
+                "column": "team",
+                "direction": "asc"
+              },
+              "limit": 100
+            },
+            "possiblyTruncated": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "combined-03",
+      "category": "combined",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 2.8094579999999496,
+      "answerDurationMs": 1.8824310000001105,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [
+          {
+            "label": "Gamma total",
+            "expected": 15,
+            "tolerance": 0.000001,
+            "observed": [
+              15
+            ],
+            "correct": true
+          },
+          {
+            "label": "difference",
+            "expected": 0,
+            "tolerance": 0.000001,
+            "observed": [
+              0
+            ],
+            "correct": true
+          }
+        ],
+        "refusalCorrect": false
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "102",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101",
+            "102",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 1.8824310000001105,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "Gamma total is 15 units, exactly the target; Gamma difference is 0 units. [D1] [C1]",
+        "sources": [
+          {
+            "id": "D1",
+            "filename": "team-policy.docx",
+            "type": "document",
+            "documentId": "1",
+            "chunkId": "101",
+            "chunkIndex": 0,
+            "pageNumber": null,
+            "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units.",
+            "quotes": [
+              "Orion team policy: the minimum monthly total sales target for each team is 15 units."
+            ]
+          },
+          {
+            "id": "C1",
+            "filename": "sales.csv",
+            "type": "csv",
+            "datasetId": "201",
+            "text": "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]",
+            "quotes": [
+              "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]"
+            ],
+            "rows": [
+              {
+                "team": "Alpha",
+                "value": 30
+              },
+              {
+                "team": "Beta",
+                "value": 6
+              },
+              {
+                "team": "Gamma",
+                "value": 15
+              }
+            ],
+            "plan": {
+              "datasetId": "201",
+              "filters": [],
+              "groupBy": [
+                "team"
+              ],
+              "aggregate": {
+                "op": "sum",
+                "column": "amount"
+              },
+              "sort": {
+                "column": "team",
+                "direction": "asc"
+              },
+              "limit": 100
+            },
+            "possiblyTruncated": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "combined-04",
+      "category": "combined",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 3.1148090000000366,
+      "answerDurationMs": 2.3844369999999344,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [
+          {
+            "label": "Beta shortfall",
+            "expected": 9,
+            "tolerance": 0.000001,
+            "observed": [
+              9
+            ],
+            "correct": true
+          }
+        ],
+        "refusalCorrect": false
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "102",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101",
+            "102",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 2.3844369999999344,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "Only Beta falls short: Beta total is 6 units and Beta shortfall is 9 units. Alpha and Gamma meet the target. [D1] [C1]",
+        "sources": [
+          {
+            "id": "D1",
+            "filename": "team-policy.docx",
+            "type": "document",
+            "documentId": "1",
+            "chunkId": "101",
+            "chunkIndex": 0,
+            "pageNumber": null,
+            "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units.",
+            "quotes": [
+              "Orion team policy: the minimum monthly total sales target for each team is 15 units."
+            ]
+          },
+          {
+            "id": "C1",
+            "filename": "sales.csv",
+            "type": "csv",
+            "datasetId": "201",
+            "text": "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]",
+            "quotes": [
+              "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]"
+            ],
+            "rows": [
+              {
+                "team": "Alpha",
+                "value": 30
+              },
+              {
+                "team": "Beta",
+                "value": 6
+              },
+              {
+                "team": "Gamma",
+                "value": 15
+              }
+            ],
+            "plan": {
+              "datasetId": "201",
+              "filters": [],
+              "groupBy": [
+                "team"
+              ],
+              "aggregate": {
+                "op": "sum",
+                "column": "amount"
+              },
+              "sort": {
+                "column": "team",
+                "direction": "asc"
+              },
+              "limit": 100
+            },
+            "possiblyTruncated": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "combined-05",
+      "category": "combined",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 2.806229999999914,
+      "answerDurationMs": 1.6866750000000366,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [
+          {
+            "label": "Jon cost",
+            "expected": 620,
+            "tolerance": 0.000001,
+            "observed": [
+              620
+            ],
+            "correct": true
+          },
+          {
+            "label": "excess",
+            "expected": 120,
+            "tolerance": 0.000001,
+            "observed": [
+              120
+            ],
+            "correct": true
+          }
+        ],
+        "refusalCorrect": false
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "104",
+            "101",
+            "102"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "104",
+            "101",
+            "102"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 1.6866750000000366,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "Only Jon needs approval: Jon cost is 620 credits; the threshold is 500 credits; Jon excess is 120 credits. Sol at exactly 500 does not require approval. [D1] [C1]",
+        "sources": [
+          {
+            "id": "D1",
+            "filename": "travel-policy.docx",
+            "type": "document",
+            "documentId": "4",
+            "chunkId": "104",
+            "chunkIndex": 0,
+            "pageNumber": null,
+            "text": "Travel expenses above 500 credits require manager approval.",
+            "quotes": [
+              "Travel expenses above 500 credits require manager approval."
+            ]
+          },
+          {
+            "id": "C1",
+            "filename": "expenses.csv",
+            "type": "csv",
+            "datasetId": "202",
+            "text": "[{\"employee\":\"Mira\",\"cost\":450},{\"employee\":\"Jon\",\"cost\":620},{\"employee\":\"Sol\",\"cost\":500}]",
+            "quotes": [
+              "[{\"employee\":\"Mira\",\"cost\":450},{\"employee\":\"Jon\",\"cost\":620},{\"employee\":\"Sol\",\"cost\":500}]"
+            ],
+            "rows": [
+              {
+                "employee": "Mira",
+                "cost": 450
+              },
+              {
+                "employee": "Jon",
+                "cost": 620
+              },
+              {
+                "employee": "Sol",
+                "cost": 500
+              }
+            ],
+            "plan": {
+              "datasetId": "202",
+              "filters": [],
+              "groupBy": [],
+              "limit": 100
+            },
+            "possiblyTruncated": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "combined-06",
+      "category": "combined",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 3.403646999999978,
+      "answerDurationMs": 2.3335479999999507,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [
+          {
+            "label": "late hours",
+            "expected": 3,
+            "tolerance": 0.000001,
+            "observed": [
+              3
+            ],
+            "correct": true
+          },
+          {
+            "label": "delay",
+            "expected": 1,
+            "tolerance": 0.000001,
+            "observed": [
+              1
+            ],
+            "correct": true
+          }
+        ],
+        "refusalCorrect": false
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "105",
+            "101",
+            "102"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "105",
+            "101",
+            "102"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 2.3335479999999507,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "INC-B missed the deadline: INC-B hours is 3; the deadline is 2 hours; INC-B delay is 1 hour. INC-A and INC-C meet the deadline. [D1] [C1]",
+        "sources": [
+          {
+            "id": "D1",
+            "filename": "incident-policy.docx",
+            "type": "document",
+            "documentId": "5",
+            "chunkId": "105",
+            "chunkIndex": 0,
+            "pageNumber": null,
+            "text": "A service incident must be acknowledged within 2 hours.",
+            "quotes": [
+              "A service incident must be acknowledged within 2 hours."
+            ]
+          },
+          {
+            "id": "C1",
+            "filename": "incidents.csv",
+            "type": "csv",
+            "datasetId": "203",
+            "text": "[{\"ticket\":\"INC-A\",\"hours\":1},{\"ticket\":\"INC-B\",\"hours\":3},{\"ticket\":\"INC-C\",\"hours\":2}]",
+            "quotes": [
+              "[{\"ticket\":\"INC-A\",\"hours\":1},{\"ticket\":\"INC-B\",\"hours\":3},{\"ticket\":\"INC-C\",\"hours\":2}]"
+            ],
+            "rows": [
+              {
+                "ticket": "INC-A",
+                "hours": 1
+              },
+              {
+                "ticket": "INC-B",
+                "hours": 3
+              },
+              {
+                "ticket": "INC-C",
+                "hours": 2
+              }
+            ],
+            "plan": {
+              "datasetId": "203",
+              "filters": [],
+              "groupBy": [],
+              "limit": 100
+            },
+            "possiblyTruncated": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "missing-01",
+      "category": "insufficient",
+      "system": "chat",
+      "expectedRefusal": true,
+      "executed": true,
+      "status": "pass",
+      "durationMs": 0.2555059999999685,
+      "answerDurationMs": 0.11028199999998378,
+      "score": {
+        "status": "pass",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [],
+        "citationPrecision": null,
+        "sourceRecall": null,
+        "quoteValidity": null,
+        "numeric": [],
+        "refusalCorrect": true
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "102",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 0,
+          "relevant": 0,
+          "returned": 3,
+          "recall": null,
+          "precision": null
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101",
+            "102",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 0,
+          "relevant": 0,
+          "returned": 3,
+          "recall": null,
+          "precision": null
+        }
+      ],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 0.11028199999998378,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": false,
+        "answer": "I don't have enough information in the retrieved documents to answer that question.",
+        "sources": []
+      }
+    },
+    {
+      "id": "missing-02",
+      "category": "insufficient",
+      "system": "agent",
+      "expectedRefusal": true,
+      "executed": true,
+      "status": "pass",
+      "durationMs": 0.22694899999999052,
+      "answerDurationMs": 0.05767700000001241,
+      "score": {
+        "status": "pass",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [],
+        "citationPrecision": null,
+        "sourceRecall": null,
+        "quoteValidity": null,
+        "numeric": [],
+        "refusalCorrect": true
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "102",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 0,
+          "relevant": 0,
+          "returned": 3,
+          "recall": null,
+          "precision": null
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101",
+            "102",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 0,
+          "relevant": 0,
+          "returned": 3,
+          "recall": null,
+          "precision": null
+        }
+      ],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 0.05767700000001241,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": false,
+        "answer": "I don't have enough evidence from the available documents and datasets to answer that question.",
+        "sources": []
+      }
+    },
+    {
+      "id": "missing-03",
+      "category": "insufficient",
+      "system": "agent",
+      "expectedRefusal": true,
+      "executed": true,
+      "status": "pass",
+      "durationMs": 0.06242399999996451,
+      "answerDurationMs": 0.02512899999999263,
+      "score": {
+        "status": "pass",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [],
+        "citationPrecision": null,
+        "sourceRecall": null,
+        "quoteValidity": null,
+        "numeric": [],
+        "refusalCorrect": true
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "102",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 0,
+          "relevant": 0,
+          "returned": 3,
+          "recall": null,
+          "precision": null
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101",
+            "102",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 0,
+          "relevant": 0,
+          "returned": 3,
+          "recall": null,
+          "precision": null
+        }
+      ],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 0.02512899999999263,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": false,
+        "answer": "I don't have enough evidence from the available documents and datasets to answer that question.",
+        "sources": []
+      }
+    },
+    {
+      "id": "missing-04",
+      "category": "insufficient",
+      "system": "chat",
+      "expectedRefusal": true,
+      "executed": true,
+      "status": "pass",
+      "durationMs": 0.07042899999999008,
+      "answerDurationMs": 0.025730000000066866,
+      "score": {
+        "status": "pass",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [],
+        "citationPrecision": null,
+        "sourceRecall": null,
+        "quoteValidity": null,
+        "numeric": [],
+        "refusalCorrect": true
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "102",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 0,
+          "relevant": 0,
+          "returned": 3,
+          "recall": null,
+          "precision": null
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101",
+            "102",
+            "103"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 0,
+          "relevant": 0,
+          "returned": 3,
+          "recall": null,
+          "precision": null
+        }
+      ],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 0.025730000000066866,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": false,
+        "answer": "I don't have enough information in the retrieved documents to answer that question.",
+        "sources": []
+      }
+    },
+    {
+      "id": "conflict-01",
+      "category": "ambiguous",
+      "system": "agent",
+      "expectedRefusal": true,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 0.6162980000000289,
+      "answerDurationMs": 0.5290640000000622,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "conflict_or_ambiguity_requires_human_judgment"
+        ],
+        "citationPrecision": null,
+        "sourceRecall": null,
+        "quoteValidity": null,
+        "numeric": [],
+        "refusalCorrect": true
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "107",
+            "102"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 2,
+          "relevant": 2,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.6666666666666666
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101",
+            "107",
+            "102"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 2,
+          "relevant": 2,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.6666666666666666
+        }
+      ],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 0.5290640000000622,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": false,
+        "answer": "I don't have enough evidence from the available documents and datasets to answer that question.",
+        "sources": []
+      }
+    },
+    {
+      "id": "conflict-02",
+      "category": "ambiguous",
+      "system": "agent",
+      "expectedRefusal": true,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 0.6295579999999745,
+      "answerDurationMs": 0.5354100000000699,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "conflict_or_ambiguity_requires_human_judgment"
+        ],
+        "citationPrecision": null,
+        "sourceRecall": null,
+        "quoteValidity": null,
+        "numeric": [],
+        "refusalCorrect": true
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "107",
+            "102"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 2,
+          "relevant": 2,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.6666666666666666
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101",
+            "107",
+            "102"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 2,
+          "relevant": 2,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.6666666666666666
+        }
+      ],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 0.5354100000000699,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": false,
+        "answer": "I don't have enough evidence from the available documents and datasets to answer that question.",
+        "sources": []
+      }
+    },
+    {
+      "id": "ambiguous-01",
+      "category": "ambiguous",
+      "system": "agent",
+      "expectedRefusal": true,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 0.793427999999949,
+      "answerDurationMs": 0.6981439999999566,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "conflict_or_ambiguity_requires_human_judgment"
+        ],
+        "citationPrecision": null,
+        "sourceRecall": null,
+        "quoteValidity": null,
+        "numeric": [],
+        "refusalCorrect": true
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "108",
+            "101",
+            "102"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "108",
+            "101",
+            "102"
+          ],
+          "durationMs": null,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 0.6981439999999566,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": false,
+        "answer": "I don't have enough evidence from the available documents and datasets to answer that question.",
+        "sources": []
+      }
+    }
+  ],
+  "judgments": [
+    {
+      "id": "doc-01",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [],
+      "human": "not-reviewed",
+      "answerHash": "cd854c19ab037a6ffda72aad75b587916bbfa5922012b2a86c12046fd3f5ebbb"
+    },
+    {
+      "id": "doc-02",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [],
+      "human": "not-reviewed",
+      "answerHash": "67631c95a4ff61bca06eb45b9359243947920fe2a974e4fc1f245840a73dfc34"
+    },
+    {
+      "id": "doc-03",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [],
+      "human": "not-reviewed",
+      "answerHash": "dd4b2b46c93f7a63981d0990cf6c89443311f4fffdd1609961d399104991ecf3"
+    },
+    {
+      "id": "doc-04",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [],
+      "human": "not-reviewed",
+      "answerHash": "56135b91aa4157227c09a1b174b9a385a70fce297853418a3febad460ad5ca78"
+    },
+    {
+      "id": "doc-05",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [],
+      "human": "not-reviewed",
+      "answerHash": "1dbee36f29bdfbb8a766fd8f082b82aa8f7908a6006328b2849bda7b09d2c1bf"
+    },
+    {
+      "id": "doc-06",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [],
+      "human": "not-reviewed",
+      "answerHash": "0f5e2596b45a4c5da71e54e3a7c8b44885fa57875bf4dbe6715bb7fb3bf96672"
+    },
+    {
+      "id": "csv-01",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [
+        {
+          "sourceId": "C1",
+          "matches": true,
+          "expectedRows": [
+            {
+              "value": 5
+            }
+          ]
+        }
+      ],
+      "human": "not-reviewed",
+      "answerHash": "7d72949ee59ffa978ef433dfe01aaf88c21ada47ec86df8c281d0c2482b2f145"
+    },
+    {
+      "id": "csv-02",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [
+        {
+          "sourceId": "C1",
+          "matches": true,
+          "expectedRows": [
+            {
+              "value": 51
+            }
+          ]
+        }
+      ],
+      "human": "not-reviewed",
+      "answerHash": "0dc7a4b6359b965e1996ba1f6823dcfeeae955015fb2da979fa77f3b31c77d95"
+    },
+    {
+      "id": "csv-03",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [
+        {
+          "sourceId": "C1",
+          "matches": true,
+          "expectedRows": [
+            {
+              "value": 10.2
+            }
+          ]
+        }
+      ],
+      "human": "not-reviewed",
+      "answerHash": "c4eba85beef0f34a8f2504d3ea4071ab7cb2cc71a5dbc6b7fb143493458e58a2"
+    },
+    {
+      "id": "csv-04",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [
+        {
+          "sourceId": "C1",
+          "matches": true,
+          "expectedRows": [
+            {
+              "team": "Alpha",
+              "value": 30
+            },
+            {
+              "team": "Beta",
+              "value": 6
+            },
+            {
+              "team": "Gamma",
+              "value": 15
+            }
+          ]
+        }
+      ],
+      "human": "not-reviewed",
+      "answerHash": "59d804ad0f19323817dabf67e1689a25b48a3827576aaca89a338b5395c32009"
+    },
+    {
+      "id": "csv-05",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [
+        {
+          "sourceId": "C1",
+          "matches": true,
+          "expectedRows": [
+            {
+              "team": "Alpha",
+              "amount": 20,
+              "region": "East"
+            },
+            {
+              "team": "Alpha",
+              "amount": 10,
+              "region": "East"
+            }
+          ]
+        }
+      ],
+      "human": "not-reviewed",
+      "answerHash": "d7fc9eaed109dc2fc7e608c1bd2264cb1938318a8ac7170009b092cfe1cdfc7a"
+    },
+    {
+      "id": "csv-06",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [
+        {
+          "sourceId": "C1",
+          "matches": true,
+          "expectedRows": [
+            {
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "human": "not-reviewed",
+      "answerHash": "b74c40ac93e04e7a901bb93d672cacec0cca7e0c5ea65fceaa9cde9b28dfd6a8"
+    },
+    {
+      "id": "combined-01",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [
+        {
+          "sourceId": "C1",
+          "matches": true,
+          "expectedRows": [
+            {
+              "team": "Alpha",
+              "value": 30
+            },
+            {
+              "team": "Beta",
+              "value": 6
+            },
+            {
+              "team": "Gamma",
+              "value": 15
+            }
+          ]
+        }
+      ],
+      "human": "not-reviewed",
+      "answerHash": "b23dfc7456f047f71b456f551121a2f8e1ed2856768647b343bafa0d2ad50088"
+    },
+    {
+      "id": "combined-02",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [
+        {
+          "sourceId": "C1",
+          "matches": true,
+          "expectedRows": [
+            {
+              "team": "Alpha",
+              "value": 30
+            },
+            {
+              "team": "Beta",
+              "value": 6
+            },
+            {
+              "team": "Gamma",
+              "value": 15
+            }
+          ]
+        }
+      ],
+      "human": "not-reviewed",
+      "answerHash": "a4e822b0f09525f2ea0f9df8eee1ec71f0f50793d62c443b167bedd1ff4fe5ee"
+    },
+    {
+      "id": "combined-03",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [
+        {
+          "sourceId": "C1",
+          "matches": true,
+          "expectedRows": [
+            {
+              "team": "Alpha",
+              "value": 30
+            },
+            {
+              "team": "Beta",
+              "value": 6
+            },
+            {
+              "team": "Gamma",
+              "value": 15
+            }
+          ]
+        }
+      ],
+      "human": "not-reviewed",
+      "answerHash": "4d64410f890c6e2d10550133521a78ec3d5034649171ce732c5c7fbed41046fb"
+    },
+    {
+      "id": "combined-04",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [
+        {
+          "sourceId": "C1",
+          "matches": true,
+          "expectedRows": [
+            {
+              "team": "Alpha",
+              "value": 30
+            },
+            {
+              "team": "Beta",
+              "value": 6
+            },
+            {
+              "team": "Gamma",
+              "value": 15
+            }
+          ]
+        }
+      ],
+      "human": "not-reviewed",
+      "answerHash": "c46fbbec2734691d9c2748dacf8c8798e6100b30f87c2c9a73a4ae76fd76bd49"
+    },
+    {
+      "id": "combined-05",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [
+        {
+          "sourceId": "C1",
+          "matches": true,
+          "expectedRows": [
+            {
+              "employee": "Mira",
+              "cost": 450
+            },
+            {
+              "employee": "Jon",
+              "cost": 620
+            },
+            {
+              "employee": "Sol",
+              "cost": 500
+            }
+          ]
+        }
+      ],
+      "human": "not-reviewed",
+      "answerHash": "6c357c1f9c0f169dba2e10c8f12ff9b4ac2c6ff97dce7aa97a9ee59b600739c5"
+    },
+    {
+      "id": "combined-06",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [
+        {
+          "sourceId": "C1",
+          "matches": true,
+          "expectedRows": [
+            {
+              "ticket": "INC-A",
+              "hours": 1
+            },
+            {
+              "ticket": "INC-B",
+              "hours": 3
+            },
+            {
+              "ticket": "INC-C",
+              "hours": 2
+            }
+          ]
+        }
+      ],
+      "human": "not-reviewed",
+      "answerHash": "008cd0ed082156564b61e01653642eedd4fd8576024388d33762b5174e56e641"
+    },
+    {
+      "id": "missing-01",
+      "executed": true,
+      "status": "pass",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [],
+      "human": "not-reviewed",
+      "answerHash": "1c3f4b072fa4ee7ebaf15acdc5b655004467a02cb9f70f20801d6eee600bfc97"
+    },
+    {
+      "id": "missing-02",
+      "executed": true,
+      "status": "pass",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [],
+      "human": "not-reviewed",
+      "answerHash": "59a16735bfbe4e68d886e590940b68788b417c8036698c61caea7b7be5d26d69"
+    },
+    {
+      "id": "missing-03",
+      "executed": true,
+      "status": "pass",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [],
+      "human": "not-reviewed",
+      "answerHash": "59a16735bfbe4e68d886e590940b68788b417c8036698c61caea7b7be5d26d69"
+    },
+    {
+      "id": "missing-04",
+      "executed": true,
+      "status": "pass",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [],
+      "human": "not-reviewed",
+      "answerHash": "1c3f4b072fa4ee7ebaf15acdc5b655004467a02cb9f70f20801d6eee600bfc97"
+    },
+    {
+      "id": "conflict-01",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "conflict_or_ambiguity_requires_human_judgment"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [],
+      "human": "not-reviewed",
+      "answerHash": "59a16735bfbe4e68d886e590940b68788b417c8036698c61caea7b7be5d26d69"
+    },
+    {
+      "id": "conflict-02",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "conflict_or_ambiguity_requires_human_judgment"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [],
+      "human": "not-reviewed",
+      "answerHash": "59a16735bfbe4e68d886e590940b68788b417c8036698c61caea7b7be5d26d69"
+    },
+    {
+      "id": "ambiguous-01",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "conflict_or_ambiguity_requires_human_judgment"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [],
+      "human": "not-reviewed",
+      "answerHash": "59a16735bfbe4e68d886e590940b68788b417c8036698c61caea7b7be5d26d69"
+    }
+  ]
+}

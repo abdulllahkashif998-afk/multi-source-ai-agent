@@ -1,0 +1,3 @@
+# Parser fixtures are binary documents; never normalize their bytes or diff as text.
+*.pdf binary
+*.docx binary

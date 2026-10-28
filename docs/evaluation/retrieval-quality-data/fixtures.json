@@ -1,0 +1,1576 @@
+{
+  "original": {
+    "cases": [
+      {
+        "id": "doc-01",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "What is the minimum monthly sales target for a team?",
+        "relevantChunks": [
+          "101"
+        ],
+        "expectedSources": [
+          "doc:1:101"
+        ],
+        "refuse": false,
+        "expectedAnswer": "The minimum monthly team total sales target is 15 units.",
+        "facts": [
+          {
+            "label": "target",
+            "value": 15,
+            "tolerance": 0.000001,
+            "pattern": "(?:target|minimum)[^.!?\\n]{0,70}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "reviewNotes": "Review whether the prose states the policy correctly, including conditions, units and scope."
+      },
+      {
+        "id": "doc-02",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "How many paid vacation days does an Orion employee get each year?",
+        "relevantChunks": [
+          "102"
+        ],
+        "expectedSources": [
+          "doc:2:102"
+        ],
+        "refuse": false,
+        "expectedAnswer": "The annual paid leave allowance is 20 days.",
+        "facts": [
+          {
+            "label": "leave allowance",
+            "value": 20,
+            "tolerance": 0.000001,
+            "pattern": "(?:allowance|leave|receive)[^.!?\\n]{0,50}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "reviewNotes": "Review whether the prose states the policy correctly, including conditions, units and scope."
+      },
+      {
+        "id": "doc-03",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "How long after delivery can unopened equipment be sent back?",
+        "relevantChunks": [
+          "103"
+        ],
+        "expectedSources": [
+          "doc:3:103"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Unopened equipment may be returned within 30 days of delivery.",
+        "facts": [
+          {
+            "label": "return window",
+            "value": 30,
+            "tolerance": 0.000001,
+            "pattern": "(?:within|window)[^.!?\\n]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "reviewNotes": "Review whether the prose states the policy correctly, including conditions, units and scope."
+      },
+      {
+        "id": "doc-04",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "At what travel expense amount is manager sign-off required?",
+        "relevantChunks": [
+          "104"
+        ],
+        "expectedSources": [
+          "doc:4:104"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Travel expenses above 500 credits require manager approval.",
+        "facts": [
+          {
+            "label": "approval threshold",
+            "value": 500,
+            "tolerance": 0.000001,
+            "pattern": "(?:above|threshold)[^.!?\\n]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "reviewNotes": "Review whether the prose states the policy correctly, including conditions, units and scope."
+      },
+      {
+        "id": "doc-05",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "What is the acknowledgment deadline for a service incident?",
+        "relevantChunks": [
+          "105"
+        ],
+        "expectedSources": [
+          "doc:5:105"
+        ],
+        "refuse": false,
+        "expectedAnswer": "A service incident must be acknowledged within 2 hours.",
+        "facts": [
+          {
+            "label": "acknowledgment deadline",
+            "value": 2,
+            "tolerance": 0.000001,
+            "pattern": "(?:within|deadline)[^.!?\\n]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "reviewNotes": "Review whether the prose states the policy correctly, including conditions, units and scope."
+      },
+      {
+        "id": "doc-06",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "Tell me the recorded approval status of ZX-2048.",
+        "relevantChunks": [
+          "106"
+        ],
+        "expectedSources": [
+          "doc:6:106"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Invoice ZX-2048 is approved for the Harbor project.",
+        "facts": [],
+        "reviewNotes": "Review whether the prose states the policy correctly, including conditions, units and scope."
+      },
+      {
+        "id": "csv-01",
+        "category": "csv",
+        "system": "agent",
+        "corpus": "base",
+        "question": "How many sales records are in sales.csv?",
+        "relevantChunks": [],
+        "expectedSources": [
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "The sales record count is 5.",
+        "facts": [
+          {
+            "label": "record count",
+            "value": 5,
+            "tolerance": 0.000001,
+            "pattern": "(?:count|records)[^.!?\\n]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "201",
+          "aggregate": {
+            "op": "count"
+          }
+        },
+        "expectedRows": [
+          {
+            "value": 5
+          }
+        ],
+        "reviewNotes": "Review calculation meaning, filters, groups and whether the answer overstates limited evidence."
+      },
+      {
+        "id": "csv-02",
+        "category": "csv",
+        "system": "agent",
+        "corpus": "base",
+        "question": "Add up all amounts in sales.csv.",
+        "relevantChunks": [],
+        "expectedSources": [
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "The total sales amount is 51 units.",
+        "facts": [
+          {
+            "label": "total",
+            "value": 51,
+            "tolerance": 0.000001,
+            "pattern": "(?:total|amount)[^.!?\\n]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "201",
+          "aggregate": {
+            "op": "sum",
+            "column": "amount"
+          }
+        },
+        "expectedRows": [
+          {
+            "value": 51
+          }
+        ],
+        "reviewNotes": "Review calculation meaning, filters, groups and whether the answer overstates limited evidence."
+      },
+      {
+        "id": "csv-03",
+        "category": "csv",
+        "system": "agent",
+        "corpus": "base",
+        "question": "What is the average amount per sales record?",
+        "relevantChunks": [],
+        "expectedSources": [
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "The average sales amount is 10.2 units.",
+        "facts": [
+          {
+            "label": "mean",
+            "value": 10.2,
+            "tolerance": 0.000001,
+            "pattern": "(?:average|mean)[^!?\\n]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "201",
+          "aggregate": {
+            "op": "avg",
+            "column": "amount"
+          }
+        },
+        "expectedRows": [
+          {
+            "value": 10.2
+          }
+        ],
+        "reviewNotes": "Review calculation meaning, filters, groups and whether the answer overstates limited evidence."
+      },
+      {
+        "id": "csv-04",
+        "category": "csv",
+        "system": "agent",
+        "corpus": "base",
+        "question": "Show total sales for Alpha, Beta and Gamma, grouped by team.",
+        "relevantChunks": [],
+        "expectedSources": [
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Alpha total is 30 units; Beta total is 6 units; Gamma total is 15 units.",
+        "facts": [
+          {
+            "label": "Alpha",
+            "value": 30,
+            "tolerance": 0.000001,
+            "pattern": "Alpha[^.!?\\n;]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+          },
+          {
+            "label": "Beta",
+            "value": 6,
+            "tolerance": 0.000001,
+            "pattern": "Beta[^.!?\\n;]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+          },
+          {
+            "label": "Gamma",
+            "value": 15,
+            "tolerance": 0.000001,
+            "pattern": "Gamma[^.!?\\n;]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "201",
+          "aggregate": {
+            "op": "sum",
+            "column": "amount"
+          },
+          "groupBy": [
+            "team"
+          ],
+          "sort": {
+            "column": "team",
+            "direction": "asc"
+          }
+        },
+        "expectedRows": [
+          {
+            "team": "Alpha",
+            "value": 30
+          },
+          {
+            "team": "Beta",
+            "value": 6
+          },
+          {
+            "team": "Gamma",
+            "value": 15
+          }
+        ],
+        "reviewNotes": "Review calculation meaning, filters, groups and whether the answer overstates limited evidence."
+      },
+      {
+        "id": "csv-05",
+        "category": "csv",
+        "system": "agent",
+        "corpus": "base",
+        "question": "List the East-region sales amounts, largest first.",
+        "relevantChunks": [],
+        "expectedSources": [
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "East amounts in descending order are 20 and 10 units.",
+        "facts": [],
+        "plan": {
+          "datasetId": "201",
+          "filters": [
+            {
+              "column": "region",
+              "op": "eq",
+              "value": "East"
+            }
+          ],
+          "sort": {
+            "column": "amount",
+            "direction": "desc"
+          }
+        },
+        "expectedRows": [
+          {
+            "team": "Alpha",
+            "amount": 20,
+            "region": "East"
+          },
+          {
+            "team": "Alpha",
+            "amount": 10,
+            "region": "East"
+          }
+        ],
+        "reviewNotes": "Review calculation meaning, filters, groups and whether the answer overstates limited evidence."
+      },
+      {
+        "id": "csv-06",
+        "category": "csv",
+        "system": "agent",
+        "corpus": "base",
+        "question": "How many employees have expenses strictly above 500 credits?",
+        "relevantChunks": [],
+        "expectedSources": [
+          "csv:202"
+        ],
+        "refuse": false,
+        "expectedAnswer": "The employee expense count above 500 credits is 1.",
+        "facts": [
+          {
+            "label": "expense count",
+            "value": 1,
+            "tolerance": 0.000001,
+            "pattern": "count[^.!?\\n]{0,60}?is\\s+(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "202",
+          "filters": [
+            {
+              "column": "cost",
+              "op": "gt",
+              "value": 500
+            }
+          ],
+          "aggregate": {
+            "op": "count"
+          }
+        },
+        "expectedRows": [
+          {
+            "value": 1
+          }
+        ],
+        "reviewNotes": "Review calculation meaning, filters, groups and whether the answer overstates limited evidence."
+      },
+      {
+        "id": "combined-01",
+        "category": "combined",
+        "system": "agent",
+        "corpus": "base",
+        "question": "Compare team totals with the policy minimum. How far below is Beta?",
+        "relevantChunks": [
+          "101"
+        ],
+        "expectedSources": [
+          "doc:1:101",
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Beta total is 6 units; the target is 15 units; Beta shortfall is 9 units.",
+        "facts": [
+          {
+            "label": "Beta total",
+            "value": 6,
+            "tolerance": 0.000001,
+            "pattern": "Beta total[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          },
+          {
+            "label": "Beta shortfall",
+            "value": 9,
+            "tolerance": 0.000001,
+            "pattern": "shortfall[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "201",
+          "aggregate": {
+            "op": "sum",
+            "column": "amount"
+          },
+          "groupBy": [
+            "team"
+          ],
+          "sort": {
+            "column": "team",
+            "direction": "asc"
+          }
+        },
+        "expectedRows": [
+          {
+            "team": "Alpha",
+            "value": 30
+          },
+          {
+            "team": "Beta",
+            "value": 6
+          },
+          {
+            "team": "Gamma",
+            "value": 15
+          }
+        ],
+        "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+      },
+      {
+        "id": "combined-02",
+        "category": "combined",
+        "system": "agent",
+        "corpus": "base",
+        "question": "Using the team policy and sales.csv, by how much does Alpha exceed the target?",
+        "relevantChunks": [
+          "101"
+        ],
+        "expectedSources": [
+          "doc:1:101",
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Alpha total is 30 units; the target is 15 units; Alpha surplus is 15 units.",
+        "facts": [
+          {
+            "label": "Alpha total",
+            "value": 30,
+            "tolerance": 0.000001,
+            "pattern": "Alpha total[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          },
+          {
+            "label": "Alpha surplus",
+            "value": 15,
+            "tolerance": 0.000001,
+            "pattern": "surplus[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "201",
+          "aggregate": {
+            "op": "sum",
+            "column": "amount"
+          },
+          "groupBy": [
+            "team"
+          ],
+          "sort": {
+            "column": "team",
+            "direction": "asc"
+          }
+        },
+        "expectedRows": [
+          {
+            "team": "Alpha",
+            "value": 30
+          },
+          {
+            "team": "Beta",
+            "value": 6
+          },
+          {
+            "team": "Gamma",
+            "value": 15
+          }
+        ],
+        "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+      },
+      {
+        "id": "combined-03",
+        "category": "combined",
+        "system": "agent",
+        "corpus": "base",
+        "question": "Does Gamma meet the minimum monthly team total exactly?",
+        "relevantChunks": [
+          "101"
+        ],
+        "expectedSources": [
+          "doc:1:101",
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Gamma total is 15 units, exactly the target; Gamma difference is 0 units.",
+        "facts": [
+          {
+            "label": "Gamma total",
+            "value": 15,
+            "tolerance": 0.000001,
+            "pattern": "Gamma total[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          },
+          {
+            "label": "difference",
+            "value": 0,
+            "tolerance": 0.000001,
+            "pattern": "difference[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "201",
+          "aggregate": {
+            "op": "sum",
+            "column": "amount"
+          },
+          "groupBy": [
+            "team"
+          ],
+          "sort": {
+            "column": "team",
+            "direction": "asc"
+          }
+        },
+        "expectedRows": [
+          {
+            "team": "Alpha",
+            "value": 30
+          },
+          {
+            "team": "Beta",
+            "value": 6
+          },
+          {
+            "team": "Gamma",
+            "value": 15
+          }
+        ],
+        "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+      },
+      {
+        "id": "combined-04",
+        "category": "combined",
+        "system": "agent",
+        "corpus": "base",
+        "question": "According to the policy, which teams fall short when all sales rows are added per team?",
+        "relevantChunks": [
+          "101"
+        ],
+        "expectedSources": [
+          "doc:1:101",
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Only Beta falls short: Beta total is 6 units and Beta shortfall is 9 units. Alpha and Gamma meet the target.",
+        "facts": [
+          {
+            "label": "Beta shortfall",
+            "value": 9,
+            "tolerance": 0.000001,
+            "pattern": "shortfall[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "201",
+          "aggregate": {
+            "op": "sum",
+            "column": "amount"
+          },
+          "groupBy": [
+            "team"
+          ],
+          "sort": {
+            "column": "team",
+            "direction": "asc"
+          }
+        },
+        "expectedRows": [
+          {
+            "team": "Alpha",
+            "value": 30
+          },
+          {
+            "team": "Beta",
+            "value": 6
+          },
+          {
+            "team": "Gamma",
+            "value": 15
+          }
+        ],
+        "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+      },
+      {
+        "id": "combined-05",
+        "category": "combined",
+        "system": "agent",
+        "corpus": "base",
+        "question": "Apply the travel approval rule to expenses.csv. Who needs approval and by how much is the limit exceeded?",
+        "relevantChunks": [
+          "104"
+        ],
+        "expectedSources": [
+          "doc:4:104",
+          "csv:202"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Only Jon needs approval: Jon cost is 620 credits; the threshold is 500 credits; Jon excess is 120 credits. Sol at exactly 500 does not require approval.",
+        "facts": [
+          {
+            "label": "Jon cost",
+            "value": 620,
+            "tolerance": 0.000001,
+            "pattern": "Jon cost[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          },
+          {
+            "label": "excess",
+            "value": 120,
+            "tolerance": 0.000001,
+            "pattern": "excess[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "202"
+        },
+        "expectedRows": [
+          {
+            "employee": "Mira",
+            "cost": 450
+          },
+          {
+            "employee": "Jon",
+            "cost": 620
+          },
+          {
+            "employee": "Sol",
+            "cost": 500
+          }
+        ],
+        "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+      },
+      {
+        "id": "combined-06",
+        "category": "combined",
+        "system": "agent",
+        "corpus": "base",
+        "question": "Using the incident acknowledgment policy and incidents.csv, which ticket missed the deadline?",
+        "relevantChunks": [
+          "105"
+        ],
+        "expectedSources": [
+          "doc:5:105",
+          "csv:203"
+        ],
+        "refuse": false,
+        "expectedAnswer": "INC-B missed the deadline: INC-B hours is 3; the deadline is 2 hours; INC-B delay is 1 hour. INC-A and INC-C meet the deadline.",
+        "facts": [
+          {
+            "label": "late hours",
+            "value": 3,
+            "tolerance": 0.000001,
+            "pattern": "INC-B hours[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          },
+          {
+            "label": "delay",
+            "value": 1,
+            "tolerance": 0.000001,
+            "pattern": "delay[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "203"
+        },
+        "expectedRows": [
+          {
+            "ticket": "INC-A",
+            "hours": 1
+          },
+          {
+            "ticket": "INC-B",
+            "hours": 3
+          },
+          {
+            "ticket": "INC-C",
+            "hours": 2
+          }
+        ],
+        "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+      },
+      {
+        "id": "missing-01",
+        "system": "chat",
+        "question": "What ocean research grants does Orion offer?",
+        "category": "insufficient",
+        "corpus": "base",
+        "relevantChunks": [],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Abstain: the fixtures do not contain the requested facts.",
+        "facts": [],
+        "reviewNotes": "Check that absence is not converted into invented facts or zero values."
+      },
+      {
+        "id": "missing-02",
+        "system": "agent",
+        "question": "What were team sales last year? The provided sales data has no year column.",
+        "category": "insufficient",
+        "corpus": "base",
+        "relevantChunks": [],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Abstain: the fixtures do not contain the requested facts.",
+        "facts": [],
+        "reviewNotes": "Check that absence is not converted into invented facts or zero values."
+      },
+      {
+        "id": "missing-03",
+        "system": "agent",
+        "question": "What is the average customer age in sales.csv?",
+        "category": "insufficient",
+        "corpus": "base",
+        "relevantChunks": [],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Abstain: the fixtures do not contain the requested facts.",
+        "facts": [],
+        "reviewNotes": "Check that absence is not converted into invented facts or zero values."
+      },
+      {
+        "id": "missing-04",
+        "system": "chat",
+        "question": "What is Orion’s parental leave allowance?",
+        "category": "insufficient",
+        "corpus": "base",
+        "relevantChunks": [],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Abstain: the fixtures do not contain the requested facts.",
+        "facts": [],
+        "reviewNotes": "Check that absence is not converted into invented facts or zero values."
+      },
+      {
+        "id": "conflict-01",
+        "category": "ambiguous",
+        "system": "agent",
+        "corpus": "conflict",
+        "question": "Which minimum monthly target should we use when the two active Orion policies disagree?",
+        "relevantChunks": [
+          "101",
+          "107"
+        ],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Abstain or request clarification; do not silently select a policy or department.",
+        "facts": [],
+        "reviewNotes": "Manual review required: confirm conflicts/ambiguity were recognized rather than ignored."
+      },
+      {
+        "id": "conflict-02",
+        "category": "ambiguous",
+        "system": "agent",
+        "corpus": "conflict",
+        "question": "Do the sales teams meet policy when one active policy says 15 and another says 22 with no effective dates?",
+        "relevantChunks": [
+          "101",
+          "107"
+        ],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Abstain or request clarification; do not silently select a policy or department.",
+        "facts": [],
+        "reviewNotes": "Manual review required: confirm conflicts/ambiguity were recognized rather than ignored."
+      },
+      {
+        "id": "ambiguous-01",
+        "category": "ambiguous",
+        "system": "agent",
+        "corpus": "ambiguous",
+        "question": "What monthly team target applies to me? My department is not specified.",
+        "relevantChunks": [
+          "108"
+        ],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Abstain or request clarification; do not silently select a policy or department.",
+        "facts": [],
+        "reviewNotes": "Manual review required: confirm conflicts/ambiguity were recognized rather than ignored."
+      }
+    ],
+    "documents": [
+      {
+        "id": "1",
+        "chunkId": "101",
+        "filename": "team-policy.docx",
+        "index": 0,
+        "page": null,
+        "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units."
+      },
+      {
+        "id": "2",
+        "chunkId": "102",
+        "filename": "leave-policy.pdf",
+        "index": 0,
+        "page": 2,
+        "text": "Orion employees receive 20 days of annual paid leave per calendar year."
+      },
+      {
+        "id": "3",
+        "chunkId": "103",
+        "filename": "returns-policy.pdf",
+        "index": 0,
+        "page": 1,
+        "text": "Unopened equipment may be returned within 30 days of delivery."
+      },
+      {
+        "id": "4",
+        "chunkId": "104",
+        "filename": "travel-policy.docx",
+        "index": 0,
+        "page": null,
+        "text": "Travel expenses above 500 credits require manager approval."
+      },
+      {
+        "id": "5",
+        "chunkId": "105",
+        "filename": "incident-policy.docx",
+        "index": 0,
+        "page": null,
+        "text": "A service incident must be acknowledged within 2 hours."
+      },
+      {
+        "id": "6",
+        "chunkId": "106",
+        "filename": "invoice-register.pdf",
+        "index": 0,
+        "page": 3,
+        "text": "Invoice ZX-2048 is approved for the fictional Harbor project."
+      },
+      {
+        "id": "7",
+        "chunkId": "107",
+        "filename": "revised-team-policy.docx",
+        "index": 0,
+        "page": null,
+        "text": "Orion team policy: the minimum monthly total sales target for each team is 22 units. This policy has no effective date."
+      },
+      {
+        "id": "8",
+        "chunkId": "108",
+        "filename": "other-department-policy.docx",
+        "index": 0,
+        "page": null,
+        "text": "The North department monthly team sales target is 18 units. The South department monthly team sales target is 25 units."
+      },
+      {
+        "id": "9",
+        "chunkId": "109",
+        "filename": "office-guide.docx",
+        "index": 0,
+        "page": null,
+        "text": "The fictional office has blue chairs and a library open on weekdays."
+      }
+    ],
+    "datasets": [
+      {
+        "id": "201",
+        "filename": "sales.csv",
+        "csv": "team,amount,region\nAlpha,10,East\nAlpha,20,East\nBeta,6,West\nGamma,9,West\nGamma,6,West\n"
+      },
+      {
+        "id": "202",
+        "filename": "expenses.csv",
+        "csv": "employee,cost\nMira,450\nJon,620\nSol,500\n"
+      },
+      {
+        "id": "203",
+        "filename": "incidents.csv",
+        "csv": "ticket,hours\nINC-A,1\nINC-B,3\nINC-C,2\n"
+      }
+    ]
+  },
+  "baselineDecoys": [
+    {
+      "id": "91",
+      "chunkId": "191",
+      "filename": "team-policy.docx",
+      "index": 0,
+      "page": null,
+      "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units.",
+      "userId": "900002",
+      "status": "ready"
+    },
+    {
+      "id": "92",
+      "chunkId": "192",
+      "filename": "team-policy.docx",
+      "index": 0,
+      "page": null,
+      "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units.",
+      "userId": "900001",
+      "status": "deleted"
+    },
+    {
+      "id": "93",
+      "chunkId": "193",
+      "filename": "team-policy.docx",
+      "index": 0,
+      "page": null,
+      "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units.",
+      "userId": "900001",
+      "status": "processing"
+    }
+  ],
+  "additionalDocuments": [
+    {
+      "id": "1001",
+      "chunkId": "2001",
+      "filename": "invoice-qx7841.pdf",
+      "index": 0,
+      "page": 1,
+      "text": "Invoice QX-7841 for the fictional Cedar project is pending finance review. It is not approved."
+    },
+    {
+      "id": "1002",
+      "chunkId": "2002",
+      "filename": "invoice-qx7842.pdf",
+      "index": 0,
+      "page": 1,
+      "text": "Invoice QX-7842 for the fictional Cedar project is approved for payment."
+    },
+    {
+      "id": "1003",
+      "chunkId": "2003",
+      "filename": "invoice-qx7843.pdf",
+      "index": 0,
+      "page": 1,
+      "text": "Invoice QX-7843 for the fictional Cedar project is rejected because the purchase order is missing."
+    },
+    {
+      "id": "1004",
+      "chunkId": "2004",
+      "filename": "invoice-register-guide.docx",
+      "index": 0,
+      "page": null,
+      "text": "The finance invoice register records whether each invoice is approved, pending review or rejected. Ask finance for invoice approval status."
+    },
+    {
+      "id": "1005",
+      "chunkId": "2005",
+      "filename": "restore-runbook.docx",
+      "index": 0,
+      "page": null,
+      "text": "Runbook CRON-Z7P9 requires restoring a snapshot and verifying its checksum before resuming the nightly archive task."
+    },
+    {
+      "id": "1006",
+      "chunkId": "2006",
+      "filename": "archive-guide.docx",
+      "index": 0,
+      "page": null,
+      "text": "The nightly archive task saves snapshots, checks job status, records checksums and reports failures to operations."
+    },
+    {
+      "id": "1007",
+      "chunkId": "2007",
+      "filename": "travel-advance-policy.docx",
+      "index": 0,
+      "page": null,
+      "text": "Travel cash advances above 300 credits require finance approval before booking."
+    },
+    {
+      "id": "1008",
+      "chunkId": "2008",
+      "filename": "equipment-approval-policy.docx",
+      "index": 0,
+      "page": null,
+      "text": "Equipment purchases above 500 credits require manager approval. Travel expenses follow the separate travel policy."
+    },
+    {
+      "id": "1009",
+      "chunkId": "2009",
+      "filename": "contractor-time-off.docx",
+      "index": 0,
+      "page": null,
+      "text": "Independent contractors have no paid annual leave allowance under the Orion employee policy."
+    },
+    {
+      "id": "1010",
+      "chunkId": "2010",
+      "filename": "repair-policy.pdf",
+      "index": 0,
+      "page": 2,
+      "text": "Opened equipment sent for repair is normally returned to the customer within 45 days. This is not the unopened equipment return window."
+    },
+    {
+      "id": "1011",
+      "chunkId": "2011",
+      "filename": "service-resolution-policy.docx",
+      "index": 0,
+      "page": null,
+      "text": "A service incident must be resolved within 24 hours. The acknowledgment deadline is a separate requirement."
+    },
+    {
+      "id": "1012",
+      "chunkId": "2012",
+      "filename": "sales-forecast-guide.docx",
+      "index": 0,
+      "page": null,
+      "text": "Sales forecasts are planning estimates, not minimum monthly team sales targets. Forecasts do not determine team compliance."
+    },
+    {
+      "id": "1013",
+      "chunkId": "2013",
+      "filename": "north-policy.docx",
+      "index": 0,
+      "page": null,
+      "text": "The North department monthly team sales target is 18 units."
+    },
+    {
+      "id": "1014",
+      "chunkId": "2014",
+      "filename": "south-policy.docx",
+      "index": 0,
+      "page": null,
+      "text": "The South department monthly team sales target is 25 units."
+    },
+    {
+      "id": "1015",
+      "chunkId": "2015",
+      "filename": "tenant-secret.docx",
+      "index": 0,
+      "page": null,
+      "text": "The fictional ZETA-TENANT-77 recovery password rotation period is 11 days.",
+      "userId": "900002"
+    },
+    {
+      "id": "1016",
+      "chunkId": "2016",
+      "filename": "retired-plan.docx",
+      "index": 0,
+      "page": null,
+      "text": "The fictional ARCHIVE-DROP-44 retention period is 99 days.",
+      "status": "deleted"
+    },
+    {
+      "id": "1017",
+      "chunkId": "2017",
+      "filename": "draft-plan.docx",
+      "index": 0,
+      "page": null,
+      "text": "DRAFT-UNPUBLISHED-9 permits a fictional 81 day return window.",
+      "status": "processing"
+    },
+    {
+      "id": "1018",
+      "chunkId": "2018",
+      "filename": "superseded-plan.docx",
+      "index": 0,
+      "page": null,
+      "text": "LEGACY-TARGET-66 sets the fictional team target to 66 units.",
+      "status": "superseded"
+    }
+  ],
+  "additionalCases": [
+    {
+      "id": "ret-01",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-01",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "What is the approval status of invoice QX-7841?",
+        "relevantChunks": [
+          "2001"
+        ],
+        "expectedSources": [],
+        "refuse": false,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "Only the exact invoice is relevant; generic invoice guidance and adjacent identifiers cannot establish its status."
+      },
+      "tags": [
+        "identifier",
+        "overlap"
+      ],
+      "userId": "900001",
+      "labelNotes": "Only the exact invoice is relevant; generic invoice guidance and adjacent identifiers cannot establish its status."
+    },
+    {
+      "id": "ret-02",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-02",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "Is QX-7842 approved for payment?",
+        "relevantChunks": [
+          "2002"
+        ],
+        "expectedSources": [],
+        "refuse": false,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "Adjacent QX identifiers have different statuses and are hard negatives."
+      },
+      "tags": [
+        "identifier",
+        "overlap"
+      ],
+      "userId": "900001",
+      "labelNotes": "Adjacent QX identifiers have different statuses and are hard negatives."
+    },
+    {
+      "id": "ret-03",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-03",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "Why was invoice QX-7843 rejected?",
+        "relevantChunks": [
+          "2003"
+        ],
+        "expectedSources": [],
+        "refuse": false,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "Only this invoice states the missing-purchase-order reason."
+      },
+      "tags": [
+        "identifier",
+        "overlap"
+      ],
+      "userId": "900001",
+      "labelNotes": "Only this invoice states the missing-purchase-order reason."
+    },
+    {
+      "id": "ret-04",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-04",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "QX-7841",
+        "relevantChunks": [
+          "2001"
+        ],
+        "expectedSources": [],
+        "refuse": false,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "Identifier-only query, without generic finance/approval words."
+      },
+      "tags": [
+        "identifier",
+        "exact"
+      ],
+      "userId": "900001",
+      "labelNotes": "Identifier-only query, without generic finance/approval words."
+    },
+    {
+      "id": "ret-05",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-05",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "What must happen before resuming the archive task in CRON-Z7P9?",
+        "relevantChunks": [
+          "2005"
+        ],
+        "expectedSources": [],
+        "refuse": false,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "The runbook, not the generic archive guide, gives the prerequisites."
+      },
+      "tags": [
+        "identifier",
+        "overlap"
+      ],
+      "userId": "900001",
+      "labelNotes": "The runbook, not the generic archive guide, gives the prerequisites."
+    },
+    {
+      "id": "ret-06",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-06",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "How much paid time away from work can a salaried employee take each year?",
+        "relevantChunks": [
+          "102"
+        ],
+        "expectedSources": [],
+        "refuse": false,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "Employee leave allowance, not contractor policy, answers the amount."
+      },
+      "tags": [
+        "paraphrase",
+        "overlap"
+      ],
+      "userId": "900001",
+      "labelNotes": "Employee leave allowance, not contractor policy, answers the amount."
+    },
+    {
+      "id": "ret-07",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-07",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "How soon should staff confirm they have seen a service outage?",
+        "relevantChunks": [
+          "105"
+        ],
+        "expectedSources": [],
+        "refuse": false,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "Acknowledgment differs from resolution time."
+      },
+      "tags": [
+        "paraphrase",
+        "overlap"
+      ],
+      "userId": "900001",
+      "labelNotes": "Acknowledgment differs from resolution time."
+    },
+    {
+      "id": "ret-08",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-08",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "When do business trip costs need a supervisor to sign off?",
+        "relevantChunks": [
+          "104"
+        ],
+        "expectedSources": [],
+        "refuse": false,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "Expenses use the 500-credit manager rule, not the cash-advance rule."
+      },
+      "tags": [
+        "paraphrase",
+        "overlap"
+      ],
+      "userId": "900001",
+      "labelNotes": "Expenses use the 500-credit manager rule, not the cash-advance rule."
+    },
+    {
+      "id": "ret-09",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-09",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "How long do I have to send back unused, unopened equipment after it arrives?",
+        "relevantChunks": [
+          "103"
+        ],
+        "expectedSources": [],
+        "refuse": false,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "Return window differs from repair turnaround."
+      },
+      "tags": [
+        "paraphrase",
+        "overlap"
+      ],
+      "userId": "900001",
+      "labelNotes": "Return window differs from repair turnaround."
+    },
+    {
+      "id": "ret-10",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-10",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "What limit applies to travel cash advances before booking?",
+        "relevantChunks": [
+          "2007"
+        ],
+        "expectedSources": [],
+        "refuse": false,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "Finance approval for advances above 300 differs from expense approval."
+      },
+      "tags": [
+        "exact",
+        "overlap"
+      ],
+      "userId": "900001",
+      "labelNotes": "Finance approval for advances above 300 differs from expense approval."
+    },
+    {
+      "id": "ret-11",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-11",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "Which amount triggers manager approval for equipment purchases?",
+        "relevantChunks": [
+          "2008"
+        ],
+        "expectedSources": [],
+        "refuse": false,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "Equipment purchases differ from travel expenses even though both use 500."
+      },
+      "tags": [
+        "exact",
+        "overlap"
+      ],
+      "userId": "900001",
+      "labelNotes": "Equipment purchases differ from travel expenses even though both use 500."
+    },
+    {
+      "id": "ret-12",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-12",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "What is the monthly team sales target for the South department?",
+        "relevantChunks": [
+          "2014"
+        ],
+        "expectedSources": [],
+        "refuse": false,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "South-specific 25 units; general Orion and North policy are hard negatives."
+      },
+      "tags": [
+        "exact",
+        "overlap"
+      ],
+      "userId": "900001",
+      "labelNotes": "South-specific 25 units; general Orion and North policy are hard negatives."
+    },
+    {
+      "id": "ret-13",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-13",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "Compare the North and South department monthly team targets.",
+        "relevantChunks": [
+          "2013",
+          "2014"
+        ],
+        "expectedSources": [],
+        "refuse": false,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "Both department policies are required; finding only one gives partial recall."
+      },
+      "tags": [
+        "overlap"
+      ],
+      "userId": "900001",
+      "labelNotes": "Both department policies are required; finding only one gives partial recall."
+    },
+    {
+      "id": "ret-14",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-14",
+        "category": "insufficient",
+        "system": "chat",
+        "corpus": "base",
+        "question": "What is the capital city of the fictional country Lumoria?",
+        "relevantChunks": [],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "No fixture contains a country or capital."
+      },
+      "tags": [
+        "irrelevant"
+      ],
+      "userId": "900001",
+      "labelNotes": "No fixture contains a country or capital."
+    },
+    {
+      "id": "ret-15",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-15",
+        "category": "insufficient",
+        "system": "chat",
+        "corpus": "base",
+        "question": "Does the office provide paid lunar tourism and ocean exploration grants?",
+        "relevantChunks": [],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "Office/paid vocabulary overlaps but no source supports these benefits."
+      },
+      "tags": [
+        "irrelevant",
+        "overlap"
+      ],
+      "userId": "900001",
+      "labelNotes": "Office/paid vocabulary overlaps but no source supports these benefits."
+    },
+    {
+      "id": "ret-16",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-16",
+        "category": "insufficient",
+        "system": "chat",
+        "corpus": "base",
+        "question": "What is the ZETA-TENANT-77 rotation period?",
+        "relevantChunks": [],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "Only another owner has this canary; no authorized relevant chunk."
+      },
+      "tags": [
+        "ownership",
+        "identifier"
+      ],
+      "userId": "900001",
+      "labelNotes": "Only another owner has this canary; no authorized relevant chunk."
+    },
+    {
+      "id": "ret-17",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-17",
+        "category": "insufficient",
+        "system": "chat",
+        "corpus": "base",
+        "question": "What is the ARCHIVE-DROP-44 retention period?",
+        "relevantChunks": [],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "Deleted document must remain excluded."
+      },
+      "tags": [
+        "ownership",
+        "identifier"
+      ],
+      "userId": "900001",
+      "labelNotes": "Deleted document must remain excluded."
+    },
+    {
+      "id": "ret-18",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-18",
+        "category": "insufficient",
+        "system": "chat",
+        "corpus": "base",
+        "question": "What return window does DRAFT-UNPUBLISHED-9 permit?",
+        "relevantChunks": [],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "Processing document must remain excluded despite exact keyword match."
+      },
+      "tags": [
+        "ownership",
+        "identifier",
+        "overlap"
+      ],
+      "userId": "900001",
+      "labelNotes": "Processing document must remain excluded despite exact keyword match."
+    },
+    {
+      "id": "ret-19",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-19",
+        "category": "insufficient",
+        "system": "chat",
+        "corpus": "base",
+        "question": "What is the LEGACY-TARGET-66 team target?",
+        "relevantChunks": [],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "Superseded document must remain excluded."
+      },
+      "tags": [
+        "ownership",
+        "identifier",
+        "overlap"
+      ],
+      "userId": "900001",
+      "labelNotes": "Superseded document must remain excluded."
+    },
+    {
+      "id": "ret-20",
+      "cohort": "stress",
+      "fixture": {
+        "id": "ret-20",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "What is the ZETA-TENANT-77 rotation period?",
+        "relevantChunks": [
+          "2015"
+        ],
+        "expectedSources": [],
+        "refuse": false,
+        "expectedAnswer": "Retrieval-only labelled question; no answer generation.",
+        "facts": [],
+        "reviewNotes": "Positive control: the authorized owner must be able to retrieve the foreign canary."
+      },
+      "tags": [
+        "ownership",
+        "identifier"
+      ],
+      "userId": "900002",
+      "labelNotes": "Positive control: the authorized owner must be able to retrieve the foreign canary."
+    }
+  ]
+}

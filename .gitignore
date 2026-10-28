@@ -32,6 +32,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -39,3 +40,39 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/storage/**
+# Local evaluation artifacts (fictional samples live under docs/evaluation)
+/.evaluation-results/
+
+# Private manual inputs/exports: explicitly allow reviewed fictional fixtures.
+*.[pP][dD][fF]
+*.[dD][oO][cC][xX]
+*.[cC][sS][vV]
+!/tests/fixtures/fictional-policy.pdf
+!/tests/fixtures/fictional-policy.docx
+!/tests/fixtures/fictional-policy-v2.docx
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.dump
+*.backup
+*.sql
+!/migrations/*.sql
+*.sql.gz
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+.~lock.*#
+*.log
+/tmp/
+/backups/
+/test-results/
+/playwright-report/
+/.aws/
+/.codex/

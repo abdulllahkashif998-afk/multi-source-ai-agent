@@ -1,0 +1,1623 @@
+{
+  "metadata": {
+    "schemaVersion": 1,
+    "mode": "retrieval",
+    "qualityClaimsAllowed": true,
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "generatedAt": "2026-10-27T15:53:30.162Z",
+    "k": 3,
+    "answerRetrievalMode": "hybrid",
+    "node": "22.22.3",
+    "setupDurationMs": 1904.159052,
+    "selectedCases": [
+      "doc-01",
+      "doc-02",
+      "doc-03",
+      "doc-04",
+      "doc-05",
+      "doc-06",
+      "combined-01",
+      "combined-02",
+      "combined-03",
+      "combined-04",
+      "combined-05",
+      "combined-06",
+      "missing-01",
+      "missing-02",
+      "missing-03",
+      "missing-04",
+      "conflict-01",
+      "conflict-02",
+      "ambiguous-01"
+    ],
+    "interrupted": false
+  },
+  "summary": {
+    "numericFacts": {
+      "declared": 0,
+      "checked": 0,
+      "correct": 0,
+      "incorrect": 0,
+      "unscored": 0,
+      "accuracyOnExtracted": null
+    },
+    "refusalContract": {
+      "eligible": 7,
+      "canonical": 0,
+      "rate": 0
+    },
+    "stageLatencyMs": {
+      "embedding": {
+        "n": 38,
+        "min": 58,
+        "p50": 89.5,
+        "p95": 254.2,
+        "max": 287.8,
+        "mean": 114.02105263157895
+      },
+      "postgres": {
+        "n": 38,
+        "min": 2.2,
+        "p50": 5.8,
+        "p95": 15.9,
+        "max": 25.9,
+        "mean": 6.6684210526315795
+      },
+      "retrieval": {
+        "n": 38,
+        "min": 61.2,
+        "p50": 98.8,
+        "p95": 261.4,
+        "max": 292.6,
+        "mean": 121.22894736842105
+      }
+    },
+    "planned": 19,
+    "executed": 19,
+    "notRun": 0,
+    "pass": 0,
+    "fail": 0,
+    "needsReview": 19,
+    "automaticChecksPassed": 0,
+    "executionErrorRate": 0,
+    "failureRate": 0,
+    "timeoutRate": 0,
+    "latencyMs": {
+      "n": 19,
+      "min": 179.80520199999955,
+      "p50": 272.16734799999995,
+      "p95": 641.5031170000002,
+      "max": 641.5031170000002,
+      "mean": 321.310723
+    },
+    "answerLatencyMs": {
+      "n": 0,
+      "min": null,
+      "p50": null,
+      "p95": null,
+      "max": null,
+      "mean": null
+    },
+    "retrieval": {
+      "semantic": {
+        "recall": {
+          "n": 15,
+          "value": 1
+        },
+        "precision": {
+          "n": 15,
+          "value": 0.3777777777777778
+        },
+        "latencyMs": {
+          "n": 19,
+          "min": 61.200652999999875,
+          "p50": 97.78405399999974,
+          "p95": 292.6388449999995,
+          "max": 292.6388449999995,
+          "mean": 118.45580884210537
+        }
+      },
+      "hybrid": {
+        "recall": {
+          "n": 15,
+          "value": 1
+        },
+        "precision": {
+          "n": 15,
+          "value": 0.3777777777777778
+        },
+        "latencyMs": {
+          "n": 19,
+          "min": 68.16484899999978,
+          "p50": 115.28694700000005,
+          "p95": 247.92390699999942,
+          "max": 247.92390699999942,
+          "mean": 124.07491678947355
+        }
+      }
+    },
+    "citations": {
+      "precision": {
+        "n": 0,
+        "value": null
+      },
+      "sourceRecall": {
+        "n": 0,
+        "value": null
+      },
+      "quoteValidity": {
+        "n": 0,
+        "value": null
+      }
+    },
+    "categories": {
+      "document": {
+        "executed": 6,
+        "pass": 0,
+        "fail": 0,
+        "needsReview": 6
+      },
+      "csv": {
+        "executed": 0,
+        "pass": 0,
+        "fail": 0,
+        "needsReview": 0
+      },
+      "combined": {
+        "executed": 6,
+        "pass": 0,
+        "fail": 0,
+        "needsReview": 6
+      },
+      "insufficient": {
+        "executed": 4,
+        "pass": 0,
+        "fail": 0,
+        "needsReview": 4
+      },
+      "ambiguous": {
+        "executed": 3,
+        "pass": 0,
+        "fail": 0,
+        "needsReview": 3
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "doc-01",
+      "category": "document",
+      "system": "chat",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 230.5241799999999,
+      "answerDurationMs": null,
+      "score": null,
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "104",
+            "103"
+          ],
+          "durationMs": 74.042641,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101",
+            "104"
+          ],
+          "durationMs": 71.1708920000001,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 2,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 66.5,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 6.7,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 73.8,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 64.5,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 5.8,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 71.1,
+          "outcome": "ok"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "doc-02",
+      "category": "document",
+      "system": "chat",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 207.78755899999987,
+      "answerDurationMs": null,
+      "score": null,
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "102",
+            "101",
+            "104"
+          ],
+          "durationMs": 78.07195000000002,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "102",
+            "101",
+            "103"
+          ],
+          "durationMs": 80.13762700000007,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 73.6,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 4,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 78,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 73.2,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 6.3,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 80.1,
+          "outcome": "ok"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "doc-03",
+      "category": "document",
+      "system": "chat",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 209.5777189999999,
+      "answerDurationMs": null,
+      "score": null,
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "103",
+            "105",
+            "104"
+          ],
+          "durationMs": 79.00300500000003,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "103",
+            "105"
+          ],
+          "durationMs": 81.35773100000006,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 2,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 76.2,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 2.5,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 79,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 75.5,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 5.3,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 81.3,
+          "outcome": "ok"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "doc-04",
+      "category": "document",
+      "system": "chat",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 194.84429099999988,
+      "answerDurationMs": null,
+      "score": null,
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "104",
+            "105",
+            "101"
+          ],
+          "durationMs": 72.90988100000004,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "104",
+            "105",
+            "101"
+          ],
+          "durationMs": 72.60289300000022,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 69.3,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 3.3,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 72.9,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 65.9,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 6.3,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 72.6,
+          "outcome": "ok"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "doc-05",
+      "category": "document",
+      "system": "chat",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 223.79461400000037,
+      "answerDurationMs": null,
+      "score": null,
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "105",
+            "103",
+            "104"
+          ],
+          "durationMs": 89.87382300000036,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "105",
+            "103",
+            "104"
+          ],
+          "durationMs": 86.34987799999999,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 87.1,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 2.5,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 89.8,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 80,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 5.7,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 86.3,
+          "outcome": "ok"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "doc-06",
+      "category": "document",
+      "system": "chat",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 212.8835820000004,
+      "answerDurationMs": null,
+      "score": null,
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "106",
+            "105",
+            "104"
+          ],
+          "durationMs": 78.0969640000003,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "106",
+            "104",
+            "105"
+          ],
+          "durationMs": 80.81982999999991,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 74.8,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 2.9,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 78.1,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 72.9,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 7.5,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 80.8,
+          "outcome": "ok"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "combined-01",
+      "category": "combined",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 218.33458500000006,
+      "answerDurationMs": null,
+      "score": null,
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "104",
+            "105"
+          ],
+          "durationMs": 81.86889200000041,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101",
+            "104"
+          ],
+          "durationMs": 86.4392499999999,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 2,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 79.3,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 2.2,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 81.8,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 78.5,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 7.4,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 86.4,
+          "outcome": "ok"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "combined-02",
+      "category": "combined",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 272.16734799999995,
+      "answerDurationMs": null,
+      "score": null,
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "104",
+            "103"
+          ],
+          "durationMs": 104.00809100000015,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101",
+            "104"
+          ],
+          "durationMs": 115.28694700000005,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 2,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 100.1,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 3.6,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 104,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 109,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 5.8,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 115.2,
+          "outcome": "ok"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "combined-03",
+      "category": "combined",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 179.80520199999955,
+      "answerDurationMs": null,
+      "score": null,
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "104",
+            "102"
+          ],
+          "durationMs": 61.200652999999875,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101",
+            "104"
+          ],
+          "durationMs": 68.16484899999978,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 2,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 58,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 2.9,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 61.2,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 62.6,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 5.1,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 68.1,
+          "outcome": "ok"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "combined-04",
+      "category": "combined",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 246.39343399999962,
+      "answerDurationMs": null,
+      "score": null,
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "104",
+            "105"
+          ],
+          "durationMs": 97.78405399999974,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101",
+            "102",
+            "104"
+          ],
+          "durationMs": 98.79192300000068,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 94.7,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 2.9,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 97.8,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 89,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 9.2,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 98.8,
+          "outcome": "ok"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "combined-05",
+      "category": "combined",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 324.6253820000002,
+      "answerDurationMs": null,
+      "score": null,
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "104",
+            "105",
+            "101"
+          ],
+          "durationMs": 131.81806700000016,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "104",
+            "106",
+            "105"
+          ],
+          "durationMs": 140.7587970000004,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 128.3,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 3.1,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 131.8,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 124.2,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 15.9,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 140.7,
+          "outcome": "ok"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "combined-06",
+      "category": "combined",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 368.91720199999963,
+      "answerDurationMs": null,
+      "score": null,
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "105",
+            "104",
+            "103"
+          ],
+          "durationMs": 163.67704700000013,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "105",
+            "101",
+            "104"
+          ],
+          "durationMs": 132.02780899999925,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 160.4,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 3,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 163.7,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 123.3,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 8.2,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 132,
+          "outcome": "ok"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "missing-01",
+      "category": "insufficient",
+      "system": "chat",
+      "expectedRefusal": true,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 452.2582629999997,
+      "answerDurationMs": null,
+      "score": null,
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "102",
+            "106"
+          ],
+          "durationMs": 103.581005,
+          "k": 3,
+          "hits": 0,
+          "relevant": 0,
+          "returned": 3,
+          "recall": null,
+          "precision": null
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101",
+            "102"
+          ],
+          "durationMs": 247.92390699999942,
+          "k": 3,
+          "hits": 0,
+          "relevant": 0,
+          "returned": 2,
+          "recall": null,
+          "precision": null
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 98.9,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 4.4,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 103.6,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 241.1,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 6.5,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 247.9,
+          "outcome": "ok"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "missing-02",
+      "category": "insufficient",
+      "system": "agent",
+      "expectedRefusal": true,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 557.4622040000004,
+      "answerDurationMs": null,
+      "score": null,
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "103",
+            "104"
+          ],
+          "durationMs": 261.39559400000053,
+          "k": 3,
+          "hits": 0,
+          "relevant": 0,
+          "returned": 3,
+          "recall": null,
+          "precision": null
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101",
+            "102"
+          ],
+          "durationMs": 144.34631699999954,
+          "k": 3,
+          "hits": 0,
+          "relevant": 0,
+          "returned": 2,
+          "recall": null,
+          "precision": null
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 254.2,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 6.9,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 261.4,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 134.1,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 9.7,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 144.3,
+          "outcome": "ok"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "missing-03",
+      "category": "insufficient",
+      "system": "agent",
+      "expectedRefusal": true,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 414.2978949999997,
+      "answerDurationMs": null,
+      "score": null,
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "105",
+            "103"
+          ],
+          "durationMs": 105.24047900000005,
+          "k": 3,
+          "hits": 0,
+          "relevant": 0,
+          "returned": 3,
+          "recall": null,
+          "precision": null
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101"
+          ],
+          "durationMs": 188.5860159999993,
+          "k": 3,
+          "hits": 0,
+          "relevant": 0,
+          "returned": 1,
+          "recall": null,
+          "precision": null
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 99.8,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 5.1,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 105.2,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 175.6,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 11.4,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 188.6,
+          "outcome": "ok"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "missing-04",
+      "category": "insufficient",
+      "system": "chat",
+      "expectedRefusal": true,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 641.5031170000002,
+      "answerDurationMs": null,
+      "score": null,
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "102",
+            "101",
+            "104"
+          ],
+          "durationMs": 292.6388449999995,
+          "k": 3,
+          "hits": 0,
+          "relevant": 0,
+          "returned": 3,
+          "recall": null,
+          "precision": null
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "102",
+            "101",
+            "104"
+          ],
+          "durationMs": 177.16846799999985,
+          "k": 3,
+          "hits": 0,
+          "relevant": 0,
+          "returned": 3,
+          "recall": null,
+          "precision": null
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 287.8,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 4.5,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 292.6,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 163.4,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 13.3,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 177.1,
+          "outcome": "ok"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "conflict-01",
+      "category": "ambiguous",
+      "system": "agent",
+      "expectedRefusal": true,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 432.0009540000001,
+      "answerDurationMs": null,
+      "score": null,
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "107",
+            "101",
+            "102"
+          ],
+          "durationMs": 127.89938600000005,
+          "k": 3,
+          "hits": 2,
+          "relevant": 2,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.6666666666666666
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "107",
+            "101",
+            "102"
+          ],
+          "durationMs": 231.69328899999982,
+          "k": 3,
+          "hits": 2,
+          "relevant": 2,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.6666666666666666
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 120.7,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 6.9,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 127.9,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 221.3,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 10,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 231.7,
+          "outcome": "ok"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "conflict-02",
+      "category": "ambiguous",
+      "system": "agent",
+      "expectedRefusal": true,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 429.21986200000083,
+      "answerDurationMs": null,
+      "score": null,
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "107",
+            "101",
+            "105"
+          ],
+          "durationMs": 165.16520000000037,
+          "k": 3,
+          "hits": 2,
+          "relevant": 2,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.6666666666666666
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "107",
+            "101",
+            "105"
+          ],
+          "durationMs": 133.77709800000048,
+          "k": 3,
+          "hits": 2,
+          "relevant": 2,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.6666666666666666
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 157.9,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 7,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 165.1,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 122.6,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 10.8,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 133.7,
+          "outcome": "ok"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "ambiguous-01",
+      "category": "ambiguous",
+      "system": "agent",
+      "expectedRefusal": true,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 288.50634399999944,
+      "answerDurationMs": null,
+      "score": null,
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "108",
+            "101",
+            "104"
+          ],
+          "durationMs": 82.3847910000004,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "108",
+            "101",
+            "104"
+          ],
+          "durationMs": 120.01989799999865,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 79,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 2.9,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 82.3,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 89.5,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 25.9,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 120,
+          "outcome": "ok"
+        }
+      ],
+      "error": null
+    }
+  ]
+}

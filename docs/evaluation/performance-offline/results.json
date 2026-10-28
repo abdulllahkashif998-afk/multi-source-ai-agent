@@ -1,0 +1,388 @@
+{
+  "metadata": {
+    "mode": "offline",
+    "generatedAt": "2026-10-27T17:29:39.313Z",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "node": "22.22.3",
+    "samplesPerComponent": 0,
+    "warmups": 0,
+    "externalLLMRequests": 0,
+    "machine": {
+      "platform": "linux",
+      "release": "7.0.0-38-generic",
+      "architecture": "x64",
+      "cpuModel": "Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz",
+      "logicalCpus": 4,
+      "availableParallelism": 4,
+      "memoryGiB": 14.99
+    },
+    "memoryRssStartMiB": 110.8203125,
+    "interrupted": false,
+    "memoryRssEndMiB": 116.828125
+  },
+  "timings": [],
+  "summary": {},
+  "stageSummary": {},
+  "reliability": [
+    {
+      "id": "gemini-429-recovery",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "attempts": 3,
+        "simulatedStartsMs": [
+          0,
+          6000,
+          11000
+        ],
+        "recovery": true
+      }
+    },
+    {
+      "id": "gemini-persistent-429",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "attempts": 2,
+        "safeStatus": 429
+      }
+    },
+    {
+      "id": "gemini-long-cooldown",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "attempts": 1,
+        "subsequentCallRejected": true
+      }
+    },
+    {
+      "id": "gemini-403-no-retry",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "attempts": 1,
+        "transportStatus": 403
+      }
+    },
+    {
+      "id": "gemini-503-no-retry",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "attempts": 1,
+        "transportStatus": 503
+      }
+    },
+    {
+      "id": "gemini-connection-no-retry",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "attempts": 1,
+        "retried": false
+      }
+    },
+    {
+      "id": "gemini-deadline-prevents-retry",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "attempts": 1,
+        "simulatedElapsedMs": 29000
+      }
+    },
+    {
+      "id": "gemini-cancel-before-call",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "attempts": 0
+      }
+    },
+    {
+      "id": "gemini-bounded-queue-cancellation",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "pending": 8,
+        "overflowStatus": 429,
+        "cancelled": 8,
+        "attempts": 1
+      }
+    },
+    {
+      "id": "gemini-queue-wait-budget",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "rpm": 6,
+        "requiredSpacingMs": 10000,
+        "queueWaitBudgetMs": 10000,
+        "attempts": 1,
+        "rejectedAtBudgetBoundary": true
+      }
+    },
+    {
+      "id": "groq-429-recovery",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "attempts": 3,
+        "simulatedStartsMs": [
+          0,
+          6000,
+          11000
+        ],
+        "recovery": true
+      }
+    },
+    {
+      "id": "groq-persistent-429",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "attempts": 2,
+        "safeStatus": 429
+      }
+    },
+    {
+      "id": "groq-long-cooldown",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "attempts": 1,
+        "subsequentCallRejected": true
+      }
+    },
+    {
+      "id": "groq-403-no-retry",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "attempts": 1,
+        "transportStatus": 403
+      }
+    },
+    {
+      "id": "groq-503-no-retry",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "attempts": 1,
+        "transportStatus": 503
+      }
+    },
+    {
+      "id": "groq-connection-no-retry",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "attempts": 1,
+        "retried": false
+      }
+    },
+    {
+      "id": "groq-deadline-prevents-retry",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "attempts": 1,
+        "simulatedElapsedMs": 29000
+      }
+    },
+    {
+      "id": "groq-cancel-before-call",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "attempts": 0
+      }
+    },
+    {
+      "id": "groq-bounded-queue-cancellation",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "pending": 8,
+        "overflowStatus": 429,
+        "cancelled": 8,
+        "attempts": 1
+      }
+    },
+    {
+      "id": "groq-queue-wait-budget",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "rpm": 6,
+        "requiredSpacingMs": 10000,
+        "queueWaitBudgetMs": 10000,
+        "attempts": 1,
+        "rejectedAtBudgetBoundary": true
+      }
+    },
+    {
+      "id": "gemini-confirmed-access-denial",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "attempts": 1,
+        "safeStatus": 503
+      }
+    },
+    {
+      "id": "request-context-deadline",
+      "stage": "provider",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "attempts": 0,
+        "rejectedBeforeRequestDeadline": true
+      }
+    },
+    {
+      "id": "missing-session-stops-handler",
+      "stage": "authentication",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "status": 401,
+        "downstreamInvoked": false
+      }
+    },
+    {
+      "id": "ollama-unavailable-chat-error",
+      "stage": "embedding",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "status": 503,
+        "code": "RETRIEVAL_FAILED"
+      }
+    },
+    {
+      "id": "postgres-unavailable-retrieval-error",
+      "stage": "database",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "status": 503,
+        "code": "RETRIEVAL_FAILED"
+      }
+    },
+    {
+      "id": "retrieval-cancel-before-work",
+      "stage": "retrieval",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "embeddingInvoked": false
+      }
+    },
+    {
+      "id": "embedding-timeout-propagation",
+      "stage": "embedding",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "status": 504,
+        "code": "CHAT_TIMEOUT",
+        "timeoutInjected": true
+      }
+    },
+    {
+      "id": "generation-429",
+      "stage": "generation",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "status": 429,
+        "code": "PROVIDER_RATE_LIMITED"
+      }
+    },
+    {
+      "id": "generation-403",
+      "stage": "generation",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "status": 502,
+        "code": "GENERATION_FAILED"
+      }
+    },
+    {
+      "id": "generation-503",
+      "stage": "generation",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "status": 502,
+        "code": "GENERATION_FAILED"
+      }
+    },
+    {
+      "id": "generation-timeout",
+      "stage": "generation",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "status": 504,
+        "code": "CHAT_TIMEOUT"
+      }
+    },
+    {
+      "id": "tool-invalid-sort-recovery",
+      "stage": "tools",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "backendQueries": 1,
+        "recovered": true
+      }
+    },
+    {
+      "id": "tool-call-budget-and-cancellation",
+      "stage": "tools",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "budget": 10,
+        "eleventhRejected": true,
+        "cancelled": true
+      }
+    },
+    {
+      "id": "safe-logs-and-classification",
+      "stage": "generation",
+      "kind": "simulated",
+      "passed": true,
+      "observed": {
+        "sensitiveSentinelAbsent": true,
+        "records": 112
+      }
+    }
+  ],
+  "pacing": null
+}

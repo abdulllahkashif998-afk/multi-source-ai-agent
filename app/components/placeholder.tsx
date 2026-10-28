@@ -1,0 +1,4 @@
+import Link from 'next/link';
+export function Placeholder({ title, description, icon }: { title: string; description: string; icon: string }) {
+  return <><div className="page-heading"><p className="eyebrow">YOUR WORKSPACE</p><h1>{title}</h1><p className="muted">{description}</p></div><section className="empty-state"><span className="empty-icon" aria-hidden="true">{icon}</span><span className="pill">COMING IN A LATER PHASE</span><h2>A dedicated space for {title === 'AI Chat' ? 'your questions' : `your ${title.toLowerCase()}`}.</h2><p>This space is a preview. You can navigate your workspace; {title === 'AI Chat' ? 'chat' : title === 'Documents' ? 'document uploads' : 'dataset tools'} will be available in a future update.</p><Link className="button secondary" href="/dashboard">Back to overview →</Link></section></>;
+}

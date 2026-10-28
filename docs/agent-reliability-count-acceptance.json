@@ -1,0 +1,698 @@
+{
+  "scope": "real backend/PG under verified dataset-owner scope; not a browser session replay",
+  "actualGroqRequests": 0,
+  "blockedHttpAttempts": 0,
+  "datasetFingerprintUnchanged": true,
+  "latencyMs": {
+    "n": 5,
+    "min": 6.693199999999933,
+    "p50": 7.790442999999868,
+    "p95": 58.23943699999995,
+    "max": 58.23943699999995,
+    "mean": 17.76983139999993
+  },
+  "samples": [
+    {
+      "iteration": 1,
+      "status": 200,
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "durationMs": 58.23943699999995,
+      "grounded": true,
+      "hasExpectedStudents": true,
+      "hasExpectedTeachers": true,
+      "hasCSVMarker": true,
+      "sources": [
+        {
+          "id": "C1",
+          "type": "csv",
+          "datasetId": "8",
+          "quotesExact": true
+        }
+      ],
+      "verifiedCountPlan": true
+    },
+    {
+      "iteration": 2,
+      "status": 200,
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "durationMs": 9.288127999999915,
+      "grounded": true,
+      "hasExpectedStudents": true,
+      "hasExpectedTeachers": true,
+      "hasCSVMarker": true,
+      "sources": [
+        {
+          "id": "C1",
+          "type": "csv",
+          "datasetId": "8",
+          "quotesExact": true
+        }
+      ],
+      "verifiedCountPlan": true
+    },
+    {
+      "iteration": 3,
+      "status": 200,
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "durationMs": 7.790442999999868,
+      "grounded": true,
+      "hasExpectedStudents": true,
+      "hasExpectedTeachers": true,
+      "hasCSVMarker": true,
+      "sources": [
+        {
+          "id": "C1",
+          "type": "csv",
+          "datasetId": "8",
+          "quotesExact": true
+        }
+      ],
+      "verifiedCountPlan": true
+    },
+    {
+      "iteration": 4,
+      "status": 200,
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "durationMs": 6.8379489999999805,
+      "grounded": true,
+      "hasExpectedStudents": true,
+      "hasExpectedTeachers": true,
+      "hasCSVMarker": true,
+      "sources": [
+        {
+          "id": "C1",
+          "type": "csv",
+          "datasetId": "8",
+          "quotesExact": true
+        }
+      ],
+      "verifiedCountPlan": true
+    },
+    {
+      "iteration": 5,
+      "status": 200,
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "durationMs": 6.693199999999933,
+      "grounded": true,
+      "hasExpectedStudents": true,
+      "hasExpectedTeachers": true,
+      "hasCSVMarker": true,
+      "sources": [
+        {
+          "id": "C1",
+          "type": "csv",
+          "datasetId": "8",
+          "quotesExact": true
+        }
+      ],
+      "verifiedCountPlan": true
+    }
+  ],
+  "stages": [
+    {
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.7
+    },
+    {
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 4.9
+    },
+    {
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 1.8
+    },
+    {
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.7
+    },
+    {
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "stage": "dataset-discovery",
+      "outcome": "ok",
+      "durationMs": 9.2
+    },
+    {
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "stage": "tool",
+      "tool": "discoverDatasets",
+      "outcome": "ok",
+      "durationMs": 13.1
+    },
+    {
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "stage": "tool",
+      "tool": "inspectDataset",
+      "outcome": "ok",
+      "durationMs": 1
+    },
+    {
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.5
+    },
+    {
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.4
+    },
+    {
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.9
+    },
+    {
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 1.7
+    },
+    {
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.5
+    },
+    {
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "stage": "csv-query",
+      "outcome": "ok",
+      "durationMs": 5.1
+    },
+    {
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "stage": "csv-query",
+      "outcome": "ok",
+      "durationMs": 5.1
+    },
+    {
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "stage": "tool",
+      "tool": "queryDataset",
+      "outcome": "ok",
+      "durationMs": 31.3
+    },
+    {
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "stage": "structured-count",
+      "outcome": "ok",
+      "durationMs": 47.2
+    },
+    {
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "stage": "citation-verification",
+      "outcome": "ok",
+      "durationMs": 3.4
+    },
+    {
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "stage": "agent",
+      "outcome": "grounded",
+      "durationMs": 51.9
+    },
+    {
+      "requestId": "3066b0eb-1345-461c-8f18-c22ceb63482c",
+      "stage": "request",
+      "outcome": "ok",
+      "durationMs": 56.4
+    },
+    {
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.4
+    },
+    {
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.2
+    },
+    {
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.8
+    },
+    {
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "stage": "dataset-discovery",
+      "outcome": "ok",
+      "durationMs": 2.3
+    },
+    {
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "stage": "tool",
+      "tool": "discoverDatasets",
+      "outcome": "ok",
+      "durationMs": 2.9
+    },
+    {
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "stage": "tool",
+      "tool": "inspectDataset",
+      "outcome": "ok",
+      "durationMs": 0.9
+    },
+    {
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.7
+    },
+    {
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 1.2
+    },
+    {
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "stage": "csv-query",
+      "outcome": "ok",
+      "durationMs": 3.5
+    },
+    {
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "stage": "csv-query",
+      "outcome": "ok",
+      "durationMs": 3.5
+    },
+    {
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "stage": "tool",
+      "tool": "queryDataset",
+      "outcome": "ok",
+      "durationMs": 4.1
+    },
+    {
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "stage": "structured-count",
+      "outcome": "ok",
+      "durationMs": 8.3
+    },
+    {
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "stage": "citation-verification",
+      "outcome": "ok",
+      "durationMs": 0.2
+    },
+    {
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "stage": "agent",
+      "outcome": "grounded",
+      "durationMs": 8.6
+    },
+    {
+      "requestId": "af8b9239-b793-4be0-807f-d788c3a7f15b",
+      "stage": "request",
+      "outcome": "ok",
+      "durationMs": 9.2
+    },
+    {
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.4
+    },
+    {
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.7
+    },
+    {
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "stage": "dataset-discovery",
+      "outcome": "ok",
+      "durationMs": 2.1
+    },
+    {
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "stage": "tool",
+      "tool": "discoverDatasets",
+      "outcome": "ok",
+      "durationMs": 2.6
+    },
+    {
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "stage": "tool",
+      "tool": "inspectDataset",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.7
+    },
+    {
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.8
+    },
+    {
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "stage": "csv-query",
+      "outcome": "ok",
+      "durationMs": 2.9
+    },
+    {
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "stage": "csv-query",
+      "outcome": "ok",
+      "durationMs": 2.9
+    },
+    {
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "stage": "tool",
+      "tool": "queryDataset",
+      "outcome": "ok",
+      "durationMs": 3.8
+    },
+    {
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "stage": "structured-count",
+      "outcome": "ok",
+      "durationMs": 6.9
+    },
+    {
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "stage": "citation-verification",
+      "outcome": "ok",
+      "durationMs": 0.2
+    },
+    {
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "stage": "agent",
+      "outcome": "grounded",
+      "durationMs": 7.4
+    },
+    {
+      "requestId": "40394780-cc08-4376-885b-2e8e21be4488",
+      "stage": "request",
+      "outcome": "ok",
+      "durationMs": 7.7
+    },
+    {
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.6
+    },
+    {
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "stage": "dataset-discovery",
+      "outcome": "ok",
+      "durationMs": 2.2
+    },
+    {
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "stage": "tool",
+      "tool": "discoverDatasets",
+      "outcome": "ok",
+      "durationMs": 2.6
+    },
+    {
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "stage": "tool",
+      "tool": "inspectDataset",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.5
+    },
+    {
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.7
+    },
+    {
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.2
+    },
+    {
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "stage": "csv-query",
+      "outcome": "ok",
+      "durationMs": 2.5
+    },
+    {
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "stage": "csv-query",
+      "outcome": "ok",
+      "durationMs": 2.5
+    },
+    {
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "stage": "tool",
+      "tool": "queryDataset",
+      "outcome": "ok",
+      "durationMs": 2.9
+    },
+    {
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "stage": "structured-count",
+      "outcome": "ok",
+      "durationMs": 6.1
+    },
+    {
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "stage": "citation-verification",
+      "outcome": "ok",
+      "durationMs": 0.2
+    },
+    {
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "stage": "agent",
+      "outcome": "grounded",
+      "durationMs": 6.4
+    },
+    {
+      "requestId": "afbb18b5-cdc0-481f-a82a-58bb15bee875",
+      "stage": "request",
+      "outcome": "ok",
+      "durationMs": 6.8
+    },
+    {
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.2
+    },
+    {
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.5
+    },
+    {
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.2
+    },
+    {
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "stage": "dataset-discovery",
+      "outcome": "ok",
+      "durationMs": 1.5
+    },
+    {
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "stage": "tool",
+      "tool": "discoverDatasets",
+      "outcome": "ok",
+      "durationMs": 1.9
+    },
+    {
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "stage": "tool",
+      "tool": "inspectDataset",
+      "outcome": "ok",
+      "durationMs": 0.5
+    },
+    {
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.2
+    },
+    {
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.4
+    },
+    {
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.8
+    },
+    {
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "stage": "csv-query",
+      "outcome": "ok",
+      "durationMs": 2.5
+    },
+    {
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "stage": "csv-query",
+      "outcome": "ok",
+      "durationMs": 2.5
+    },
+    {
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "stage": "tool",
+      "tool": "queryDataset",
+      "outcome": "ok",
+      "durationMs": 3.2
+    },
+    {
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "stage": "structured-count",
+      "outcome": "ok",
+      "durationMs": 5.8
+    },
+    {
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "stage": "citation-verification",
+      "outcome": "ok",
+      "durationMs": 0.4
+    },
+    {
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "stage": "agent",
+      "outcome": "grounded",
+      "durationMs": 6.3
+    },
+    {
+      "requestId": "8bc570f5-e528-4e62-b543-35b32c0d186d",
+      "stage": "request",
+      "outcome": "ok",
+      "durationMs": 6.6
+    }
+  ]
+}
