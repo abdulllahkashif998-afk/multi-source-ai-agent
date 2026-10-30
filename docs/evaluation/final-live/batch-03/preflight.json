@@ -1,0 +1,16 @@
+{
+  "kind": "read-only-environment-health-not-live-answer-evaluation",
+  "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "keyConfigured": true,
+  "configuredRPM": 12,
+  "postgresVersion": "18.6 (Ubuntu 18.6-0ubuntu0.26.04.1)",
+  "pgvectorVersion": "0.8.1",
+  "embeddingShape": "vector(768)",
+  "fixtureTablesPresent": 4,
+  "tempPrivilege": true,
+  "localEmbeddingDimensions": 768,
+  "groqAttempts": 0,
+  "currentOrganizationQuotaRemaining": "not observable without authenticated response headers/dashboard; not inferred from key presence"
+}

@@ -1,3 +1,5 @@
+import {withProviderDeadline} from './provider-deadline';
+import {rateLimitGuidance} from './rate-limit-guidance';
 import { measure, logEvent } from './reliability';
 import { z } from "zod";
 import { ChatError } from "./chat-errors";
@@ -52,6 +54,7 @@ export async function readQuestion(request: Request) {
 
 export function createChatHandler(dependencies: ChatDependencies) {
   return async function POST(request: Request) {
+    const deadline=Date.now()+45_000;
     const signal = AbortSignal.any([request.signal, AbortSignal.timeout(45_000)]);
     let stage: "request" | "retrieval" | "generation" | "citation-verification" = "request";
     let stageStarted=performance.now();
@@ -68,7 +71,7 @@ export function createChatHandler(dependencies: ChatDependencies) {
       }
       stage = "generation";
       stageStarted=performance.now();
-      const generated = await measure('final-generation',()=>dependencies.generate(question, evidence, signal));
+      const generated = await measure('final-generation',()=>withProviderDeadline(deadline,()=>dependencies.generate(question, evidence, signal)));
       signal.throwIfAborted();
       stage = "citation-verification";
       stageStarted=performance.now();
@@ -90,9 +93,10 @@ export function createChatHandler(dependencies: ChatDependencies) {
         failure = new ChatError("INVALID_REQUEST", "Could not read the request.", 400);
       }
       // Do not log or return provider errors, keys, prompts, or document text.
-      return Response.json({ success: false, code: failure.code, error: failure.message }, {
+      const retry=rateLimitGuidance(failure);
+      return Response.json({ success: false, code: failure.code, error: failure.message,...retry.body }, {
         status: failure.status,
-        headers: { "Cache-Control": "no-store" },
+        headers: { "Cache-Control": "no-store",...retry.headers },
       });
     }
   };

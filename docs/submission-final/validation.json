@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-30",
+  "liveProviderCalls": 0,
+  "standardTests": {
+    "command": "npm test",
+    "passed": 320,
+    "failed": 0,
+    "skipped": 12,
+    "total": 332,
+    "note": "Final run with subprocess permissions; initial sandbox run had two empty-child-output failures."
+  },
+  "focusedChildAndQuotaTests": {
+    "passed": 19,
+    "failed": 0
+  },
+  "databaseTests": {
+    "passed": 331,
+    "failed": 0,
+    "skipped": 0,
+    "source": "Saved pre-finalization full database run, /tmp/policy-eval-delivery-db.log",
+    "rerun": false,
+    "reason": "Backend unchanged in this finalization; successful expensive verification reused."
+  },
+  "typeScript": {
+    "command": "npx tsc --noEmit",
+    "exitCode": 0
+  },
+  "eslint": {
+    "command": "npm run lint",
+    "exitCode": 0
+  },
+  "build": {
+    "command": "npx next build --webpack",
+    "exitCode": 0
+  },
+  "security": {
+    "command": "npm run security:check",
+    "findings": 0,
+    "trackedFiles": 213,
+    "scannedFiles": 359,
+    "historyBlobs": 415
+  },
+  "browser": "Fictional actual-component native Chrome desktop/mobile checks; no new authenticated E2E or live AI acceptance",
+  "gitDiffCheck": "passed",
+  "documentationLinks": {
+    "checked": 311,
+    "missing": 0,
+    "note": "Local file targets only; external URLs/anchors not checked"
+  }
+}

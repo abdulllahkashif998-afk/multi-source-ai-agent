@@ -9,7 +9,7 @@ test('document file validation allows PDF/DOCX and rejects empty, unsafe, wrong-
  for(const f of [new File([],'empty.pdf'),new File(['x'],'a.csv'),new File(['x'],'../a.pdf'),new File([new Uint8Array(10*1024*1024+1)],'large.pdf')])assert.throws(()=>validateDocumentFile(f),{code:'INVALID_FILE'});
 });
 test('document list uses same-origin no-store requests and validates/sanitizes responses',async()=>{
- mock.method(globalThis,'fetch',async(url:unknown,init?:RequestInit)=>{assert.equal(url,'/api/documents?limit=20&before=2');assert.equal(init?.credentials,'same-origin');assert.equal(init?.cache,'no-store');return Response.json({success:true,documents:[],nextCursor:null});});
+ mock.method(globalThis,'fetch',async(url:unknown,init?:RequestInit)=>{assert.equal(url,'/api/documents?limit=10&before=2');assert.equal(init?.credentials,'same-origin');assert.equal(init?.cache,'no-store');return Response.json({success:true,documents:[],nextCursor:null});});
  assert.deepEqual((await fetchDocuments('2')).documents,[]);mock.restoreAll();
  for(const [status,body,code] of [[401,{code:'UNAUTHENTICATED'},'UNAUTHENTICATED'],[503,{error:'secret'},'DOCUMENT_FAILED'],[200,{success:true,documents:[{file_path:'private'}]},'DOCUMENT_LIST_FAILED']] as const){
  mock.method(globalThis,'fetch',async()=>Response.json(body,{status}));await assert.rejects(fetchDocuments(),(error:unknown)=>error instanceof Error&&!error.message.includes('secret')&&!error.message.includes('private')&&(error as {code?:string}).code===code);mock.restoreAll();}

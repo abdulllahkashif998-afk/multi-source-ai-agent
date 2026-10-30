@@ -1,0 +1,343 @@
+[
+  {
+    "loggerTimestamp": "01:32:56.811",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 18.2
+  },
+  {
+    "loggerTimestamp": "01:32:56.820",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "structured-operation",
+    "outcome": "ok",
+    "durationMs": 3.9
+  },
+  {
+    "loggerTimestamp": "01:32:56.821",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "structured-count",
+    "outcome": "ok",
+    "durationMs": 0.5
+  },
+  {
+    "loggerTimestamp": "01:32:56.828",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.4
+  },
+  {
+    "loggerTimestamp": "01:32:56.829",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.6
+  },
+  {
+    "loggerTimestamp": "01:32:56.831",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 1.9
+  },
+  {
+    "loggerTimestamp": "01:32:56.833",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.6
+  },
+  {
+    "loggerTimestamp": "01:32:56.833",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "dataset-discovery",
+    "outcome": "ok",
+    "durationMs": 6.2
+  },
+  {
+    "loggerTimestamp": "01:32:56.834",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "tool",
+    "tool": "discoverDatasets",
+    "outcome": "ok",
+    "durationMs": 11.6
+  },
+  {
+    "loggerTimestamp": "01:32:56.835",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "tool",
+    "tool": "inspectDataset",
+    "outcome": "ok",
+    "durationMs": 0.4
+  },
+  {
+    "loggerTimestamp": "01:32:56.836",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "tool",
+    "tool": "inspectDataset",
+    "outcome": "ok",
+    "durationMs": 0.2
+  },
+  {
+    "loggerTimestamp": "01:32:56.844",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "model-call",
+    "durationMs": 0,
+    "phase": "planning",
+    "modelCallCount": 1,
+    "providerAttemptCount": 0
+  },
+  {
+    "loggerTimestamp": "01:32:57.882",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "planning-groq",
+    "outcome": "ok",
+    "durationMs": 1038.1
+  },
+  {
+    "loggerTimestamp": "01:32:58.147",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "embedding",
+    "outcome": "ok",
+    "durationMs": 250.2
+  },
+  {
+    "loggerTimestamp": "01:32:58.167",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 19.2
+  },
+  {
+    "loggerTimestamp": "01:32:58.168",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "retrieval",
+    "outcome": "ok",
+    "durationMs": 270.8
+  },
+  {
+    "loggerTimestamp": "01:32:58.168",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "retrieval",
+    "outcome": "ok",
+    "durationMs": 274.7
+  },
+  {
+    "loggerTimestamp": "01:32:58.169",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "tool",
+    "tool": "searchDocuments",
+    "outcome": "ok",
+    "durationMs": 277.9
+  },
+  {
+    "loggerTimestamp": "01:32:58.172",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "model-call",
+    "durationMs": 0,
+    "phase": "planning",
+    "modelCallCount": 2,
+    "providerAttemptCount": 0
+  },
+  {
+    "loggerTimestamp": "01:33:03.267",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "planning-wall",
+    "outcome": "error",
+    "durationMs": 6440.2,
+    "httpStatus": 400,
+    "providerCode": "tool_use_failed",
+    "providerToolFailure": {
+      "reason": "unrecognized_envelope"
+    }
+  },
+  {
+    "loggerTimestamp": "01:33:03.270",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "agent",
+    "outcome": "failed",
+    "durationMs": 6454
+  },
+  {
+    "loggerTimestamp": "01:33:03.272",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "planning",
+    "outcome": "error",
+    "durationMs": 0,
+    "httpStatus": 400,
+    "providerCode": "tool_use_failed",
+    "providerToolFailure": {
+      "reason": "unrecognized_envelope"
+    }
+  },
+  {
+    "loggerTimestamp": "01:33:03.275",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "agent-invocation",
+    "outcome": "error",
+    "durationMs": 0,
+    "httpStatus": 400,
+    "providerCode": "tool_use_failed",
+    "providerToolFailure": {
+      "reason": "unrecognized_envelope"
+    }
+  },
+  {
+    "loggerTimestamp": "01:33:03.278",
+    "requestId": "8bd72391-b2bc-4112-bf3f-99ebbe31f866",
+    "stage": "request",
+    "outcome": "error",
+    "durationMs": 6485,
+    "httpStatus": 502
+  },
+  {
+    "loggerTimestamp": "01:33:22.641",
+    "requestId": "7f7a5eac-00fc-4d81-a2ac-497a756c9bca",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 50.6
+  },
+  {
+    "loggerTimestamp": "01:33:22.654",
+    "requestId": "7f7a5eac-00fc-4d81-a2ac-497a756c9bca",
+    "stage": "structured-operation",
+    "outcome": "ok",
+    "durationMs": 3.6
+  },
+  {
+    "loggerTimestamp": "01:33:22.656",
+    "requestId": "7f7a5eac-00fc-4d81-a2ac-497a756c9bca",
+    "stage": "structured-count",
+    "outcome": "ok",
+    "durationMs": 0.5
+  },
+  {
+    "loggerTimestamp": "01:33:22.661",
+    "requestId": "7f7a5eac-00fc-4d81-a2ac-497a756c9bca",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 1.8
+  },
+  {
+    "loggerTimestamp": "01:33:22.663",
+    "requestId": "7f7a5eac-00fc-4d81-a2ac-497a756c9bca",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 1.7
+  },
+  {
+    "loggerTimestamp": "01:33:22.670",
+    "requestId": "7f7a5eac-00fc-4d81-a2ac-497a756c9bca",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 5.8
+  },
+  {
+    "loggerTimestamp": "01:33:22.673",
+    "requestId": "7f7a5eac-00fc-4d81-a2ac-497a756c9bca",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 1
+  },
+  {
+    "loggerTimestamp": "01:33:22.675",
+    "requestId": "7f7a5eac-00fc-4d81-a2ac-497a756c9bca",
+    "stage": "dataset-discovery",
+    "outcome": "ok",
+    "durationMs": 16.6
+  },
+  {
+    "loggerTimestamp": "01:33:22.678",
+    "requestId": "7f7a5eac-00fc-4d81-a2ac-497a756c9bca",
+    "stage": "tool",
+    "tool": "discoverDatasets",
+    "outcome": "ok",
+    "durationMs": 19.3
+  },
+  {
+    "loggerTimestamp": "01:33:22.681",
+    "requestId": "7f7a5eac-00fc-4d81-a2ac-497a756c9bca",
+    "stage": "tool",
+    "tool": "inspectDataset",
+    "outcome": "ok",
+    "durationMs": 0.4
+  },
+  {
+    "loggerTimestamp": "01:33:22.683",
+    "requestId": "7f7a5eac-00fc-4d81-a2ac-497a756c9bca",
+    "stage": "tool",
+    "tool": "inspectDataset",
+    "outcome": "ok",
+    "durationMs": 0.6
+  },
+  {
+    "loggerTimestamp": "01:33:22.702",
+    "requestId": "7f7a5eac-00fc-4d81-a2ac-497a756c9bca",
+    "stage": "model-call",
+    "durationMs": 0,
+    "phase": "planning",
+    "modelCallCount": 1,
+    "providerAttemptCount": 0
+  },
+  {
+    "loggerTimestamp": "01:33:22.780",
+    "requestId": "7f7a5eac-00fc-4d81-a2ac-497a756c9bca",
+    "stage": "planning-wall",
+    "outcome": "error",
+    "durationMs": 119,
+    "httpStatus": 429,
+    "quotaRequestedTokens": 3222,
+    "quotaMinuteTokens": 5404,
+    "quotaDayTokens": 128061,
+    "quotaRemoteTokensRemaining": 2205,
+    "retryAfterSeconds": 41,
+    "rateLimitOrigin": "local",
+    "quotaReason": "tpm"
+  },
+  {
+    "loggerTimestamp": "01:33:22.781",
+    "requestId": "7f7a5eac-00fc-4d81-a2ac-497a756c9bca",
+    "stage": "agent",
+    "outcome": "failed",
+    "durationMs": 131
+  },
+  {
+    "loggerTimestamp": "01:33:22.782",
+    "requestId": "7f7a5eac-00fc-4d81-a2ac-497a756c9bca",
+    "stage": "planning",
+    "outcome": "error",
+    "durationMs": 0,
+    "httpStatus": 429,
+    "quotaRequestedTokens": 3222,
+    "quotaMinuteTokens": 5404,
+    "quotaDayTokens": 128061,
+    "quotaRemoteTokensRemaining": 2205,
+    "retryAfterSeconds": 41,
+    "rateLimitOrigin": "local",
+    "quotaReason": "tpm"
+  },
+  {
+    "loggerTimestamp": "01:33:22.784",
+    "requestId": "7f7a5eac-00fc-4d81-a2ac-497a756c9bca",
+    "stage": "agent-invocation",
+    "outcome": "error",
+    "durationMs": 0,
+    "httpStatus": 429,
+    "quotaRequestedTokens": 3222,
+    "quotaMinuteTokens": 5404,
+    "quotaDayTokens": 128061,
+    "quotaRemoteTokensRemaining": 2205,
+    "retryAfterSeconds": 41,
+    "rateLimitOrigin": "local",
+    "quotaReason": "tpm"
+  },
+  {
+    "loggerTimestamp": "01:33:22.788",
+    "requestId": "7f7a5eac-00fc-4d81-a2ac-497a756c9bca",
+    "stage": "request",
+    "outcome": "error",
+    "durationMs": 197.3,
+    "httpStatus": 429
+  }
+]

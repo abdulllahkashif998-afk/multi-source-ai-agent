@@ -1,0 +1,4725 @@
+{
+  "kind": "real-groq-six-case-before-after",
+  "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "startedAt": "2026-10-29T11:42:31.845Z",
+  "completedAt": "2026-10-29T11:49:40.926Z",
+  "approval": {
+    "maxHTTPAttempts": 54,
+    "tokenPlanningAllowance": 90000,
+    "estimatedTokens": [
+      20000,
+      60000
+    ],
+    "configuredRPM": 12,
+    "interCasePauseSeconds": 65,
+    "automaticRetries": false
+  },
+  "preservation": {
+    "sourceAndHistoricalFilesUnchanged": true,
+    "databaseRecordsUnchanged": true
+  },
+  "summary": {
+    "selected": 6,
+    "executed": 6,
+    "remainingSelected": 0,
+    "returnedResponses": 5,
+    "automaticPass": 5,
+    "automaticFail": 1,
+    "pass": 0,
+    "fail": 1,
+    "needsReview": 5,
+    "humanReviewed": 0,
+    "requests": 24,
+    "reportedPromptTokens": 26464,
+    "reportedCompletionTokens": 1929,
+    "reportedTotalTokens": 28393,
+    "unknownUsageAttempts": 1,
+    "stopReason": null
+  },
+  "cases": [
+    {
+      "benchmark": {
+        "id": "csv-05",
+        "category": "csv",
+        "system": "agent",
+        "corpus": "base",
+        "question": "List the East-region sales amounts, largest first.",
+        "relevantChunks": [],
+        "expectedSources": [
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "East amounts in descending order are 20 and 10 units.",
+        "facts": [],
+        "plan": {
+          "datasetId": "201",
+          "filters": [
+            {
+              "column": "region",
+              "op": "eq",
+              "value": "East"
+            }
+          ],
+          "sort": {
+            "column": "amount",
+            "direction": "desc"
+          }
+        },
+        "expectedRows": [
+          {
+            "team": "Alpha",
+            "amount": 20,
+            "region": "East"
+          },
+          {
+            "team": "Alpha",
+            "amount": 10,
+            "region": "East"
+          }
+        ],
+        "reviewNotes": "Review calculation meaning, filters, groups and whether the answer overstates limited evidence."
+      },
+      "before": {
+        "result": {
+          "id": "csv-05",
+          "category": "csv",
+          "system": "agent",
+          "expectedRefusal": false,
+          "executed": true,
+          "status": "fail",
+          "durationMs": 10689.306803,
+          "answerDurationMs": 10609.406578,
+          "score": null,
+          "retrieval": [],
+          "stages": [
+            {
+              "stage": "structured-count",
+              "durationMs": 0.7,
+              "outcome": "ok",
+              "requestId": "22a61415-1baf-4c18-8993-48c2f15e81a5"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 0,
+              "outcome": "ok",
+              "requestId": "22a61415-1baf-4c18-8993-48c2f15e81a5"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 1022.3,
+              "outcome": "ok",
+              "requestId": "22a61415-1baf-4c18-8993-48c2f15e81a5"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 1193,
+              "outcome": "ok",
+              "requestId": "22a61415-1baf-4c18-8993-48c2f15e81a5"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 14,
+              "outcome": "ok",
+              "requestId": "22a61415-1baf-4c18-8993-48c2f15e81a5"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 0.5,
+              "outcome": "ok",
+              "requestId": "22a61415-1baf-4c18-8993-48c2f15e81a5"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 2,
+              "outcome": "ok",
+              "requestId": "22a61415-1baf-4c18-8993-48c2f15e81a5"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 0.5,
+              "outcome": "ok",
+              "requestId": "22a61415-1baf-4c18-8993-48c2f15e81a5"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 19.9,
+              "outcome": "ok",
+              "tool": "discoverDatasets",
+              "requestId": "22a61415-1baf-4c18-8993-48c2f15e81a5"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 3783.3,
+              "outcome": "ok",
+              "requestId": "22a61415-1baf-4c18-8993-48c2f15e81a5"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 966.3,
+              "outcome": "ok",
+              "requestId": "22a61415-1baf-4c18-8993-48c2f15e81a5"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 4753.3,
+              "outcome": "ok",
+              "requestId": "22a61415-1baf-4c18-8993-48c2f15e81a5"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 1.8,
+              "outcome": "ok",
+              "tool": "inspectDataset",
+              "requestId": "22a61415-1baf-4c18-8993-48c2f15e81a5"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4014,
+              "outcome": "ok",
+              "requestId": "22a61415-1baf-4c18-8993-48c2f15e81a5"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 567.9,
+              "outcome": "error",
+              "requestId": "22a61415-1baf-4c18-8993-48c2f15e81a5"
+            },
+            {
+              "stage": "planning-wall",
+              "durationMs": 10602.9,
+              "outcome": "error",
+              "requestId": "22a61415-1baf-4c18-8993-48c2f15e81a5"
+            },
+            {
+              "stage": "agent",
+              "durationMs": 10606.4,
+              "outcome": "failed",
+              "requestId": "22a61415-1baf-4c18-8993-48c2f15e81a5"
+            },
+            {
+              "stage": "planning",
+              "durationMs": 0,
+              "outcome": "error",
+              "requestId": "22a61415-1baf-4c18-8993-48c2f15e81a5"
+            },
+            {
+              "stage": "request",
+              "durationMs": 10608.1,
+              "outcome": "error",
+              "requestId": "22a61415-1baf-4c18-8993-48c2f15e81a5"
+            },
+            {
+              "stage": "answer-end-to-end",
+              "durationMs": 10609.406578,
+              "outcome": "error"
+            }
+          ],
+          "error": {
+            "category": "other",
+            "errorType": "AI_APICallError",
+            "httpStatus": 400
+          }
+        },
+        "judgment": {
+          "id": "csv-05",
+          "executed": true,
+          "status": "fail",
+          "automatic": "fail",
+          "reasons": [],
+          "uncertainty": [],
+          "categories": [
+            "provider_failure"
+          ],
+          "suspects": [],
+          "checkedCSV": [],
+          "human": "not-reviewed",
+          "answerHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+        },
+        "http": {
+          "attempts": [
+            {
+              "status": 200,
+              "inputBytes": 3914,
+              "promptTokens": 739,
+              "completionTokens": 32,
+              "totalTokens": 771,
+              "durationMs": 1016.9216869999998,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 981,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 7171
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 4425,
+              "promptTokens": 824,
+              "completionTokens": 25,
+              "totalTokens": 849,
+              "durationMs": 961.8574639999997,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 980,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6975
+              }
+            },
+            {
+              "status": 400,
+              "inputBytes": 4946,
+              "promptTokens": null,
+              "completionTokens": null,
+              "totalTokens": null,
+              "durationMs": 555.410471000001,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 979,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 7005
+              }
+            }
+          ],
+          "stopReason": null
+        }
+      },
+      "after": {
+        "result": {
+          "id": "csv-05",
+          "category": "csv",
+          "system": "agent",
+          "expectedRefusal": false,
+          "executed": true,
+          "status": "needs-review",
+          "durationMs": 25914.363737,
+          "answerDurationMs": 25720.676778999998,
+          "score": {
+            "status": "needs-review",
+            "automatedStatus": "pass",
+            "failures": [],
+            "review": [
+              "unregistered_valid_query_plan_requires_review",
+              "free_text_entailment_units_conditions_and_completeness_require_human_review"
+            ],
+            "citationPrecision": 1,
+            "sourceRecall": 1,
+            "quoteValidity": 1,
+            "numeric": [],
+            "refusalCorrect": false
+          },
+          "retrieval": [],
+          "stages": [
+            {
+              "stage": "structured-count",
+              "durationMs": 0.6,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 0,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 438,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 549.3,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 0.4,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 0.3,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 1,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 0.3,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 4,
+              "outcome": "ok",
+              "tool": "discoverDatasets",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4443.8,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 713.2,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 5161.5,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 2.4,
+              "outcome": "ok",
+              "tool": "inspectDataset",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4269.5,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 730.9,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 5004.8,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "tool-validation",
+              "durationMs": 0,
+              "outcome": "error",
+              "tool": "queryDataset",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "tool-execution",
+              "durationMs": 0,
+              "outcome": "error",
+              "tool": "queryDataset",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 4.3,
+              "outcome": "error",
+              "tool": "queryDataset",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4254.7,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 351,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 4609.1,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 0.4,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 0.3,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 0.6,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 8.1,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 0.3,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "csv-query",
+              "durationMs": 10.3,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 26.9,
+              "outcome": "ok",
+              "tool": "queryDataset",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4618.7,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 687.7,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 5308.4,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "planning-wall",
+              "durationMs": 20713.2,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4307.5,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 674.1,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "final-generation",
+              "durationMs": 4991.2,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "citation-verification",
+              "durationMs": 11.2,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 0,
+              "outcome": "recovered",
+              "tool": "queryDataset",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "agent",
+              "durationMs": 25717.5,
+              "outcome": "grounded",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "request",
+              "durationMs": 25719.8,
+              "outcome": "ok",
+              "requestId": "6e69c636-ef81-4d23-8208-8c79ccae62d0"
+            },
+            {
+              "stage": "answer-end-to-end",
+              "durationMs": 25720.676778999998,
+              "outcome": "ok"
+            }
+          ],
+          "error": null,
+          "answer": {
+            "grounded": true,
+            "answer": "East-region sales totals, sorted largest first: Alpha – 30 [C1]",
+            "sources": [
+              {
+                "id": "C1",
+                "filename": "sales.csv",
+                "type": "csv",
+                "datasetId": "201",
+                "text": "[{\"team\":\"Alpha\",\"value\":30}]",
+                "quotes": [
+                  "[{\"team\":\"Alpha\",\"value\":30}]"
+                ],
+                "rows": [
+                  {
+                    "team": "Alpha",
+                    "value": 30
+                  }
+                ],
+                "plan": {
+                  "datasetId": "201",
+                  "filters": [
+                    {
+                      "column": "region",
+                      "op": "eq",
+                      "value": "East"
+                    }
+                  ],
+                  "groupBy": [
+                    "team"
+                  ],
+                  "aggregate": {
+                    "op": "sum",
+                    "column": "amount"
+                  },
+                  "sort": {
+                    "column": "value",
+                    "direction": "desc"
+                  },
+                  "limit": 100
+                },
+                "possiblyTruncated": false
+              }
+            ]
+          }
+        },
+        "judgment": {
+          "id": "csv-05",
+          "executed": true,
+          "status": "needs-review",
+          "automatic": "pass",
+          "reasons": [],
+          "uncertainty": [
+            "unregistered_valid_query_plan_requires_review",
+            "free_text_entailment_units_conditions_and_completeness_require_human_review"
+          ],
+          "categories": [],
+          "suspects": [],
+          "checkedCSV": [
+            {
+              "sourceId": "C1",
+              "matches": true,
+              "expectedRows": [
+                {
+                  "team": "Alpha",
+                  "value": 30
+                }
+              ]
+            }
+          ],
+          "human": "not-reviewed",
+          "answerHash": "4b7d4c6dd293c345202d893dc8094afff7ac6e946788e68881ca58c39d0b3709"
+        },
+        "http": {
+          "attempts": [
+            {
+              "status": 200,
+              "inputBytes": 4696,
+              "promptTokens": 875,
+              "completionTokens": 40,
+              "totalTokens": 915,
+              "durationMs": 431.4791590000002,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 999,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6147
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 5237,
+              "promptTokens": 966,
+              "completionTokens": 25,
+              "totalTokens": 991,
+              "durationMs": 709.1604150000003,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 998,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 5897
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 5754,
+              "promptTokens": 1047,
+              "completionTokens": 73,
+              "totalTokens": 1120,
+              "durationMs": 727.546499,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 997,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 5759
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 6480,
+              "promptTokens": 1172,
+              "completionTokens": 90,
+              "totalTokens": 1262,
+              "durationMs": 346.03259900000194,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 996,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 5770
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 7529,
+              "promptTokens": 1375,
+              "completionTokens": 101,
+              "totalTokens": 1476,
+              "durationMs": 682.9246779999994,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 995,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 4906
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 4209,
+              "promptTokens": 874,
+              "completionTokens": 84,
+              "totalTokens": 958,
+              "durationMs": 670.7347890000019,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 994,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 5634
+              }
+            }
+          ],
+          "stopReason": null
+        }
+      },
+      "humanReview": "not-reviewed",
+      "targetedObservation": {
+        "method": "AI-assisted inspection of real output; not human-reviewed",
+        "outcome": "does-not-meet-question",
+        "reason": "East filter is present, but grouped SUM returns 30 rather than individual amounts 20 then 10."
+      }
+    },
+    {
+      "benchmark": {
+        "id": "conflict-01",
+        "category": "ambiguous",
+        "system": "agent",
+        "corpus": "conflict",
+        "question": "Which minimum monthly target should we use when the two active Orion policies disagree?",
+        "relevantChunks": [
+          "101",
+          "107"
+        ],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Abstain or request clarification; do not silently select a policy or department.",
+        "facts": [],
+        "reviewNotes": "Manual review required: confirm conflicts/ambiguity were recognized rather than ignored."
+      },
+      "before": {
+        "result": {
+          "id": "conflict-01",
+          "category": "ambiguous",
+          "system": "agent",
+          "expectedRefusal": true,
+          "executed": true,
+          "status": "needs-review",
+          "durationMs": 10928.877648,
+          "answerDurationMs": 10681.291329,
+          "score": {
+            "status": "needs-review",
+            "automatedStatus": "pass",
+            "failures": [],
+            "review": [
+              "free_text_entailment_units_conditions_and_completeness_require_human_review",
+              "sourced_conflict_explanation_or_clarification_requires_review"
+            ],
+            "citationPrecision": 1,
+            "sourceRecall": 1,
+            "quoteValidity": 1,
+            "numeric": [],
+            "refusalCorrect": false
+          },
+          "retrieval": [
+            {
+              "mode": "semantic",
+              "ranked": [
+                "107",
+                "101",
+                "102"
+              ],
+              "durationMs": 78.30003499999975,
+              "k": 3,
+              "hits": 2,
+              "relevant": 2,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.6666666666666666
+            },
+            {
+              "mode": "hybrid",
+              "ranked": [
+                "107",
+                "101",
+                "102"
+              ],
+              "durationMs": 66.73175300000003,
+              "k": 3,
+              "hits": 2,
+              "relevant": 2,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.6666666666666666
+            }
+          ],
+          "stages": [
+            {
+              "stage": "embedding",
+              "durationMs": 72.9,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 4.3,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 77.9,
+              "outcome": "ok"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 58.7,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 7.1,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 66.6,
+              "outcome": "ok"
+            },
+            {
+              "stage": "structured-count",
+              "durationMs": 0.7,
+              "outcome": "ok",
+              "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 0,
+              "outcome": "ok",
+              "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 907.5,
+              "outcome": "ok",
+              "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 1070.2,
+              "outcome": "ok",
+              "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 31.3,
+              "outcome": "ok",
+              "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 4.1,
+              "outcome": "ok",
+              "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 36,
+              "outcome": "ok",
+              "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 38,
+              "outcome": "ok",
+              "tool": "searchDocuments",
+              "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 3889.2,
+              "outcome": "ok",
+              "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 1527.8,
+              "outcome": "ok",
+              "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 5422.7,
+              "outcome": "ok",
+              "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+            },
+            {
+              "stage": "planning-wall",
+              "durationMs": 6560.3,
+              "outcome": "ok",
+              "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 3454,
+              "outcome": "ok",
+              "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 629,
+              "outcome": "ok",
+              "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+            },
+            {
+              "stage": "final-generation",
+              "durationMs": 4099.9,
+              "outcome": "ok",
+              "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+            },
+            {
+              "stage": "citation-verification",
+              "durationMs": 13.7,
+              "outcome": "ok",
+              "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+            },
+            {
+              "stage": "agent",
+              "durationMs": 10676.3,
+              "outcome": "grounded",
+              "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+            },
+            {
+              "stage": "request",
+              "durationMs": 10680.4,
+              "outcome": "ok",
+              "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+            },
+            {
+              "stage": "answer-end-to-end",
+              "durationMs": 10681.291329,
+              "outcome": "ok"
+            }
+          ],
+          "error": null,
+          "answer": {
+            "grounded": true,
+            "answer": "When Orion’s team policies conflict, the higher minimum monthly target applies, so the team should use a target of 22 units per month. [D1] [D2]",
+            "sources": [
+              {
+                "id": "D1",
+                "filename": "revised-team-policy.docx",
+                "type": "document",
+                "documentId": "7",
+                "chunkId": "107",
+                "chunkIndex": 0,
+                "pageNumber": null,
+                "text": "Orion team policy: the minimum monthly total sales target for each team is 22 units. This policy has no effective date.",
+                "quotes": [
+                  "Orion team policy: the minimum monthly total sales target for each team is 22 units. This policy has no effective date."
+                ]
+              },
+              {
+                "id": "D2",
+                "filename": "team-policy.docx",
+                "type": "document",
+                "documentId": "1",
+                "chunkId": "101",
+                "chunkIndex": 0,
+                "pageNumber": null,
+                "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units.",
+                "quotes": [
+                  "Orion team policy: the minimum monthly total sales target for each team is 15 units."
+                ]
+              }
+            ]
+          }
+        },
+        "judgment": {
+          "id": "conflict-01",
+          "executed": true,
+          "status": "needs-review",
+          "automatic": "pass",
+          "reasons": [],
+          "uncertainty": [
+            "free_text_entailment_units_conditions_and_completeness_require_human_review",
+            "sourced_conflict_explanation_or_clarification_requires_review"
+          ],
+          "categories": [],
+          "suspects": [],
+          "checkedCSV": [],
+          "human": "not-reviewed",
+          "answerHash": "9e1183ffcaab753d696c5c1249146ba1ce6e195e5611df467d8b636172c46529"
+        },
+        "http": {
+          "attempts": [
+            {
+              "status": 200,
+              "inputBytes": 3951,
+              "promptTokens": 744,
+              "completionTokens": 38,
+              "totalTokens": 782,
+              "durationMs": 903.7266530000002
+            },
+            {
+              "status": 200,
+              "inputBytes": 5441,
+              "promptTokens": 1086,
+              "completionTokens": 143,
+              "totalTokens": 1229,
+              "durationMs": 1520.7581719999998
+            },
+            {
+              "status": 200,
+              "inputBytes": 3939,
+              "promptTokens": 928,
+              "completionTokens": 132,
+              "totalTokens": 1060,
+              "durationMs": 621.3075559999997
+            }
+          ],
+          "stopReason": null
+        }
+      },
+      "after": {
+        "result": {
+          "id": "conflict-01",
+          "category": "ambiguous",
+          "system": "agent",
+          "expectedRefusal": true,
+          "executed": true,
+          "status": "needs-review",
+          "durationMs": 10878.46752,
+          "answerDurationMs": 10678.867854,
+          "score": {
+            "status": "needs-review",
+            "automatedStatus": "pass",
+            "failures": [],
+            "review": [
+              "conflict_or_ambiguity_requires_human_judgment"
+            ],
+            "citationPrecision": null,
+            "sourceRecall": null,
+            "quoteValidity": null,
+            "numeric": [],
+            "refusalCorrect": true
+          },
+          "retrieval": [
+            {
+              "mode": "semantic",
+              "ranked": [
+                "107",
+                "101",
+                "102"
+              ],
+              "durationMs": 53.972338000000036,
+              "k": 3,
+              "hits": 2,
+              "relevant": 2,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.6666666666666666
+            },
+            {
+              "mode": "hybrid",
+              "ranked": [
+                "107",
+                "101",
+                "102"
+              ],
+              "durationMs": 75.92014599999993,
+              "k": 3,
+              "hits": 2,
+              "relevant": 2,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.6666666666666666
+            }
+          ],
+          "stages": [
+            {
+              "stage": "embedding",
+              "durationMs": 47.1,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 6,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 53.7,
+              "outcome": "ok"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 50.3,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 24.8,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 75.9,
+              "outcome": "ok"
+            },
+            {
+              "stage": "structured-count",
+              "durationMs": 0.5,
+              "outcome": "ok",
+              "requestId": "e7fa42e7-d1ec-4b5f-a6dd-615f551cc4e4"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 0,
+              "outcome": "ok",
+              "requestId": "e7fa42e7-d1ec-4b5f-a6dd-615f551cc4e4"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 732.7,
+              "outcome": "ok",
+              "requestId": "e7fa42e7-d1ec-4b5f-a6dd-615f551cc4e4"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 810,
+              "outcome": "ok",
+              "requestId": "e7fa42e7-d1ec-4b5f-a6dd-615f551cc4e4"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 28.7,
+              "outcome": "ok",
+              "requestId": "e7fa42e7-d1ec-4b5f-a6dd-615f551cc4e4"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 4.5,
+              "outcome": "ok",
+              "requestId": "e7fa42e7-d1ec-4b5f-a6dd-615f551cc4e4"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 33.6,
+              "outcome": "ok",
+              "requestId": "e7fa42e7-d1ec-4b5f-a6dd-615f551cc4e4"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 35.5,
+              "outcome": "ok",
+              "tool": "searchDocuments",
+              "requestId": "e7fa42e7-d1ec-4b5f-a6dd-615f551cc4e4"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4151.5,
+              "outcome": "ok",
+              "requestId": "e7fa42e7-d1ec-4b5f-a6dd-615f551cc4e4"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 1271.2,
+              "outcome": "ok",
+              "requestId": "e7fa42e7-d1ec-4b5f-a6dd-615f551cc4e4"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 5425.9,
+              "outcome": "ok",
+              "requestId": "e7fa42e7-d1ec-4b5f-a6dd-615f551cc4e4"
+            },
+            {
+              "stage": "planning-wall",
+              "durationMs": 6295.9,
+              "outcome": "ok",
+              "requestId": "e7fa42e7-d1ec-4b5f-a6dd-615f551cc4e4"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 3719.6,
+              "outcome": "ok",
+              "requestId": "e7fa42e7-d1ec-4b5f-a6dd-615f551cc4e4"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 648,
+              "outcome": "ok",
+              "requestId": "e7fa42e7-d1ec-4b5f-a6dd-615f551cc4e4"
+            },
+            {
+              "stage": "final-generation",
+              "durationMs": 4376.1,
+              "outcome": "ok",
+              "requestId": "e7fa42e7-d1ec-4b5f-a6dd-615f551cc4e4"
+            },
+            {
+              "stage": "citation-verification",
+              "durationMs": 2.5,
+              "outcome": "ok",
+              "requestId": "e7fa42e7-d1ec-4b5f-a6dd-615f551cc4e4"
+            },
+            {
+              "stage": "agent",
+              "durationMs": 10676,
+              "outcome": "abstained",
+              "requestId": "e7fa42e7-d1ec-4b5f-a6dd-615f551cc4e4"
+            },
+            {
+              "stage": "request",
+              "durationMs": 10678.2,
+              "outcome": "ok",
+              "requestId": "e7fa42e7-d1ec-4b5f-a6dd-615f551cc4e4"
+            },
+            {
+              "stage": "answer-end-to-end",
+              "durationMs": 10678.867854,
+              "outcome": "ok"
+            }
+          ],
+          "error": null,
+          "answer": {
+            "grounded": false,
+            "answer": "I don't have enough evidence from the available documents and datasets to answer that question.",
+            "sources": []
+          }
+        },
+        "judgment": {
+          "id": "conflict-01",
+          "executed": true,
+          "status": "needs-review",
+          "automatic": "pass",
+          "reasons": [],
+          "uncertainty": [
+            "conflict_or_ambiguity_requires_human_judgment"
+          ],
+          "categories": [],
+          "suspects": [],
+          "checkedCSV": [],
+          "human": "not-reviewed",
+          "answerHash": "59a16735bfbe4e68d886e590940b68788b417c8036698c61caea7b7be5d26d69"
+        },
+        "http": {
+          "attempts": [
+            {
+              "status": 200,
+              "inputBytes": 4733,
+              "promptTokens": 880,
+              "completionTokens": 50,
+              "totalTokens": 930,
+              "durationMs": 729.2728449999997,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 993,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 7036
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 6231,
+              "promptTokens": 1222,
+              "completionTokens": 282,
+              "totalTokens": 1504,
+              "durationMs": 1266.913122,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 992,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6406
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 5241,
+              "promptTokens": 1150,
+              "completionTokens": 86,
+              "totalTokens": 1236,
+              "durationMs": 645.2905310000006,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 991,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 5694
+              }
+            }
+          ],
+          "stopReason": null
+        }
+      },
+      "humanReview": "not-reviewed",
+      "targetedObservation": {
+        "method": "AI-assisted inspection of real output; not human-reviewed",
+        "outcome": "unsafe-precedence-avoided",
+        "reason": "Canonical abstention; no invented higher-target precedence."
+      }
+    },
+    {
+      "benchmark": {
+        "id": "ambiguous-01",
+        "category": "ambiguous",
+        "system": "agent",
+        "corpus": "ambiguous",
+        "question": "What monthly team target applies to me? My department is not specified.",
+        "relevantChunks": [
+          "108"
+        ],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Abstain or request clarification; do not silently select a policy or department.",
+        "facts": [],
+        "reviewNotes": "Manual review required: confirm conflicts/ambiguity were recognized rather than ignored."
+      },
+      "before": {
+        "result": {
+          "id": "ambiguous-01",
+          "category": "ambiguous",
+          "system": "agent",
+          "expectedRefusal": true,
+          "executed": true,
+          "status": "fail",
+          "durationMs": 11138.428754,
+          "answerDurationMs": 10903.089241,
+          "score": {
+            "status": "fail",
+            "automatedStatus": "fail",
+            "failures": [
+              "irrelevant_or_unknown_source",
+              "missing_required_source"
+            ],
+            "review": [
+              "free_text_entailment_units_conditions_and_completeness_require_human_review",
+              "sourced_conflict_explanation_or_clarification_requires_review"
+            ],
+            "citationPrecision": 0,
+            "sourceRecall": 0,
+            "quoteValidity": 1,
+            "numeric": [],
+            "refusalCorrect": false
+          },
+          "retrieval": [
+            {
+              "mode": "semantic",
+              "ranked": [
+                "108",
+                "101",
+                "104"
+              ],
+              "durationMs": 69.89856000000009,
+              "k": 3,
+              "hits": 1,
+              "relevant": 1,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.3333333333333333
+            },
+            {
+              "mode": "hybrid",
+              "ranked": [
+                "108",
+                "101",
+                "104"
+              ],
+              "durationMs": 91.87006900000006,
+              "k": 3,
+              "hits": 1,
+              "relevant": 1,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.3333333333333333
+            }
+          ],
+          "stages": [
+            {
+              "stage": "embedding",
+              "durationMs": 64.9,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 3.9,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 69.5,
+              "outcome": "ok"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 82.8,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 8,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 91.8,
+              "outcome": "ok"
+            },
+            {
+              "stage": "structured-count",
+              "durationMs": 0.6,
+              "outcome": "ok",
+              "requestId": "f18b64c0-697e-4a7a-837f-6ab8da39ba43"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 0,
+              "outcome": "ok",
+              "requestId": "f18b64c0-697e-4a7a-837f-6ab8da39ba43"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 1563.4,
+              "outcome": "ok",
+              "requestId": "f18b64c0-697e-4a7a-837f-6ab8da39ba43"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 1759.8,
+              "outcome": "ok",
+              "requestId": "f18b64c0-697e-4a7a-837f-6ab8da39ba43"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 56.5,
+              "outcome": "ok",
+              "requestId": "f18b64c0-697e-4a7a-837f-6ab8da39ba43"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 6.2,
+              "outcome": "ok",
+              "requestId": "f18b64c0-697e-4a7a-837f-6ab8da39ba43"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 63.3,
+              "outcome": "ok",
+              "requestId": "f18b64c0-697e-4a7a-837f-6ab8da39ba43"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 65.9,
+              "outcome": "ok",
+              "tool": "searchDocuments",
+              "requestId": "f18b64c0-697e-4a7a-837f-6ab8da39ba43"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 3146.2,
+              "outcome": "ok",
+              "requestId": "f18b64c0-697e-4a7a-837f-6ab8da39ba43"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 1762.9,
+              "outcome": "ok",
+              "requestId": "f18b64c0-697e-4a7a-837f-6ab8da39ba43"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 4913.3,
+              "outcome": "ok",
+              "requestId": "f18b64c0-697e-4a7a-837f-6ab8da39ba43"
+            },
+            {
+              "stage": "planning-wall",
+              "durationMs": 6799.9,
+              "outcome": "ok",
+              "requestId": "f18b64c0-697e-4a7a-837f-6ab8da39ba43"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 3215.1,
+              "outcome": "ok",
+              "requestId": "f18b64c0-697e-4a7a-837f-6ab8da39ba43"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 855.1,
+              "outcome": "ok",
+              "requestId": "f18b64c0-697e-4a7a-837f-6ab8da39ba43"
+            },
+            {
+              "stage": "final-generation",
+              "durationMs": 4090.4,
+              "outcome": "ok",
+              "requestId": "f18b64c0-697e-4a7a-837f-6ab8da39ba43"
+            },
+            {
+              "stage": "citation-verification",
+              "durationMs": 6.7,
+              "outcome": "ok",
+              "requestId": "f18b64c0-697e-4a7a-837f-6ab8da39ba43"
+            },
+            {
+              "stage": "agent",
+              "durationMs": 10898.7,
+              "outcome": "grounded",
+              "requestId": "f18b64c0-697e-4a7a-837f-6ab8da39ba43"
+            },
+            {
+              "stage": "request",
+              "durationMs": 10901.6,
+              "outcome": "ok",
+              "requestId": "f18b64c0-697e-4a7a-837f-6ab8da39ba43"
+            },
+            {
+              "stage": "answer-end-to-end",
+              "durationMs": 10903.089241,
+              "outcome": "ok"
+            }
+          ],
+          "error": null,
+          "answer": {
+            "grounded": true,
+            "answer": "You are subject to the minimum monthly team sales target of 15 units, as defined by the Orion team policy. [D2]",
+            "sources": [
+              {
+                "id": "D2",
+                "filename": "team-policy.docx",
+                "type": "document",
+                "documentId": "1",
+                "chunkId": "101",
+                "chunkIndex": 0,
+                "pageNumber": null,
+                "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units.",
+                "quotes": [
+                  "Orion team policy: the minimum monthly total sales target for each team is 15 units."
+                ]
+              }
+            ]
+          }
+        },
+        "judgment": {
+          "id": "ambiguous-01",
+          "executed": true,
+          "status": "fail",
+          "automatic": "fail",
+          "reasons": [
+            "irrelevant_or_unknown_source",
+            "missing_required_source"
+          ],
+          "uncertainty": [
+            "free_text_entailment_units_conditions_and_completeness_require_human_review",
+            "sourced_conflict_explanation_or_clarification_requires_review"
+          ],
+          "categories": [
+            "citation_issue"
+          ],
+          "suspects": [
+            "tool_selection_or_citation_omission_requires_trace_review"
+          ],
+          "checkedCSV": [],
+          "human": "not-reviewed",
+          "answerHash": "0c9037805618ceb912eecc4c5849ead442f4b0ede8a17993399f937f22678016"
+        },
+        "http": {
+          "attempts": [
+            {
+              "status": 200,
+              "inputBytes": 3935,
+              "promptTokens": 743,
+              "completionTokens": 34,
+              "totalTokens": 777,
+              "durationMs": 1556.3464640000002,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 932,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6979
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 5384,
+              "promptTokens": 1070,
+              "completionTokens": 91,
+              "totalTokens": 1161,
+              "durationMs": 1756.727301,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 931,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6533
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 3890,
+              "promptTokens": 908,
+              "completionTokens": 111,
+              "totalTokens": 1019,
+              "durationMs": 837.9127420000004,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 930,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6724
+              }
+            }
+          ],
+          "stopReason": null
+        }
+      },
+      "after": {
+        "result": {
+          "id": "ambiguous-01",
+          "category": "ambiguous",
+          "system": "agent",
+          "expectedRefusal": true,
+          "executed": true,
+          "status": "needs-review",
+          "durationMs": 10998.696473,
+          "answerDurationMs": 10707.463116,
+          "score": {
+            "status": "needs-review",
+            "automatedStatus": "pass",
+            "failures": [],
+            "review": [
+              "conflict_or_ambiguity_requires_human_judgment"
+            ],
+            "citationPrecision": null,
+            "sourceRecall": null,
+            "quoteValidity": null,
+            "numeric": [],
+            "refusalCorrect": true
+          },
+          "retrieval": [
+            {
+              "mode": "semantic",
+              "ranked": [
+                "108",
+                "101",
+                "104"
+              ],
+              "durationMs": 71.14272300000016,
+              "k": 3,
+              "hits": 1,
+              "relevant": 1,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.3333333333333333
+            },
+            {
+              "mode": "hybrid",
+              "ranked": [
+                "108",
+                "101",
+                "104"
+              ],
+              "durationMs": 78.34654599999999,
+              "k": 3,
+              "hits": 1,
+              "relevant": 1,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.3333333333333333
+            }
+          ],
+          "stages": [
+            {
+              "stage": "embedding",
+              "durationMs": 65.6,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 4.3,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 70.7,
+              "outcome": "ok"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 68.8,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 8.3,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 78.3,
+              "outcome": "ok"
+            },
+            {
+              "stage": "structured-count",
+              "durationMs": 0.8,
+              "outcome": "ok",
+              "requestId": "10e60347-2a37-40f8-b66d-e1442eb45b36"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 0,
+              "outcome": "ok",
+              "requestId": "10e60347-2a37-40f8-b66d-e1442eb45b36"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 1521.3,
+              "outcome": "ok",
+              "requestId": "10e60347-2a37-40f8-b66d-e1442eb45b36"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 1607.4,
+              "outcome": "ok",
+              "requestId": "10e60347-2a37-40f8-b66d-e1442eb45b36"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 19.6,
+              "outcome": "ok",
+              "requestId": "10e60347-2a37-40f8-b66d-e1442eb45b36"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 3.4,
+              "outcome": "ok",
+              "requestId": "10e60347-2a37-40f8-b66d-e1442eb45b36"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 23.6,
+              "outcome": "ok",
+              "requestId": "10e60347-2a37-40f8-b66d-e1442eb45b36"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 25.3,
+              "outcome": "ok",
+              "tool": "searchDocuments",
+              "requestId": "10e60347-2a37-40f8-b66d-e1442eb45b36"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 3367.1,
+              "outcome": "ok",
+              "requestId": "10e60347-2a37-40f8-b66d-e1442eb45b36"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 841.5,
+              "outcome": "ok",
+              "requestId": "10e60347-2a37-40f8-b66d-e1442eb45b36"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 4212.8,
+              "outcome": "ok",
+              "requestId": "10e60347-2a37-40f8-b66d-e1442eb45b36"
+            },
+            {
+              "stage": "planning-wall",
+              "durationMs": 5889.6,
+              "outcome": "ok",
+              "requestId": "10e60347-2a37-40f8-b66d-e1442eb45b36"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4143.3,
+              "outcome": "ok",
+              "requestId": "10e60347-2a37-40f8-b66d-e1442eb45b36"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 652.2,
+              "outcome": "ok",
+              "requestId": "10e60347-2a37-40f8-b66d-e1442eb45b36"
+            },
+            {
+              "stage": "final-generation",
+              "durationMs": 4806.7,
+              "outcome": "ok",
+              "requestId": "10e60347-2a37-40f8-b66d-e1442eb45b36"
+            },
+            {
+              "stage": "citation-verification",
+              "durationMs": 3.7,
+              "outcome": "ok",
+              "requestId": "10e60347-2a37-40f8-b66d-e1442eb45b36"
+            },
+            {
+              "stage": "agent",
+              "durationMs": 10702.4,
+              "outcome": "abstained",
+              "requestId": "10e60347-2a37-40f8-b66d-e1442eb45b36"
+            },
+            {
+              "stage": "request",
+              "durationMs": 10706.1,
+              "outcome": "ok",
+              "requestId": "10e60347-2a37-40f8-b66d-e1442eb45b36"
+            },
+            {
+              "stage": "answer-end-to-end",
+              "durationMs": 10707.463116,
+              "outcome": "ok"
+            }
+          ],
+          "error": null,
+          "answer": {
+            "grounded": false,
+            "answer": "I don't have enough evidence from the available documents and datasets to answer that question.",
+            "sources": []
+          }
+        },
+        "judgment": {
+          "id": "ambiguous-01",
+          "executed": true,
+          "status": "needs-review",
+          "automatic": "pass",
+          "reasons": [],
+          "uncertainty": [
+            "conflict_or_ambiguity_requires_human_judgment"
+          ],
+          "categories": [],
+          "suspects": [],
+          "checkedCSV": [],
+          "human": "not-reviewed",
+          "answerHash": "59a16735bfbe4e68d886e590940b68788b417c8036698c61caea7b7be5d26d69"
+        },
+        "http": {
+          "attempts": [
+            {
+              "status": 200,
+              "inputBytes": 4717,
+              "promptTokens": 879,
+              "completionTokens": 47,
+              "totalTokens": 926,
+              "durationMs": 1516.8450759999998,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 990,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6839
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 6167,
+              "promptTokens": 1206,
+              "completionTokens": 123,
+              "totalTokens": 1329,
+              "durationMs": 836.5262560000001,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 989,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6512
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 5193,
+              "promptTokens": 1131,
+              "completionTokens": 78,
+              "totalTokens": 1209,
+              "durationMs": 647.8429569999989,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 988,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6132
+              }
+            }
+          ],
+          "stopReason": null
+        }
+      },
+      "humanReview": "not-reviewed",
+      "targetedObservation": {
+        "method": "AI-assisted inspection of real output; not human-reviewed",
+        "outcome": "unsupported-applicability-avoided",
+        "reason": "Canonical abstention; no personal target assignment."
+      }
+    },
+    {
+      "benchmark": {
+        "id": "combined-04",
+        "category": "combined",
+        "system": "agent",
+        "corpus": "base",
+        "question": "According to the policy, which teams fall short when all sales rows are added per team?",
+        "relevantChunks": [
+          "101"
+        ],
+        "expectedSources": [
+          "doc:1:101",
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Only Beta falls short: Beta total is 6 units and Beta shortfall is 9 units. Alpha and Gamma meet the target.",
+        "facts": [
+          {
+            "label": "Beta shortfall",
+            "value": 9,
+            "tolerance": 1e-06,
+            "pattern": "shortfall[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "201",
+          "aggregate": {
+            "op": "sum",
+            "column": "amount"
+          },
+          "groupBy": [
+            "team"
+          ],
+          "sort": {
+            "column": "team",
+            "direction": "asc"
+          }
+        },
+        "expectedRows": [
+          {
+            "team": "Alpha",
+            "value": 30
+          },
+          {
+            "team": "Beta",
+            "value": 6
+          },
+          {
+            "team": "Gamma",
+            "value": 15
+          }
+        ],
+        "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+      },
+      "before": {
+        "result": {
+          "id": "combined-04",
+          "category": "combined",
+          "system": "agent",
+          "expectedRefusal": false,
+          "executed": true,
+          "status": "needs-review",
+          "durationMs": 27312.430765,
+          "answerDurationMs": 27100.161881,
+          "score": {
+            "status": "needs-review",
+            "automatedStatus": "pass",
+            "failures": [],
+            "review": [
+              "unregistered_valid_query_plan_requires_review",
+              "numeric_fact_not_reliably_extractable",
+              "free_text_entailment_units_conditions_and_completeness_require_human_review"
+            ],
+            "citationPrecision": 1,
+            "sourceRecall": 1,
+            "quoteValidity": 1,
+            "numeric": [
+              {
+                "label": "Beta shortfall",
+                "expected": 9,
+                "tolerance": 1e-06,
+                "observed": [],
+                "correct": null
+              }
+            ],
+            "refusalCorrect": false
+          },
+          "retrieval": [
+            {
+              "mode": "semantic",
+              "ranked": [
+                "101",
+                "104",
+                "105"
+              ],
+              "durationMs": 75.08435199999985,
+              "k": 3,
+              "hits": 1,
+              "relevant": 1,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.3333333333333333
+            },
+            {
+              "mode": "hybrid",
+              "ranked": [
+                "101",
+                "102",
+                "104"
+              ],
+              "durationMs": 67.48122199999989,
+              "k": 3,
+              "hits": 1,
+              "relevant": 1,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.3333333333333333
+            }
+          ],
+          "stages": [
+            {
+              "stage": "embedding",
+              "durationMs": 70.8,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 3.4,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 74.8,
+              "outcome": "ok"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 59,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 7.6,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 67.4,
+              "outcome": "ok"
+            },
+            {
+              "stage": "structured-count",
+              "durationMs": 0.7,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 0,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 664,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 895,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 51.9,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 5.7,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 58.1,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 61.4,
+              "outcome": "ok",
+              "tool": "searchDocuments",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4037.1,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 567.8,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 4608.4,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 1.2,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 1.2,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 2.7,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 1.2,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 11,
+              "outcome": "ok",
+              "tool": "discoverDatasets",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4402.8,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 1631.4,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 6040.7,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 2.3,
+              "outcome": "ok",
+              "tool": "inspectDataset",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 3345.9,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 600.7,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 3952.5,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 1,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 0.7,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 1.8,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 4.8,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 1.3,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "csv-query",
+              "durationMs": 11.4,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 69,
+              "outcome": "ok",
+              "tool": "queryDataset",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4315.9,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 833.8,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 5155.6,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "planning-wall",
+              "durationMs": 20865.1,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4149.6,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 2062.7,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "final-generation",
+              "durationMs": 6224.4,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "citation-verification",
+              "durationMs": 5.8,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "agent",
+              "durationMs": 27097,
+              "outcome": "grounded",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "request",
+              "durationMs": 27099.3,
+              "outcome": "ok",
+              "requestId": "862a73a9-e2d2-4a5a-8530-6af82ea3c2b2"
+            },
+            {
+              "stage": "answer-end-to-end",
+              "durationMs": 27100.161881,
+              "outcome": "ok"
+            }
+          ],
+          "error": null,
+          "answer": {
+            "grounded": true,
+            "answer": "Team Beta falls short of the monthly total sales target of 15 units. [D1] [C1]",
+            "sources": [
+              {
+                "id": "D1",
+                "filename": "team-policy.docx",
+                "type": "document",
+                "documentId": "1",
+                "chunkId": "101",
+                "chunkIndex": 0,
+                "pageNumber": null,
+                "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units.",
+                "quotes": [
+                  "Orion team policy: the minimum monthly total sales target for each team is 15 units."
+                ]
+              },
+              {
+                "id": "C1",
+                "filename": "sales.csv",
+                "type": "csv",
+                "datasetId": "201",
+                "text": "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]",
+                "quotes": [
+                  "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]"
+                ],
+                "rows": [
+                  {
+                    "team": "Alpha",
+                    "value": 30
+                  },
+                  {
+                    "team": "Beta",
+                    "value": 6
+                  },
+                  {
+                    "team": "Gamma",
+                    "value": 15
+                  }
+                ],
+                "plan": {
+                  "datasetId": "201",
+                  "filters": [],
+                  "groupBy": [
+                    "team"
+                  ],
+                  "aggregate": {
+                    "op": "sum",
+                    "column": "amount"
+                  },
+                  "limit": 100
+                },
+                "possiblyTruncated": false
+              }
+            ]
+          }
+        },
+        "judgment": {
+          "id": "combined-04",
+          "executed": true,
+          "status": "needs-review",
+          "automatic": "pass",
+          "reasons": [],
+          "uncertainty": [
+            "unregistered_valid_query_plan_requires_review",
+            "numeric_fact_not_reliably_extractable",
+            "free_text_entailment_units_conditions_and_completeness_require_human_review"
+          ],
+          "categories": [],
+          "suspects": [],
+          "checkedCSV": [
+            {
+              "sourceId": "C1",
+              "matches": true,
+              "expectedRows": [
+                {
+                  "team": "Alpha",
+                  "value": 30
+                },
+                {
+                  "team": "Beta",
+                  "value": 6
+                },
+                {
+                  "team": "Gamma",
+                  "value": 15
+                }
+              ]
+            }
+          ],
+          "human": "not-reviewed",
+          "answerHash": "a62945b06849ef1a535bd44cf80c336ac3e9d8d971329661ab190a499329ed5d"
+        },
+        "http": {
+          "attempts": [
+            {
+              "status": 200,
+              "inputBytes": 3951,
+              "promptTokens": 747,
+              "completionTokens": 41,
+              "totalTokens": 788,
+              "durationMs": 659.7915859999998,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 967,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 7144
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 5362,
+              "promptTokens": 1064,
+              "completionTokens": 36,
+              "totalTokens": 1100,
+              "durationMs": 562.7344839999996,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 966,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6708
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 5901,
+              "promptTokens": 1156,
+              "completionTokens": 24,
+              "totalTokens": 1180,
+              "durationMs": 1626.017957,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 965,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6188
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 6414,
+              "promptTokens": 1236,
+              "completionTokens": 43,
+              "totalTokens": 1279,
+              "durationMs": 595.047509,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 964,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6109
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 7327,
+              "promptTokens": 1409,
+              "completionTokens": 173,
+              "totalTokens": 1582,
+              "durationMs": 825.6369500000001,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 963,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 5311
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 4462,
+              "promptTokens": 1042,
+              "completionTokens": 105,
+              "totalTokens": 1147,
+              "durationMs": 2057.867228000003,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 962,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 4697
+              }
+            }
+          ],
+          "stopReason": null
+        }
+      },
+      "after": {
+        "result": {
+          "id": "combined-04",
+          "category": "combined",
+          "system": "agent",
+          "expectedRefusal": false,
+          "executed": true,
+          "status": "needs-review",
+          "durationMs": 25897.549931,
+          "answerDurationMs": 25702.881451999998,
+          "score": {
+            "status": "needs-review",
+            "automatedStatus": "pass",
+            "failures": [],
+            "review": [
+              "unregistered_valid_query_plan_requires_review",
+              "numeric_fact_not_reliably_extractable",
+              "free_text_entailment_units_conditions_and_completeness_require_human_review"
+            ],
+            "citationPrecision": 1,
+            "sourceRecall": 1,
+            "quoteValidity": 1,
+            "numeric": [
+              {
+                "label": "Beta shortfall",
+                "expected": 9,
+                "tolerance": 1e-06,
+                "observed": [],
+                "correct": null
+              }
+            ],
+            "refusalCorrect": false
+          },
+          "retrieval": [
+            {
+              "mode": "semantic",
+              "ranked": [
+                "101",
+                "104",
+                "105"
+              ],
+              "durationMs": 61.51704700000005,
+              "k": 3,
+              "hits": 1,
+              "relevant": 1,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.3333333333333333
+            },
+            {
+              "mode": "hybrid",
+              "ranked": [
+                "101",
+                "102",
+                "104"
+              ],
+              "durationMs": 69.12498400000004,
+              "k": 3,
+              "hits": 1,
+              "relevant": 1,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.3333333333333333
+            }
+          ],
+          "stages": [
+            {
+              "stage": "embedding",
+              "durationMs": 57.5,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 3,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 61.3,
+              "outcome": "ok"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 61.6,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 6.9,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 69.1,
+              "outcome": "ok"
+            },
+            {
+              "stage": "structured-count",
+              "durationMs": 0.5,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 0,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 519.3,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 592.9,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 26.7,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 2.4,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 29.7,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 31.4,
+              "outcome": "ok",
+              "tool": "searchDocuments",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4373.9,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 580.6,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 4958.2,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 1.1,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 0.8,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 1.9,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 0.7,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 8.6,
+              "outcome": "ok",
+              "tool": "discoverDatasets",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4400.3,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 1069.9,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 5474.2,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 2.1,
+              "outcome": "ok",
+              "tool": "inspectDataset",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 3916,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 575.4,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 4496.3,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 0.5,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 0.3,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 0.6,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 1.1,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 0.4,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "csv-query",
+              "durationMs": 3.4,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 34.6,
+              "outcome": "ok",
+              "tool": "queryDataset",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4383.4,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 923.6,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 5310.5,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "planning-wall",
+              "durationMs": 20955,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4062,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 665.9,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "final-generation",
+              "durationMs": 4738,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "citation-verification",
+              "durationMs": 4.8,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "agent",
+              "durationMs": 25699.3,
+              "outcome": "grounded",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "request",
+              "durationMs": 25701.9,
+              "outcome": "ok",
+              "requestId": "42934be3-9e31-4ac4-ac27-c39b8cf5e702"
+            },
+            {
+              "stage": "answer-end-to-end",
+              "durationMs": 25702.881451999998,
+              "outcome": "ok"
+            }
+          ],
+          "error": null,
+          "answer": {
+            "grounded": true,
+            "answer": "Beta team falls short of the policy’s minimum monthly total sales target. [D1] [C1]",
+            "sources": [
+              {
+                "id": "D1",
+                "filename": "team-policy.docx",
+                "type": "document",
+                "documentId": "1",
+                "chunkId": "101",
+                "chunkIndex": 0,
+                "pageNumber": null,
+                "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units.",
+                "quotes": [
+                  "Orion team policy: the minimum monthly total sales target for each team is 15 units."
+                ]
+              },
+              {
+                "id": "C1",
+                "filename": "sales.csv",
+                "type": "csv",
+                "datasetId": "201",
+                "text": "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]",
+                "quotes": [
+                  "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]"
+                ],
+                "rows": [
+                  {
+                    "team": "Alpha",
+                    "value": 30
+                  },
+                  {
+                    "team": "Beta",
+                    "value": 6
+                  },
+                  {
+                    "team": "Gamma",
+                    "value": 15
+                  }
+                ],
+                "plan": {
+                  "datasetId": "201",
+                  "filters": [],
+                  "groupBy": [
+                    "team"
+                  ],
+                  "aggregate": {
+                    "op": "sum",
+                    "column": "amount"
+                  },
+                  "limit": 100
+                },
+                "possiblyTruncated": false
+              }
+            ]
+          }
+        },
+        "judgment": {
+          "id": "combined-04",
+          "executed": true,
+          "status": "needs-review",
+          "automatic": "pass",
+          "reasons": [],
+          "uncertainty": [
+            "unregistered_valid_query_plan_requires_review",
+            "numeric_fact_not_reliably_extractable",
+            "free_text_entailment_units_conditions_and_completeness_require_human_review"
+          ],
+          "categories": [],
+          "suspects": [],
+          "checkedCSV": [
+            {
+              "sourceId": "C1",
+              "matches": true,
+              "expectedRows": [
+                {
+                  "team": "Alpha",
+                  "value": 30
+                },
+                {
+                  "team": "Beta",
+                  "value": 6
+                },
+                {
+                  "team": "Gamma",
+                  "value": 15
+                }
+              ]
+            }
+          ],
+          "human": "not-reviewed",
+          "answerHash": "e74affd30f20ec14ea5f65c2053517aa30a96a454a7dbd445b7037fc4ae0d6fd"
+        },
+        "http": {
+          "attempts": [
+            {
+              "status": 200,
+              "inputBytes": 4733,
+              "promptTokens": 883,
+              "completionTokens": 46,
+              "totalTokens": 929,
+              "durationMs": 516.4824550000001,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 987,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 7031
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 6096,
+              "promptTokens": 1190,
+              "completionTokens": 29,
+              "totalTokens": 1219,
+              "durationMs": 574.8631590000005,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 986,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6455
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 6610,
+              "promptTokens": 1278,
+              "completionTokens": 25,
+              "totalTokens": 1303,
+              "durationMs": 1064.903658000001,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 985,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6585
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 7127,
+              "promptTokens": 1359,
+              "completionTokens": 43,
+              "totalTokens": 1402,
+              "durationMs": 567.4389529999971,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 984,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6557
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 8045,
+              "promptTokens": 1532,
+              "completionTokens": 229,
+              "totalTokens": 1761,
+              "durationMs": 919.8097299999972,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 983,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 5660
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 5750,
+              "promptTokens": 1261,
+              "completionTokens": 114,
+              "totalTokens": 1375,
+              "durationMs": 662.1257080000032,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 982,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 5401
+              }
+            }
+          ],
+          "stopReason": null
+        }
+      },
+      "humanReview": "not-reviewed",
+      "targetedObservation": {
+        "method": "AI-assisted inspection of real output; not human-reviewed",
+        "outcome": "incomplete-comparison",
+        "reason": "Beta identified, but 6/15/9 and other groups compliance omitted."
+      }
+    },
+    {
+      "benchmark": {
+        "id": "combined-05",
+        "category": "combined",
+        "system": "agent",
+        "corpus": "base",
+        "question": "Apply the travel approval rule to expenses.csv. Who needs approval and by how much is the limit exceeded?",
+        "relevantChunks": [
+          "104"
+        ],
+        "expectedSources": [
+          "doc:4:104",
+          "csv:202"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Only Jon needs approval: Jon cost is 620 credits; the threshold is 500 credits; Jon excess is 120 credits. Sol at exactly 500 does not require approval.",
+        "facts": [
+          {
+            "label": "Jon cost",
+            "value": 620,
+            "tolerance": 1e-06,
+            "pattern": "Jon cost[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          },
+          {
+            "label": "excess",
+            "value": 120,
+            "tolerance": 1e-06,
+            "pattern": "excess[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "202"
+        },
+        "expectedRows": [
+          {
+            "employee": "Mira",
+            "cost": 450
+          },
+          {
+            "employee": "Jon",
+            "cost": 620
+          },
+          {
+            "employee": "Sol",
+            "cost": 500
+          }
+        ],
+        "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+      },
+      "before": {
+        "result": {
+          "id": "combined-05",
+          "category": "combined",
+          "system": "agent",
+          "expectedRefusal": false,
+          "executed": true,
+          "status": "needs-review",
+          "durationMs": 25958.564243,
+          "answerDurationMs": 25708.988138,
+          "score": {
+            "status": "needs-review",
+            "automatedStatus": "pass",
+            "failures": [],
+            "review": [
+              "unregistered_valid_query_plan_requires_review",
+              "numeric_fact_not_reliably_extractable",
+              "free_text_entailment_units_conditions_and_completeness_require_human_review"
+            ],
+            "citationPrecision": 1,
+            "sourceRecall": 1,
+            "quoteValidity": 1,
+            "numeric": [
+              {
+                "label": "Jon cost",
+                "expected": 620,
+                "tolerance": 1e-06,
+                "observed": [],
+                "correct": null
+              },
+              {
+                "label": "excess",
+                "expected": 120,
+                "tolerance": 1e-06,
+                "observed": [],
+                "correct": null
+              }
+            ],
+            "refusalCorrect": false
+          },
+          "retrieval": [
+            {
+              "mode": "semantic",
+              "ranked": [
+                "104",
+                "105",
+                "101"
+              ],
+              "durationMs": 84.43059399999993,
+              "k": 3,
+              "hits": 1,
+              "relevant": 1,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.3333333333333333
+            },
+            {
+              "mode": "hybrid",
+              "ranked": [
+                "104",
+                "106",
+                "105"
+              ],
+              "durationMs": 83.05297300000007,
+              "k": 3,
+              "hits": 1,
+              "relevant": 1,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.3333333333333333
+            }
+          ],
+          "stages": [
+            {
+              "stage": "embedding",
+              "durationMs": 80.7,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 2.7,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 84.1,
+              "outcome": "ok"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 76.2,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 6.1,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 83,
+              "outcome": "ok"
+            },
+            {
+              "stage": "structured-count",
+              "durationMs": 0.6,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 0,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 679.2,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 895.1,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 75.9,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 8.4,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 85.7,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 90.5,
+              "outcome": "ok",
+              "tool": "searchDocuments",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4000.1,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 584.6,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 4592.3,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 1.6,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 1,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 2.6,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 2,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 12.9,
+              "outcome": "ok",
+              "tool": "discoverDatasets",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4384.4,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 600.7,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 4991.1,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 2.7,
+              "outcome": "ok",
+              "tool": "inspectDataset",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4384.6,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 1433.9,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 5823.5,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 1,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 0.8,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 1.6,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 3.8,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 0.9,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "csv-query",
+              "durationMs": 10.2,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 60.4,
+              "outcome": "ok",
+              "tool": "queryDataset",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 3497.6,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 834.3,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 4337.1,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "planning-wall",
+              "durationMs": 20868.7,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4147,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 652.8,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "final-generation",
+              "durationMs": 4825.4,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "citation-verification",
+              "durationMs": 9.8,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "agent",
+              "durationMs": 25705.5,
+              "outcome": "grounded",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "request",
+              "durationMs": 25708.2,
+              "outcome": "ok",
+              "requestId": "16085cd6-307b-42cb-bd1c-4fc095c4b318"
+            },
+            {
+              "stage": "answer-end-to-end",
+              "durationMs": 25708.988138,
+              "outcome": "ok"
+            }
+          ],
+          "error": null,
+          "answer": {
+            "grounded": true,
+            "answer": "Jon’s travel expense of 620 credits exceeds the 500‑credit limit and therefore requires manager approval by the travel policy. [D1] [C1]",
+            "sources": [
+              {
+                "id": "D1",
+                "filename": "travel-policy.docx",
+                "type": "document",
+                "documentId": "4",
+                "chunkId": "104",
+                "chunkIndex": 0,
+                "pageNumber": null,
+                "text": "Travel expenses above 500 credits require manager approval.",
+                "quotes": [
+                  "Travel expenses above 500 credits require manager approval."
+                ]
+              },
+              {
+                "id": "C1",
+                "filename": "expenses.csv",
+                "type": "csv",
+                "datasetId": "202",
+                "text": "[{\"value\":620,\"employee\":\"Jon\"}]",
+                "quotes": [
+                  "[{\"value\":620,\"employee\":\"Jon\"}]"
+                ],
+                "rows": [
+                  {
+                    "value": 620,
+                    "employee": "Jon"
+                  }
+                ],
+                "plan": {
+                  "datasetId": "202",
+                  "filters": [
+                    {
+                      "column": "cost",
+                      "op": "gt",
+                      "value": 500
+                    }
+                  ],
+                  "groupBy": [
+                    "employee"
+                  ],
+                  "aggregate": {
+                    "op": "sum",
+                    "column": "cost"
+                  },
+                  "limit": 100
+                },
+                "possiblyTruncated": false
+              }
+            ]
+          }
+        },
+        "judgment": {
+          "id": "combined-05",
+          "executed": true,
+          "status": "needs-review",
+          "automatic": "pass",
+          "reasons": [],
+          "uncertainty": [
+            "unregistered_valid_query_plan_requires_review",
+            "numeric_fact_not_reliably_extractable",
+            "free_text_entailment_units_conditions_and_completeness_require_human_review"
+          ],
+          "categories": [],
+          "suspects": [],
+          "checkedCSV": [
+            {
+              "sourceId": "C1",
+              "matches": true,
+              "expectedRows": [
+                {
+                  "employee": "Jon",
+                  "value": 620
+                }
+              ]
+            }
+          ],
+          "human": "not-reviewed",
+          "answerHash": "17abefa0f5b318a189f176adf95fbb3ad41d02281b8bf233c3b92edec4e816e5"
+        },
+        "http": {
+          "attempts": [
+            {
+              "status": 200,
+              "inputBytes": 3969,
+              "promptTokens": 750,
+              "completionTokens": 36,
+              "totalTokens": 786,
+              "durationMs": 675.1622940000002,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 961,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 7077
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 5362,
+              "promptTokens": 1064,
+              "completionTokens": 37,
+              "totalTokens": 1101,
+              "durationMs": 574.4630109999998,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 960,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6835
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 5924,
+              "promptTokens": 1159,
+              "completionTokens": 14,
+              "totalTokens": 1173,
+              "durationMs": 594.6741249999995,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 959,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6235
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 6373,
+              "promptTokens": 1222,
+              "completionTokens": 235,
+              "totalTokens": 1457,
+              "durationMs": 1429.684702999999,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 958,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 5745
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 8037,
+              "promptTokens": 1565,
+              "completionTokens": 109,
+              "totalTokens": 1674,
+              "durationMs": 829.0485670000016,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 957,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 4988
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 4290,
+              "promptTokens": 1006,
+              "completionTokens": 100,
+              "totalTokens": 1106,
+              "durationMs": 634.6898469999978,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 956,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 5103
+              }
+            }
+          ],
+          "stopReason": null
+        }
+      },
+      "after": {
+        "result": {
+          "id": "combined-05",
+          "category": "combined",
+          "system": "agent",
+          "expectedRefusal": false,
+          "executed": true,
+          "status": "fail",
+          "durationMs": 5791.878866,
+          "answerDurationMs": 5584.922391,
+          "score": null,
+          "retrieval": [
+            {
+              "mode": "semantic",
+              "ranked": [
+                "104",
+                "105",
+                "101"
+              ],
+              "durationMs": 72.50482399999987,
+              "k": 3,
+              "hits": 1,
+              "relevant": 1,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.3333333333333333
+            },
+            {
+              "mode": "hybrid",
+              "ranked": [
+                "104",
+                "106",
+                "105"
+              ],
+              "durationMs": 77.59054399999991,
+              "k": 3,
+              "hits": 1,
+              "relevant": 1,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.3333333333333333
+            }
+          ],
+          "stages": [
+            {
+              "stage": "embedding",
+              "durationMs": 69.1,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 2.5,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 72.2,
+              "outcome": "ok"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 71.8,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 5.2,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 77.6,
+              "outcome": "ok"
+            },
+            {
+              "stage": "structured-count",
+              "durationMs": 0.5,
+              "outcome": "ok",
+              "requestId": "eab64f81-7920-4428-9aef-fc4a3aa4203d"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 0,
+              "outcome": "ok",
+              "requestId": "eab64f81-7920-4428-9aef-fc4a3aa4203d"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 510.9,
+              "outcome": "ok",
+              "requestId": "eab64f81-7920-4428-9aef-fc4a3aa4203d"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 589.3,
+              "outcome": "ok",
+              "requestId": "eab64f81-7920-4428-9aef-fc4a3aa4203d"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 30.8,
+              "outcome": "ok",
+              "requestId": "eab64f81-7920-4428-9aef-fc4a3aa4203d"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 2.9,
+              "outcome": "ok",
+              "requestId": "eab64f81-7920-4428-9aef-fc4a3aa4203d"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 34.1,
+              "outcome": "ok",
+              "requestId": "eab64f81-7920-4428-9aef-fc4a3aa4203d"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 35.8,
+              "outcome": "ok",
+              "tool": "searchDocuments",
+              "requestId": "eab64f81-7920-4428-9aef-fc4a3aa4203d"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4371.8,
+              "outcome": "ok",
+              "requestId": "eab64f81-7920-4428-9aef-fc4a3aa4203d"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 555.4,
+              "outcome": "error",
+              "requestId": "eab64f81-7920-4428-9aef-fc4a3aa4203d"
+            },
+            {
+              "stage": "planning-wall",
+              "durationMs": 5580.6,
+              "outcome": "error",
+              "requestId": "eab64f81-7920-4428-9aef-fc4a3aa4203d"
+            },
+            {
+              "stage": "agent",
+              "durationMs": 5582.8,
+              "outcome": "failed",
+              "requestId": "eab64f81-7920-4428-9aef-fc4a3aa4203d"
+            },
+            {
+              "stage": "planning",
+              "durationMs": 0,
+              "outcome": "error",
+              "requestId": "eab64f81-7920-4428-9aef-fc4a3aa4203d"
+            },
+            {
+              "stage": "request",
+              "durationMs": 5584.2,
+              "outcome": "error",
+              "requestId": "eab64f81-7920-4428-9aef-fc4a3aa4203d"
+            },
+            {
+              "stage": "answer-end-to-end",
+              "durationMs": 5584.922391,
+              "outcome": "error"
+            }
+          ],
+          "error": {
+            "category": "other",
+            "providerCode": "tool_use_failed",
+            "errorType": "AI_APICallError",
+            "httpStatus": 400
+          }
+        },
+        "judgment": {
+          "id": "combined-05",
+          "executed": true,
+          "status": "fail",
+          "automatic": "fail",
+          "reasons": [],
+          "uncertainty": [],
+          "categories": [
+            "provider_failure"
+          ],
+          "suspects": [],
+          "checkedCSV": [],
+          "human": "not-reviewed",
+          "answerHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+        },
+        "http": {
+          "attempts": [
+            {
+              "status": 200,
+              "inputBytes": 4751,
+              "promptTokens": 886,
+              "completionTokens": 36,
+              "totalTokens": 922,
+              "durationMs": 507.1806909999998,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 981,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 7028
+              }
+            },
+            {
+              "status": 400,
+              "inputBytes": 6149,
+              "promptTokens": null,
+              "completionTokens": null,
+              "totalTokens": null,
+              "durationMs": 551.7057800000002,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 980,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6314
+              }
+            }
+          ],
+          "stopReason": null
+        }
+      },
+      "humanReview": "not-reviewed",
+      "targetedObservation": {
+        "method": "AI-assisted inspection of real output; not human-reviewed",
+        "outcome": "execution-failed",
+        "reason": "HTTP 400 tool_use_failed during second planning request after document search; no answer."
+      }
+    },
+    {
+      "benchmark": {
+        "id": "conflict-02",
+        "category": "ambiguous",
+        "system": "agent",
+        "corpus": "conflict",
+        "question": "Do the sales teams meet policy when one active policy says 15 and another says 22 with no effective dates?",
+        "relevantChunks": [
+          "101",
+          "107"
+        ],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Abstain or request clarification; do not silently select a policy or department.",
+        "facts": [],
+        "reviewNotes": "Manual review required: confirm conflicts/ambiguity were recognized rather than ignored."
+      },
+      "before": {
+        "result": {
+          "id": "conflict-02",
+          "category": "ambiguous",
+          "system": "agent",
+          "expectedRefusal": true,
+          "executed": true,
+          "status": "fail",
+          "durationMs": 26255.64577,
+          "answerDurationMs": 26001.126482,
+          "score": {
+            "status": "fail",
+            "automatedStatus": "fail",
+            "failures": [
+              "irrelevant_or_unknown_source"
+            ],
+            "review": [
+              "unregistered_valid_query_plan_requires_review",
+              "free_text_entailment_units_conditions_and_completeness_require_human_review",
+              "sourced_conflict_explanation_or_clarification_requires_review"
+            ],
+            "citationPrecision": 0.6666666666666666,
+            "sourceRecall": 1,
+            "quoteValidity": 1,
+            "numeric": [],
+            "refusalCorrect": false
+          },
+          "retrieval": [
+            {
+              "mode": "semantic",
+              "ranked": [
+                "107",
+                "101",
+                "105"
+              ],
+              "durationMs": 77.866487,
+              "k": 3,
+              "hits": 2,
+              "relevant": 2,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.6666666666666666
+            },
+            {
+              "mode": "hybrid",
+              "ranked": [
+                "107",
+                "101",
+                "105"
+              ],
+              "durationMs": 89.13295000000016,
+              "k": 3,
+              "hits": 2,
+              "relevant": 2,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.6666666666666666
+            }
+          ],
+          "stages": [
+            {
+              "stage": "embedding",
+              "durationMs": 73.2,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 3.5,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 77.6,
+              "outcome": "ok"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 81,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 7.3,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 89,
+              "outcome": "ok"
+            },
+            {
+              "stage": "structured-count",
+              "durationMs": 0.6,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 0,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 640.5,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 797.3,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 71.6,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 9.2,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 81.4,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 83.5,
+              "outcome": "ok",
+              "tool": "searchDocuments",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4116.5,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 788.6,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 4908.6,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 4.1,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 1,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 2.8,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 1.3,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 14.4,
+              "outcome": "ok",
+              "tool": "discoverDatasets",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4173.5,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 907.9,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 5088.9,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 2.7,
+              "outcome": "ok",
+              "tool": "inspectDataset",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4077.1,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 719,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 4802.3,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 1,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 0.9,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 1.7,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 3.4,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 1.1,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "csv-query",
+              "durationMs": 10.4,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 69.3,
+              "outcome": "ok",
+              "tool": "queryDataset",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4196.4,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 1646,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 5846.7,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "planning-wall",
+              "durationMs": 21671.1,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 3348.6,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 958.6,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "final-generation",
+              "durationMs": 4313.8,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "citation-verification",
+              "durationMs": 11.1,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "agent",
+              "durationMs": 25997.6,
+              "outcome": "grounded",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "request",
+              "durationMs": 26000.3,
+              "outcome": "ok",
+              "requestId": "83ae3ceb-5d31-41fb-892d-5b890a5717ed"
+            },
+            {
+              "stage": "answer-end-to-end",
+              "durationMs": 26001.126482,
+              "outcome": "ok"
+            }
+          ],
+          "error": null,
+          "answer": {
+            "grounded": true,
+            "answer": "The team Alpha’s total monthly sales of 30 units exceed both the 15‑unit and 22‑unit minimum targets, so it meets both policies. [C1] [D1] [D2]\n\nThe team Gamma’s total monthly sales of 15 units meet the 15‑unit minimum target but fall short of the 22‑unit target, so it does not satisfy the higher policy. [C1] [D1] [D2]\n\nThe team Beta’s total monthly sales of 6 units fall below both the 15‑unit and 22‑unit minimum targets, so it fails to meet either policy. [C1] [D1] [D2]",
+            "sources": [
+              {
+                "id": "D1",
+                "filename": "revised-team-policy.docx",
+                "type": "document",
+                "documentId": "7",
+                "chunkId": "107",
+                "chunkIndex": 0,
+                "pageNumber": null,
+                "text": "Orion team policy: the minimum monthly total sales target for each team is 22 units. This policy has no effective date.",
+                "quotes": [
+                  "Orion team policy: the minimum monthly total sales target for each team is 22 units. This policy has no effective date."
+                ]
+              },
+              {
+                "id": "D2",
+                "filename": "team-policy.docx",
+                "type": "document",
+                "documentId": "1",
+                "chunkId": "101",
+                "chunkIndex": 0,
+                "pageNumber": null,
+                "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units.",
+                "quotes": [
+                  "Orion team policy: the minimum monthly total sales target for each team is 15 units."
+                ]
+              },
+              {
+                "id": "C1",
+                "filename": "sales.csv",
+                "type": "csv",
+                "datasetId": "201",
+                "text": "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]",
+                "quotes": [
+                  "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]"
+                ],
+                "rows": [
+                  {
+                    "team": "Alpha",
+                    "value": 30
+                  },
+                  {
+                    "team": "Beta",
+                    "value": 6
+                  },
+                  {
+                    "team": "Gamma",
+                    "value": 15
+                  }
+                ],
+                "plan": {
+                  "datasetId": "201",
+                  "filters": [],
+                  "groupBy": [
+                    "team"
+                  ],
+                  "aggregate": {
+                    "op": "sum",
+                    "column": "amount"
+                  },
+                  "limit": 100
+                },
+                "possiblyTruncated": false
+              }
+            ]
+          }
+        },
+        "judgment": {
+          "id": "conflict-02",
+          "executed": true,
+          "status": "fail",
+          "automatic": "fail",
+          "reasons": [
+            "irrelevant_or_unknown_source"
+          ],
+          "uncertainty": [
+            "unregistered_valid_query_plan_requires_review",
+            "free_text_entailment_units_conditions_and_completeness_require_human_review",
+            "sourced_conflict_explanation_or_clarification_requires_review"
+          ],
+          "categories": [
+            "citation_issue"
+          ],
+          "suspects": [],
+          "checkedCSV": [
+            {
+              "sourceId": "C1",
+              "matches": true,
+              "expectedRows": [
+                {
+                  "team": "Alpha",
+                  "value": 30
+                },
+                {
+                  "team": "Beta",
+                  "value": 6
+                },
+                {
+                  "team": "Gamma",
+                  "value": 15
+                }
+              ]
+            }
+          ],
+          "human": "not-reviewed",
+          "answerHash": "fc0d8a21e3ecd503a47b4a3ba50a82fa86e0a7482d7a3d67cad0959836c0a368"
+        },
+        "http": {
+          "attempts": [
+            {
+              "status": 200,
+              "inputBytes": 3970,
+              "promptTokens": 752,
+              "completionTokens": 46,
+              "totalTokens": 798,
+              "durationMs": 636.7014959999997,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 938,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 7162
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 5459,
+              "promptTokens": 1092,
+              "completionTokens": 39,
+              "totalTokens": 1131,
+              "durationMs": 782.2329020000006,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 937,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6822
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 6002,
+              "promptTokens": 1188,
+              "completionTokens": 25,
+              "totalTokens": 1213,
+              "durationMs": 902.2740889999986,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 936,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6726
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 6523,
+              "promptTokens": 1269,
+              "completionTokens": 49,
+              "totalTokens": 1318,
+              "durationMs": 715.1002819999994,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 935,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6096
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 7463,
+              "promptTokens": 1448,
+              "completionTokens": 278,
+              "totalTokens": 1726,
+              "durationMs": 1641.1068970000015,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 934,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 5266
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 4598,
+              "promptTokens": 1077,
+              "completionTokens": 355,
+              "totalTokens": 1432,
+              "durationMs": 955.4770669999998,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 933,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 5135
+              }
+            }
+          ],
+          "stopReason": null
+        }
+      },
+      "after": {
+        "result": {
+          "id": "conflict-02",
+          "category": "ambiguous",
+          "system": "agent",
+          "expectedRefusal": true,
+          "executed": true,
+          "status": "needs-review",
+          "durationMs": 15842.574822999999,
+          "answerDurationMs": 15640.420983999998,
+          "score": {
+            "status": "needs-review",
+            "automatedStatus": "pass",
+            "failures": [],
+            "review": [
+              "conflict_or_ambiguity_requires_human_judgment"
+            ],
+            "citationPrecision": null,
+            "sourceRecall": null,
+            "quoteValidity": null,
+            "numeric": [],
+            "refusalCorrect": true
+          },
+          "retrieval": [
+            {
+              "mode": "semantic",
+              "ranked": [
+                "107",
+                "101",
+                "105"
+              ],
+              "durationMs": 62.03389799999991,
+              "k": 3,
+              "hits": 2,
+              "relevant": 2,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.6666666666666666
+            },
+            {
+              "mode": "hybrid",
+              "ranked": [
+                "107",
+                "101",
+                "105"
+              ],
+              "durationMs": 67.0001420000001,
+              "k": 3,
+              "hits": 2,
+              "relevant": 2,
+              "returned": 3,
+              "recall": 1,
+              "precision": 0.6666666666666666
+            }
+          ],
+          "stages": [
+            {
+              "stage": "embedding",
+              "durationMs": 58.2,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 2.9,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 61.8,
+              "outcome": "ok"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 61,
+              "outcome": "ok"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 5.3,
+              "outcome": "ok"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 66.9,
+              "outcome": "ok"
+            },
+            {
+              "stage": "structured-count",
+              "durationMs": 0.5,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 0,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 659.4,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 749.3,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 51.7,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 5.1,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 57.3,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 59.6,
+              "outcome": "ok",
+              "tool": "searchDocuments",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4188.9,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 671.3,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 4862.2,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "embedding",
+              "durationMs": 32.5,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "postgres",
+              "durationMs": 3.3,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "retrieval",
+              "durationMs": 36.2,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "tool",
+              "durationMs": 37.5,
+              "outcome": "ok",
+              "tool": "searchDocuments",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4286.1,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 796.2,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "planning-groq",
+              "durationMs": 5085.1,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "planning-wall",
+              "durationMs": 10818.3,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "groq-pacing",
+              "durationMs": 4194.3,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "groq-http",
+              "durationMs": 607.7,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "final-generation",
+              "durationMs": 4811.8,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "citation-verification",
+              "durationMs": 4.3,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "agent",
+              "durationMs": 15636.4,
+              "outcome": "abstained",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "request",
+              "durationMs": 15639.5,
+              "outcome": "ok",
+              "requestId": "f85922ca-2b11-4dae-94ac-c7444f59145c"
+            },
+            {
+              "stage": "answer-end-to-end",
+              "durationMs": 15640.420983999998,
+              "outcome": "ok"
+            }
+          ],
+          "error": null,
+          "answer": {
+            "grounded": false,
+            "answer": "I don't have enough evidence from the available documents and datasets to answer that question.",
+            "sources": []
+          }
+        },
+        "judgment": {
+          "id": "conflict-02",
+          "executed": true,
+          "status": "needs-review",
+          "automatic": "pass",
+          "reasons": [],
+          "uncertainty": [
+            "conflict_or_ambiguity_requires_human_judgment"
+          ],
+          "categories": [],
+          "suspects": [],
+          "checkedCSV": [],
+          "human": "not-reviewed",
+          "answerHash": "59a16735bfbe4e68d886e590940b68788b417c8036698c61caea7b7be5d26d69"
+        },
+        "http": {
+          "attempts": [
+            {
+              "status": 200,
+              "inputBytes": 4752,
+              "promptTokens": 888,
+              "completionTokens": 68,
+              "totalTokens": 956,
+              "durationMs": 653.9697330000001,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 979,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6883
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 6278,
+              "promptTokens": 1238,
+              "completionTokens": 83,
+              "totalTokens": 1321,
+              "durationMs": 668.6748609999995,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 978,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 6676
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 7976,
+              "promptTokens": 1629,
+              "completionTokens": 108,
+              "totalTokens": 1737,
+              "durationMs": 792.1228780000001,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 977,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 5531
+              }
+            },
+            {
+              "status": 200,
+              "inputBytes": 6764,
+              "promptTokens": 1543,
+              "completionTokens": 69,
+              "totalTokens": 1612,
+              "durationMs": 602.8050780000012,
+              "quota": {
+                "requestsPerDay": 1000,
+                "remainingRequestsToday": 976,
+                "tokensPerMinute": 8000,
+                "remainingTokensThisMinute": 5268
+              }
+            }
+          ],
+          "stopReason": null
+        }
+      },
+      "humanReview": "not-reviewed",
+      "targetedObservation": {
+        "method": "AI-assisted inspection of real output; not human-reviewed",
+        "outcome": "safe-abstention-no-explanation",
+        "reason": "Does not select governing policy, but provides no conditional comparison or two-policy explanation."
+      }
+    }
+  ]
+}

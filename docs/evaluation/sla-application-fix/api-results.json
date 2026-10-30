@@ -1,0 +1,77 @@
+{
+  "kind": "real-postgres-bge-authenticated-route-no-groq",
+  "providerCalls": 0,
+  "owner": {
+    "httpStatus": 200,
+    "requestId": "134212d9-7725-4c33-8abc-708afdfb3737",
+    "durationMs": 243,
+    "answer": "Ticket F-1 (P1): actual first-response time is 3 hours; the documented deadline is 2.5 hours; difference is 0.5 hours. [D1] [C1]",
+    "sources": [
+      {
+        "id": "D1",
+        "documentId": "1",
+        "chunkId": "101",
+        "filename": "fictional-operations.pdf",
+        "chunkIndex": 0,
+        "pageNumber": null,
+        "similarity": 0.6608500091955407,
+        "retrievalMode": "hybrid",
+        "keywordRank": 1,
+        "semanticRank": 1,
+        "rrfScore": 0.03278688524590164,
+        "text": "P1 tickets require first response within 2.5 hours; P2 within 4 hours; P3 within 12 hours. Response time is measured from receipt.",
+        "quotes": [
+          "P1 tickets require first response within 2.5 hours; P2 within 4 hours; P3 within 12 hours. Response time is measured from receipt."
+        ],
+        "type": "document"
+      },
+      {
+        "id": "C1",
+        "datasetId": "201",
+        "filename": "fictional-incidents.csv",
+        "plan": {
+          "datasetId": "201",
+          "filters": [
+            {
+              "column": "severity",
+              "op": "eq",
+              "value": "P1"
+            },
+            {
+              "column": "response_hours",
+              "op": "gt",
+              "value": 2.5
+            }
+          ],
+          "groupBy": [],
+          "sort": {
+            "column": "response_hours",
+            "direction": "desc"
+          },
+          "limit": 100
+        },
+        "rows": [
+          {
+            "severity": "P1",
+            "ticket_id": "F-1",
+            "response_hours": 3
+          }
+        ],
+        "text": "[{\"severity\":\"P1\",\"ticket_id\":\"F-1\",\"response_hours\":3}]",
+        "possiblyTruncated": false,
+        "type": "csv",
+        "quotes": [
+          "[{\"severity\":\"P1\",\"ticket_id\":\"F-1\",\"response_hours\":3}]"
+        ]
+      }
+    ]
+  },
+  "isolation": {
+    "foreignAbstains": true,
+    "missingCSRF": 403,
+    "anonymous": 401
+  },
+  "localEmbeddingCalls": 3,
+  "blockedExternalAttempts": 0,
+  "status": "Passed"
+}

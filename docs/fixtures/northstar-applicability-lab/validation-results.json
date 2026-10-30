@@ -1,0 +1,13 @@
+{
+  "artifact_validation": "passed",
+  "csv_rows": 25,
+  "pdf_pages": 4,
+  "in_scope": 20,
+  "outside_scope": 3,
+  "unknown_scope": 2,
+  "confirmed_response_late": 7,
+  "unknown_response": 1,
+  "resolution_late": 14,
+  "application_tests": "not run",
+  "live_ai_calls": 0
+}

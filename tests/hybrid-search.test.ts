@@ -70,6 +70,8 @@ test('PostgreSQL integration: exact keywords, owner/status exclusion and semanti
  assert.equal(selectEvidence(hybrid,0.5).find(r=>r.chunkId==='2')?.pageNumber,4);
  const semantic=selectEvidence(await searchDocuments('annual vacation allowance',undefined,{mode:'semantic'}),0.5);
  assert.deepEqual(semantic.map(r=>r.chunkId),['1']);
+ const scoped=await searchDocuments('Invoice ZX-2048',undefined,{mode:'hybrid',filename:'fictional-2.docx'});assert.deepEqual(scoped.map(r=>r.document_id),['2']);
+ for(const id of [3,4,5])assert.deepEqual(await searchDocuments('Invoice ZX-2048',undefined,{mode:'hybrid',filename:`fictional-${id}.docx`}),[]);
  assert.ok(!hybrid.some(r=>['3','4','5'].includes(r.document_id)));
  } finally {mock.restoreAll();await client.query('ROLLBACK');client.release(true);}
 });
@@ -88,4 +90,12 @@ test('Day 5 HTTP route and Day 6 tool retain low-cosine keyword evidence',async(
  assert.equal(session.evidence().documents.length,1);
  assert.equal(session.finalize({answerable:true,statements:[{text:'Approved.',citations:[{sourceId:'D1',quote:'ZX-2048 was approved.'}]}]}).grounded,true);
  }finally{mock.restoreAll();for(const [key,value] of Object.entries({GOOGLE_GENERATIVE_AI_API_KEY:oldKey,NODE_ENV:oldNode})){if(value===undefined)delete process.env[key];else process.env[key]=value;}}
+});
+test('named-file scope is parameterized before semantic and hybrid ranking',async()=>{
+ const configs:Array<{text:string;values:unknown[]}>=[];
+ mock.method(globalThis,'fetch',async()=>Response.json({embeddings:[Array(768).fill(.1)]}));mock.method(pool,'query',async(q:{text:string;values:unknown[]})=>{configs.push(q);return {rows:[]};});
+ try{for(const mode of ['semantic','hybrid'] as const)await searchDocuments('first-response deadline',undefined,{mode,filename:"policy'; DROP TABLE users; --.pdf"});
+ for(const q of configs){assert.match(q.text,/d.user_id = \$2/);assert.match(q.text,/lower\(d.filename\)=lower\(\$[34]\)/);assert.ok(q.values.includes("policy'; DROP TABLE users; --.pdf"));assert.ok(!q.text.includes('DROP TABLE'));}
+ for(const filename of ['../policy.pdf','a\\policy.pdf','a\u0000.pdf'])await assert.rejects(searchDocuments('deadline',undefined,{filename}));
+ }finally{mock.restoreAll();}
 });

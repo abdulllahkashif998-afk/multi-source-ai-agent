@@ -149,3 +149,7 @@ Use a new fictional PDF/DOCX for this procedure, rather than an existing project
 - Pagination is bounded and does not compute a full total or expose historical/deleted versions. Large collections may justify a separately reviewed owner/ID index after query measurements.
 - No download, preview rendering, audit-history UI, bulk operations, cleanup scheduler or dataset/chat management is introduced. Pending cleanup remains governed by the existing backend queue and operator retry endpoint.
 - Browser coverage is Chrome desktop/mobile. Additional browsers and assistive-technology checks remain useful.
+
+## Page-size follow-up
+
+The Documents UI and default list API now use 10 documents per page. With 13 visible documents, page 1 contains 10 and Next opens the remaining three. Previous returns to the first ten. The API still permits an explicit limit from 1 to 50; this does not change the UI page size. Earlier 20-item examples above record the initial phase behavior.

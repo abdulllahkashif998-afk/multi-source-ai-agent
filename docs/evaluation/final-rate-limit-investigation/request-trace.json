@@ -1,0 +1,251 @@
+{
+  "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+  "correlation": "Exact 5742.5ms duration match; question text supplied by user, not stored in server log",
+  "events": [
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 5.5
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "structured-operation",
+      "outcome": "ok",
+      "durationMs": 2.5
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "structured-count",
+      "outcome": "ok",
+      "durationMs": 0.5
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 1.8
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 1
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 3.5
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 1.1
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "dataset-discovery",
+      "outcome": "ok",
+      "durationMs": 15
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "tool",
+      "tool": "discoverDatasets",
+      "outcome": "ok",
+      "durationMs": 17.2
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "tool",
+      "tool": "inspectDataset",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "model-call",
+      "durationMs": 0,
+      "modelCallCount": 1,
+      "providerAttemptCount": 0
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "groq-pacing",
+      "outcome": "ok",
+      "durationMs": 0.1
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "provider-usage",
+      "durationMs": 0,
+      "httpStatus": 200,
+      "reservedTokens": 3033,
+      "reportedTokens": 2130,
+      "providerAttemptCount": 1,
+      "modelCallCount": 1,
+      "requestReportedTokens": 2130,
+      "requestUnknownUsageCalls": 0
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "groq-http",
+      "outcome": "ok",
+      "durationMs": 892.5
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "planning-groq",
+      "outcome": "ok",
+      "durationMs": 964.7
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "embedding",
+      "outcome": "ok",
+      "durationMs": 232.6
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 19.9
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "retrieval",
+      "outcome": "ok",
+      "durationMs": 254.2
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "retrieval",
+      "outcome": "ok",
+      "durationMs": 254.6
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "tool",
+      "tool": "searchDocuments",
+      "outcome": "ok",
+      "durationMs": 256.2
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "model-call",
+      "durationMs": 0,
+      "modelCallCount": 2,
+      "providerAttemptCount": 1
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "groq-pacing",
+      "outcome": "ok",
+      "durationMs": 3818.3
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "provider-usage",
+      "durationMs": 0,
+      "httpStatus": 200,
+      "reservedTokens": 3814,
+      "reportedTokens": 1790,
+      "providerAttemptCount": 2,
+      "modelCallCount": 2,
+      "requestReportedTokens": 3920,
+      "requestUnknownUsageCalls": 0
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "groq-http",
+      "outcome": "ok",
+      "durationMs": 510.5
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "planning-groq",
+      "outcome": "ok",
+      "durationMs": 4354.9
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "tool",
+      "tool": "inspectDataset",
+      "outcome": "ok",
+      "durationMs": 0.6
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "model-call",
+      "durationMs": 0,
+      "modelCallCount": 3,
+      "providerAttemptCount": 2
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "groq-pacing",
+      "outcome": "rejected",
+      "durationMs": 0,
+      "category": "rate_limit",
+      "rateLimitOrigin": "local",
+      "quotaReason": "tpm",
+      "httpStatus": 429
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "groq-pacing",
+      "outcome": "rejected",
+      "durationMs": 0,
+      "category": "rate_limit",
+      "rateLimitOrigin": "local",
+      "quotaReason": "tpm",
+      "httpStatus": 429
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "planning-wall",
+      "outcome": "error",
+      "durationMs": 5720.4,
+      "category": "rate_limit",
+      "rateLimitOrigin": "local",
+      "quotaReason": "tpm",
+      "httpStatus": 429
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "agent",
+      "outcome": "failed",
+      "durationMs": 5728.1
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "planning",
+      "outcome": "error",
+      "durationMs": 0,
+      "category": "rate_limit",
+      "rateLimitOrigin": "local",
+      "quotaReason": "tpm",
+      "httpStatus": 429
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "agent-invocation",
+      "outcome": "error",
+      "durationMs": 0,
+      "category": "rate_limit",
+      "rateLimitOrigin": "local",
+      "quotaReason": "tpm",
+      "httpStatus": 429
+    },
+    {
+      "requestId": "747db5ae-f1b3-49b0-a972-34906922adc0",
+      "stage": "request",
+      "outcome": "error",
+      "durationMs": 5742.5,
+      "category": "rate_limit",
+      "httpStatus": 429
+    }
+  ]
+}

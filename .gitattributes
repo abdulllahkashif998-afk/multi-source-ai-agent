@@ -1,3 +1,6 @@
 # Parser fixtures are binary documents; never normalize their bytes or diff as text.
 *.pdf binary
 *.docx binary
+
+# Preserve the reviewed CSV checksum; CRLF is a valid CSV record separator.
+docs/fixtures/northstar-applicability-lab/*.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

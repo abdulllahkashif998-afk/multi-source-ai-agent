@@ -1,0 +1,326 @@
+[
+  {
+    "loggerTimestamp": "01:54:35.616",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 28.2
+  },
+  {
+    "loggerTimestamp": "01:54:35.629",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "structured-operation",
+    "outcome": "ok",
+    "durationMs": 4.5
+  },
+  {
+    "loggerTimestamp": "01:54:35.630",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "structured-count",
+    "outcome": "ok",
+    "durationMs": 0.3
+  },
+  {
+    "loggerTimestamp": "01:54:35.633",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.6
+  },
+  {
+    "loggerTimestamp": "01:54:35.634",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.5
+  },
+  {
+    "loggerTimestamp": "01:54:35.637",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 1.5
+  },
+  {
+    "loggerTimestamp": "01:54:35.640",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 2.2
+  },
+  {
+    "loggerTimestamp": "01:54:35.640",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "dataset-discovery",
+    "outcome": "ok",
+    "durationMs": 8
+  },
+  {
+    "loggerTimestamp": "01:54:35.641",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "tool",
+    "tool": "discoverDatasets",
+    "outcome": "ok",
+    "durationMs": 10.2
+  },
+  {
+    "loggerTimestamp": "01:54:35.642",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "tool",
+    "tool": "inspectDataset",
+    "outcome": "ok",
+    "durationMs": 0.3
+  },
+  {
+    "loggerTimestamp": "01:54:35.644",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "tool",
+    "tool": "inspectDataset",
+    "outcome": "ok",
+    "durationMs": 0.3
+  },
+  {
+    "loggerTimestamp": "01:54:35.651",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "model-call",
+    "durationMs": 0,
+    "phase": "planning",
+    "modelCallCount": 1,
+    "providerAttemptCount": 0
+  },
+  {
+    "loggerTimestamp": "01:54:36.381",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "planning-groq",
+    "outcome": "ok",
+    "durationMs": 730.8
+  },
+  {
+    "loggerTimestamp": "01:54:36.632",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "embedding",
+    "outcome": "ok",
+    "durationMs": 247
+  },
+  {
+    "loggerTimestamp": "01:54:36.652",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 18.7
+  },
+  {
+    "loggerTimestamp": "01:54:36.652",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "retrieval",
+    "outcome": "ok",
+    "durationMs": 267.2
+  },
+  {
+    "loggerTimestamp": "01:54:36.653",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "retrieval",
+    "outcome": "ok",
+    "durationMs": 267.5
+  },
+  {
+    "loggerTimestamp": "01:54:36.653",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "tool",
+    "tool": "searchDocuments",
+    "outcome": "ok",
+    "durationMs": 268.9
+  },
+  {
+    "loggerTimestamp": "01:54:36.657",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "model-call",
+    "durationMs": 0,
+    "phase": "planning",
+    "modelCallCount": 2,
+    "providerAttemptCount": 0
+  },
+  {
+    "loggerTimestamp": "01:54:41.927",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "planning-groq",
+    "outcome": "ok",
+    "durationMs": 5269.2
+  },
+  {
+    "loggerTimestamp": "01:54:41.932",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "tool-validation",
+    "tool": "queryDataset",
+    "outcome": "error",
+    "durationMs": 0,
+    "reason": "invalid_count_column"
+  },
+  {
+    "loggerTimestamp": "01:54:41.933",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "tool-execution",
+    "tool": "queryDataset",
+    "outcome": "error",
+    "durationMs": 0,
+    "reason": "invalid_count_column"
+  },
+  {
+    "loggerTimestamp": "01:54:41.935",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "tool",
+    "tool": "queryDataset",
+    "outcome": "error",
+    "durationMs": 4.1
+  },
+  {
+    "loggerTimestamp": "01:54:41.946",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "model-call",
+    "durationMs": 0,
+    "phase": "planning",
+    "modelCallCount": 3,
+    "providerAttemptCount": 0
+  },
+  {
+    "loggerTimestamp": "01:54:46.626",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "planning-groq",
+    "outcome": "ok",
+    "durationMs": 4680.8
+  },
+  {
+    "loggerTimestamp": "01:54:46.634",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 1.2
+  },
+  {
+    "loggerTimestamp": "01:54:46.637",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 1
+  },
+  {
+    "loggerTimestamp": "01:54:46.640",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 2.4
+  },
+  {
+    "loggerTimestamp": "01:54:46.651",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 3.9
+  },
+  {
+    "loggerTimestamp": "01:54:46.653",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.9
+  },
+  {
+    "loggerTimestamp": "01:54:46.654",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "csv-query",
+    "outcome": "ok",
+    "durationMs": 22.4
+  },
+  {
+    "loggerTimestamp": "01:54:46.655",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "csv-query",
+    "outcome": "ok",
+    "durationMs": 23.4
+  },
+  {
+    "loggerTimestamp": "01:54:46.657",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "tool",
+    "tool": "queryDataset",
+    "outcome": "ok",
+    "durationMs": 26.3
+  },
+  {
+    "loggerTimestamp": "01:54:46.673",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "model-call",
+    "durationMs": 0,
+    "phase": "planning",
+    "modelCallCount": 4,
+    "providerAttemptCount": 0
+  },
+  {
+    "loggerTimestamp": "01:54:50.820",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "planning-wall",
+    "outcome": "error",
+    "durationMs": 15189.2,
+    "httpStatus": 429,
+    "rateLimitOrigin": "local",
+    "quotaReason": "tpm",
+    "quotaRequestedTokens": 4631,
+    "quotaMinuteTokens": 5612,
+    "quotaDayTokens": 152801,
+    "quotaRemoteTokensRemaining": 2386,
+    "retryAfterSeconds": 56
+  },
+  {
+    "loggerTimestamp": "01:54:50.821",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "tool",
+    "tool": "queryDataset",
+    "outcome": "recovered",
+    "durationMs": 0
+  },
+  {
+    "loggerTimestamp": "01:54:50.822",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "agent",
+    "outcome": "failed",
+    "durationMs": 15199.7
+  },
+  {
+    "loggerTimestamp": "01:54:50.822",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "planning",
+    "outcome": "error",
+    "durationMs": 0,
+    "httpStatus": 429,
+    "rateLimitOrigin": "local",
+    "quotaReason": "tpm",
+    "quotaRequestedTokens": 4631,
+    "quotaMinuteTokens": 5612,
+    "quotaDayTokens": 152801,
+    "quotaRemoteTokensRemaining": 2386,
+    "retryAfterSeconds": 56
+  },
+  {
+    "loggerTimestamp": "01:54:50.823",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "agent-invocation",
+    "outcome": "error",
+    "durationMs": 0,
+    "httpStatus": 429,
+    "rateLimitOrigin": "local",
+    "quotaReason": "tpm",
+    "quotaRequestedTokens": 4631,
+    "quotaMinuteTokens": 5612,
+    "quotaDayTokens": 152801,
+    "quotaRemoteTokensRemaining": 2386,
+    "retryAfterSeconds": 56
+  },
+  {
+    "loggerTimestamp": "01:54:50.824",
+    "requestId": "a87acc41-32d1-4f8a-9117-81396916251a",
+    "stage": "request",
+    "outcome": "error",
+    "durationMs": 15235.8,
+    "httpStatus": 429
+  }
+]

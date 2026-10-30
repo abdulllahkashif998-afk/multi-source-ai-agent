@@ -1,0 +1,266 @@
+[
+  {
+    "caseId": "csv-05",
+    "attempt": 1,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 999,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 6147
+    }
+  },
+  {
+    "caseId": "csv-05",
+    "attempt": 2,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 998,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 5897
+    }
+  },
+  {
+    "caseId": "csv-05",
+    "attempt": 3,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 997,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 5759
+    }
+  },
+  {
+    "caseId": "csv-05",
+    "attempt": 4,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 996,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 5770
+    }
+  },
+  {
+    "caseId": "csv-05",
+    "attempt": 5,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 995,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 4906
+    }
+  },
+  {
+    "caseId": "csv-05",
+    "attempt": 6,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 994,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 5634
+    }
+  },
+  {
+    "caseId": "conflict-01",
+    "attempt": 1,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 993,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 7036
+    }
+  },
+  {
+    "caseId": "conflict-01",
+    "attempt": 2,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 992,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 6406
+    }
+  },
+  {
+    "caseId": "conflict-01",
+    "attempt": 3,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 991,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 5694
+    }
+  },
+  {
+    "caseId": "ambiguous-01",
+    "attempt": 1,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 990,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 6839
+    }
+  },
+  {
+    "caseId": "ambiguous-01",
+    "attempt": 2,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 989,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 6512
+    }
+  },
+  {
+    "caseId": "ambiguous-01",
+    "attempt": 3,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 988,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 6132
+    }
+  },
+  {
+    "caseId": "combined-04",
+    "attempt": 1,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 987,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 7031
+    }
+  },
+  {
+    "caseId": "combined-04",
+    "attempt": 2,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 986,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 6455
+    }
+  },
+  {
+    "caseId": "combined-04",
+    "attempt": 3,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 985,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 6585
+    }
+  },
+  {
+    "caseId": "combined-04",
+    "attempt": 4,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 984,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 6557
+    }
+  },
+  {
+    "caseId": "combined-04",
+    "attempt": 5,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 983,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 5660
+    }
+  },
+  {
+    "caseId": "combined-04",
+    "attempt": 6,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 982,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 5401
+    }
+  },
+  {
+    "caseId": "combined-05",
+    "attempt": 1,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 981,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 7028
+    }
+  },
+  {
+    "caseId": "combined-05",
+    "attempt": 2,
+    "status": 400,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 980,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 6314
+    }
+  },
+  {
+    "caseId": "conflict-02",
+    "attempt": 1,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 979,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 6883
+    }
+  },
+  {
+    "caseId": "conflict-02",
+    "attempt": 2,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 978,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 6676
+    }
+  },
+  {
+    "caseId": "conflict-02",
+    "attempt": 3,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 977,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 5531
+    }
+  },
+  {
+    "caseId": "conflict-02",
+    "attempt": 4,
+    "status": 200,
+    "quota": {
+      "requestsPerDay": 1000,
+      "remainingRequestsToday": 976,
+      "tokensPerMinute": 8000,
+      "remainingTokensThisMinute": 5268
+    }
+  }
+]

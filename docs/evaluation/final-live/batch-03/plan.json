@@ -1,0 +1,735 @@
+{
+  "approvalStatus": "approved-remaining-seventeen-only",
+  "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "completedCasesExcluded": [
+    "doc-01",
+    "doc-02",
+    "csv-01",
+    "csv-02",
+    "combined-01",
+    "combined-02",
+    "missing-01",
+    "conflict-01"
+  ],
+  "selectedOriginalCases": [
+    {
+      "id": "doc-03",
+      "category": "document",
+      "system": "chat",
+      "corpus": "base",
+      "question": "How long after delivery can unopened equipment be sent back?",
+      "relevantChunks": [
+        "103"
+      ],
+      "expectedSources": [
+        "doc:3:103"
+      ],
+      "refuse": false,
+      "expectedAnswer": "Unopened equipment may be returned within 30 days of delivery.",
+      "facts": [
+        {
+          "label": "return window",
+          "value": 30,
+          "tolerance": 1e-06,
+          "pattern": "(?:within|window)[^.!?\\n]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+        }
+      ],
+      "reviewNotes": "Review whether the prose states the policy correctly, including conditions, units and scope."
+    },
+    {
+      "id": "doc-04",
+      "category": "document",
+      "system": "chat",
+      "corpus": "base",
+      "question": "At what travel expense amount is manager sign-off required?",
+      "relevantChunks": [
+        "104"
+      ],
+      "expectedSources": [
+        "doc:4:104"
+      ],
+      "refuse": false,
+      "expectedAnswer": "Travel expenses above 500 credits require manager approval.",
+      "facts": [
+        {
+          "label": "approval threshold",
+          "value": 500,
+          "tolerance": 1e-06,
+          "pattern": "(?:above|threshold)[^.!?\\n]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+        }
+      ],
+      "reviewNotes": "Review whether the prose states the policy correctly, including conditions, units and scope."
+    },
+    {
+      "id": "doc-05",
+      "category": "document",
+      "system": "chat",
+      "corpus": "base",
+      "question": "What is the acknowledgment deadline for a service incident?",
+      "relevantChunks": [
+        "105"
+      ],
+      "expectedSources": [
+        "doc:5:105"
+      ],
+      "refuse": false,
+      "expectedAnswer": "A service incident must be acknowledged within 2 hours.",
+      "facts": [
+        {
+          "label": "acknowledgment deadline",
+          "value": 2,
+          "tolerance": 1e-06,
+          "pattern": "(?:within|deadline)[^.!?\\n]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+        }
+      ],
+      "reviewNotes": "Review whether the prose states the policy correctly, including conditions, units and scope."
+    },
+    {
+      "id": "doc-06",
+      "category": "document",
+      "system": "chat",
+      "corpus": "base",
+      "question": "Tell me the recorded approval status of ZX-2048.",
+      "relevantChunks": [
+        "106"
+      ],
+      "expectedSources": [
+        "doc:6:106"
+      ],
+      "refuse": false,
+      "expectedAnswer": "Invoice ZX-2048 is approved for the Harbor project.",
+      "facts": [],
+      "reviewNotes": "Review whether the prose states the policy correctly, including conditions, units and scope."
+    },
+    {
+      "id": "csv-03",
+      "category": "csv",
+      "system": "agent",
+      "corpus": "base",
+      "question": "What is the average amount per sales record?",
+      "relevantChunks": [],
+      "expectedSources": [
+        "csv:201"
+      ],
+      "refuse": false,
+      "expectedAnswer": "The average sales amount is 10.2 units.",
+      "facts": [
+        {
+          "label": "mean",
+          "value": 10.2,
+          "tolerance": 1e-06,
+          "pattern": "(?:average|mean)[^!?\\n]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+        }
+      ],
+      "plan": {
+        "datasetId": "201",
+        "aggregate": {
+          "op": "avg",
+          "column": "amount"
+        }
+      },
+      "expectedRows": [
+        {
+          "value": 10.2
+        }
+      ],
+      "reviewNotes": "Review calculation meaning, filters, groups and whether the answer overstates limited evidence."
+    },
+    {
+      "id": "csv-04",
+      "category": "csv",
+      "system": "agent",
+      "corpus": "base",
+      "question": "Show total sales for Alpha, Beta and Gamma, grouped by team.",
+      "relevantChunks": [],
+      "expectedSources": [
+        "csv:201"
+      ],
+      "refuse": false,
+      "expectedAnswer": "Alpha total is 30 units; Beta total is 6 units; Gamma total is 15 units.",
+      "facts": [
+        {
+          "label": "Alpha",
+          "value": 30,
+          "tolerance": 1e-06,
+          "pattern": "Alpha[^.!?\\n;]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+        },
+        {
+          "label": "Beta",
+          "value": 6,
+          "tolerance": 1e-06,
+          "pattern": "Beta[^.!?\\n;]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+        },
+        {
+          "label": "Gamma",
+          "value": 15,
+          "tolerance": 1e-06,
+          "pattern": "Gamma[^.!?\\n;]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+        }
+      ],
+      "plan": {
+        "datasetId": "201",
+        "aggregate": {
+          "op": "sum",
+          "column": "amount"
+        },
+        "groupBy": [
+          "team"
+        ],
+        "sort": {
+          "column": "team",
+          "direction": "asc"
+        }
+      },
+      "expectedRows": [
+        {
+          "team": "Alpha",
+          "value": 30
+        },
+        {
+          "team": "Beta",
+          "value": 6
+        },
+        {
+          "team": "Gamma",
+          "value": 15
+        }
+      ],
+      "reviewNotes": "Review calculation meaning, filters, groups and whether the answer overstates limited evidence."
+    },
+    {
+      "id": "csv-05",
+      "category": "csv",
+      "system": "agent",
+      "corpus": "base",
+      "question": "List the East-region sales amounts, largest first.",
+      "relevantChunks": [],
+      "expectedSources": [
+        "csv:201"
+      ],
+      "refuse": false,
+      "expectedAnswer": "East amounts in descending order are 20 and 10 units.",
+      "facts": [],
+      "plan": {
+        "datasetId": "201",
+        "filters": [
+          {
+            "column": "region",
+            "op": "eq",
+            "value": "East"
+          }
+        ],
+        "sort": {
+          "column": "amount",
+          "direction": "desc"
+        }
+      },
+      "expectedRows": [
+        {
+          "team": "Alpha",
+          "amount": 20,
+          "region": "East"
+        },
+        {
+          "team": "Alpha",
+          "amount": 10,
+          "region": "East"
+        }
+      ],
+      "reviewNotes": "Review calculation meaning, filters, groups and whether the answer overstates limited evidence."
+    },
+    {
+      "id": "csv-06",
+      "category": "csv",
+      "system": "agent",
+      "corpus": "base",
+      "question": "How many employees have expenses strictly above 500 credits?",
+      "relevantChunks": [],
+      "expectedSources": [
+        "csv:202"
+      ],
+      "refuse": false,
+      "expectedAnswer": "The employee expense count above 500 credits is 1.",
+      "facts": [
+        {
+          "label": "expense count",
+          "value": 1,
+          "tolerance": 1e-06,
+          "pattern": "count[^.!?\\n]{0,60}?is\\s+(-?\\d+(?:\\.\\d+)?)"
+        }
+      ],
+      "plan": {
+        "datasetId": "202",
+        "filters": [
+          {
+            "column": "cost",
+            "op": "gt",
+            "value": 500
+          }
+        ],
+        "aggregate": {
+          "op": "count"
+        }
+      },
+      "expectedRows": [
+        {
+          "value": 1
+        }
+      ],
+      "reviewNotes": "Review calculation meaning, filters, groups and whether the answer overstates limited evidence."
+    },
+    {
+      "id": "combined-03",
+      "category": "combined",
+      "system": "agent",
+      "corpus": "base",
+      "question": "Does Gamma meet the minimum monthly team total exactly?",
+      "relevantChunks": [
+        "101"
+      ],
+      "expectedSources": [
+        "doc:1:101",
+        "csv:201"
+      ],
+      "refuse": false,
+      "expectedAnswer": "Gamma total is 15 units, exactly the target; Gamma difference is 0 units.",
+      "facts": [
+        {
+          "label": "Gamma total",
+          "value": 15,
+          "tolerance": 1e-06,
+          "pattern": "Gamma total[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+        },
+        {
+          "label": "difference",
+          "value": 0,
+          "tolerance": 1e-06,
+          "pattern": "difference[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+        }
+      ],
+      "plan": {
+        "datasetId": "201",
+        "aggregate": {
+          "op": "sum",
+          "column": "amount"
+        },
+        "groupBy": [
+          "team"
+        ],
+        "sort": {
+          "column": "team",
+          "direction": "asc"
+        }
+      },
+      "expectedRows": [
+        {
+          "team": "Alpha",
+          "value": 30
+        },
+        {
+          "team": "Beta",
+          "value": 6
+        },
+        {
+          "team": "Gamma",
+          "value": 15
+        }
+      ],
+      "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+    },
+    {
+      "id": "combined-04",
+      "category": "combined",
+      "system": "agent",
+      "corpus": "base",
+      "question": "According to the policy, which teams fall short when all sales rows are added per team?",
+      "relevantChunks": [
+        "101"
+      ],
+      "expectedSources": [
+        "doc:1:101",
+        "csv:201"
+      ],
+      "refuse": false,
+      "expectedAnswer": "Only Beta falls short: Beta total is 6 units and Beta shortfall is 9 units. Alpha and Gamma meet the target.",
+      "facts": [
+        {
+          "label": "Beta shortfall",
+          "value": 9,
+          "tolerance": 1e-06,
+          "pattern": "shortfall[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+        }
+      ],
+      "plan": {
+        "datasetId": "201",
+        "aggregate": {
+          "op": "sum",
+          "column": "amount"
+        },
+        "groupBy": [
+          "team"
+        ],
+        "sort": {
+          "column": "team",
+          "direction": "asc"
+        }
+      },
+      "expectedRows": [
+        {
+          "team": "Alpha",
+          "value": 30
+        },
+        {
+          "team": "Beta",
+          "value": 6
+        },
+        {
+          "team": "Gamma",
+          "value": 15
+        }
+      ],
+      "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+    },
+    {
+      "id": "combined-05",
+      "category": "combined",
+      "system": "agent",
+      "corpus": "base",
+      "question": "Apply the travel approval rule to expenses.csv. Who needs approval and by how much is the limit exceeded?",
+      "relevantChunks": [
+        "104"
+      ],
+      "expectedSources": [
+        "doc:4:104",
+        "csv:202"
+      ],
+      "refuse": false,
+      "expectedAnswer": "Only Jon needs approval: Jon cost is 620 credits; the threshold is 500 credits; Jon excess is 120 credits. Sol at exactly 500 does not require approval.",
+      "facts": [
+        {
+          "label": "Jon cost",
+          "value": 620,
+          "tolerance": 1e-06,
+          "pattern": "Jon cost[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+        },
+        {
+          "label": "excess",
+          "value": 120,
+          "tolerance": 1e-06,
+          "pattern": "excess[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+        }
+      ],
+      "plan": {
+        "datasetId": "202"
+      },
+      "expectedRows": [
+        {
+          "employee": "Mira",
+          "cost": 450
+        },
+        {
+          "employee": "Jon",
+          "cost": 620
+        },
+        {
+          "employee": "Sol",
+          "cost": 500
+        }
+      ],
+      "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+    },
+    {
+      "id": "combined-06",
+      "category": "combined",
+      "system": "agent",
+      "corpus": "base",
+      "question": "Using the incident acknowledgment policy and incidents.csv, which ticket missed the deadline?",
+      "relevantChunks": [
+        "105"
+      ],
+      "expectedSources": [
+        "doc:5:105",
+        "csv:203"
+      ],
+      "refuse": false,
+      "expectedAnswer": "INC-B missed the deadline: INC-B hours is 3; the deadline is 2 hours; INC-B delay is 1 hour. INC-A and INC-C meet the deadline.",
+      "facts": [
+        {
+          "label": "late hours",
+          "value": 3,
+          "tolerance": 1e-06,
+          "pattern": "INC-B hours[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+        },
+        {
+          "label": "delay",
+          "value": 1,
+          "tolerance": 1e-06,
+          "pattern": "delay[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+        }
+      ],
+      "plan": {
+        "datasetId": "203"
+      },
+      "expectedRows": [
+        {
+          "ticket": "INC-A",
+          "hours": 1
+        },
+        {
+          "ticket": "INC-B",
+          "hours": 3
+        },
+        {
+          "ticket": "INC-C",
+          "hours": 2
+        }
+      ],
+      "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+    },
+    {
+      "id": "missing-02",
+      "system": "agent",
+      "question": "What were team sales last year? The provided sales data has no year column.",
+      "category": "insufficient",
+      "corpus": "base",
+      "relevantChunks": [],
+      "expectedSources": [],
+      "refuse": true,
+      "expectedAnswer": "Abstain: the fixtures do not contain the requested facts.",
+      "facts": [],
+      "reviewNotes": "Check that absence is not converted into invented facts or zero values."
+    },
+    {
+      "id": "missing-03",
+      "system": "agent",
+      "question": "What is the average customer age in sales.csv?",
+      "category": "insufficient",
+      "corpus": "base",
+      "relevantChunks": [],
+      "expectedSources": [],
+      "refuse": true,
+      "expectedAnswer": "Abstain: the fixtures do not contain the requested facts.",
+      "facts": [],
+      "reviewNotes": "Check that absence is not converted into invented facts or zero values."
+    },
+    {
+      "id": "missing-04",
+      "system": "chat",
+      "question": "What is Orion\u2019s parental leave allowance?",
+      "category": "insufficient",
+      "corpus": "base",
+      "relevantChunks": [],
+      "expectedSources": [],
+      "refuse": true,
+      "expectedAnswer": "Abstain: the fixtures do not contain the requested facts.",
+      "facts": [],
+      "reviewNotes": "Check that absence is not converted into invented facts or zero values."
+    },
+    {
+      "id": "conflict-02",
+      "category": "ambiguous",
+      "system": "agent",
+      "corpus": "conflict",
+      "question": "Do the sales teams meet policy when one active policy says 15 and another says 22 with no effective dates?",
+      "relevantChunks": [
+        "101",
+        "107"
+      ],
+      "expectedSources": [],
+      "refuse": true,
+      "expectedAnswer": "Abstain or request clarification; do not silently select a policy or department.",
+      "facts": [],
+      "reviewNotes": "Manual review required: confirm conflicts/ambiguity were recognized rather than ignored."
+    },
+    {
+      "id": "ambiguous-01",
+      "category": "ambiguous",
+      "system": "agent",
+      "corpus": "ambiguous",
+      "question": "What monthly team target applies to me? My department is not specified.",
+      "relevantChunks": [
+        "108"
+      ],
+      "expectedSources": [],
+      "refuse": true,
+      "expectedAnswer": "Abstain or request clarification; do not silently select a policy or department.",
+      "facts": [],
+      "reviewNotes": "Manual review required: confirm conflicts/ambiguity were recognized rather than ignored."
+    }
+  ],
+  "maxNativeHTTPAttempts": 113,
+  "estimatedReportedTokens": [
+    50000,
+    150000
+  ],
+  "tokenPlanningAllowance": 160000,
+  "interCasePauseSeconds": 65,
+  "configuredRPM": 12,
+  "automaticRetries": false,
+  "quotaVerification": "User states quota unknown; permitted response headers on first approved case will be recorded; daily tokens remaining cannot be established from those headers.",
+  "priorReportedUsage": 29544,
+  "preservedPriorFileSHA256": {
+    "docs/evaluation/final-live/review-template.json": "accfa4fc6089535fb0982d87b0fe1bf85ef2a54f39527f8a9bb5854665da0d35",
+    "docs/evaluation/final-live/report.md": "fe8ecb72eac09cb4bc89f7c0efba10ad34e1bdab86d6158b307adceaf801dd33",
+    "docs/evaluation/final-live/README.md": "e1c7e0f626c098a91662f8775e31908687bec5d2bac3df6ec1700064ac59303e",
+    "docs/evaluation/final-live/results.json": "d4bfaf6674582c6eea1b7195fd58551f1b04d37d0bb0b8bb30be0942e1dfbc4e",
+    "docs/evaluation/final-live/preflight.json": "1514ab31306cc0f7a0191ca848d0190244962d26f3477d36956f695301e61baa",
+    "docs/evaluation/final-live/batch-02/review-template.json": "8c21f221f223333075c0fb2ff3e42d2ef8a4cbae87aa6a1f3eccbed4c3b97a06",
+    "docs/evaluation/final-live/batch-02/cumulative-results.json": "5a56445063207e46f574e9a544383e46712caf176e9f4ac880ba3be360f57017",
+    "docs/evaluation/final-live/batch-02/report.md": "cb1d91830960562c8c7018d15b4092a84a7ba67b96040fb62874c4f14b538fc8",
+    "docs/evaluation/final-live/batch-02/plan.json": "c9b0e7834921dfd7c2b28f965138f6b3a8d07f265aea56f979c0ded5e850c990",
+    "docs/evaluation/final-live/batch-02/README.md": "0153dc4f4201b6dde1c979c96a3d8146dfdd81ad606432f048bc932354005ddd",
+    "docs/evaluation/final-live/batch-02/results.json": "b3437a282d9cf8eaeeb5d0b1e9c7509ec0268d97260e7bfe2f07fcf8d21f7973",
+    ".evaluation-results/final-live/csv-01-http.json": "8504c14f380817d2d08b6e5b3b3f5ba6606a5e2cd0fc168913eb0b525c7be40e",
+    ".evaluation-results/final-live/run.json": "5b4b30cea5a0ab7853909f9f46e743e00da4b420958e2ac4dfb2ccdb38571d33",
+    ".evaluation-results/final-live/combined-01-http.json": "c931f4d6912d4dc93405184fe329b5ed6cf6e91461f9716811342221920183eb",
+    ".evaluation-results/final-live/doc-01-http.json": "96d032f35ebea4e6943f303d83970875f01982022a119f7a7beed0a0bf6eacea",
+    ".evaluation-results/final-live/csv-01/review-template.json": "af096897ab5e94f26ee5e8f0d150ae970be7ee74ff12e2e1a6c431550f6eb3bd",
+    ".evaluation-results/final-live/csv-01/report.md": "47ccb28c83791acb55016694538509c235d1e9b49ee39312977ed0b6f5cedee3",
+    ".evaluation-results/final-live/csv-01/operator-process.log": "118da81c2f69a7dc8932b4f6c98027c874a79cabfb54b90627766ba001e231cd",
+    ".evaluation-results/final-live/csv-01/results.json": "2e21aa1d9068a2fa9b77cf482c7281fefd101df9bb92b4a2dccf2abf94b76a2d",
+    ".evaluation-results/final-live/doc-01/review-template.json": "398cf22922e2a5a792230d0d49900d72c0fdab3a2208d07649cedad757d29fb9",
+    ".evaluation-results/final-live/doc-01/report.md": "3b521d3107122eaeac2f4be7154680c8292f9caf9f3df9f25a4b8822195f3402",
+    ".evaluation-results/final-live/doc-01/operator-process.log": "c1d54ac4857c00a2bcb30384dab6149d9b60739eeca1f4dc873b4086e72a1a30",
+    ".evaluation-results/final-live/doc-01/results.json": "ba378655fa53bad21c71a1d406f93f6574981469b9e9ba9531ace918ce282926",
+    ".evaluation-results/final-live/combined-01/review-template.json": "b16b6e61523da8fa13cbb4ae7b0609a8f5d493652c0edc7e180f7add447a32a7",
+    ".evaluation-results/final-live/combined-01/report.md": "124178e20427a99a08cfd69bb864c2afc8a8637a7d87e515f75cb0a9e1dbba0e",
+    ".evaluation-results/final-live/combined-01/operator-process.log": "d9f149fce74b9e0ad73883a78696346ce5821fce64483b6e67f19fe534275df3",
+    ".evaluation-results/final-live/combined-01/results.json": "f742ca0e37a67ffa1a8123283a4f0f6e438ebdc0770f6f5e724e30211acc48b5",
+    ".evaluation-results/final-live/batch-02/doc-02-http.json": "c12b2747a1bac94dd6684d51da410062bcf8e682a88601d581fe23facd1b1448",
+    ".evaluation-results/final-live/batch-02/conflict-01-http.json": "12b0f35b0c4d6495f485776c3dcf9383fdd2f256d801b3b3ce6a3daec80b8f52",
+    ".evaluation-results/final-live/batch-02/combined-02-http.json": "f9f2c9f3e626f215f9ccbc9c57bc52ffea79aa6616a8819ddb93f2f64cccad06",
+    ".evaluation-results/final-live/batch-02/run.json": "8b6a34fc44b1d0240edceb296c3f965952c90494f7830e725d01c7575274cd1e",
+    ".evaluation-results/final-live/batch-02/csv-02-http.json": "458f432506d35c98a1af9a438b78cc12a4e8fb62726197da57482c5c94a82d02",
+    ".evaluation-results/final-live/batch-02/missing-01-http.json": "ed241209858d88c8224c789301e373a5ba80c478645da1895daa74dd7ffa086a",
+    ".evaluation-results/final-live/batch-02/combined-02/review-template.json": "5db2d36760c491e6cebf5f0b116aa42c65cfd5c23c9ab163b17dc93c0407a8f4",
+    ".evaluation-results/final-live/batch-02/combined-02/report.md": "b57074d69c7ca32f9b86a72db4bd491ca6381eef35480b74e4d3a666a9bdae74",
+    ".evaluation-results/final-live/batch-02/combined-02/operator-process.log": "a6cd3f17e343f9c88483be986850345b1e96f2e7a70475a1bab7bf30f1fa1958",
+    ".evaluation-results/final-live/batch-02/combined-02/results.json": "1ca01edc3d32e7f245940b0fc917764d130586f41b98e9d63aeab154806f4db5",
+    ".evaluation-results/final-live/batch-02/doc-02/review-template.json": "de14e26e8424cc9d0142e97957b3a53b3459c9010c001afe6b8c000feb0ec4b2",
+    ".evaluation-results/final-live/batch-02/doc-02/report.md": "d8d825395cfdd54a5d1bf289852c98f5cecfae7084e902c8edde11bbdb4786f7",
+    ".evaluation-results/final-live/batch-02/doc-02/operator-process.log": "115b1e77bbd48805ac1c0507fcac43e0eb97522313b93c9de8f02384cb81ffd7",
+    ".evaluation-results/final-live/batch-02/doc-02/results.json": "3919bd4a39008896b96de73402d6c8e7685e279a4ade096079a1ece58f662347",
+    ".evaluation-results/final-live/batch-02/csv-02/review-template.json": "bb23b26e6fec2a0a814dd5fc6bd09b093b60e2d83721bf03ec0e98c7c2965729",
+    ".evaluation-results/final-live/batch-02/csv-02/report.md": "f876472aec797ecd884bf5dcd6d9d80cfd07bd7f3f361d17f372a0f9b2dbcbe3",
+    ".evaluation-results/final-live/batch-02/csv-02/operator-process.log": "d30308aea1eb839bb7bed67fee3b37ef4d967c139affa654dda73340a512e31f",
+    ".evaluation-results/final-live/batch-02/csv-02/results.json": "eac740219bd384e8d71aea52555cac6d18a4ec97b2e7ba6a4cacc880855d9a2d",
+    ".evaluation-results/final-live/batch-02/missing-01/review-template.json": "374c61c94b88c7444f60cb5ea9989f39da385dcf7b477740879f4dea7f79b666",
+    ".evaluation-results/final-live/batch-02/missing-01/report.md": "9710a36ab3cd7e6467b82819fb22394454587c8112907d8524d0ba1e809da65d",
+    ".evaluation-results/final-live/batch-02/missing-01/operator-process.log": "a19bb0a1a695c7ddd2233a34e639d15c99e2f2ae581ae670c805e9d1452467ab",
+    ".evaluation-results/final-live/batch-02/missing-01/results.json": "91aff160664ce5f3836c15390ed93b442bff76bdb34dd6382f474a4dc082dd9b",
+    ".evaluation-results/final-live/batch-02/conflict-01/review-template.json": "fc20636165d42b68c1b97d6141b60fd9a7b444d336dceafa0807f38bab13daf1",
+    ".evaluation-results/final-live/batch-02/conflict-01/report.md": "a8679ed21f83d3258e1398877c1d5400b244a7a1a77e6820eb93b97a6bbd59bf",
+    ".evaluation-results/final-live/batch-02/conflict-01/operator-process.log": "2ff82a0beeb45c01e8f97e0d1a616cbf0b0aef6c0be1188498db7d87ce17a545",
+    ".evaluation-results/final-live/batch-02/conflict-01/results.json": "d8fe0815d557df2a60e315a086bddc2218df902b087a0830ea179384184de037",
+    ".evaluation-results/final-live/batch-02/recheck/combined-02/review-template.json": "5db2d36760c491e6cebf5f0b116aa42c65cfd5c23c9ab163b17dc93c0407a8f4",
+    ".evaluation-results/final-live/batch-02/recheck/combined-02/report.md": "b57074d69c7ca32f9b86a72db4bd491ca6381eef35480b74e4d3a666a9bdae74",
+    ".evaluation-results/final-live/batch-02/recheck/combined-02/results.json": "16879bb5b7d01dd09d6cd9fd5394bfedcbd89b4cf6f5609c3bace578ac8656e9",
+    ".evaluation-results/final-live/batch-02/recheck/doc-02/review-template.json": "de14e26e8424cc9d0142e97957b3a53b3459c9010c001afe6b8c000feb0ec4b2",
+    ".evaluation-results/final-live/batch-02/recheck/doc-02/report.md": "d8d825395cfdd54a5d1bf289852c98f5cecfae7084e902c8edde11bbdb4786f7",
+    ".evaluation-results/final-live/batch-02/recheck/doc-02/results.json": "82997ae34bf9eeff3006eb92833837677a662da8f53f2510db219099d5cf5c5c",
+    ".evaluation-results/final-live/batch-02/recheck/csv-02/review-template.json": "bb23b26e6fec2a0a814dd5fc6bd09b093b60e2d83721bf03ec0e98c7c2965729",
+    ".evaluation-results/final-live/batch-02/recheck/csv-02/report.md": "f876472aec797ecd884bf5dcd6d9d80cfd07bd7f3f361d17f372a0f9b2dbcbe3",
+    ".evaluation-results/final-live/batch-02/recheck/csv-02/results.json": "6a5fc9c668ff2e49f957b34df97f41a54e43835e0b4724990b6ace893874e7b0",
+    ".evaluation-results/final-live/batch-02/recheck/missing-01/review-template.json": "374c61c94b88c7444f60cb5ea9989f39da385dcf7b477740879f4dea7f79b666",
+    ".evaluation-results/final-live/batch-02/recheck/missing-01/report.md": "9710a36ab3cd7e6467b82819fb22394454587c8112907d8524d0ba1e809da65d",
+    ".evaluation-results/final-live/batch-02/recheck/missing-01/results.json": "9153f32287833cf26cdb3d5335b2aab5f7e876cc285fcb910f9b704b24502f6a",
+    ".evaluation-results/final-live/batch-02/recheck/conflict-01/review-template.json": "fc20636165d42b68c1b97d6141b60fd9a7b444d336dceafa0807f38bab13daf1",
+    ".evaluation-results/final-live/batch-02/recheck/conflict-01/report.md": "a8679ed21f83d3258e1398877c1d5400b244a7a1a77e6820eb93b97a6bbd59bf",
+    ".evaluation-results/final-live/batch-02/recheck/conflict-01/results.json": "e6eb510f04f786c31b134cb0afbed8d46a66e06dd23ef33566b1e69571afd56d",
+    ".evaluation-results/final-live/recheck/csv-01/review-template.json": "af096897ab5e94f26ee5e8f0d150ae970be7ee74ff12e2e1a6c431550f6eb3bd",
+    ".evaluation-results/final-live/recheck/csv-01/report.md": "47ccb28c83791acb55016694538509c235d1e9b49ee39312977ed0b6f5cedee3",
+    ".evaluation-results/final-live/recheck/csv-01/results.json": "7c22492e02e1747506e72a687639560ee16e4f93e04b773e38d1435fdec68576",
+    ".evaluation-results/final-live/recheck/doc-01/review-template.json": "398cf22922e2a5a792230d0d49900d72c0fdab3a2208d07649cedad757d29fb9",
+    ".evaluation-results/final-live/recheck/doc-01/report.md": "3b521d3107122eaeac2f4be7154680c8292f9caf9f3df9f25a4b8822195f3402",
+    ".evaluation-results/final-live/recheck/doc-01/results.json": "05e51d44ac2b6df7b225baf913966a81884d442112638dd849adf32635cda2c6",
+    ".evaluation-results/final-live/recheck/combined-01/review-template.json": "b16b6e61523da8fa13cbb4ae7b0609a8f5d493652c0edc7e180f7add447a32a7",
+    ".evaluation-results/final-live/recheck/combined-01/report.md": "124178e20427a99a08cfd69bb864c2afc8a8637a7d87e515f75cb0a9e1dbba0e",
+    ".evaluation-results/final-live/recheck/combined-01/results.json": "62ab498c789d2d38d1dcc3b32c7dddd83903ac0d223d7909d09bdbf028be4f6d"
+  },
+  "applicationSourceSHA256": {
+    "app/layout.tsx": "c73199ae7b32f491f72662a8a9cb61ebe5978d7cfea106ed1d7788ed0af22fd0",
+    "app/globals.css": "d59d1b2e6fb30f8fced6a67ef2f83435d95aca6684ed6344909c9b3b9f4d9fc3",
+    "app/favicon.ico": "c28fdd2a4f31e2dc64f653962286da5c82a4cdfc518b242d32812c624e9a19a4",
+    "app/page.tsx": "286e03b884ef8fca5b5e64b324f8874d7bc1135d4a9d263ebeb9e155059e0b6c",
+    "app/signup/page.tsx": "64af9487a0885a0f554abd8ac8ea642a59833e74506b4fd289f06042a0f406a9",
+    "app/components/dataset-manager.tsx": "da13a41166da6476210f441ba16e61932b69b5572e9aae627381f15cfc116c44",
+    "app/components/auth-form.tsx": "c92557eb0e0ad15cd16216593b53d730ecd8df60d015c4f563da811ce1708513",
+    "app/components/document-manager.tsx": "ed7dfd3aa16a71f2811f0ceb7961089bfa23a0f3af9a0030710b858c4f19c354",
+    "app/components/chat-citations.tsx": "0b0e6be8a8994c920ac68d1e54d165081bccef3c6844f6190d49a788b41e062d",
+    "app/components/dataset-explorer.tsx": "89696a88f5ccf8f8fde469eae65028ee5fac71c0047b96f0138d2c465eba5113",
+    "app/components/placeholder.tsx": "acfaed7c57f4af8ade71614176d7ab4d65456c427eefacab78b625d0cd9939ea",
+    "app/components/brand.tsx": "2b75d4851de036ab644a914a0816da4ca6a1284cc8183eed523b17b7643120ec",
+    "app/components/workspace-shell.tsx": "d3177d3f8296a465e99e4bbdd4bfee49ed93a57fb19ceddb57e76656662d495c",
+    "app/components/ai-chat.tsx": "f66e609545c7e39250937ba0a87b0f07d90b950403c763f95324bb985ff9fc98",
+    "app/dashboard/layout.tsx": "a6a7415262408a2c7e0f01a76f72631644ff52f1089c1f621844082834a83f3d",
+    "app/dashboard/page.tsx": "3e60d1ea05cf38f6e0779062cadafae97c4925670f0ee36fee10133f79f33b0a",
+    "app/login/page.tsx": "97e2bf9a17c45518ab947fbbb4e9a1cbba58837d55f2d3de0a75793f9b0326cd",
+    "app/api/chat/route.ts": "f0461f315aa1fa53ba39d3ac4b72f9eea61878393c4f3b669cde1acad9041d9d",
+    "app/api/agent/route.ts": "cb657250ad2708c4f7c77e4bdba49711d7e8846dfe57da9ef6331c6cb1adb336",
+    "app/api/documents/route.ts": "4f8a39653aa36cfb0f88e24518c03715733c0f6016d09f0698f10566aea77c78",
+    "app/api/db-test/route.ts": "2b0143971f7633d314201d83aa6d05838c2b4ca5af85beb4621142c9232c6673",
+    "app/api/datasets/route.ts": "b7a53d76c7992627fd44409e87f93787a77ba15845680c73d1a42af84d910fc7",
+    "app/api/test-csv/route.ts": "2b0143971f7633d314201d83aa6d05838c2b4ca5af85beb4621142c9232c6673",
+    "app/api/test-search/route.ts": "2b0143971f7633d314201d83aa6d05838c2b4ca5af85beb4621142c9232c6673",
+    "app/api/upload/route.ts": "04dfb33d0c31de28a1b451edfba6b8dde34c17e5ca24c8ca5d6066a55894bb28",
+    "app/api/auth/session/route.ts": "f3ec8ef61de9bf9d9c02636129421620010da9b7f4687f377675cfdedb117c95",
+    "app/api/auth/signup/route.ts": "9e925b8b28f729f022f0e411e0b92687d6507a625fadd5f72d92819c5467a089",
+    "app/api/auth/logout/route.ts": "06b8ac17a889ac3e94775d38c5977e22f07d4662440d90ea0197094a1969da22",
+    "app/api/auth/login/route.ts": "5b0585df76edb4249cc5588f9794894589c563ed72971777ff73165b29e02cdc",
+    "app/api/datasets/[id]/route.ts": "b7cb3fac4aea0afd9f4cda543b77693a51e5b6aee4a6c7f322d5e9c6492fc816",
+    "app/api/datasets/query/route.ts": "438c90d1adbfb877acd438ffe704fc9237451a82a7eea7dd968ff7e1db18bd73",
+    "app/api/documents/cleanup/route.ts": "233c87eefa29f85b2a4e927702f71e2c63fec571b5d5b969fe4fb94465704ebf",
+    "app/api/documents/[id]/route.ts": "bfb134388d1ff5b4503db35e5ef844032f579e44cbfe06639a34d4ff60a054e2",
+    "app/dashboard/chat/page.tsx": "3bcccfc510030d97e82063a868849eb6392fd32119dabe7bc5080d7d2068153c",
+    "app/dashboard/documents/page.tsx": "4ca85d9915975be4e4a3343adb05227c9359e3af6149494d1b439fcb976c76cf",
+    "app/dashboard/datasets/page.tsx": "89ed0e9f85bcf9f87a2d73a536fd806a79f64e9cdf3a635bc5aac6bc57081bf1",
+    "src/scripts/check-repository-security.ts": "be1cf7e2faa4dcf403b3d38f2bb35355f7a07c00facd05da9850dca99c609268",
+    "src/scripts/test-fresh-database.ts": "4f100a3a48fa7f6b5e17c8f07c39fbc38ad794ebe3cc5a00be55303e43b974f7",
+    "src/scripts/reembed-documents.ts": "01b73d5a36a51f2b91f828bd20d47831a7375980803cb111c8beffec85afe29a",
+    "src/scripts/setup-fresh-db.ts": "197f05e851cbdf061f91aaa48f10f04f4fcb0ada0b0495fee264917f8a4c9057",
+    "src/scripts/compare-document-search.ts": "41c44656fc0bdce4eaed23971eb6bcccfbb95769106df9ac9b21f240cf351b0c",
+    "src/scripts/enroll-existing-account.ts": "b06523bc101759775d8b7374f7dd5900dfa59d2ca825db2c9d80300d6ff9adf1",
+    "src/lib/list-documents.ts": "bc4e99539547568b4beb594be64b4db8160e96a249d77f03ee71c70ad4eff6f7",
+    "src/lib/store-document.ts": "56b3030d6c559c691d61cb8a261e756e0a646debd407a4d74f7d3254593e54c7",
+    "src/lib/db.ts": "e3bef0095cc49092c87289b820890b55417c3b5410b8c3729339d8fe7799d20f",
+    "src/lib/ai-chat-client.ts": "aac8532102d472ee80a3177e772a379cc0dc6074d3831eefa1842cebd306bdf9",
+    "src/lib/document-lifecycle.ts": "ce4d9d5dd01f8b44b6aa30c1590bfb25d2e3d7d951f7a46069ffa2a089a9cff2",
+    "src/lib/document-files.ts": "bd3fdae4d62425661a1f6a154ed93e9e5c6a689d74f687b0c2b2fc85ff2e0068",
+    "src/lib/agent-budget.ts": "7af4aaf34450b2d4c170e66f7807dab4e615bf1ddeae631957afda1624e6e758",
+    "src/lib/agent-tools.ts": "0e39b49fb2001c6dab7fa81d42e4617b5114db0f66bcf075072cf81936cb8c85",
+    "src/lib/chunk-text.ts": "742f7c1b520fd2f8d394ce8ecd1aaaccbc948436e6d36b758d9b36c2717578cc",
+    "src/lib/parse-csv.ts": "416536465fbac609588c3a14ff848f9e3935270f358f9c1fefc24184e5a5ba57",
+    "src/lib/search-documents.ts": "748ac0e27e21f37246b5c9d45b88aa0cce9df9ddfef6f4b999de742eb632e14a",
+    "src/lib/document-answer-schema.ts": "14511ca51a079748450740f6111f6f1f809c54d4360638d1b0c5531946f59e33",
+    "src/lib/chat-handler.ts": "c8c57de359e5afc5b992c3eff1c93fcfaa787abb04d826f8d582cdd288388125",
+    "src/lib/csv-query-schema.ts": "da89ad0207321c5da9c42cadd434b3cd3bef9d00db703ad9e5548335d40a1ab5",
+    "src/lib/embeddings.ts": "9ee8d8d5836294add5299729d7115bd63e8c762d7ac861a5cb7fa8b99a3ffc56",
+    "src/lib/agent-structured-count.ts": "b41fc1fcf52441edb65ce96458342db5b27168127872149ecf4ee3c3eec1abde",
+    "src/lib/document-client.ts": "3a0bda36456929e8a098fee6089f86d8ec4c4fb4cefc8343e4c591c5e90312ea",
+    "src/lib/chat-errors.ts": "8c637e8e68e79c766c77e030d853e454e8e61e7b5a838575ee2d71f18834666c",
+    "src/lib/groq-transport.ts": "7c20040d998200774d18ec4a6a0c6f36c2b5b65e593d988634533d9dbc79a5bd",
+    "src/lib/auth.ts": "eff2911270a0da3ddebdccc6a9e7cb2d8f1d4ce79c3ea16850cebe74e5697018",
+    "src/lib/parse-document.ts": "dc988aed69452fc5a66bf3c9dca29a5e6f2879579fe440353c208e817420f5ce",
+    "src/lib/reliability.ts": "6af8337420a50d79276e4bc1c9393d6c1d30fceb5c1cab165e143e00938e2626",
+    "src/lib/gemini-transport.ts": "f885448cd60676917ccb673b67fe22dcef8b5148c209c83e953bface8244b5d7",
+    "src/lib/provider-transport.ts": "a8bc99a7f4e9848aeac7fda887c13823eb8276e080e8e5092a31a7c962f70bea",
+    "src/lib/document-http.ts": "cdcbccae545c43951783fca65ff7adf495492334ac0d40bfddaafc67a044e9f1",
+    "src/lib/identity.ts": "af453f5995fc2380545cc1b2a775687860d03b3e3ff1b4b1e2bfd239d6ebc4fe",
+    "src/lib/dataset-client.ts": "65cb96f52e7e339cc70dcc3eadfde3770f363b9bf755278ef544944584e8c310",
+    "src/lib/dataset-lifecycle.ts": "35ded9a4e28c06ee91d16d15f3c30c887f31b898516b3c4cb390cf3e60371b06",
+    "src/lib/agent-answer-schema.ts": "be67ee9876901723e856c4d99ec312b90c7916b2f54c2ce7c13fa051e7fc96ca",
+    "src/lib/agent-diagnostics.ts": "9e336160d91ded36ce97c86b608609e0a4e22795ac09b3a21e49efcae7905181",
+    "src/lib/auth-client.ts": "ca41eb6d3606c96dda3f0bbe16c9bc28363e994067ef3f1b1ed76faa2504b921",
+    "src/lib/hybrid-ranking.ts": "31ad36764a07b99dd722693c3b348dfd31002413683dab51da7a0b0980474813",
+    "src/lib/generic-csv.ts": "1acd85307637b3d30c8e9bf6b2f3fb4e57dea51f246744e7b6120861384b7ae2",
+    "src/lib/rag-answer.ts": "f2f47f1239a282b0731f56f71db2a4f83fbc004ec1836aeb9063e402aa4ce797",
+    "src/lib/import-csv.ts": "afaf1a0b9eec15a02d59a9af5a126027b08f89f08097cc9986fe40982eb6b493",
+    "src/lib/ai-provider.ts": "1ff51d7eb4a77c5f84cbfcf3c0a7dffd0d3e62b0fa347f3d7e483245b8e5d1e4",
+    "src/lib/knowledge-agent.ts": "4c9caf68dfe68571c688f15306a3a16b425512e099f818d3323d1af70e8368e1",
+    "src/lib/gemini.ts": "fb7001cde60f541b903ab1d85dd1ab54e2ca086bde39e5494d96d8f56ae6e4b2"
+  },
+  "approvalNote": "Explicit user approval for the 17 listed IDs, max 113 native attempts and 160000-token planning allowance; quota unknown, first approved response headers permitted."
+}

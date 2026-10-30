@@ -1,0 +1,180 @@
+[
+  {
+    "caseId": "csv-05",
+    "historical": "execution-error",
+    "recheck": {
+      "id": "csv-05",
+      "executed": true,
+      "status": "fail",
+      "automatic": "fail",
+      "reasons": [],
+      "uncertainty": [],
+      "categories": [
+        "provider_failure"
+      ],
+      "suspects": [],
+      "checkedCSV": [],
+      "human": "not-reviewed",
+      "answerHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    }
+  },
+  {
+    "caseId": "combined-04",
+    "historical": "needs-review",
+    "recheck": {
+      "id": "combined-04",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "unregistered_valid_query_plan_requires_review",
+        "numeric_fact_not_reliably_extractable",
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [
+        {
+          "sourceId": "C1",
+          "matches": true,
+          "expectedRows": [
+            {
+              "team": "Alpha",
+              "value": 30
+            },
+            {
+              "team": "Beta",
+              "value": 6
+            },
+            {
+              "team": "Gamma",
+              "value": 15
+            }
+          ]
+        }
+      ],
+      "human": "not-reviewed",
+      "answerHash": "a62945b06849ef1a535bd44cf80c336ac3e9d8d971329661ab190a499329ed5d"
+    }
+  },
+  {
+    "caseId": "combined-05",
+    "historical": "needs-review",
+    "recheck": {
+      "id": "combined-05",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "unregistered_valid_query_plan_requires_review",
+        "numeric_fact_not_reliably_extractable",
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [
+        {
+          "sourceId": "C1",
+          "matches": true,
+          "expectedRows": [
+            {
+              "employee": "Jon",
+              "value": 620
+            }
+          ]
+        }
+      ],
+      "human": "not-reviewed",
+      "answerHash": "17abefa0f5b318a189f176adf95fbb3ad41d02281b8bf233c3b92edec4e816e5"
+    }
+  },
+  {
+    "caseId": "conflict-01",
+    "historical": "needs-review",
+    "recheck": {
+      "id": "conflict-01",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review",
+        "sourced_conflict_explanation_or_clarification_requires_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [],
+      "human": "not-reviewed",
+      "answerHash": "9e1183ffcaab753d696c5c1249146ba1ce6e195e5611df467d8b636172c46529"
+    }
+  },
+  {
+    "caseId": "conflict-02",
+    "historical": "fail",
+    "recheck": {
+      "id": "conflict-02",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "unregistered_valid_query_plan_requires_review",
+        "free_text_entailment_units_conditions_and_completeness_require_human_review",
+        "sourced_conflict_explanation_or_clarification_requires_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [
+        {
+          "sourceId": "C1",
+          "matches": true,
+          "expectedRows": [
+            {
+              "team": "Alpha",
+              "value": 30
+            },
+            {
+              "team": "Beta",
+              "value": 6
+            },
+            {
+              "team": "Gamma",
+              "value": 15
+            }
+          ]
+        }
+      ],
+      "human": "not-reviewed",
+      "answerHash": "fc0d8a21e3ecd503a47b4a3ba50a82fa86e0a7482d7a3d67cad0959836c0a368"
+    }
+  },
+  {
+    "caseId": "ambiguous-01",
+    "historical": "fail",
+    "recheck": {
+      "id": "ambiguous-01",
+      "executed": true,
+      "status": "fail",
+      "automatic": "fail",
+      "reasons": [
+        "irrelevant_or_unknown_source",
+        "missing_required_source"
+      ],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review",
+        "sourced_conflict_explanation_or_clarification_requires_review"
+      ],
+      "categories": [
+        "citation_issue"
+      ],
+      "suspects": [
+        "tool_selection_or_citation_omission_requires_trace_review"
+      ],
+      "checkedCSV": [],
+      "human": "not-reviewed",
+      "answerHash": "0c9037805618ceb912eecc4c5849ead442f4b0ede8a17993399f937f22678016"
+    }
+  }
+]

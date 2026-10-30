@@ -1,0 +1,52 @@
+{
+  "kind": "real-owner-service-sequence-not-browser",
+  "status": "Passed",
+  "results": [
+    {
+      "question": "Which P1 incidents exceeded the policy first-response deadline?",
+      "grounded": true,
+      "answer": "Ticket NS-003 (P1): actual first-response time is 1.5 hours; the documented deadline is 1 hours; difference is 0.5 hours. [D3] [C1]\n\nTicket NS-014 (P1): actual first-response time is 1.5 hours; the documented deadline is 1 hours; difference is 0.5 hours. [D3] [C1]\n\nTicket NS-025 (P1): actual first-response time is 1.5 hours; the documented deadline is 1 hours; difference is 0.5 hours. [D3] [C1]",
+      "durationMs": 233,
+      "sources": [
+        {
+          "id": "D3",
+          "type": "document",
+          "filename": "Northstar_Operations_Policy.pdf",
+          "quotesVerified": true
+        },
+        {
+          "id": "C1",
+          "type": "csv",
+          "filename": "Northstar_Incidents.csv",
+          "quotesVerified": true
+        }
+      ]
+    },
+    {
+      "question": "How many tickets missed first-response SLA across all priorities?",
+      "grounded": true,
+      "answer": "P1: 3 tickets missed the first-response SLA; the deadline is 1 hours. Response times equal to the deadline are on time. [D3] [C2]\n\nP2: 3 tickets missed the first-response SLA; the deadline is 4 hours. Response times equal to the deadline are on time. [D3] [C2]\n\nP3: 3 tickets missed the first-response SLA; the deadline is 12 hours. Response times equal to the deadline are on time. [D3] [C2]\n\nTotal across all priorities: 9 tickets missed the first-response SLA. [D3] [C2]",
+      "durationMs": 172,
+      "sources": [
+        {
+          "id": "D3",
+          "type": "document",
+          "filename": "Northstar_Operations_Policy.pdf",
+          "quotesVerified": true
+        },
+        {
+          "id": "C2",
+          "type": "csv",
+          "filename": "Northstar_Incidents.csv",
+          "quotesVerified": true
+        }
+      ]
+    }
+  ],
+  "localEmbeddingCalls": 2,
+  "externalProviderCalls": 0,
+  "originalRecordsUnchanged": true,
+  "readOnlyEnforced": true,
+  "ledgerUnchanged": true,
+  "limitation": "Confirmed account backend service scope; no browser cookie replay or live Groq request."
+}

@@ -1,0 +1,220 @@
+[
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 1.3
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "structured-operation",
+    "outcome": "ok",
+    "durationMs": 0.1
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "structured-count",
+    "outcome": "ok",
+    "durationMs": 0
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.6
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 2.3
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 1.3
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.7
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "dataset-discovery",
+    "outcome": "ok",
+    "durationMs": 8.3
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "tool",
+    "tool": "discoverDatasets",
+    "outcome": "ok",
+    "durationMs": 8.8
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "tool",
+    "tool": "inspectDataset",
+    "outcome": "ok",
+    "durationMs": 0.2
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "model-call",
+    "durationMs": 0,
+    "phase": "planning",
+    "modelCallCount": 1,
+    "providerAttemptCount": 0
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "groq-admission",
+    "outcome": "ok",
+    "durationMs": 11.4
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "groq-pacing",
+    "outcome": "ok",
+    "durationMs": 11.9
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "provider-usage",
+    "durationMs": 0,
+    "httpStatus": 200,
+    "reservedTokens": 3048,
+    "reportedTokens": 1177,
+    "modelCallCount": 1,
+    "providerAttemptCount": 1
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "groq-http",
+    "outcome": "ok",
+    "durationMs": 717.2
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "planning-groq",
+    "outcome": "ok",
+    "durationMs": 734.8
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "embedding",
+    "outcome": "ok",
+    "durationMs": 303.7
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 12
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "retrieval",
+    "outcome": "ok",
+    "durationMs": 317
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "retrieval",
+    "outcome": "ok",
+    "durationMs": 317.4
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "tool",
+    "tool": "searchDocuments",
+    "outcome": "ok",
+    "durationMs": 320
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "model-call",
+    "durationMs": 0,
+    "phase": "planning",
+    "modelCallCount": 2,
+    "providerAttemptCount": 1
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "groq-admission",
+    "outcome": "ok",
+    "durationMs": 39.8
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "groq-pacing",
+    "outcome": "ok",
+    "durationMs": 3994.2
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "provider-usage",
+    "durationMs": 0,
+    "httpStatus": 400,
+    "reservedTokens": 3874,
+    "reportedTokens": null,
+    "modelCallCount": 2,
+    "providerAttemptCount": 2
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "groq-http",
+    "outcome": "error",
+    "durationMs": 903,
+    "httpStatus": 400
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "planning-wall",
+    "outcome": "error",
+    "durationMs": 5993.2,
+    "httpStatus": 400,
+    "providerCode": "tool_use_failed",
+    "providerToolFailure": {
+      "reason": "unrecognized_envelope"
+    }
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "agent",
+    "outcome": "failed",
+    "durationMs": 6004.1
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "planning",
+    "outcome": "error",
+    "durationMs": 0,
+    "httpStatus": 400,
+    "providerCode": "tool_use_failed",
+    "providerToolFailure": {
+      "reason": "unrecognized_envelope"
+    }
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "agent-invocation",
+    "outcome": "error",
+    "durationMs": 0,
+    "httpStatus": 400,
+    "providerCode": "tool_use_failed",
+    "providerToolFailure": {
+      "reason": "unrecognized_envelope"
+    }
+  },
+  {
+    "requestId": "a2471414-0a5b-4a89-88d4-c58eb66a3df3",
+    "stage": "request",
+    "outcome": "error",
+    "durationMs": 6018.6,
+    "httpStatus": 502
+  }
+]

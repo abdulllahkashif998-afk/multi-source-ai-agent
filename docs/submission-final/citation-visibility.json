@@ -1,0 +1,19 @@
+{
+  "method": "Local native headless Chrome rendering of actual ChatCitations component with fictional evidence and project CSS; no authenticated app or provider request",
+  "before": {
+    "textPresent": true,
+    "initialOpen": false,
+    "initialVisible": false,
+    "expandedVisible": true
+  },
+  "afterDesktop": {
+    "textPresent": true,
+    "initialOpen": true,
+    "initialVisible": true
+  },
+  "afterMobile": {
+    "textPresent": true,
+    "initialOpen": true,
+    "initialVisible": true
+  }
+}

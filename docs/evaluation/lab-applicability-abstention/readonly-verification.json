@@ -1,0 +1,105 @@
+[
+  {
+    "test": "owned-document",
+    "count": 1,
+    "fixtureHashMatches": true
+  },
+  {
+    "test": "local-retrieval",
+    "selectedOnlyNamedFile": true,
+    "retrievedChunks": 3,
+    "completeChunks": 12
+  },
+  {
+    "test": "owned-dataset",
+    "count": 1,
+    "rowCount": 25,
+    "columns": [
+      {
+        "name": "ticket_id",
+        "type": "text"
+      },
+      {
+        "name": "organization",
+        "type": "text"
+      },
+      {
+        "name": "incident_at",
+        "type": "text"
+      },
+      {
+        "name": "region",
+        "type": "text"
+      },
+      {
+        "name": "severity",
+        "type": "text"
+      },
+      {
+        "name": "response_hours",
+        "type": "number"
+      },
+      {
+        "name": "resolution_hours",
+        "type": "number"
+      },
+      {
+        "name": "scheduled_maintenance",
+        "type": "text"
+      },
+      {
+        "name": "maintenance_notice_hours",
+        "type": "number"
+      },
+      {
+        "name": "status",
+        "type": "text"
+      },
+      {
+        "name": "summary",
+        "type": "text"
+      }
+    ],
+    "fixtureRowsMatch": true
+  },
+  {
+    "test": "scope-input-sample",
+    "rows": [
+      {
+        "id": "LAB-001",
+        "organization": "Northstar Fixture Operations",
+        "incident_at": "2026-10-02T09:00:00Z",
+        "maintenance": "no",
+        "notice": 0
+      },
+      {
+        "id": "LAB-023",
+        "organization": null,
+        "incident_at": "2026-10-02T09:00:00Z",
+        "maintenance": "no",
+        "notice": 0
+      },
+      {
+        "id": "LAB-024",
+        "organization": "Northstar Fixture Operations",
+        "incident_at": null,
+        "maintenance": "no",
+        "notice": 0
+      },
+      {
+        "id": "LAB-025",
+        "organization": "Northstar Fixture Operations",
+        "incident_at": "2026-10-02T09:00:00Z",
+        "maintenance": "yes",
+        "notice": null
+      }
+    ]
+  },
+  {
+    "test": "safety",
+    "externalProviderAttempts": 0,
+    "readonly": {
+      "default_transaction_read_only": "on"
+    }
+  }
+]

@@ -1,0 +1,194 @@
+[
+  {
+    "loggerTimestamp": "01:36:03.633",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 32.6
+  },
+  {
+    "loggerTimestamp": "01:36:03.637",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "structured-operation",
+    "outcome": "ok",
+    "durationMs": 0.1
+  },
+  {
+    "loggerTimestamp": "01:36:03.638",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "structured-count",
+    "outcome": "ok",
+    "durationMs": 0.1
+  },
+  {
+    "loggerTimestamp": "01:36:03.640",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.5
+  },
+  {
+    "loggerTimestamp": "01:36:03.641",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.8
+  },
+  {
+    "loggerTimestamp": "01:36:03.644",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 1.6
+  },
+  {
+    "loggerTimestamp": "01:36:03.645",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.6
+  },
+  {
+    "loggerTimestamp": "01:36:03.646",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "dataset-discovery",
+    "outcome": "ok",
+    "durationMs": 6.6
+  },
+  {
+    "loggerTimestamp": "01:36:03.646",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "tool",
+    "tool": "discoverDatasets",
+    "outcome": "ok",
+    "durationMs": 7.4
+  },
+  {
+    "loggerTimestamp": "01:36:03.647",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "tool",
+    "tool": "inspectDataset",
+    "outcome": "ok",
+    "durationMs": 0.3
+  },
+  {
+    "loggerTimestamp": "01:36:03.653",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "tool",
+    "tool": "inspectDataset",
+    "outcome": "ok",
+    "durationMs": 0.3
+  },
+  {
+    "loggerTimestamp": "01:36:03.666",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "model-call",
+    "durationMs": 0,
+    "phase": "planning",
+    "modelCallCount": 1,
+    "providerAttemptCount": 0
+  },
+  {
+    "loggerTimestamp": "01:36:04.429",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "planning-groq",
+    "outcome": "ok",
+    "durationMs": 759.9
+  },
+  {
+    "loggerTimestamp": "01:36:04.567",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "embedding",
+    "outcome": "ok",
+    "durationMs": 136.2
+  },
+  {
+    "loggerTimestamp": "01:36:04.589",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 21
+  },
+  {
+    "loggerTimestamp": "01:36:04.590",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "retrieval",
+    "outcome": "ok",
+    "durationMs": 158.6
+  },
+  {
+    "loggerTimestamp": "01:36:04.590",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "retrieval",
+    "outcome": "ok",
+    "durationMs": 158.8
+  },
+  {
+    "loggerTimestamp": "01:36:04.590",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "tool",
+    "tool": "searchDocuments",
+    "outcome": "ok",
+    "durationMs": 159.8
+  },
+  {
+    "loggerTimestamp": "01:36:04.595",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "model-call",
+    "durationMs": 0,
+    "phase": "planning",
+    "modelCallCount": 2,
+    "providerAttemptCount": 0
+  },
+  {
+    "loggerTimestamp": "01:36:09.649",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "planning-wall",
+    "outcome": "error",
+    "durationMs": 6009.7,
+    "httpStatus": 400,
+    "providerCode": "tool_use_failed",
+    "providerToolFailure": {
+      "reason": "unrecognized_envelope"
+    }
+  },
+  {
+    "loggerTimestamp": "01:36:09.652",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "agent",
+    "outcome": "failed",
+    "durationMs": 6013.9
+  },
+  {
+    "loggerTimestamp": "01:36:09.654",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "planning",
+    "outcome": "error",
+    "durationMs": 0,
+    "httpStatus": 400,
+    "providerCode": "tool_use_failed",
+    "providerToolFailure": {
+      "reason": "unrecognized_envelope"
+    }
+  },
+  {
+    "loggerTimestamp": "01:36:09.657",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "agent-invocation",
+    "outcome": "error",
+    "durationMs": 0,
+    "httpStatus": 400,
+    "providerCode": "tool_use_failed",
+    "providerToolFailure": {
+      "reason": "unrecognized_envelope"
+    }
+  },
+  {
+    "loggerTimestamp": "01:36:09.659",
+    "requestId": "d0e7cc2d-79ea-4ba3-b09a-cb237da7d399",
+    "stage": "request",
+    "outcome": "error",
+    "durationMs": 6058.4,
+    "httpStatus": 502
+  }
+]

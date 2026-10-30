@@ -1,0 +1,11 @@
+{
+  "fixture": "LAB-2026-v1",
+  "fictional": true,
+  "csv_rows": 25,
+  "pdf_pages": 4,
+  "files": {
+    "Northstar_Applicability_Lab_Policy.pdf": "b9298a5bbf322932b24cf3d1c99817a30ed44f9b40ed17904b75949b1d34ac42",
+    "Northstar_Applicability_Lab_Incidents.csv": "36c7934bdd10826378eec37fd6aa46592474224705480e972348542a6d63888e",
+    "policy-source.md": "f8c64ad4d526f986ce498a7c3ae3d7aa5b280c9b046c64a2afeae9426af922bc"
+  }
+}

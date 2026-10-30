@@ -1,0 +1,1724 @@
+{
+  "kind": "real-groq-batch-02-not-full-benchmark",
+  "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "startedAt": "2026-10-28T17:13:31.639Z",
+  "completedAt": "2026-10-28T17:19:03.922Z",
+  "approval": {
+    "ids": [
+      "doc-02",
+      "csv-02",
+      "combined-02",
+      "missing-01",
+      "conflict-01"
+    ],
+    "maxNativeHTTPAttempts": 29,
+    "tokenPlanningAllowance": 60000,
+    "minimumInterCasePauseSeconds": 65,
+    "automaticRetries": false
+  },
+  "summary": {
+    "selectedCases": 5,
+    "executedCases": 5,
+    "notExecutedSelectedCases": 0,
+    "pass": 1,
+    "fail": 0,
+    "needsReview": 4,
+    "automaticPass": 5,
+    "humanReviewed": 0,
+    "providerHTTPAttempts": 16,
+    "reportedPromptTokens": 15222,
+    "reportedCompletionTokens": 1097,
+    "reportedTotalTokens": 16319,
+    "unknownUsageAttempts": 0,
+    "stopReason": null
+  },
+  "cumulativeSummary": {
+    "originalCases": 25,
+    "executedCases": 8,
+    "remainingCases": 17,
+    "pass": 1,
+    "fail": 0,
+    "needsReview": 7,
+    "automaticPass": 8,
+    "humanReviewed": 0,
+    "providerHTTPAttempts": 29,
+    "reportedTotalTokens": 29544,
+    "unknownUsageAttempts": 0
+  },
+  "pilotPreserved": true,
+  "cases": [
+    {
+      "benchmark": {
+        "id": "doc-02",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "How many paid vacation days does an Orion employee get each year?",
+        "relevantChunks": [
+          "102"
+        ],
+        "expectedSources": [
+          "doc:2:102"
+        ],
+        "refuse": false,
+        "expectedAnswer": "The annual paid leave allowance is 20 days.",
+        "facts": [
+          {
+            "label": "leave allowance",
+            "value": 20,
+            "tolerance": 1e-06,
+            "pattern": "(?:allowance|leave|receive)[^.!?\\n]{0,50}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "reviewNotes": "Review whether the prose states the policy correctly, including conditions, units and scope."
+      },
+      "executed": true,
+      "result": {
+        "id": "doc-02",
+        "category": "document",
+        "system": "chat",
+        "expectedRefusal": false,
+        "executed": true,
+        "status": "needs-review",
+        "durationMs": 1159.8634110000003,
+        "answerDurationMs": 949.023048,
+        "score": {
+          "status": "needs-review",
+          "automatedStatus": "pass",
+          "failures": [],
+          "review": [
+            "free_text_entailment_units_conditions_and_completeness_require_human_review"
+          ],
+          "citationPrecision": 1,
+          "sourceRecall": 1,
+          "quoteValidity": 1,
+          "numeric": [
+            {
+              "label": "leave allowance",
+              "expected": 20,
+              "tolerance": 1e-06,
+              "observed": [
+                20
+              ],
+              "correct": true
+            }
+          ],
+          "refusalCorrect": false
+        },
+        "retrieval": [
+          {
+            "mode": "semantic",
+            "ranked": [
+              "102",
+              "101",
+              "104"
+            ],
+            "durationMs": 56.08731500000022,
+            "k": 3,
+            "hits": 1,
+            "relevant": 1,
+            "returned": 3,
+            "recall": 1,
+            "precision": 0.3333333333333333
+          },
+          {
+            "mode": "hybrid",
+            "ranked": [
+              "102",
+              "101",
+              "103"
+            ],
+            "durationMs": 59.25344099999984,
+            "k": 3,
+            "hits": 1,
+            "relevant": 1,
+            "returned": 3,
+            "recall": 1,
+            "precision": 0.3333333333333333
+          }
+        ],
+        "stages": [
+          {
+            "stage": "embedding",
+            "durationMs": 51.7,
+            "outcome": "ok"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 3.3,
+            "outcome": "ok"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 55.8,
+            "outcome": "ok"
+          },
+          {
+            "stage": "embedding",
+            "durationMs": 52.3,
+            "outcome": "ok"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 6.1,
+            "outcome": "ok"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 59.2,
+            "outcome": "ok"
+          },
+          {
+            "stage": "embedding",
+            "durationMs": 53.3,
+            "outcome": "ok",
+            "requestId": "8f367496-9f58-463f-a7b7-e8775184bb6b"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 4,
+            "outcome": "ok",
+            "requestId": "8f367496-9f58-463f-a7b7-e8775184bb6b"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 58.1,
+            "outcome": "ok",
+            "requestId": "8f367496-9f58-463f-a7b7-e8775184bb6b"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 58.2,
+            "outcome": "ok",
+            "requestId": "8f367496-9f58-463f-a7b7-e8775184bb6b"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 0,
+            "outcome": "ok",
+            "requestId": "8f367496-9f58-463f-a7b7-e8775184bb6b"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 817.5,
+            "outcome": "ok",
+            "requestId": "8f367496-9f58-463f-a7b7-e8775184bb6b"
+          },
+          {
+            "stage": "citation-verification",
+            "durationMs": 5.7,
+            "outcome": "ok",
+            "requestId": "8f367496-9f58-463f-a7b7-e8775184bb6b"
+          },
+          {
+            "stage": "final-generation",
+            "durationMs": 872.3,
+            "outcome": "ok",
+            "requestId": "8f367496-9f58-463f-a7b7-e8775184bb6b"
+          },
+          {
+            "stage": "citation-verification",
+            "durationMs": 6.3,
+            "outcome": "ok",
+            "requestId": "8f367496-9f58-463f-a7b7-e8775184bb6b"
+          },
+          {
+            "stage": "request",
+            "durationMs": 948.2,
+            "outcome": "ok",
+            "requestId": "8f367496-9f58-463f-a7b7-e8775184bb6b"
+          },
+          {
+            "stage": "answer-end-to-end",
+            "durationMs": 949.023048,
+            "outcome": "ok"
+          }
+        ],
+        "error": null,
+        "answer": {
+          "success": true,
+          "grounded": true,
+          "answer": "Orion employees receive 20 days of annual paid leave per calendar year. [S1]",
+          "sources": [
+            {
+              "id": "S1",
+              "filename": "leave-policy.pdf",
+              "documentId": "2",
+              "chunkId": "102",
+              "chunkIndex": 0,
+              "pageNumber": 2,
+              "text": "Orion employees receive 20 days of annual paid leave per calendar year.",
+              "quotes": [
+                "Orion employees receive 20 days of annual paid leave per calendar year."
+              ]
+            }
+          ]
+        }
+      },
+      "judgment": {
+        "id": "doc-02",
+        "executed": true,
+        "status": "needs-review",
+        "automatic": "pass",
+        "reasons": [],
+        "uncertainty": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "categories": [],
+        "suspects": [],
+        "checkedCSV": [],
+        "human": "not-reviewed",
+        "answerHash": "029430a4221e2ad1dbf3da7f2314e4d00f9e520cb4a8289553e45c214ecb61a3"
+      },
+      "http": {
+        "attempts": [
+          {
+            "status": 200,
+            "inputBytes": 3808,
+            "promptTokens": 900,
+            "completionTokens": 90,
+            "totalTokens": 990,
+            "durationMs": 810.809636
+          }
+        ],
+        "stopReason": null
+      }
+    },
+    {
+      "benchmark": {
+        "id": "csv-02",
+        "category": "csv",
+        "system": "agent",
+        "corpus": "base",
+        "question": "Add up all amounts in sales.csv.",
+        "relevantChunks": [],
+        "expectedSources": [
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "The total sales amount is 51 units.",
+        "facts": [
+          {
+            "label": "total",
+            "value": 51,
+            "tolerance": 1e-06,
+            "pattern": "(?:total|amount)[^.!?\\n]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "201",
+          "aggregate": {
+            "op": "sum",
+            "column": "amount"
+          }
+        },
+        "expectedRows": [
+          {
+            "value": 51
+          }
+        ],
+        "reviewNotes": "Review calculation meaning, filters, groups and whether the answer overstates limited evidence."
+      },
+      "executed": true,
+      "result": {
+        "id": "csv-02",
+        "category": "csv",
+        "system": "agent",
+        "expectedRefusal": false,
+        "executed": true,
+        "status": "needs-review",
+        "durationMs": 20796.595713,
+        "answerDurationMs": 20672.999672,
+        "score": {
+          "status": "needs-review",
+          "automatedStatus": "pass",
+          "failures": [],
+          "review": [
+            "numeric_fact_not_reliably_extractable",
+            "free_text_entailment_units_conditions_and_completeness_require_human_review"
+          ],
+          "citationPrecision": 1,
+          "sourceRecall": 1,
+          "quoteValidity": 1,
+          "numeric": [
+            {
+              "label": "total",
+              "expected": 51,
+              "tolerance": 1e-06,
+              "observed": [],
+              "correct": null
+            }
+          ],
+          "refusalCorrect": false
+        },
+        "retrieval": [],
+        "stages": [
+          {
+            "stage": "structured-count",
+            "durationMs": 1,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 0,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 902.2,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 1135.1,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 20.8,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 0.4,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 1.6,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 0.5,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "tool",
+            "durationMs": 26.9,
+            "outcome": "ok",
+            "tool": "discoverDatasets",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 3832.1,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 563.2,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 4401,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "tool",
+            "durationMs": 2.1,
+            "outcome": "ok",
+            "tool": "inspectDataset",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 4415.1,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 1226.9,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 5647.9,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 2.1,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 1,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 1.8,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 4,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 0.9,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "csv-query",
+            "durationMs": 11.8,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "tool",
+            "durationMs": 64.6,
+            "outcome": "ok",
+            "tool": "queryDataset",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 3695.7,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 1173.2,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 4874,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "planning-wall",
+            "durationMs": 16203.9,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 3813.2,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 612.3,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "final-generation",
+            "durationMs": 4443.8,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "citation-verification",
+            "durationMs": 18,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "agent",
+            "durationMs": 20669,
+            "outcome": "grounded",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "request",
+            "durationMs": 20672,
+            "outcome": "ok",
+            "requestId": "50617b09-5ed1-4483-acff-1371caee803e"
+          },
+          {
+            "stage": "answer-end-to-end",
+            "durationMs": 20672.999672,
+            "outcome": "ok"
+          }
+        ],
+        "error": null,
+        "answer": {
+          "grounded": true,
+          "answer": "The total sum of all amounts in sales.csv is 51. [C1]",
+          "sources": [
+            {
+              "id": "C1",
+              "filename": "sales.csv",
+              "type": "csv",
+              "datasetId": "201",
+              "text": "[{\"value\":51}]",
+              "quotes": [
+                "[{\"value\":51}]"
+              ],
+              "rows": [
+                {
+                  "value": 51
+                }
+              ],
+              "plan": {
+                "datasetId": "201",
+                "filters": [],
+                "groupBy": [],
+                "aggregate": {
+                  "op": "sum",
+                  "column": "amount"
+                },
+                "limit": 100
+              },
+              "possiblyTruncated": false
+            }
+          ]
+        }
+      },
+      "judgment": {
+        "id": "csv-02",
+        "executed": true,
+        "status": "needs-review",
+        "automatic": "pass",
+        "reasons": [],
+        "uncertainty": [
+          "numeric_fact_not_reliably_extractable",
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "categories": [],
+        "suspects": [],
+        "checkedCSV": [
+          {
+            "sourceId": "C1",
+            "matches": true,
+            "expectedRows": [
+              {
+                "value": 51
+              }
+            ]
+          }
+        ],
+        "human": "not-reviewed",
+        "answerHash": "f8bdb547d5fdbd0314ab28e371eb2204e48f1adccac046c468e5f5c95104c117"
+      },
+      "http": {
+        "attempts": [
+          {
+            "status": 200,
+            "inputBytes": 3896,
+            "promptTokens": 737,
+            "completionTokens": 35,
+            "totalTokens": 772,
+            "durationMs": 896.1581439999998
+          },
+          {
+            "status": 200,
+            "inputBytes": 4416,
+            "promptTokens": 825,
+            "completionTokens": 25,
+            "totalTokens": 850,
+            "durationMs": 558.6098329999995
+          },
+          {
+            "status": 200,
+            "inputBytes": 4933,
+            "promptTokens": 906,
+            "completionTokens": 35,
+            "totalTokens": 941,
+            "durationMs": 1217.3006879999994
+          },
+          {
+            "status": 200,
+            "inputBytes": 5624,
+            "promptTokens": 1032,
+            "completionTokens": 17,
+            "totalTokens": 1049,
+            "durationMs": 1168.675894
+          },
+          {
+            "status": 200,
+            "inputBytes": 2696,
+            "promptTokens": 611,
+            "completionTokens": 70,
+            "totalTokens": 681,
+            "durationMs": 603.7768780000006
+          }
+        ],
+        "stopReason": null
+      }
+    },
+    {
+      "benchmark": {
+        "id": "combined-02",
+        "category": "combined",
+        "system": "agent",
+        "corpus": "base",
+        "question": "Using the team policy and sales.csv, by how much does Alpha exceed the target?",
+        "relevantChunks": [
+          "101"
+        ],
+        "expectedSources": [
+          "doc:1:101",
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Alpha total is 30 units; the target is 15 units; Alpha surplus is 15 units.",
+        "facts": [
+          {
+            "label": "Alpha total",
+            "value": 30,
+            "tolerance": 1e-06,
+            "pattern": "Alpha total[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          },
+          {
+            "label": "Alpha surplus",
+            "value": 15,
+            "tolerance": 1e-06,
+            "pattern": "surplus[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "201",
+          "aggregate": {
+            "op": "sum",
+            "column": "amount"
+          },
+          "groupBy": [
+            "team"
+          ],
+          "sort": {
+            "column": "team",
+            "direction": "asc"
+          }
+        },
+        "expectedRows": [
+          {
+            "team": "Alpha",
+            "value": 30
+          },
+          {
+            "team": "Beta",
+            "value": 6
+          },
+          {
+            "team": "Gamma",
+            "value": 15
+          }
+        ],
+        "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+      },
+      "executed": true,
+      "result": {
+        "id": "combined-02",
+        "category": "combined",
+        "system": "agent",
+        "expectedRefusal": false,
+        "executed": true,
+        "status": "needs-review",
+        "durationMs": 27121.277888,
+        "answerDurationMs": 26850.899254,
+        "score": {
+          "status": "needs-review",
+          "automatedStatus": "pass",
+          "failures": [],
+          "review": [
+            "unregistered_valid_query_plan_requires_review",
+            "numeric_fact_not_reliably_extractable",
+            "free_text_entailment_units_conditions_and_completeness_require_human_review"
+          ],
+          "citationPrecision": 1,
+          "sourceRecall": 1,
+          "quoteValidity": 1,
+          "numeric": [
+            {
+              "label": "Alpha total",
+              "expected": 30,
+              "tolerance": 1e-06,
+              "observed": [],
+              "correct": null
+            },
+            {
+              "label": "Alpha surplus",
+              "expected": 15,
+              "tolerance": 1e-06,
+              "observed": [],
+              "correct": null
+            }
+          ],
+          "refusalCorrect": false
+        },
+        "retrieval": [
+          {
+            "mode": "semantic",
+            "ranked": [
+              "101",
+              "104",
+              "103"
+            ],
+            "durationMs": 94.52611200000001,
+            "k": 3,
+            "hits": 1,
+            "relevant": 1,
+            "returned": 3,
+            "recall": 1,
+            "precision": 0.3333333333333333
+          },
+          {
+            "mode": "hybrid",
+            "ranked": [
+              "101",
+              "104"
+            ],
+            "durationMs": 74.39408600000002,
+            "k": 3,
+            "hits": 1,
+            "relevant": 1,
+            "returned": 2,
+            "recall": 1,
+            "precision": 0.3333333333333333
+          }
+        ],
+        "stages": [
+          {
+            "stage": "embedding",
+            "durationMs": 90.5,
+            "outcome": "ok"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 2.9,
+            "outcome": "ok"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 94.1,
+            "outcome": "ok"
+          },
+          {
+            "stage": "embedding",
+            "durationMs": 68.2,
+            "outcome": "ok"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 5.4,
+            "outcome": "ok"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 74.3,
+            "outcome": "ok"
+          },
+          {
+            "stage": "structured-count",
+            "durationMs": 0.7,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 0,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 670.3,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 879.5,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "embedding",
+            "durationMs": 47.7,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 4,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 52.5,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "tool",
+            "durationMs": 58.3,
+            "outcome": "ok",
+            "tool": "searchDocuments",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 4057.5,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 798.7,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 4859.4,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 1.7,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 1,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 2.4,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 1.2,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "tool",
+            "durationMs": 10.8,
+            "outcome": "ok",
+            "tool": "discoverDatasets",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 4175,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 1008.4,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 5189.5,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "tool",
+            "durationMs": 2.6,
+            "outcome": "ok",
+            "tool": "inspectDataset",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 3970.1,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 715.9,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 4692.8,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 1.2,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 1.5,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 1.9,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 4.4,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 1.4,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "csv-query",
+            "durationMs": 12.8,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "tool",
+            "durationMs": 70.6,
+            "outcome": "ok",
+            "tool": "queryDataset",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 4193.5,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 1866.9,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 6067,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "planning-wall",
+            "durationMs": 21900.1,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 3112.4,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 1782,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "final-generation",
+            "durationMs": 4916.1,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "citation-verification",
+            "durationMs": 27.7,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "agent",
+            "durationMs": 26846,
+            "outcome": "grounded",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "request",
+            "durationMs": 26850,
+            "outcome": "ok",
+            "requestId": "10505afe-16a7-4296-a436-6f8c8fd77e2d"
+          },
+          {
+            "stage": "answer-end-to-end",
+            "durationMs": 26850.899254,
+            "outcome": "ok"
+          }
+        ],
+        "error": null,
+        "answer": {
+          "grounded": true,
+          "answer": "Alpha\u2019s sales of 30 units exceed the team target of 15 units by 15 units. [D1] [C1]",
+          "sources": [
+            {
+              "id": "D1",
+              "filename": "team-policy.docx",
+              "type": "document",
+              "documentId": "1",
+              "chunkId": "101",
+              "chunkIndex": 0,
+              "pageNumber": null,
+              "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units.",
+              "quotes": [
+                "Orion team policy: the minimum monthly total sales target for each team is 15 units."
+              ]
+            },
+            {
+              "id": "C1",
+              "filename": "sales.csv",
+              "type": "csv",
+              "datasetId": "201",
+              "text": "[{\"value\":30}]",
+              "quotes": [
+                "[{\"value\":30}]"
+              ],
+              "rows": [
+                {
+                  "value": 30
+                }
+              ],
+              "plan": {
+                "datasetId": "201",
+                "filters": [
+                  {
+                    "column": "team",
+                    "op": "eq",
+                    "value": "Alpha"
+                  }
+                ],
+                "groupBy": [],
+                "aggregate": {
+                  "op": "sum",
+                  "column": "amount"
+                },
+                "limit": 100
+              },
+              "possiblyTruncated": false
+            }
+          ]
+        }
+      },
+      "judgment": {
+        "id": "combined-02",
+        "executed": true,
+        "status": "needs-review",
+        "automatic": "pass",
+        "reasons": [],
+        "uncertainty": [
+          "unregistered_valid_query_plan_requires_review",
+          "numeric_fact_not_reliably_extractable",
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "categories": [],
+        "suspects": [],
+        "checkedCSV": [
+          {
+            "sourceId": "C1",
+            "matches": true,
+            "expectedRows": [
+              {
+                "value": 30
+              }
+            ]
+          }
+        ],
+        "human": "not-reviewed",
+        "answerHash": "c60d1392a09ec2ee73bb1cfd2b622c65625a8d04dfc5b92cfbbe26e42c3eabf4"
+      },
+      "http": {
+        "attempts": [
+          {
+            "status": 200,
+            "inputBytes": 3942,
+            "promptTokens": 746,
+            "completionTokens": 41,
+            "totalTokens": 787,
+            "durationMs": 667.1983129999999
+          },
+          {
+            "status": 200,
+            "inputBytes": 5333,
+            "promptTokens": 1059,
+            "completionTokens": 71,
+            "totalTokens": 1130,
+            "durationMs": 791.7338530000006
+          },
+          {
+            "status": 200,
+            "inputBytes": 6051,
+            "promptTokens": 1189,
+            "completionTokens": 25,
+            "totalTokens": 1214,
+            "durationMs": 1002.0790969999998
+          },
+          {
+            "status": 200,
+            "inputBytes": 6568,
+            "promptTokens": 1270,
+            "completionTokens": 58,
+            "totalTokens": 1328,
+            "durationMs": 696.8996149999984
+          },
+          {
+            "status": 200,
+            "inputBytes": 7385,
+            "promptTokens": 1426,
+            "completionTokens": 164,
+            "totalTokens": 1590,
+            "durationMs": 1862.2523570000012
+          },
+          {
+            "status": 200,
+            "inputBytes": 4156,
+            "promptTokens": 980,
+            "completionTokens": 107,
+            "totalTokens": 1087,
+            "durationMs": 1771.8865079999996
+          }
+        ],
+        "stopReason": null
+      }
+    },
+    {
+      "benchmark": {
+        "id": "missing-01",
+        "system": "chat",
+        "question": "What ocean research grants does Orion offer?",
+        "category": "insufficient",
+        "corpus": "base",
+        "relevantChunks": [],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Abstain: the fixtures do not contain the requested facts.",
+        "facts": [],
+        "reviewNotes": "Check that absence is not converted into invented facts or zero values."
+      },
+      "executed": true,
+      "result": {
+        "id": "missing-01",
+        "category": "insufficient",
+        "system": "chat",
+        "expectedRefusal": true,
+        "executed": true,
+        "status": "pass",
+        "durationMs": 1212.3302380000002,
+        "answerDurationMs": 1042.2696960000003,
+        "score": {
+          "status": "pass",
+          "automatedStatus": "pass",
+          "failures": [],
+          "review": [],
+          "citationPrecision": null,
+          "sourceRecall": null,
+          "quoteValidity": null,
+          "numeric": [],
+          "refusalCorrect": true
+        },
+        "retrieval": [
+          {
+            "mode": "semantic",
+            "ranked": [
+              "101",
+              "102",
+              "106"
+            ],
+            "durationMs": 42.798812,
+            "k": 3,
+            "hits": 0,
+            "relevant": 0,
+            "returned": 3,
+            "recall": null,
+            "precision": null
+          },
+          {
+            "mode": "hybrid",
+            "ranked": [
+              "101",
+              "102"
+            ],
+            "durationMs": 46.616759999999886,
+            "k": 3,
+            "hits": 0,
+            "relevant": 0,
+            "returned": 2,
+            "recall": null,
+            "precision": null
+          }
+        ],
+        "stages": [
+          {
+            "stage": "embedding",
+            "durationMs": 38.3,
+            "outcome": "ok"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 3.4,
+            "outcome": "ok"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 42.5,
+            "outcome": "ok"
+          },
+          {
+            "stage": "embedding",
+            "durationMs": 40.2,
+            "outcome": "ok"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 5.5,
+            "outcome": "ok"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 46.6,
+            "outcome": "ok"
+          },
+          {
+            "stage": "embedding",
+            "durationMs": 36.8,
+            "outcome": "ok",
+            "requestId": "cc27dc53-2820-42d7-9799-db9f1f75a7ba"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 3.5,
+            "outcome": "ok",
+            "requestId": "cc27dc53-2820-42d7-9799-db9f1f75a7ba"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 40.9,
+            "outcome": "ok",
+            "requestId": "cc27dc53-2820-42d7-9799-db9f1f75a7ba"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 41.1,
+            "outcome": "ok",
+            "requestId": "cc27dc53-2820-42d7-9799-db9f1f75a7ba"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 0,
+            "outcome": "ok",
+            "requestId": "cc27dc53-2820-42d7-9799-db9f1f75a7ba"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 921.6,
+            "outcome": "ok",
+            "requestId": "cc27dc53-2820-42d7-9799-db9f1f75a7ba"
+          },
+          {
+            "stage": "citation-verification",
+            "durationMs": 3.1,
+            "outcome": "ok",
+            "requestId": "cc27dc53-2820-42d7-9799-db9f1f75a7ba"
+          },
+          {
+            "stage": "final-generation",
+            "durationMs": 984.2,
+            "outcome": "ok",
+            "requestId": "cc27dc53-2820-42d7-9799-db9f1f75a7ba"
+          },
+          {
+            "stage": "citation-verification",
+            "durationMs": 3.3,
+            "outcome": "ok",
+            "requestId": "cc27dc53-2820-42d7-9799-db9f1f75a7ba"
+          },
+          {
+            "stage": "request",
+            "durationMs": 1041,
+            "outcome": "ok",
+            "requestId": "cc27dc53-2820-42d7-9799-db9f1f75a7ba"
+          },
+          {
+            "stage": "answer-end-to-end",
+            "durationMs": 1042.2696960000003,
+            "outcome": "ok"
+          }
+        ],
+        "error": null,
+        "answer": {
+          "success": true,
+          "grounded": false,
+          "answer": "I don't have enough information in the retrieved documents to answer that question.",
+          "sources": []
+        }
+      },
+      "judgment": {
+        "id": "missing-01",
+        "executed": true,
+        "status": "pass",
+        "automatic": "pass",
+        "reasons": [],
+        "uncertainty": [],
+        "categories": [],
+        "suspects": [],
+        "checkedCSV": [],
+        "human": "not-reviewed",
+        "answerHash": "71d26e9bf7c3a094ab0dabc9f5de902428fe08e49b55b1a1626e64f45c9bf576"
+      },
+      "http": {
+        "attempts": [
+          {
+            "status": 200,
+            "inputBytes": 3350,
+            "promptTokens": 783,
+            "completionTokens": 46,
+            "totalTokens": 829,
+            "durationMs": 914.7399020000003
+          }
+        ],
+        "stopReason": null
+      }
+    },
+    {
+      "benchmark": {
+        "id": "conflict-01",
+        "category": "ambiguous",
+        "system": "agent",
+        "corpus": "conflict",
+        "question": "Which minimum monthly target should we use when the two active Orion policies disagree?",
+        "relevantChunks": [
+          "101",
+          "107"
+        ],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Abstain or request clarification; do not silently select a policy or department.",
+        "facts": [],
+        "reviewNotes": "Manual review required: confirm conflicts/ambiguity were recognized rather than ignored."
+      },
+      "executed": true,
+      "result": {
+        "id": "conflict-01",
+        "category": "ambiguous",
+        "system": "agent",
+        "expectedRefusal": true,
+        "executed": true,
+        "status": "needs-review",
+        "durationMs": 10928.877648,
+        "answerDurationMs": 10681.291329,
+        "score": {
+          "status": "needs-review",
+          "automatedStatus": "pass",
+          "failures": [],
+          "review": [
+            "free_text_entailment_units_conditions_and_completeness_require_human_review",
+            "sourced_conflict_explanation_or_clarification_requires_review"
+          ],
+          "citationPrecision": 1,
+          "sourceRecall": 1,
+          "quoteValidity": 1,
+          "numeric": [],
+          "refusalCorrect": false
+        },
+        "retrieval": [
+          {
+            "mode": "semantic",
+            "ranked": [
+              "107",
+              "101",
+              "102"
+            ],
+            "durationMs": 78.30003499999975,
+            "k": 3,
+            "hits": 2,
+            "relevant": 2,
+            "returned": 3,
+            "recall": 1,
+            "precision": 0.6666666666666666
+          },
+          {
+            "mode": "hybrid",
+            "ranked": [
+              "107",
+              "101",
+              "102"
+            ],
+            "durationMs": 66.73175300000003,
+            "k": 3,
+            "hits": 2,
+            "relevant": 2,
+            "returned": 3,
+            "recall": 1,
+            "precision": 0.6666666666666666
+          }
+        ],
+        "stages": [
+          {
+            "stage": "embedding",
+            "durationMs": 72.9,
+            "outcome": "ok"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 4.3,
+            "outcome": "ok"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 77.9,
+            "outcome": "ok"
+          },
+          {
+            "stage": "embedding",
+            "durationMs": 58.7,
+            "outcome": "ok"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 7.1,
+            "outcome": "ok"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 66.6,
+            "outcome": "ok"
+          },
+          {
+            "stage": "structured-count",
+            "durationMs": 0.7,
+            "outcome": "ok",
+            "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 0,
+            "outcome": "ok",
+            "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 907.5,
+            "outcome": "ok",
+            "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 1070.2,
+            "outcome": "ok",
+            "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+          },
+          {
+            "stage": "embedding",
+            "durationMs": 31.3,
+            "outcome": "ok",
+            "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 4.1,
+            "outcome": "ok",
+            "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 36,
+            "outcome": "ok",
+            "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+          },
+          {
+            "stage": "tool",
+            "durationMs": 38,
+            "outcome": "ok",
+            "tool": "searchDocuments",
+            "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 3889.2,
+            "outcome": "ok",
+            "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 1527.8,
+            "outcome": "ok",
+            "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 5422.7,
+            "outcome": "ok",
+            "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+          },
+          {
+            "stage": "planning-wall",
+            "durationMs": 6560.3,
+            "outcome": "ok",
+            "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 3454,
+            "outcome": "ok",
+            "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 629,
+            "outcome": "ok",
+            "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+          },
+          {
+            "stage": "final-generation",
+            "durationMs": 4099.9,
+            "outcome": "ok",
+            "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+          },
+          {
+            "stage": "citation-verification",
+            "durationMs": 13.7,
+            "outcome": "ok",
+            "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+          },
+          {
+            "stage": "agent",
+            "durationMs": 10676.3,
+            "outcome": "grounded",
+            "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+          },
+          {
+            "stage": "request",
+            "durationMs": 10680.4,
+            "outcome": "ok",
+            "requestId": "9d61621d-59cc-4d4c-9ba2-9c8ba59c6f9f"
+          },
+          {
+            "stage": "answer-end-to-end",
+            "durationMs": 10681.291329,
+            "outcome": "ok"
+          }
+        ],
+        "error": null,
+        "answer": {
+          "grounded": true,
+          "answer": "When Orion\u2019s team policies conflict, the higher minimum monthly target applies, so the team should use a target of 22 units per month. [D1] [D2]",
+          "sources": [
+            {
+              "id": "D1",
+              "filename": "revised-team-policy.docx",
+              "type": "document",
+              "documentId": "7",
+              "chunkId": "107",
+              "chunkIndex": 0,
+              "pageNumber": null,
+              "text": "Orion team policy: the minimum monthly total sales target for each team is 22 units. This policy has no effective date.",
+              "quotes": [
+                "Orion team policy: the minimum monthly total sales target for each team is 22 units. This policy has no effective date."
+              ]
+            },
+            {
+              "id": "D2",
+              "filename": "team-policy.docx",
+              "type": "document",
+              "documentId": "1",
+              "chunkId": "101",
+              "chunkIndex": 0,
+              "pageNumber": null,
+              "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units.",
+              "quotes": [
+                "Orion team policy: the minimum monthly total sales target for each team is 15 units."
+              ]
+            }
+          ]
+        }
+      },
+      "judgment": {
+        "id": "conflict-01",
+        "executed": true,
+        "status": "needs-review",
+        "automatic": "pass",
+        "reasons": [],
+        "uncertainty": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review",
+          "sourced_conflict_explanation_or_clarification_requires_review"
+        ],
+        "categories": [],
+        "suspects": [],
+        "checkedCSV": [],
+        "human": "not-reviewed",
+        "answerHash": "9e1183ffcaab753d696c5c1249146ba1ce6e195e5611df467d8b636172c46529"
+      },
+      "http": {
+        "attempts": [
+          {
+            "status": 200,
+            "inputBytes": 3951,
+            "promptTokens": 744,
+            "completionTokens": 38,
+            "totalTokens": 782,
+            "durationMs": 903.7266530000002
+          },
+          {
+            "status": 200,
+            "inputBytes": 5441,
+            "promptTokens": 1086,
+            "completionTokens": 143,
+            "totalTokens": 1229,
+            "durationMs": 1520.7581719999998
+          },
+          {
+            "status": 200,
+            "inputBytes": 3939,
+            "promptTokens": 928,
+            "completionTokens": 132,
+            "totalTokens": 1060,
+            "durationMs": 621.3075559999997
+          }
+        ],
+        "stopReason": null
+      },
+      "aiAssistedReview": {
+        "kind": "ai-assisted-semantic-finding-not-human-review",
+        "finding": "unsupported_policy_precedence",
+        "expected": "Abstain or request clarification; do not silently select either active policy.",
+        "observed": "Answer selects 22 and asserts that the higher minimum applies.",
+        "evidence": "The original controlled fixtures state 15 and 22, without an effective date or precedence rule. The cited quotes do not supply a highest-target-wins rule.",
+        "humanDecision": null,
+        "formalEvaluatorClassificationUnchanged": "needs-review"
+      }
+    }
+  ]
+}

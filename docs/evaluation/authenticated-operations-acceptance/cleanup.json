@@ -1,0 +1,6 @@
+{
+  "temporaryClusterAndBuildRemoved": true,
+  "originalDatabaseAccessed": false,
+  "testAccountsAndUploads": "removed with disposable cluster and build directory",
+  "serverSupervisor": "stopped"
+}

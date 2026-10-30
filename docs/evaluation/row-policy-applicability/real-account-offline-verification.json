@@ -1,0 +1,80 @@
+[
+  {
+    "test": "real-policy-parse",
+    "parsed": true,
+    "support": {
+      "resolutionMaintenance": [
+        7
+      ],
+      "scope": [
+        0,
+        1
+      ],
+      "first_response": [
+        3
+      ],
+      "resolution": [
+        3,
+        4
+      ],
+      "maintenance": [
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "test": "real-account-offline-selector",
+    "grounded": true,
+    "answer": "Counts are limited to known-applicable records: organization equals Northstar Fixture Operations; incident_at >= 2026-10-01T00:00:00Z and < 2027-01-01T00:00:00Z. [D4] [D3] [C1]\n\nFirst-response exclusions require scheduled_maintenance=yes and known maintenance_notice_hours >= 48 hours; missing evidence is unresolved. [D7] [D8] [C1]\n\nP1: 2 confirmed first-response violations among 6 known-applicable records; 0 metric outcomes unresolved. The deadline is 1 hour; equality is on time. [D1] [C1]\n\nP2: 2 confirmed first-response violations among 6 known-applicable records; 0 metric outcomes unresolved. The deadline is 4 hours; equality is on time. [D1] [C1]\n\nP3: 3 confirmed first-response violations among 8 known-applicable records; 1 metric outcomes unresolved. The deadline is 12 hours; equality is on time. [D1] [C1]\n\nConfirmed total: 7. There are 2 records with unknown applicability, 1 unresolved in-scope metric outcomes, and 3 outside-scope records. This is a qualified confirmed count, not an unconditional complete total. [D4] [D3] [C1]",
+    "sources": [
+      {
+        "id": "D1",
+        "type": "document",
+        "filename": "Northstar_Applicability_Lab_Policy.pdf",
+        "quoteCount": 1,
+        "quotesVerified": true
+      },
+      {
+        "id": "D3",
+        "type": "document",
+        "filename": "Northstar_Applicability_Lab_Policy.pdf",
+        "quoteCount": 1,
+        "quotesVerified": true
+      },
+      {
+        "id": "D4",
+        "type": "document",
+        "filename": "Northstar_Applicability_Lab_Policy.pdf",
+        "quoteCount": 1,
+        "quotesVerified": true
+      },
+      {
+        "id": "D7",
+        "type": "document",
+        "filename": "Northstar_Applicability_Lab_Policy.pdf",
+        "quoteCount": 1,
+        "quotesVerified": true
+      },
+      {
+        "id": "D8",
+        "type": "document",
+        "filename": "Northstar_Applicability_Lab_Policy.pdf",
+        "quoteCount": 1,
+        "quotesVerified": true
+      },
+      {
+        "id": "C1",
+        "type": "csv",
+        "filename": "Northstar_Applicability_Lab_Incidents.csv",
+        "quoteCount": 4,
+        "quotesVerified": true
+      }
+    ],
+    "scriptedModelCalls": 1,
+    "liveProviderAttempts": 0,
+    "readonly": {
+      "default_transaction_read_only": "on"
+    }
+  }
+]

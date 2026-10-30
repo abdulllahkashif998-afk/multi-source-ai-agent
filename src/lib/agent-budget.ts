@@ -9,7 +9,7 @@ export function createAgentBudget(parent:AbortSignal,now=Date.now()){
  const timeout=(ms:number)=>ms>0?AbortSignal.timeout(ms):AbortSignal.abort(new DOMException('Agent deadline exhausted','TimeoutError'));
  const signal=AbortSignal.any([parent,timeout(remaining)]);
  const planningSignal=AbortSignal.any([signal,timeout(remaining-AGENT_FINAL_RESERVE_MS)]);
- return {deadline,signal,planningSignal};
+ return {deadline,planningDeadline:deadline-AGENT_FINAL_RESERVE_MS,signal,planningSignal};
 }
 // Stop waiting promptly even when an underlying service only supports bounded
 // cooperative cleanup. Its promise is still observed; no late evidence is added.

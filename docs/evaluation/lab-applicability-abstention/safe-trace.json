@@ -1,0 +1,181 @@
+[
+  {
+    "loggerTimestamp": "02:30:52.785",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 31.9
+  },
+  {
+    "loggerTimestamp": "02:30:52.791",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "structured-operation",
+    "outcome": "ok",
+    "durationMs": 0.2
+  },
+  {
+    "loggerTimestamp": "02:30:52.792",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "structured-count",
+    "outcome": "ok",
+    "durationMs": 0.1
+  },
+  {
+    "loggerTimestamp": "02:30:52.797",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.5
+  },
+  {
+    "loggerTimestamp": "02:30:52.798",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.5
+  },
+  {
+    "loggerTimestamp": "02:30:52.801",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 1.4
+  },
+  {
+    "loggerTimestamp": "02:30:52.802",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.5
+  },
+  {
+    "loggerTimestamp": "02:30:52.803",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "dataset-discovery",
+    "outcome": "ok",
+    "durationMs": 7.7
+  },
+  {
+    "loggerTimestamp": "02:30:52.805",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "tool",
+    "tool": "discoverDatasets",
+    "outcome": "ok",
+    "durationMs": 10.4
+  },
+  {
+    "loggerTimestamp": "02:30:52.806",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "tool",
+    "tool": "inspectDataset",
+    "outcome": "ok",
+    "durationMs": 0.3
+  },
+  {
+    "loggerTimestamp": "02:30:52.807",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "tool",
+    "tool": "inspectDataset",
+    "outcome": "ok",
+    "durationMs": 0.2
+  },
+  {
+    "loggerTimestamp": "02:30:52.815",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.6
+  },
+  {
+    "loggerTimestamp": "02:30:52.816",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.6
+  },
+  {
+    "loggerTimestamp": "02:30:52.820",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 3.4
+  },
+  {
+    "loggerTimestamp": "02:30:52.822",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.5
+  },
+  {
+    "loggerTimestamp": "02:30:53.286",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "embedding",
+    "outcome": "ok",
+    "durationMs": 461
+  },
+  {
+    "loggerTimestamp": "02:30:53.299",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 12.9
+  },
+  {
+    "loggerTimestamp": "02:30:53.300",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "retrieval",
+    "outcome": "ok",
+    "durationMs": 475.3
+  },
+  {
+    "loggerTimestamp": "02:30:53.301",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "retrieval",
+    "outcome": "ok",
+    "durationMs": 476.7
+  },
+  {
+    "loggerTimestamp": "02:30:53.303",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "tool",
+    "tool": "searchDocuments",
+    "outcome": "ok",
+    "durationMs": 478.5
+  },
+  {
+    "loggerTimestamp": "02:30:53.308",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 2.9
+  },
+  {
+    "loggerTimestamp": "02:30:53.308",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "retrieval",
+    "outcome": "ok",
+    "durationMs": 3.8
+  },
+  {
+    "loggerTimestamp": "02:30:53.313",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "agent-abstention",
+    "outcome": "abstained",
+    "reason": "ambiguous_rule"
+  },
+  {
+    "loggerTimestamp": "02:30:53.314",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "agent",
+    "outcome": "abstained",
+    "durationMs": 523.6
+  },
+  {
+    "loggerTimestamp": "02:30:53.314",
+    "requestId": "d8ba6f69-0d22-4fb9-85c7-ae91ae04ecef",
+    "stage": "request",
+    "outcome": "ok",
+    "durationMs": 561.4
+  }
+]

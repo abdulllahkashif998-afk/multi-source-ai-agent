@@ -152,3 +152,19 @@ See [answer correctness and citation evaluation](answer-quality.md) for independ
 ## Day 9 Step 4 — Performance and reliability
 
 See [performance and reliability evaluation](performance-reliability.md) for actual serial PostgreSQL/Ollama/tool timings, simulated fault results, the confirmed optional-embedding deadline fix and remaining operational risks. `npm run evaluate:performance` defaults to offline checks; `--mode local` measures isolated fictional fixtures without live LLM calls.
+
+## Follow-up to the completed live benchmark
+
+See [live weakness review](live-weakness-remediation.md) for targeted agent instructions, the separate conflict-02 evaluator correction, offline rechecks and the six cases still requiring approved live retests. Historical live reports remain unchanged.
+
+## Deterministic resolution of the three remaining operation failures
+
+See the [resolution and regression report](../agent-remaining-failures-resolution.md) and [real PostgreSQL/BGE verification with Groq HTTP blocked](structured-operations-verification/report.md). These are separate from historical live Groq scores; they do not claim new Groq inference accuracy or completed human review.
+
+## Final authenticated browser acceptance
+
+The [three-operation browser acceptance report](authenticated-operations-acceptance/report.md) records real signup/session/CSRF, UI uploads, rendered answers, citations, ownership checks and desktop/mobile screenshots. All three final cases passed with Groq HTTP blocked. This is browser automation evidence, separate from historical live-provider scores and pending human semantic review.
+
+## Final documentation and repository delivery
+
+[Final delivery readiness](../final-delivery-readiness.md) reconciles all evidence streams, preserves original case outcomes and reviewer status, and records current non-live checks, the full pending Git inventory and remaining approval/replay gaps. No live benchmark rerun is part of that documentation pass.

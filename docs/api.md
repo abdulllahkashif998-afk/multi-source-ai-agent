@@ -53,7 +53,7 @@ Session success: `{success:true,userId,name,email,csrfToken}`. Logout success: `
 
 ### List
 
-`GET /api/documents?limit=20&before=123`. Limit defaults to 20, range 1–50; `before` is an optional positive signed-bigint-compatible ID. Duplicate query parameters, unknown parameters and invalid cursors return 400 INVALID_PAGINATION. Results sort by descending ID and exclude deleted/superseded records; processing or other non-retired statuses may appear.
+`GET /api/documents?limit=10&before=123`. Limit defaults to 10 (the Documents UI requests 10 per page), range 1–50; `before` is an optional positive signed-bigint-compatible ID. Duplicate query parameters, unknown parameters and invalid cursors return 400 INVALID_PAGINATION. Results sort by descending ID and exclude deleted/superseded records; processing or other non-retired statuses may appear.
 
 ```json
 {

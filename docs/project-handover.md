@@ -1,10 +1,10 @@
 # Project handover
 
-Prepared 28 October 2026 from the repository and retained reports. Documentation-only handover: no application tests, provider requests, database mutations, configuration changes, commits or pushes were performed for this document.
+Finalized 29 October 2026 from the repository and retained reports. This final pass runs non-live regression, TypeScript, ESLint, build/security and documentation checks; it makes no provider requests, database changes, application/configuration changes, commits or pushes. See [current delivery evidence](final-delivery-readiness.md).
 
 ## Overview and stack
 
-Multi-Source AI Knowledge & Data Intelligence Agent is an authenticated workspace for PDF/DOCX knowledge and structured CSV analysis. It provides document RAG, validated CSV calculations and a bounded multi-source agent with source references.
+Multi-Source AI Knowledge & Data Intelligence Agent is an authenticated workspace for PDF/DOCX knowledge and structured CSV analysis. It provides document RAG, validated CSV calculations and a bounded multi-source agent with source references, plus narrow deterministic evidence-backed listing/comparison operations. Web crawling was not a requirement and is not implemented.
 
 | Layer | Implemented technology |
 | --- | --- |
@@ -21,9 +21,9 @@ Document files use private `storage/uploads` under the process working directory
 
 ## Repository and branch
 
-Configured origin: [multi-source-ai-agent](https://github.com/abdulllahkashif998-afk/multi-source-ai-agent.git). Main/current branch: `main`, observed from local Git configuration on 28 October 2026.
+Configured origin: [multi-source-ai-agent](https://github.com/abdulllahkashif998-afk/multi-source-ai-agent.git). Main/current branch: `main`, observed from local Git configuration on 29 October 2026.
 
-This records the configured remote, not a verification of remote visibility, permissions or whether every current local file has been pushed. No remote was contacted or altered for this handover. Review `git status --short`, `git branch --show-current` and `git remote -v` locally before a release. Do not display credential-bearing remotes; the observed origin uses a credential-free HTTPS URL. The earlier [GitHub review](day-10-github-review.md) is a historical snapshot from before a remote was configured.
+This records the configured remote, not a verification of remote visibility, permissions or whether every current local file has been pushed. No remote was contacted or altered for this handover. Review `git status --short`, `git branch --show-current` and `git remote -v` locally before a release. Do not display credential-bearing remotes; the observed origin uses a credential-free HTTPS URL. The earlier [GitHub review](day-10-github-review.md) is a historical snapshot from before a remote was configured; [final delivery readiness](final-delivery-readiness.md) is the current Git inventory and security review.
 
 The explicit proposed path list is [github-staging-files.txt](github-staging-files.txt). Review changes before staging; do not use it as approval to commit or push. License, repository visibility, CI and release policy remain owner decisions. `private: true` in package.json concerns npm publishing, not GitHub privacy.
 
@@ -106,7 +106,8 @@ Create a private `.env.local` from [`.env.example`](../.env.example) only when i
 | `GROQ_API_KEY` | Private key required only when Groq is selected |
 | `GROQ_MODEL` | Existing default `openai/gpt-oss-20b`; allowlisted `openai/gpt-oss-120b` alternative |
 | `GEMINI_REQUESTS_PER_MINUTE` | Existing default 12; code accepts 1–14 |
-| `GROQ_REQUESTS_PER_MINUTE` | Existing default 12; code accepts 1–29; account/token/day limits still apply |
+| `GROQ_REQUESTS_PER_MINUTE` | Default conservative 12; code accepts 1–29; ledger enforces configured 30 RPM/8000 TPM/1000 RPD/200000 TPD budgets |
+| `GROQ_QUOTA_DIRECTORY` | Private persistent storage/groq-quota; same-host workers share directory/UID; preserve state across restarts |
 | `DOCUMENT_SEARCH_MODE` | Existing default hybrid; semantic comparison mode available |
 | `RAG_MIN_SIMILARITY` | Existing default 0.5; qualifying hybrid keyword hits are not discarded by cosine alone |
 | `ALLOW_LIVE_AI_EVAL` | Off by default; exact 1 plus explicit opt-in/case selection needed for live evaluation |
@@ -148,7 +149,7 @@ npm run evaluate:answers
 npm run evaluate:performance
 ```
 
-Real retrieval evaluation needs isolated PostgreSQL/Ollama and explicit options; see [evaluation instructions](evaluation/README.md) and [retrieval report](evaluation/retrieval-quality.md). Live-provider evaluation is separately opt-in, quota-consuming and incomplete; setting a credential alone is not approval. No live command is required for handover.
+Real retrieval evaluation needs isolated PostgreSQL/Ollama and explicit options; see [evaluation instructions](evaluation/README.md) and [retrieval report](evaluation/retrieval-quality.md). The original 25 live-provider cases are executed; human semantic review remains pending. Any further provider evaluation is separately opt-in and quota-consuming; setting a credential alone is not approval. No live command is required for handover.
 
 For an approved staging production runtime, build with Webpack and then run `npm start` behind the configured HTTPS proxy. Keep private environment settings, persistent storage and source working directory consistent. Use a separate build checkout/copy if development is active. No standalone deployment image or infrastructure manifest is supplied.
 
@@ -157,6 +158,11 @@ For an approved staging production runtime, build with Webpack and then run `npm
 | Document | Use |
 | --- | --- |
 | [README](../README.md) | Entry point, local setup, configuration and full documentation index |
+| [Final delivery readiness](final-delivery-readiness.md) | Current validation, all pending Git paths, security/exclusions and remaining approvals |
+| [Original 25-case live results](evaluation/final-live/batch-03/report.md) | Preserved failures, answers, citations and unfilled human-review slots |
+| [Six-case Groq retest](evaluation/final-live/retest-01/report.md) | Separate later provider run; do not overwrite original classifications |
+| [Operation resolution](agent-remaining-failures-resolution.md) | Deterministic operations, safety checks and unknown historical tool structure |
+| [Authenticated browser acceptance](evaluation/authenticated-operations-acceptance/report.md) | Three Passed cases; real UI/API, source/ownership checks and screenshots |
 | [Final demo guide](final-demo-guide.md) | Fictional files, UI walkthrough, expected calculations and citations |
 | [Final project report](final-project-report.md) | Consolidated implemented scope, evidence and readiness |
 | [Final test cases](final-test-cases.md) | All 25 original questions; separate manual slots and test evidence |
@@ -176,9 +182,9 @@ Historical day reports retain their original dates/results. Use current API/code
 
 ## Deployment-readiness status
 
-Suitable for further **controlled staging acceptance**, not certified for public production. Latest recorded CSV-identical follow-up: 222/222 disposable-database tests, standard suite 214 passed/eight optional skips, 20/20 mocked Datasets browser cases, TypeScript/ESLint/Webpack passed. These are retained results, not fresh handover test runs or live accuracy percentages.
+Suitable for **controlled staging and owner-reviewed repository delivery**, not certified for public production. Latest implementation evidence: 249/249 database-enabled tests; standard suite 239 passed/10 optional skips; TypeScript/ESLint/Webpack passed. The final browser run passed csv-05, combined-04 and combined-05 using real authentication/UI/API/BGE/PostgreSQL, with six screenshots and no Groq requests. [Current delivery-pass checks](final-delivery-readiness.md) are separate from these retained results.
 
-Day 8 recorded two successful live fictional Groq workflows. Later private-question post-fix live acceptance remains unresolved. **Full live 25-case AI accuracy and human semantic/citation review are incomplete.** See the final report/test register before presenting an overall quality claim.
+The original 25-case live Groq execution is complete: automatic 22 pass/3 fail; formal 4 pass/3 fail/18 needs-review; human-reviewed 0. The separate six-case live retest had one HTTP 400 failure and five needs-review outcomes. Three later deterministic browser passes do not rewrite those historical results. **Human-reviewed benchmark accuracy remains pending.** Earlier private-question post-fix live gaps are separate and remain documented. No overall accuracy percentage is claimed.
 
 Before release, assign owners for HTTPS/exact Origin, private PostgreSQL/Ollama network access, persistent file storage, database-and-file backups/restore tests, safe logs/alerts, cleanup/reconciliation, session/rate-record retention and rollback. Verify PDF worker deployment tracing as described in deployment documentation. Infrastructure and remote repository security were not inspected through a live deployment in this task.
 
@@ -187,8 +193,11 @@ Before release, assign owners for HTTPS/exact Origin, private PostgreSQL/Ollama 
 - Authentication lacks email verification, recovery/change UI, MFA and administrative account lifecycle controls. Duplicate signup can reveal registration status.
 - CSV discovery is capped at 100 datasets without pagination. CSV replacement has no history/undo or optimistic revision check; last successful different-content writer wins. Ordinary uploads allow duplicates; only replacement compares parsed schema/ordered rows for identical content.
 - Document cleanup can remain pending; scheduled reconciliation is not supplied. Local files require persistent private storage and coordinated backups.
-- Source/quote membership checks preserve provenance but do not prove every claim follows logically from the evidence. Complete the human review rubric and current live tests before claiming answer accuracy.
-- Provider pacing is process-local, not shared across workers. RPM controls do not enforce all token/daily quotas. Cold starts, sustained load and production capacity remain unmeasured.
+- General Groq tool-use failures may still occur; the exact retained tool_use_failed rejection structure is unknown. Safe structural diagnostics never execute rejected arguments.
+- Prompt-based reasoning guardrails are not deterministic semantic verification. Source/quote membership proves provenance, not entailment/completeness. Human-reviewed benchmark accuracy is pending; no reviewer decisions are invented.
+- Deterministic operations intentionally cover narrow question/schema/policy forms, up to eight returned entities. Ambiguous, truncated or unsupported recognized operations abstain; unrelated wording uses the general agent.
+- The specialized three-operation browser harness requires a prepared isolated HTTPS/fresh-DB supervisor, generated DOCX inputs and external Playwright/Chrome. Its temporary preparation runner is not versioned; turnkey replay remains a documented delivery gap.
+- Dispatch pacing is process-local; Groq budget state now uses a private same-host shared ledger with TPM/RPD/TPD admission and unknown-usage charging. Unshared hosts, unrelated applications and unknown pre-rollout organization consumption remain outside its guarantee. See [quota deployment/recovery](agent-quota-evidence-sla-reliability.md). Cold starts, sustained load and production capacity remain unmeasured.
 - Chat history stays in the page session; questions do not include previous-turn context. No persistent chat history, conversation export or document-download API exists.
 - Newly ingested chunks may lack page metadata. Citations must not invent page numbers. Previously displayed/in-flight evidence cannot be retroactively revoked by deletion.
 - Fresh setup has no incremental migration ledger or automatic recovery from partial setup; operators must review existing installations rather than replaying bootstrap scripts.
@@ -197,6 +206,10 @@ Prioritize documented acceptance gaps and operational controls before optional p
 
 ## Validation of this delivery
 
-Checked all local Markdown file targets across the 213-file proposed manifest (280 links) and section anchors in the changed guides; no missing files/anchors were found. Checked documented npm commands against package.json and fixture command inputs against repository paths. Independently calculated the demo CSV totals: original COUNT 3/SUM 36/AVG 12, revised COUNT 3/SUM 45/AVG 15, with the grouped totals stated in the demo guide. `git diff --check` and the existing repository security scan passed with zero detected secret patterns. The remote/branch summary comes from local Git configuration only.
+The final documentation pass verifies all local file links against the refreshed explicit staging manifest, checks original benchmark questions/classifications against saved artifacts, confirms blank human-review templates and preserves hashes of historical evidence/screenshots. It runs the requested non-live regression/type/lint/Webpack/security checks. Actual counts and all pending Git paths are in [final delivery readiness](final-delivery-readiness.md).
 
-Startup, database initialization, builds, application tests and live AI were **not executed in this documentation task**. The earlier reported results remain dated evidence. Provider entitlement, live endpoint availability, deployment infrastructure and a completed manual/live acceptance run remain handover gaps.
+No database operation, live AI request, evaluation rerun, application change, real-index staging, commit or push is performed for this finalization. Remote visibility/access, license/CI decisions, deployment operations and human semantic acceptance remain owner responsibilities.
+
+## Latest handover status — 30 October 2026
+
+Review [final submission readiness](submission-final/report.md) before delivery. Branch `main` and the configured GitHub origin are present; no commit or push has been performed. Same-host quota accounting cannot guarantee availability under exhausted daily/token windows. Preserve original evaluation evidence and distinguish user-reported later acceptance from independent human semantic review, which remains pending. Use the README’s existing setup/migration commands; no database reset is required.

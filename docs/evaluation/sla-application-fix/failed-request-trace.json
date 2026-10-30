@@ -1,0 +1,169 @@
+{
+  "source": "existing development log; no new provider request",
+  "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+  "events": [
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 3.9
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "structured-operation",
+      "outcome": "ok",
+      "durationMs": 0.1
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "structured-count",
+      "outcome": "ok",
+      "durationMs": 0
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "model-call",
+      "durationMs": 0,
+      "phase": "planning",
+      "modelCallCount": 1
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "planning-groq",
+      "outcome": "ok",
+      "durationMs": 749
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "embedding",
+      "outcome": "ok",
+      "durationMs": 88.8
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 20.1
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "retrieval",
+      "outcome": "ok",
+      "durationMs": 110.9
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "retrieval",
+      "outcome": "ok",
+      "durationMs": 111.3
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "tool",
+      "tool": "searchDocuments",
+      "outcome": "ok",
+      "durationMs": 112.2
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "model-call",
+      "durationMs": 0,
+      "phase": "planning",
+      "modelCallCount": 2
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "planning-groq",
+      "outcome": "ok",
+      "durationMs": 4991.3
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 3
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 4.3
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 16.9
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 2.4
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "dataset-discovery",
+      "outcome": "ok",
+      "durationMs": 36.1
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "tool",
+      "tool": "discoverDatasets",
+      "outcome": "ok",
+      "durationMs": 41.7
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "model-call",
+      "durationMs": 0,
+      "phase": "planning",
+      "modelCallCount": 3
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "planning-wall",
+      "outcome": "error",
+      "durationMs": 6079,
+      "category": "rate_limit",
+      "rateLimitOrigin": "local",
+      "quotaReason": "tpm",
+      "httpStatus": 429
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "agent",
+      "outcome": "failed",
+      "durationMs": 6081.4
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "planning",
+      "outcome": "error",
+      "durationMs": 0,
+      "category": "rate_limit",
+      "rateLimitOrigin": "local",
+      "quotaReason": "tpm",
+      "httpStatus": 429
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "agent-invocation",
+      "outcome": "error",
+      "durationMs": 0,
+      "category": "rate_limit",
+      "rateLimitOrigin": "local",
+      "quotaReason": "tpm",
+      "httpStatus": 429
+    },
+    {
+      "requestId": "41443f4d-3833-4ddc-9d14-1655b8bd23b7",
+      "stage": "request",
+      "outcome": "error",
+      "durationMs": 6105.9,
+      "category": "other",
+      "httpStatus": 502
+    }
+  ]
+}

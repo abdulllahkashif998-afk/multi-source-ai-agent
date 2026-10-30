@@ -64,7 +64,7 @@ export function compileCSVQuery(input: unknown, columns: Column[]) {
       const c = column(a.column);
       if (c.c.type !== 'number') throw new Error('Numeric column required');
       expression = `${a.op === 'sum' ? 'SUM' : 'AVG'}(${c.expression})`;
-    } else if (a.column) throw new Error('Count counts rows; omit column');
+    } else if (a.column !== undefined) throw new Error('Count counts rows; omit column');
     select = `jsonb_build_object(${[...groups.flatMap(g => [`${param(g.name)}::text`,g.expression]), "'value'", expression].join(',')}) AS data`;
   }
   let order = '';
@@ -96,9 +96,12 @@ export async function discoverDatasets(userId: number | string,signal?:AbortSign
 }
 export async function queryDataset(userId: number | string, input: unknown,signal?:AbortSignal) {
  signal?.throwIfAborted();
- return measure('csv-query',()=>executeDatasetQuery(userId,input,signal));
+ return measure('csv-query',async()=>(await executeDatasetQuery(userId,input,signal)).rows);
 }
-async function executeDatasetQuery(userId: number | string, input: unknown,signal?:AbortSignal) {
+export async function queryDatasetSnapshot(userId:number|string,input:unknown,signal?:AbortSignal){
+ signal?.throwIfAborted();return measure('csv-query',()=>executeDatasetQuery(userId,input,signal,true));
+}
+async function executeDatasetQuery(userId: number | string, input: unknown,signal?:AbortSignal,metadata=false) {
   if(String(userId)!==requireUserId()) throw new Error('Owner scope mismatch');
   const plan = planSchema.parse(input);
   const client = await pool.connect();
@@ -106,13 +109,13 @@ async function executeDatasetQuery(userId: number | string, input: unknown,signa
     signal?.throwIfAborted();
     await timedQuery(()=>client.query('BEGIN ISOLATION LEVEL REPEATABLE READ READ ONLY'));
     await timedQuery(()=>client.query("SET LOCAL statement_timeout = '5s'"));
-    const scoped = await timedQuery(()=>client.query("SELECT columns FROM generic_csv_datasets WHERE id=$1 AND user_id=$2 AND status='ready'", [plan.datasetId,userId]));
+    const scoped = await timedQuery(()=>client.query<{id:string;filename:string;columns:Column[];row_count:number}>(metadata?"SELECT id::text,filename,columns,row_count FROM generic_csv_datasets WHERE id=$1 AND user_id=$2 AND status='ready'":"SELECT columns FROM generic_csv_datasets WHERE id=$1 AND user_id=$2 AND status='ready'", [plan.datasetId,userId]));
     if (!scoped.rows.length) throw new Error('Dataset unavailable');
     signal?.throwIfAborted();
     const query = compileCSVQuery(plan, scoped.rows[0].columns);
     const result = await timedQuery(()=>client.query(query));
     signal?.throwIfAborted();
     await timedQuery(()=>client.query('COMMIT'));
-    return result.rows.map(r => r.data);
+    return {rows:result.rows.map(r => r.data),dataset:scoped.rows[0]};
   } catch(e) { await timedQuery(()=>client.query('ROLLBACK')); throw e; } finally { client.release(); }
 }

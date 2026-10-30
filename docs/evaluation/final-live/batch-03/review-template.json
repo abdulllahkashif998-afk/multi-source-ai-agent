@@ -1,0 +1,226 @@
+[
+  {
+    "caseId": "doc-03",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "0fd0176e080955f11ef329cd51ca81b11a2f24533834c50cb323a79424ae50d7",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "doc-04",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "8bbdec462a934771132b3446e07098edd49bdbfa6718da5bb0589fa07ffe9d25",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "doc-05",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "757cc373c2907630aaca8b739577318e7a112a32a63b7ca544981c24fb57f4e2",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "doc-06",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "b937ddbcdb3f0de8f907f44385732a3849f170350ee00619bfb9b5508bcbd69a",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "csv-03",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "6c5884ac39d309df1fa26ac3096e20f4fb80c57f0cdfeccfeb10b4e632dc955e",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "csv-04",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "5ceed5030fc3cf9285c65d1b10a75a365a1dca100bcd9bad7bad3a42f8f17ac4",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "csv-06",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "ede5ae248358b09c0f1393fa095ae3672954ba2bedcae6cab0867312f0e443b1",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "combined-03",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "128d63c5217e8b3fe22d6a9bf786fffebe1775f9beaec0570365b01ed9a37440",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "combined-04",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "a62945b06849ef1a535bd44cf80c336ac3e9d8d971329661ab190a499329ed5d",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "combined-05",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "17abefa0f5b318a189f176adf95fbb3ad41d02281b8bf233c3b92edec4e816e5",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "combined-06",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "74bf017a232f4bf333f6a2e04e813d6a4d825bcca3f55ed85c9b92ac2112ffd3",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "missing-02",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "59a16735bfbe4e68d886e590940b68788b417c8036698c61caea7b7be5d26d69",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "missing-03",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "59a16735bfbe4e68d886e590940b68788b417c8036698c61caea7b7be5d26d69",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "missing-04",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "71d26e9bf7c3a094ab0dabc9f5de902428fe08e49b55b1a1626e64f45c9bf576",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "conflict-02",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "fc0d8a21e3ecd503a47b4a3ba50a82fa86e0a7482d7a3d67cad0959836c0a368",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "ambiguous-01",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "0c9037805618ceb912eecc4c5849ead442f4b0ede8a17993399f937f22678016",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  }
+]

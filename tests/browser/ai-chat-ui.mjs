@@ -45,7 +45,7 @@ try{
  });
  await run('Document RAG uses S citations and displays only provided metadata',async(page,state)=>{
   await open(page);await page.getByRole('radio',{name:/Document RAG/}).check();await send(page);assert.equal(state.requests[0].endpoint,'/api/chat');assert.match(await page.locator('.assistant-message .chat-answer-text').innerText(),/\[S1\]/);
-  await visible(page.getByRole('region',{name:'Document sources'}));await visible(page.getByText('Chunk index 0 · Page 4',{exact:true}));await page.locator('.chat-source>summary').click();await visible(page.getByText(policy,{exact:true}));assert.equal(await page.getByRole('region',{name:'CSV sources'}).count(),0);
+  await visible(page.getByRole('region',{name:'Document sources'}));await visible(page.getByText('Chunk index 0 · Page 4',{exact:true}));assert.equal(await page.locator('.chat-source').evaluate(el=>el.open),true);await visible(page.getByText(policy,{exact:true}));await page.locator('.chat-source>summary').click();assert.equal(await page.locator('.chat-source').evaluate(el=>el.open),false);await page.locator('.chat-source>summary').click();await visible(page.getByText(policy,{exact:true}));assert.equal(await page.getByRole('region',{name:'CSV sources'}).count(),0);
   state.metadata=false;await send(page,'Another document question');const last=page.locator('.assistant-message').last();assert.equal(await last.getByText(/Chunk index|Page [0-9]/).count(),0);
  });
  await run('CSV-only agent sources render tables and limitation warnings, without invented chunk metadata',async(page,state)=>{

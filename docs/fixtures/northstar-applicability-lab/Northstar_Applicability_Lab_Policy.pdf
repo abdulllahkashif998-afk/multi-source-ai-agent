@@ -1,0 +1,165 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 4 /Kids [5 0 R 7 0 R 9 0 R 11 0 R] >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Length 1472 >>
+stream
+BT /F1 11 Tf 14 TL 46 792 Td
+(Northstar Applicability Lab | Fictional Policy | Page 1 of 4) Tj T*
+() Tj T*
+(1. Applicability and evidence) Tj T*
+() Tj T*
+(Fictional QA fixture LAB-2026-v1. This is a separate test corpus, not a revision of any) Tj T*
+(existing Northstar policy. No real organization, customer or person is represented.) Tj T*
+() Tj T*
+(This policy governs the companion dataset Northstar_Applicability_Lab_Incidents.csv only) Tj T*
+(when the row satisfies BOTH conditions: organization equals Northstar Fixture Operations) Tj T*
+(exactly; and incident_at is on or after 2026-10-01T00:00:00Z and before) Tj T*
+(2027-01-01T00:00:00Z.) Tj T*
+() Tj T*
+(The start boundary is inclusive. The end boundary is exclusive. incident_at is the UTC) Tj T*
+(incident receipt timestamp. Do not use upload dates, file names, current dates or account) Tj T*
+(ownership as a substitute for these fields.) Tj T*
+() Tj T*
+(A different known organization or a timestamp outside that interval is outside policy) Tj T*
+(scope. A blank or invalid organization or incident_at means applicability is unknown. Do) Tj T*
+(not infer missing values. Report unknown rows separately; do not call them compliant or) Tj T*
+(noncompliant.) Tj T*
+() Tj T*
+(Apply scope first, then evaluate the individual response and resolution rules. All hours) Tj T*
+(are elapsed wall-clock hours, not business hours. These rules have no department-specific) Tj T*
+(or regional override.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 1213 >>
+stream
+BT /F1 11 Tf 14 TL 46 792 Td
+(Northstar Applicability Lab | Fictional Policy | Page 2 of 4) Tj T*
+() Tj T*
+(2. First response and resolution rules) Tj T*
+() Tj T*
+(For in-scope incidents: P1 first-response deadline is 1 hour. P2 first-response deadline) Tj T*
+(is 4 hours. P3 first-response deadline is 12 hours.) Tj T*
+() Tj T*
+(For in-scope incidents: P1 resolution deadline is 8 hours. P2 resolution deadline is 24) Tj T*
+(hours. P3 resolution deadline is 72 hours.) Tj T*
+() Tj T*
+(response_hours measures elapsed time from receipt to the first human response.) Tj T*
+(resolution_hours measures elapsed time from receipt to resolution. The two measurements) Tj T*
+(and deadlines are independent.) Tj T*
+() Tj T*
+(A measurement strictly greater than its deadline is late. A measurement exactly equal to) Tj T*
+(the deadline is on time. A measurement below the deadline is on time. Excess equals actual) Tj T*
+(hours minus the corresponding deadline.) Tj T*
+() Tj T*
+(Missing, nonnumeric or negative measurements and an unsupported severity require) Tj T*
+(clarification for that metric. Never substitute resolution_hours for response_hours.) Tj T*
+(Maintenance handling is defined on page 3.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 1350 >>
+stream
+BT /F1 11 Tf 14 TL 46 792 Td
+(Northstar Applicability Lab | Fictional Policy | Page 3 of 4) Tj T*
+() Tj T*
+(3. Maintenance exclusions and unrelated topics) Tj T*
+() Tj T*
+(For an in-scope row, exclude it from FIRST-RESPONSE SLA scoring only if) Tj T*
+(scheduled_maintenance is yes AND maintenance_notice_hours is a known nonnegative number at) Tj T*
+(least 48. Exactly 48 hours qualifies.) Tj T*
+() Tj T*
+(If scheduled_maintenance is no, no maintenance exclusion applies. If it is yes but the) Tj T*
+(known notice is below 48 hours, no exclusion applies and first-response scoring proceeds) Tj T*
+(normally.) Tj T*
+() Tj T*
+(If scheduled_maintenance is yes and maintenance_notice_hours is blank or invalid,) Tj T*
+(first-response exclusion eligibility is unknown. Do not infer eligibility from the) Tj T*
+(incident summary. Report that row as unresolved for first response.) Tj T*
+() Tj T*
+(Maintenance NEVER exempts a row from the RESOLUTION deadline in this fixture. An unknown) Tj T*
+(maintenance notice does not prevent resolution scoring if applicability, severity and) Tj T*
+(resolution_hours are known.) Tj T*
+() Tj T*
+(Customer updates occur on material changes only. Audit reviews occur during business hours) Tj T*
+(only. These two topic-specific restrictions do not change first-response or resolution) Tj T*
+(deadlines.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Length 1522 >>
+stream
+BT /F1 11 Tf 14 TL 46 792 Td
+(Northstar Applicability Lab | Fictional Policy | Page 4 of 4) Tj T*
+() Tj T*
+(4. Reporting, references and uncertainty) Tj T*
+() Tj T*
+(For each comparison include ticket_id, severity, actual hours, the applicable documented) Tj T*
+(deadline, and the difference where requested. Cite the relevant PDF page and the CSV query) Tj T*
+(result. Source markers and chunk IDs are assigned by the application and must never be) Tj T*
+(invented.) Tj T*
+() Tj T*
+(Group confirmed violations by severity only after scope and metric-specific exclusions) Tj T*
+(have been applied. Count tickets, not hours. The supplied CSV has unique ticket_id values;) Tj T*
+(each row represents one incident.) Tj T*
+() Tj T*
+(Report outside-scope, unknown-applicability, maintenance-excluded and unknown-maintenance) Tj T*
+(rows separately. Do not present a confirmed lower bound as a complete total when) Tj T*
+(unresolved rows could change that total.) Tj T*
+() Tj T*
+(The fixture has one policy version and no precedence rule. If another active policy) Tj T*
+(conflicts with it, do not choose the higher, newer-looking or stricter deadline. Request) Tj T*
+(clarification or show explicitly conditional alternatives.) Tj T*
+() Tj T*
+(This policy and companion CSV explicitly establish a test relationship through) Tj T*
+(organization and incident_at, not through semantic similarity. Questions about payroll,) Tj T*
+(legal liability or missing incidents are unsupported. All examples are fictional.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 10 0 R >>
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000134 00000 n 
+0000000204 00000 n 
+0000001728 00000 n 
+0000001854 00000 n 
+0000003119 00000 n 
+0000003245 00000 n 
+0000004647 00000 n 
+0000004773 00000 n 
+0000006348 00000 n 
+trailer
+<< /Size 12 /Root 1 0 R >>
+startxref
+6476
+%%EOF

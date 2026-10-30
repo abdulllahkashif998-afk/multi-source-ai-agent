@@ -1,0 +1,7 @@
+{
+  "actualGroqRequests": 0,
+  "blockedExternalAttempts": 0,
+  "localOllamaCallsAcrossBothHarnessAttempts": 8,
+  "providerResponsesMocked": false,
+  "apiResponsesIntercepted": false
+}

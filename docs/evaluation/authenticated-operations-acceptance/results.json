@@ -1,0 +1,259 @@
+{
+  "kind": "real-authenticated-browser-acceptance-no-mocks",
+  "startedAt": "2026-10-29T12:21:02.960Z",
+  "completedAt": "2026-10-29T12:21:11.792Z",
+  "environment": {
+    "production": true,
+    "https": true,
+    "isolatedDatabase": true,
+    "originalDatabaseAccessed": false,
+    "configuredProvider": "groq",
+    "configuredModel": "openai/gpt-oss-20b",
+    "providerHTTP": "blocked at server"
+  },
+  "results": [
+    {
+      "id": "csv-05",
+      "question": "List the East-region sales amounts, largest first.",
+      "status": "Passed",
+      "method": "Real authenticated Chrome UI → production API → real PostgreSQL/BGE; no mocks",
+      "httpStatus": 200,
+      "requestId": "81182f48-d4b2-43c3-9782-d176a19f2f2c",
+      "durationMs": 893,
+      "renderedAnswer": "East-region sales amount: 20. [C1]\n\nEast-region sales amount: 10. [C1]",
+      "apiAnswer": "East-region sales amount: 20. [C1]\n\nEast-region sales amount: 10. [C1]",
+      "sources": [
+        {
+          "id": "C1",
+          "datasetId": "4",
+          "filename": "sales.csv",
+          "plan": {
+            "datasetId": "4",
+            "filters": [
+              {
+                "column": "region",
+                "op": "eq",
+                "value": "East"
+              }
+            ],
+            "groupBy": [],
+            "sort": {
+              "column": "amount",
+              "direction": "desc"
+            },
+            "limit": 100
+          },
+          "rows": [
+            {
+              "team": "Alpha",
+              "amount": 20,
+              "region": "East"
+            },
+            {
+              "team": "Alpha",
+              "amount": 10,
+              "region": "East"
+            }
+          ],
+          "text": "[{\"team\":\"Alpha\",\"amount\":20,\"region\":\"East\"},{\"team\":\"Alpha\",\"amount\":10,\"region\":\"East\"}]",
+          "possiblyTruncated": false,
+          "type": "csv",
+          "quotes": [
+            "[{\"team\":\"Alpha\",\"amount\":20,\"region\":\"East\"},{\"team\":\"Alpha\",\"amount\":10,\"region\":\"East\"}]"
+          ]
+        }
+      ],
+      "screenshots": [
+        "csv-05-desktop.png",
+        "csv-05-mobile.png"
+      ]
+    },
+    {
+      "id": "combined-04",
+      "question": "According to the policy, which teams fall short when all sales rows are added per team?",
+      "status": "Passed",
+      "method": "Real authenticated Chrome UI → production API → real PostgreSQL/BGE; no mocks",
+      "httpStatus": 200,
+      "requestId": "8d1316e9-d37b-4b06-be81-7df9456d5ae7",
+      "durationMs": 675,
+      "renderedAnswer": "Alpha total is 30 units; the policy minimum is 15 units; meets the target; surplus is 15 units. [D1] [C1]\n\nBeta total is 6 units; the policy minimum is 15 units; shortfall is 9 units. [D1] [C1]\n\nGamma total is 15 units; the policy minimum is 15 units; meets the target; surplus is 0 units. [D1] [C1]",
+      "apiAnswer": "Alpha total is 30 units; the policy minimum is 15 units; meets the target; surplus is 15 units. [D1] [C1]\n\nBeta total is 6 units; the policy minimum is 15 units; shortfall is 9 units. [D1] [C1]\n\nGamma total is 15 units; the policy minimum is 15 units; meets the target; surplus is 0 units. [D1] [C1]",
+      "sources": [
+        {
+          "id": "D1",
+          "documentId": "3",
+          "chunkId": "3",
+          "filename": "team-policy.docx",
+          "chunkIndex": 0,
+          "pageNumber": null,
+          "similarity": 0.6735257725494435,
+          "retrievalMode": "hybrid",
+          "keywordRank": 1,
+          "semanticRank": 1,
+          "rrfScore": 0.03278688524590164,
+          "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units.",
+          "quotes": [
+            "Orion team policy: the minimum monthly total sales target for each team is 15 units."
+          ],
+          "type": "document"
+        },
+        {
+          "id": "C1",
+          "datasetId": "4",
+          "filename": "sales.csv",
+          "plan": {
+            "datasetId": "4",
+            "filters": [],
+            "groupBy": [
+              "team"
+            ],
+            "aggregate": {
+              "op": "sum",
+              "column": "amount"
+            },
+            "sort": {
+              "column": "team",
+              "direction": "asc"
+            },
+            "limit": 100
+          },
+          "rows": [
+            {
+              "team": "Alpha",
+              "value": 30
+            },
+            {
+              "team": "Beta",
+              "value": 6
+            },
+            {
+              "team": "Gamma",
+              "value": 15
+            }
+          ],
+          "text": "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]",
+          "possiblyTruncated": false,
+          "type": "csv",
+          "quotes": [
+            "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]"
+          ]
+        }
+      ],
+      "screenshots": [
+        "combined-04-desktop.png",
+        "combined-04-mobile.png"
+      ]
+    },
+    {
+      "id": "combined-05",
+      "question": "Apply the travel approval rule to expenses.csv. Who needs approval and by how much is the limit exceeded?",
+      "status": "Passed",
+      "method": "Real authenticated Chrome UI → production API → real PostgreSQL/BGE; no mocks",
+      "httpStatus": 200,
+      "requestId": "95d9aa2d-62ae-46e9-807c-0d674ca65b32",
+      "durationMs": 636,
+      "renderedAnswer": "Mira cost is 450 credits; the approval limit is 500 credits; approval is not required because the amount is at or below the limit. [D1] [C1]\n\nJon cost is 620 credits; the approval limit is 500 credits; approval required; excess is 120 credits. [D1] [C1]\n\nSol cost is 500 credits; the approval limit is 500 credits; approval is not required because the amount is at or below the limit. [D1] [C1]",
+      "apiAnswer": "Mira cost is 450 credits; the approval limit is 500 credits; approval is not required because the amount is at or below the limit. [D1] [C1]\n\nJon cost is 620 credits; the approval limit is 500 credits; approval required; excess is 120 credits. [D1] [C1]\n\nSol cost is 500 credits; the approval limit is 500 credits; approval is not required because the amount is at or below the limit. [D1] [C1]",
+      "sources": [
+        {
+          "id": "D1",
+          "documentId": "4",
+          "chunkId": "4",
+          "filename": "travel-policy.docx",
+          "chunkIndex": 0,
+          "pageNumber": null,
+          "similarity": 0.7495619505383825,
+          "retrievalMode": "hybrid",
+          "keywordRank": 1,
+          "semanticRank": 1,
+          "rrfScore": 0.03278688524590164,
+          "text": "Travel expenses above 500 credits require manager approval.",
+          "quotes": [
+            "Travel expenses above 500 credits require manager approval."
+          ],
+          "type": "document"
+        },
+        {
+          "id": "C1",
+          "datasetId": "5",
+          "filename": "expenses.csv",
+          "plan": {
+            "datasetId": "5",
+            "filters": [],
+            "groupBy": [],
+            "limit": 100
+          },
+          "rows": [
+            {
+              "cost": 450,
+              "employee": "Mira"
+            },
+            {
+              "cost": 620,
+              "employee": "Jon"
+            },
+            {
+              "cost": 500,
+              "employee": "Sol"
+            }
+          ],
+          "text": "[{\"cost\":450,\"employee\":\"Mira\"},{\"cost\":620,\"employee\":\"Jon\"},{\"cost\":500,\"employee\":\"Sol\"}]",
+          "possiblyTruncated": false,
+          "type": "csv",
+          "quotes": [
+            "[{\"cost\":450,\"employee\":\"Mira\"},{\"cost\":620,\"employee\":\"Jon\"},{\"cost\":500,\"employee\":\"Sol\"}]"
+          ]
+        }
+      ],
+      "screenshots": [
+        "combined-05-desktop.png",
+        "combined-05-mobile.png"
+      ]
+    }
+  ],
+  "security": [
+    {
+      "name": "Real signup and secure production sessions",
+      "status": "Passed",
+      "method": "Real authenticated HTTP/browser"
+    },
+    {
+      "name": "Anonymous and missing-CSRF writes rejected before execution",
+      "status": "Passed",
+      "method": "Real authenticated HTTP/browser"
+    },
+    {
+      "name": "Discovery and structured-query ownership isolation",
+      "status": "Passed",
+      "method": "Real authenticated HTTP/browser"
+    },
+    {
+      "name": "Foreign user cannot receive policy or CSV citations from owner A",
+      "status": "Passed",
+      "method": "Real authenticated HTTP/browser"
+    }
+  ],
+  "uploads": {
+    "documents": [
+      {
+        "filename": "team-policy.docx",
+        "id": "3"
+      },
+      {
+        "filename": "travel-policy.docx",
+        "id": "4"
+      }
+    ],
+    "datasets": [
+      {
+        "filename": "sales.csv",
+        "id": "4"
+      },
+      {
+        "filename": "expenses.csv",
+        "id": "5"
+      }
+    ]
+  },
+  "browserErrors": []
+}

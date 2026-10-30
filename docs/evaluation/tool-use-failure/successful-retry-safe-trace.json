@@ -1,0 +1,225 @@
+[
+  {
+    "loggerTimestamp": "00:50:58.184",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 22.2
+  },
+  {
+    "loggerTimestamp": "00:50:58.191",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.4
+  },
+  {
+    "loggerTimestamp": "00:50:58.192",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.4
+  },
+  {
+    "loggerTimestamp": "00:50:58.196",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 3.5
+  },
+  {
+    "loggerTimestamp": "00:50:58.196",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.4
+  },
+  {
+    "loggerTimestamp": "00:50:58.199",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.8
+  },
+  {
+    "loggerTimestamp": "00:50:58.200",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.3
+  },
+  {
+    "loggerTimestamp": "00:50:58.201",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.9
+  },
+  {
+    "loggerTimestamp": "00:50:58.202",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.4
+  },
+  {
+    "loggerTimestamp": "00:50:58.202",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "dataset-discovery",
+    "outcome": "ok",
+    "durationMs": 4.6
+  },
+  {
+    "loggerTimestamp": "00:50:58.203",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "tool",
+    "tool": "discoverDatasets",
+    "outcome": "ok",
+    "durationMs": 5.5
+  },
+  {
+    "loggerTimestamp": "00:50:58.305",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "embedding",
+    "outcome": "ok",
+    "durationMs": 100.8
+  },
+  {
+    "loggerTimestamp": "00:50:58.326",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 17.3
+  },
+  {
+    "loggerTimestamp": "00:50:58.326",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "retrieval",
+    "outcome": "ok",
+    "durationMs": 121.9
+  },
+  {
+    "loggerTimestamp": "00:50:58.327",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "retrieval",
+    "outcome": "ok",
+    "durationMs": 122.2
+  },
+  {
+    "loggerTimestamp": "00:50:58.329",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "tool",
+    "tool": "searchDocuments",
+    "outcome": "ok",
+    "durationMs": 125.1
+  },
+  {
+    "loggerTimestamp": "00:50:58.336",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "tool-cache",
+    "tool": "discoverDatasets",
+    "outcome": "ok",
+    "durationMs": 0
+  },
+  {
+    "loggerTimestamp": "00:50:58.337",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "tool",
+    "tool": "discoverDatasets",
+    "outcome": "ok",
+    "durationMs": 0.9
+  },
+  {
+    "loggerTimestamp": "00:50:58.338",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "tool",
+    "tool": "inspectDataset",
+    "outcome": "ok",
+    "durationMs": 0.6
+  },
+  {
+    "loggerTimestamp": "00:50:58.343",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 3
+  },
+  {
+    "loggerTimestamp": "00:50:58.347",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 3.2
+  },
+  {
+    "loggerTimestamp": "00:50:58.349",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 1.7
+  },
+  {
+    "loggerTimestamp": "00:50:58.353",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 3.3
+  },
+  {
+    "loggerTimestamp": "00:50:58.354",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "postgres",
+    "outcome": "ok",
+    "durationMs": 0.4
+  },
+  {
+    "loggerTimestamp": "00:50:58.354",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "csv-query",
+    "outcome": "ok",
+    "durationMs": 14.3
+  },
+  {
+    "loggerTimestamp": "00:50:58.354",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "csv-query",
+    "outcome": "ok",
+    "durationMs": 14.7
+  },
+  {
+    "loggerTimestamp": "00:50:58.355",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "tool",
+    "tool": "queryDataset",
+    "outcome": "ok",
+    "durationMs": 16.3
+  },
+  {
+    "loggerTimestamp": "00:50:58.358",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "structured-operation",
+    "outcome": "ok",
+    "durationMs": 170.3
+  },
+  {
+    "loggerTimestamp": "00:50:58.360",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "citation-verification",
+    "outcome": "ok",
+    "durationMs": 1.6
+  },
+  {
+    "loggerTimestamp": "00:50:58.361",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "agent",
+    "outcome": "grounded",
+    "durationMs": 173.3
+  },
+  {
+    "loggerTimestamp": "00:50:58.362",
+    "requestId": "25248cfd-3d47-463a-a2c2-f4ada44ad59d",
+    "stage": "request",
+    "outcome": "ok",
+    "durationMs": 199.9
+  }
+]

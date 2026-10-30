@@ -1,0 +1,144 @@
+{
+  "kind": "real-postgres-bge-authenticated-route-no-groq",
+  "providerCalls": 0,
+  "owner": {
+    "httpStatus": 200,
+    "requestId": "2b3b937a-bb28-43d8-823e-7d3f226b89bc",
+    "durationMs": 110,
+    "answer": "Ticket F-1 (P1): actual first-response time is 3 hours; the documented deadline is 2.5 hours; difference is 0.5 hours. [D1] [C1]",
+    "sources": [
+      {
+        "id": "D1",
+        "documentId": "1",
+        "chunkId": "101",
+        "filename": "fictional-policy.pdf",
+        "chunkIndex": 0,
+        "pageNumber": null,
+        "similarity": 0.6555877533205273,
+        "retrievalMode": "hybrid",
+        "keywordRank": 1,
+        "semanticRank": 1,
+        "rrfScore": 0.03278688524590164,
+        "text": "P1 tickets require first response within 2.5 hours; P2 within 4 hours; P3 within 12 hours. Response time is measured from receipt.",
+        "quotes": [
+          "P1 tickets require first response within 2.5 hours; P2 within 4 hours; P3 within 12 hours. Response time is measured from receipt."
+        ],
+        "type": "document"
+      },
+      {
+        "id": "C1",
+        "datasetId": "201",
+        "filename": "fictional-incidents.csv",
+        "plan": {
+          "datasetId": "201",
+          "filters": [
+            {
+              "column": "severity",
+              "op": "eq",
+              "value": "P1"
+            },
+            {
+              "column": "response_hours",
+              "op": "gt",
+              "value": 2.5
+            }
+          ],
+          "groupBy": [],
+          "sort": {
+            "column": "response_hours",
+            "direction": "desc"
+          },
+          "limit": 100
+        },
+        "rows": [
+          {
+            "severity": "P1",
+            "ticket_id": "F-1",
+            "response_hours": 3
+          }
+        ],
+        "text": "[{\"severity\":\"P1\",\"ticket_id\":\"F-1\",\"response_hours\":3}]",
+        "possiblyTruncated": false,
+        "type": "csv",
+        "quotes": [
+          "[{\"severity\":\"P1\",\"ticket_id\":\"F-1\",\"response_hours\":3}]"
+        ]
+      }
+    ]
+  },
+  "second": {
+    "httpStatus": 200,
+    "requestId": "436f9c1a-48d5-45f8-816f-e98f59141d36",
+    "durationMs": 61,
+    "answer": "P1: 1 tickets missed the first-response SLA; the deadline is 2.5 hours. Response times equal to the deadline are on time. [D1] [C2]\n\nP2: 1 tickets missed the first-response SLA; the deadline is 4 hours. Response times equal to the deadline are on time. [D1] [C2]\n\nP3: 0 tickets missed the first-response SLA; the deadline is 12 hours. Response times equal to the deadline are on time. [D1] [C2]\n\nTotal across all priorities: 2 tickets missed the first-response SLA. [D1] [C2]",
+    "sources": [
+      {
+        "id": "D1",
+        "documentId": "1",
+        "chunkId": "101",
+        "filename": "fictional-policy.pdf",
+        "chunkIndex": 0,
+        "pageNumber": null,
+        "similarity": 0.6555877533205273,
+        "retrievalMode": "hybrid",
+        "keywordRank": 1,
+        "semanticRank": 1,
+        "rrfScore": 0.03278688524590164,
+        "text": "P1 tickets require first response within 2.5 hours; P2 within 4 hours; P3 within 12 hours. Response time is measured from receipt.",
+        "quotes": [
+          "P1 tickets require first response within 2.5 hours; P2 within 4 hours; P3 within 12 hours. Response time is measured from receipt."
+        ],
+        "type": "document"
+      },
+      {
+        "id": "C2",
+        "datasetId": "201",
+        "filename": "fictional-incidents.csv",
+        "plan": {
+          "datasetId": "201",
+          "filters": [],
+          "groupBy": [
+            "severity",
+            "response_hours"
+          ],
+          "aggregate": {
+            "op": "count"
+          },
+          "limit": 100
+        },
+        "rows": [
+          {
+            "value": 1,
+            "severity": "P1",
+            "response_hours": 2.5
+          },
+          {
+            "value": 1,
+            "severity": "P1",
+            "response_hours": 3
+          },
+          {
+            "value": 1,
+            "severity": "P2",
+            "response_hours": 7
+          }
+        ],
+        "text": "[{\"value\":1,\"severity\":\"P1\",\"response_hours\":2.5},{\"value\":1,\"severity\":\"P1\",\"response_hours\":3},{\"value\":1,\"severity\":\"P2\",\"response_hours\":7}]",
+        "possiblyTruncated": false,
+        "type": "csv",
+        "quotes": [
+          "[{\"value\":1,\"severity\":\"P1\",\"response_hours\":2.5},{\"value\":1,\"severity\":\"P1\",\"response_hours\":3},{\"value\":1,\"severity\":\"P2\",\"response_hours\":7}]"
+        ]
+      }
+    ]
+  },
+  "quotaReservationsCreated": 0,
+  "isolation": {
+    "foreignAbstains": true,
+    "missingCSRF": 403,
+    "anonymous": 401
+  },
+  "localEmbeddingCalls": 4,
+  "blockedExternalAttempts": 0,
+  "status": "Passed"
+}

@@ -8,7 +8,7 @@ import { sessionHeaders, sessionRow } from './test-context';
 afterEach(()=>mock.restoreAll());
 const row=(id:string)=>({id,filename:`fictional-${id}.PDF`,status:'ready',uploadedAt:new Date('2026-01-01T10:00:00Z'),version:2});
 test('document pagination bounds rows, rejects unsafe cursors, repeated and unknown parameters',()=>{
- assert.deepEqual(readDocumentPagination('http://local/api/documents'),{limit:20});
+ assert.deepEqual(readDocumentPagination('http://local/api/documents'),{limit:10});
  assert.deepEqual(readDocumentPagination('http://local/api/documents?before=42&limit=2'),{before:'42',limit:2});
  for(const query of ['limit=0','limit=51','limit=1.2','before=0','before=9223372036854775808','before=1%27%20OR%201=1','userId=2','limit=1&limit=2','before='])assert.throws(()=>readDocumentPagination(`http://local/?${query}`),{status:400});
 });
@@ -42,4 +42,15 @@ test('document upload, replacement and deletion require valid CSRF before parsin
  const response=await route(request,{params:Promise.resolve({id:'9'})});assert.equal(response.status,403);assert.equal((await response.json()).code,'CSRF_REJECTED');
  }
  }
+});
+
+test('thirteen documents paginate into ten then three without duplicate or missing IDs',async()=>{
+ const rows=Array.from({length:13},(_,i)=>row(String(13-i)));
+ mock.method(pool,'connect',async()=>({query:async(sql:string,values?:unknown[])=>({rows:sql.startsWith('SELECT')?rows.filter(r=>!values![1]||BigInt(r.id)<BigInt(String(values![1]))).slice(0,Number(values![2])):[]}),release:()=>{}}));
+ const limit=readDocumentPagination('http://localhost/api/documents').limit;
+ const first=await runWithIdentity('1',()=>listDocuments({limit}));
+ assert.equal(first.documents.length,10);assert.equal(first.nextCursor,'4');
+ const second=await runWithIdentity('1',()=>listDocuments({limit,before:first.nextCursor!}));
+ assert.equal(second.documents.length,3);assert.equal(second.nextCursor,null);
+ assert.deepEqual([...first.documents,...second.documents].map(d=>d.id),rows.map(r=>r.id));
 });

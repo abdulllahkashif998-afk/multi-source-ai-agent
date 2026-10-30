@@ -175,3 +175,26 @@ No confirmed application defect was found, so no retrieval or agent behavior was
 The first priority is an explicitly authorized small live sample followed by claim-level human review. Then run the remaining original cases in bounded batches and inspect failures before proposing retrieval or orchestration changes. Do not convert the scripted checks into an AI accuracy percentage.
 
 These fictional short chunks do not measure ingestion quality, production index scaling, browser UX or broad domain correctness. Structural citation precision measures expected source identity, not semantic support. Numeric extraction cannot settle alternative wording, negation or units. Human ratings remain subjective; disagreements should stay needs-review or receive a second review. Mock execution timings are harness timings, not provider latency. Live results are stochastic and unavailable until executed.
+
+
+## Later real Groq pilot — 28 October 2026
+
+The original Step 3 scripted results above remain historical. A separately approved live pilot has now executed **doc-01, csv-01 and combined-01**, unchanged: 13 HTTP attempts, 13,225 reported tokens, three automatic passes, zero evaluator failures and three needs-review classifications. Human-reviewed: zero. The other 22 cases are not live-executed by this pilot. Full 25-case live accuracy and human semantic review remain incomplete.
+
+See [actual answers/citations/timings](final-live/report.md), [machine-readable observations](final-live/results.json) and [unfilled review template](final-live/review-template.json). No automatic retry, provider/model change or production user-data mutation was made. The existing isolation uses trusted fictional operator identity, not browser/session replay.
+
+
+## Later approved batch 02 — cumulative eight cases
+
+[Batch 02](final-live/batch-02/report.md) executed doc-02, csv-02, combined-02, missing-01 and conflict-01 without repeating the pilot. Usage was 16 HTTP attempts/16,319 reported tokens. Cumulative coverage is **8/25** with **17 remaining**; formal classifications 1 pass (canonical missing-information contract), 0 fail, 7 needs-review; human-reviewed zero. Five automatic checks passed in this batch, but the conflict response asserted an unsupported higher-target-wins rule. That AI-assisted semantic finding is prominently retained for actual human review, rather than hidden by automatic provenance success. See [all-original-case cumulative evidence](final-live/batch-02/cumulative-results.json). No full live accuracy or human-review completion is claimed.
+
+
+## Latest real benchmark execution — 28 October 2026
+
+**All 25 original cases were executed once across the separately approved runs.** There are 24 returned structured responses and one HTTP 400 provider failure without a final answer. Automatic checks: **22 pass / 3 fail**. Formal evaluator outcomes: **4 canonical-refusal-contract passes / 3 fail / 18 needs-review**. Actual human-reviewed: **0**. These counts are not a claim of 88% answer accuracy.
+
+Usage: **95 native HTTP attempts / 97,440 known reported tokens**, with usage unknown for the failed HTTP 400. No automatic retry or model/application/user-data change occurred. Earlier eight executions and conflict-01 artifacts were preserved. Daily token quota remained unknown; permitted response headers were recorded, and no quota/access/deadline stop occurred.
+
+Important findings: conflict-01 invented a higher-target-wins rule; ambiguous-01 assigned 15 without a known department; combined-05 did not explicitly provide the requested 120-credit excess. csv-05 failed at provider planning. conflict-02's genuine extra CSV evidence triggered the unchanged evaluator's policy-only source whitelist; that raw Fail is retained as a scoring limitation, not called fabrication. All subjective review remains pending actual human decisions.
+
+See [actual responses, citations, latencies and findings](final-live/batch-03/report.md), [all-original-case cumulative results](final-live/batch-03/cumulative-results.json) and [24 unfilled response-bound human review templates](final-live/batch-03/all-review-template.json). Earlier counts below are dated snapshots superseded by this execution status. **Execution is complete; human-reviewed quality acceptance is not.**

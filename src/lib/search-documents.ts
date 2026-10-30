@@ -22,7 +22,7 @@ export interface DocumentSearchResult {
 export async function searchDocuments(
   question: string,
   signal?: AbortSignal,
-  options?: { mode?: 'semantic' | 'hybrid' }
+  options?: { mode?: 'semantic' | 'hybrid'; filename?: string }
 ): Promise<DocumentSearchResult[]> {
   return measure('retrieval',async()=>{
   const userId=requireUserId();
@@ -31,6 +31,8 @@ export async function searchDocuments(
   const minSimilarity=Number(process.env.RAG_MIN_SIMILARITY ?? '0.5');
   if(!Number.isFinite(minSimilarity) || minSimilarity<0 || minSimilarity>1 || process.env.RAG_MIN_SIMILARITY?.trim()==='') throw new Error('Invalid retrieval cutoff');
   signal?.throwIfAborted();
+  const filename=options?.filename;
+  if(filename!==undefined&&(typeof filename!=='string'||!filename.trim()||filename.length>255||filename.includes('/')||filename.includes('\\')||/[\u0000-\u001f]/.test(filename)))throw new Error('Invalid document filename scope');
   const embedding = await generateEmbedding(question, signal);
 
   // pg supports a per-query timeout, although its QueryConfig type omits it.
@@ -47,11 +49,12 @@ export async function searchDocuments(
      JOIN documents d ON d.id = dc.document_id
      WHERE d.status = 'ready'
        AND d.user_id = $2
+       AND ($3::text IS NULL OR lower(d.filename)=lower($3))
        AND dc.embedding IS NOT NULL
      ORDER BY dc.embedding <=> $1::vector, dc.id
      LIMIT 3`,
     // Identity comes exclusively from the verified server session scope.
-    values: [JSON.stringify(embedding), userId],
+    values: [JSON.stringify(embedding), userId, filename??null],
     query_timeout: 10_000,
   };
   if(mode==='semantic') {
@@ -65,6 +68,7 @@ export async function searchDocuments(
              dc.page_number, dc.chunk_text, dc.embedding
       FROM document_chunks dc JOIN documents d ON d.id = dc.document_id
       WHERE d.status = 'ready' AND d.user_id = $2
+        AND ($4::text IS NULL OR lower(d.filename)=lower($4))
     ), semantic AS (
       SELECT *, 1 - (embedding <=> $1::vector) AS similarity,
              row_number() OVER (ORDER BY embedding <=> $1::vector, chunk_id)::int AS branch_rank
@@ -79,7 +83,7 @@ export async function searchDocuments(
     SELECT document_id,chunk_id,filename,chunk_index,page_number,chunk_text,similarity,branch_rank,'semantic' AS branch FROM semantic
     UNION ALL
     SELECT document_id,chunk_id,filename,chunk_index,page_number,chunk_text,similarity,branch_rank,'keyword' AS branch FROM keyword`,
-    values:[JSON.stringify(embedding),userId,question],
+    values:[JSON.stringify(embedding),userId,question,filename??null],
     query_timeout:10_000,
   };
   const result=await timedQuery(()=>pool.query<RankedCandidate>(query));

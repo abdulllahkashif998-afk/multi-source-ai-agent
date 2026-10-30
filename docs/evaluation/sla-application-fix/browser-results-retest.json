@@ -1,0 +1,71 @@
+{
+  "kind": "real-authenticated-production-browser-no-mocks-no-groq",
+  "status": "Passed",
+  "originalDatabaseAccessed": false,
+  "fictionalThreshold": 2.5,
+  "httpStatus": 200,
+  "requestId": "b9d843f7-d860-4d0b-808c-f6abb41cce7b",
+  "durationMs": 670,
+  "question": "Which P1 tickets missed the first-response SLA according to Northstar_Operations_Policy.pdf and Northstar_Incidents.csv? Include ticket IDs, response times, policy deadline, and citations from both sources.",
+  "renderedAnswer": "Ticket F-1 (P1): actual first-response time is 3 hours; the documented deadline is 2.5 hours; difference is 0.5 hours. [D1] [C1]",
+  "sources": [
+    {
+      "id": "D1",
+      "documentId": "2",
+      "chunkId": "2",
+      "filename": "Northstar_Operations_Policy.pdf",
+      "chunkIndex": 0,
+      "pageNumber": null,
+      "similarity": 0.7094137263657574,
+      "retrievalMode": "hybrid",
+      "keywordRank": 1,
+      "semanticRank": 1,
+      "rrfScore": 0.03278688524590164,
+      "text": "Fictional operations policy for isolated acceptance test.\nP1 tickets require first response within 2.5 hours; P2 within 4 hours; P3 within 12 hours.\n\n-- 1 of 1 --",
+      "quotes": [
+        "Fictional operations policy for isolated acceptance test.\nP1 tickets require first response within 2.5 hours; P2 within 4 hours; P3 within 12 hours.\n\n-- 1 of 1 --"
+      ],
+      "type": "document"
+    },
+    {
+      "id": "C1",
+      "datasetId": "2",
+      "filename": "Northstar_Incidents.csv",
+      "plan": {
+        "datasetId": "2",
+        "filters": [
+          {
+            "column": "severity",
+            "op": "eq",
+            "value": "P1"
+          },
+          {
+            "column": "response_hours",
+            "op": "gt",
+            "value": 2.5
+          }
+        ],
+        "groupBy": [],
+        "sort": {
+          "column": "response_hours",
+          "direction": "desc"
+        },
+        "limit": 100
+      },
+      "rows": [
+        {
+          "severity": "P1",
+          "ticket_id": "F-1",
+          "response_hours": 3
+        }
+      ],
+      "text": "[{\"severity\":\"P1\",\"ticket_id\":\"F-1\",\"response_hours\":3}]",
+      "possiblyTruncated": false,
+      "type": "csv",
+      "quotes": [
+        "[{\"severity\":\"P1\",\"ticket_id\":\"F-1\",\"response_hours\":3}]"
+      ]
+    }
+  ],
+  "providerCalls": 0
+}

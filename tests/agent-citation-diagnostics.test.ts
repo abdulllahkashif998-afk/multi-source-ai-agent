@@ -33,7 +33,7 @@ test('CSV synthetic source mapping preserves exact JSON and combined document/CS
 });
 test('repeated document searches keep stable backend IDs and do not confuse CSV IDs',async()=>{
  const s=session();await s.execute('searchDocuments',{question:'First?'});await s.execute('searchDocuments',{question:'Second?'});
- assert.equal(s.evidence().documents.length,2);const result=s.finalize(answer('D2',text));const doc=result.sources[0];assert.ok('documentId' in doc&&'chunkIndex' in doc);assert.equal(doc.id,'D2');assert.equal(doc.documentId,'11');assert.equal(doc.chunkIndex,4);
+ assert.equal(s.evidence().documents.length,1);const result=s.finalize(answer('D1',text));const doc=result.sources[0];assert.ok('documentId' in doc&&'chunkIndex' in doc);assert.equal(doc.id,'D1');assert.equal(doc.documentId,'11');assert.equal(doc.chunkIndex,4);
  reason(()=>s.finalize(answer('C2',text)),'citation_unknown_source');
 });
 test('reason logging is allowlisted and never emits private quote, source ID or forged reason',async()=>{

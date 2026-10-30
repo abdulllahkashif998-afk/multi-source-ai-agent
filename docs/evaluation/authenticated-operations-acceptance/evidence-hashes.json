@@ -1,0 +1,15 @@
+{
+  "csv-05-mobile.png": "ca876fe11a94ae70f59024393cb8b64611ff90383dbffb8574d33763d87d61fa",
+  "combined-05-mobile.png": "8693cd50b6e3a20b59c5c286dd0e561af813d7e060565e346921c4a4d161a79a",
+  "cleanup.json": "3b026ace37dcedc754eed57c0612736c86c31fc1550e9fa9c479a1c2118c11ff",
+  "csv-05-desktop.png": "1075331c35ab1fc1e0e0de3065eb018b387bbe127739180c8a1654f035876eb7",
+  "network-audit.json": "af2b13f31762e46ab21d096ad20a41d215dfd3c3410e5d7b5b4fb801e67aad31",
+  "server-trace.json": "870e98fa7dda14d2e56ca2b5d96397ca44624bb4bd316cf617d4684cd0c88898",
+  "report.md": "8a77eb9f6957dc3daf0eb3a51c6e4a5f719af4550cb7255b66feccc56c27744e",
+  "combined-04-desktop.png": "67f0758d01b853bd54b2a86102e832fc1653b21f93cd79d1587ce181f0b41fd9",
+  "combined-04-mobile.png": "cc5fb994291a7241703a4b78d9b16ca5da780a496dd4c4226cf43bb00b046342",
+  "combined-05-desktop.png": "a102fafe4fc80ab35fe922ec84c1bff664c51ea41dba055d1226e2af05fde9d1",
+  "results.json": "d95abcbf27f759f99016844eafaebf56bd697ba44c39739acc68d9b8bd7d5e36",
+  "harness-attempt-01/failure.png": "f6bacfc6006a29771ac2441c9f246f9756672003c16a7b1d58df74f44912aa79",
+  "harness-attempt-01/results.json": "2749719140165a333f7cf081e42719b145a8b4e24f39dd56e874148927fb3346"
+}

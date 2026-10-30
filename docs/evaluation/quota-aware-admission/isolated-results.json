@@ -1,0 +1,251 @@
+{
+  "kind": "real-postgres-bge-authenticated-apis-scripted-groq-not-live",
+  "cases": [
+    {
+      "kind": "rag",
+      "question": "Describe the first-response commitments.",
+      "status": "Passed",
+      "httpStatus": 200,
+      "requestId": "c9046dbb-3f00-493a-8d2f-6b480f26c311",
+      "scriptedHttpCalls": 1,
+      "success": true,
+      "grounded": true,
+      "answer": "P1 deadline is 2.5 hours. [S1]",
+      "sources": [
+        {
+          "id": "S1",
+          "documentId": "1",
+          "chunkId": "101",
+          "filename": "fictional-policy.pdf",
+          "chunkIndex": 0,
+          "pageNumber": null,
+          "similarity": 0.6443055656139327,
+          "retrievalMode": "hybrid",
+          "keywordRank": 1,
+          "semanticRank": 1,
+          "rrfScore": 0.03278688524590164,
+          "text": "P1 tickets require first response within 2.5 hours; P2 within 4 hours; P3 within 12 hours. Response time is measured from receipt.",
+          "quotes": [
+            "P1 tickets require first response within 2.5 hours; P2 within 4 hours; P3 within 12 hours. Response time is measured from receipt."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "count",
+      "question": "Report the number of incident records.",
+      "status": "Passed",
+      "httpStatus": 200,
+      "requestId": "4f76da4a-0f4b-4071-99dc-a070079fb4b3",
+      "scriptedHttpCalls": 3,
+      "success": true,
+      "grounded": true,
+      "answer": "There are 3 records. [C1]",
+      "sources": [
+        {
+          "id": "C1",
+          "datasetId": "201",
+          "filename": "fictional-incidents.csv",
+          "plan": {
+            "datasetId": "201",
+            "filters": [],
+            "groupBy": [],
+            "aggregate": {
+              "op": "count"
+            },
+            "limit": 100
+          },
+          "rows": [
+            {
+              "value": 3
+            }
+          ],
+          "text": "[{\"value\":3}]",
+          "possiblyTruncated": false,
+          "type": "csv",
+          "quotes": [
+            "[{\"value\":3}]"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "filter",
+      "question": "Show priority-one rows ordered by response time descending.",
+      "status": "Passed",
+      "httpStatus": 200,
+      "requestId": "be7cdfbc-5327-466c-888d-861a8cecab38",
+      "scriptedHttpCalls": 3,
+      "success": true,
+      "grounded": true,
+      "answer": "P1 response times are 3 and 2.5 hours. [C1]",
+      "sources": [
+        {
+          "id": "C1",
+          "datasetId": "201",
+          "filename": "fictional-incidents.csv",
+          "plan": {
+            "datasetId": "201",
+            "filters": [
+              {
+                "column": "severity",
+                "op": "eq",
+                "value": "P1"
+              }
+            ],
+            "groupBy": [],
+            "sort": {
+              "column": "response_hours",
+              "direction": "desc"
+            },
+            "limit": 100
+          },
+          "rows": [
+            {
+              "severity": "P1",
+              "ticket_id": "F-1",
+              "response_hours": 3
+            },
+            {
+              "severity": "P1",
+              "ticket_id": "F-2",
+              "response_hours": 2.5
+            }
+          ],
+          "text": "[{\"severity\":\"P1\",\"ticket_id\":\"F-1\",\"response_hours\":3},{\"severity\":\"P1\",\"ticket_id\":\"F-2\",\"response_hours\":2.5}]",
+          "possiblyTruncated": false,
+          "type": "csv",
+          "quotes": [
+            "[{\"severity\":\"P1\",\"ticket_id\":\"F-1\",\"response_hours\":3},{\"severity\":\"P1\",\"ticket_id\":\"F-2\",\"response_hours\":2.5}]"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "sum",
+      "question": "Compute the sum of recorded response times.",
+      "status": "Passed",
+      "httpStatus": 200,
+      "requestId": "79f265ac-d78e-4cea-affe-f3d0318239ef",
+      "scriptedHttpCalls": 3,
+      "success": true,
+      "grounded": true,
+      "answer": "Response times sum to 12.5 hours. [C1]",
+      "sources": [
+        {
+          "id": "C1",
+          "datasetId": "201",
+          "filename": "fictional-incidents.csv",
+          "plan": {
+            "datasetId": "201",
+            "filters": [],
+            "groupBy": [],
+            "aggregate": {
+              "op": "sum",
+              "column": "response_hours"
+            },
+            "limit": 100
+          },
+          "rows": [
+            {
+              "value": 12.5
+            }
+          ],
+          "text": "[{\"value\":12.5}]",
+          "possiblyTruncated": false,
+          "type": "csv",
+          "quotes": [
+            "[{\"value\":12.5}]"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "combined",
+      "question": "Compare incident response times against the policy and show the excess.",
+      "status": "Passed",
+      "httpStatus": 200,
+      "requestId": "25d6ced3-d302-4eab-8c99-bef52f71443f",
+      "scriptedHttpCalls": 4,
+      "success": true,
+      "grounded": true,
+      "answer": "F-1 is 3 hours, 0.5 hours over the 2.5-hour deadline; F-3 is 7 hours, 3 hours over the 4-hour deadline. F-2 equals its deadline. [D1] [C1]",
+      "sources": [
+        {
+          "id": "D1",
+          "documentId": "1",
+          "chunkId": "101",
+          "filename": "fictional-policy.pdf",
+          "chunkIndex": 0,
+          "pageNumber": null,
+          "similarity": 0.6850753288220185,
+          "retrievalMode": "hybrid",
+          "keywordRank": 1,
+          "semanticRank": 1,
+          "rrfScore": 0.03278688524590164,
+          "text": "P1 tickets require first response within 2.5 hours; P2 within 4 hours; P3 within 12 hours. Response time is measured from receipt.",
+          "quotes": [
+            "P1 tickets require first response within 2.5 hours; P2 within 4 hours; P3 within 12 hours. Response time is measured from receipt."
+          ],
+          "type": "document"
+        },
+        {
+          "id": "C1",
+          "datasetId": "201",
+          "filename": "fictional-incidents.csv",
+          "plan": {
+            "datasetId": "201",
+            "filters": [],
+            "groupBy": [],
+            "limit": 100
+          },
+          "rows": [
+            {
+              "severity": "P1",
+              "ticket_id": "F-1",
+              "response_hours": 3
+            },
+            {
+              "severity": "P1",
+              "ticket_id": "F-2",
+              "response_hours": 2.5
+            },
+            {
+              "severity": "P2",
+              "ticket_id": "F-3",
+              "response_hours": 7
+            }
+          ],
+          "text": "[{\"severity\":\"P1\",\"ticket_id\":\"F-1\",\"response_hours\":3},{\"severity\":\"P1\",\"ticket_id\":\"F-2\",\"response_hours\":2.5},{\"severity\":\"P2\",\"ticket_id\":\"F-3\",\"response_hours\":7}]",
+          "possiblyTruncated": false,
+          "type": "csv",
+          "quotes": [
+            "[{\"severity\":\"P1\",\"ticket_id\":\"F-1\",\"response_hours\":3},{\"severity\":\"P1\",\"ticket_id\":\"F-2\",\"response_hours\":2.5},{\"severity\":\"P2\",\"ticket_id\":\"F-3\",\"response_hours\":7}]"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "missing",
+      "question": "Explain evidence for an office on Neptune.",
+      "status": "Passed",
+      "httpStatus": 200,
+      "requestId": "40bc0607-9963-4d14-878a-3d5f049e424c",
+      "scriptedHttpCalls": 3,
+      "success": true,
+      "grounded": false,
+      "answer": "I don't have enough evidence from the available documents and datasets to answer that question.",
+      "sources": []
+    }
+  ],
+  "providerCalls": 0,
+  "isolation": {
+    "missingCSRF": 403,
+    "anonymous": 401
+  },
+  "scriptedProviderCalls": 17,
+  "virtualPacingAndAdmissionWaitMs": 81000,
+  "localEmbeddingCalls": 4,
+  "blockedExternalAttempts": 0,
+  "status": "Passed"
+}

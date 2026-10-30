@@ -84,13 +84,16 @@ Inference yields number, boolean or text per column; empty cells become null. Th
 
 Deterministic sorting uses fused score, strongest branch rank, keyword rank and numeric chunk ID; at most three chunks are returned. English FTS uses OR-connected normalized query terms. Semantic-only candidates need the cosine cutoff; keyword-qualified hybrid hits can survive below it. `selectEvidence` also applies eligibility, caps context to three excerpts and truncates each to 6,000 original characters.
 
-No eligible evidence yields a canonical grounded=false refusal without generation. Otherwise the model returns structured statements and exact quotes. The server validates shape, source IDs and quote membership and adds `[S1]` markers. It does not prove semantic entailment or completeness.
+No eligible evidence yields a canonical grounded=false refusal without generation. Otherwise the model returns structured statements with sourceId/quoteId selections from backend-provided quote choices; the backend copies exact original excerpts rather than trusting reconstructed quote text. The server validates shape, source IDs and quote membership and adds `[S1]` markers. It does not prove semantic entailment or completeness.
 
 ## Multi-Source Agent
 
 ```mermaid
 flowchart TD
-  Q[Question] --> Plan[AI SDK planning / tool selection]
+  Q[Question] --> Gate{Supported deterministic operation?}
+  Gate -->|Yes| Deterministic[Validated tools and evidence-derived arithmetic]
+  Gate -->|No| Plan[AI SDK planning / tool selection]
+  Deterministic --> Verify
   Plan --> Search[searchDocuments]
   Plan --> Discover[discoverDatasets]
   Discover --> Inspect[inspectDataset]
@@ -102,9 +105,11 @@ flowchart TD
   Verify --> Answer[Grounded answer or refusal]
 ```
 
-`knowledge-agent.ts` allows eight planning steps and ten backend tool calls. Dataset discovery and schema inspection are prerequisites to querying. Tool argument validation, owner filtering, SQL safety and result bounds stay in backend-controlled functions. Tool errors can be returned safely to permit a corrected call within the budget.
+`knowledge-agent.ts` first checks narrow deterministic listing/comparison grammars and the existing role-count shortcut. These use the same authorized tools, schema/SQL validation, evidence and citation verifier without provider calls. They compute explicit differences and render every bounded result row; recognized but unsafe/ambiguous forms abstain. They do not recognize arbitrary prose, columns or policy precedence. See [operation boundaries](agent-remaining-failures-resolution.md).
 
-For combined reasoning, document thresholds must be supported by document evidence and actual values by CSV results. Team-total thresholds require grouped SUM across all relevant rows; row-level threshold filtering is not equivalent. The final model call has no tools and must abstain when evidence is missing, contradictory or insufficient. This is model instruction plus schema/citation enforcement, not a formal arithmetic or reasoning proof.
+For other questions, it allows eight planning steps and ten backend tool calls. Dataset discovery and schema inspection are prerequisites to querying. Tool argument validation, owner filtering, SQL safety and result bounds stay in backend-controlled functions. Tool errors can be returned safely to permit a corrected call within the budget.
+
+For combined reasoning, document thresholds must be supported by document evidence and actual values by CSV results. Team-total thresholds require grouped SUM across all relevant rows; row-level threshold filtering is not equivalent. The final model call has no tools and must abstain when evidence is missing, contradictory or insufficient. For the general agent this remains model instruction plus schema/citation enforcement, not deterministic semantic verification. General Groq tool-use failures remain possible. Recognized cross-source conclusions additionally require both evidence families in each statement, with explicit filename binding where supplied; this is necessary provenance coverage, not arbitrary entailment verification. Deterministic supported operations separately validate typed operands, exact decimal differences and complete bounded rendering; they do not prove arbitrary document semantics.
 
 Document citations use D IDs; CSV citations use C IDs with filename, dataset ID, executed plan, rows, serialized text, quotes and possible-truncation flag. Discovery/schema alone cannot become cited evidence. Chat UI conversations remain in component memory and are not persisted; later questions are submitted individually, not as a backend conversation transcript.
 
@@ -115,3 +120,12 @@ Passwords use salted scrypt (N=131072, r=8, p=1); only hashes are stored. Sessio
 Login/signup require exact Origin; authenticated mutations additionally require X-CSRF-Token matching the verified session. A CSRF token is returned to JavaScript; the session token is never returned in JSON. Accounts without credentials remain passwordless until explicitly enrolled by the operator, without transferring their data.
 
 Owner filters join chunks to documents and rows to datasets. Foreign IDs receive generic not-found/unavailable results. Files cannot be requested through arbitrary paths. Authentication/authorization precede retrieval or tools; only scoped evidence reaches the provider. Signup exposes duplicate registration through 409, while invalid login remains generic. [Deployment limitations](deployment.md) cover remaining account and operational controls.
+
+
+## Quota and generic SLA reliability follow-up
+
+[Quota/evidence/SLA implementation](agent-quota-evidence-sla-reliability.md) adds persistent same-host budget coordination, safe usage counts, stable chunk IDs across different searches and compact model-facing views that preserve original server evidence. Supported first-response SLA operations use scoped document rules and validated priority/metric row filters, calculate differences deterministically and retain both citations. Unknown formats, scoped/ambiguous rules and truncated results abstain. Regional-lead joins and arbitrary policy semantics remain outside that deterministic grammar.
+
+## Final implementation note — 30 October 2026
+
+Groq admission uses the persistent same-host ledger for request/token minute/day budgets, pending reservations and reconciliation. Deadline-aware waiting rechecks capacity; it cannot guarantee admission within a request deadline or coordinate independent hosts. See [current operational evidence](submission-final/report.md). Controlled row-level policy predicates can be evaluated against an authorized coherent CSV snapshot, retaining applicable, inapplicable and unknown classifications. Backend-derived qualified counts retain policy provenance and verified document/CSV references; unsupported grammar or conflicts still refuse. Original evidence remains available to citation verification. See [row applicability](evaluation/row-policy-applicability/report.md).

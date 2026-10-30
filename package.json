@@ -24,6 +24,7 @@
     "@ai-sdk/groq": "4.0.71",
     "ai": "^7.0.150",
     "csv-parse": "^7.0.3",
+    "gpt-tokenizer": "4.1.0",
     "mammoth": "^1.13.0",
     "next": "16.4.2",
     "pdf-parse": "^2.4.5",

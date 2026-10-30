@@ -1,0 +1,188 @@
+{
+  "kind": "preflight-only-not-answer-evaluation",
+  "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "configuredRPM": 12,
+  "cases": [
+    {
+      "id": "doc-01",
+      "category": "document",
+      "system": "chat",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "doc-02",
+      "category": "document",
+      "system": "chat",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "doc-03",
+      "category": "document",
+      "system": "chat",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "doc-04",
+      "category": "document",
+      "system": "chat",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "doc-05",
+      "category": "document",
+      "system": "chat",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "doc-06",
+      "category": "document",
+      "system": "chat",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "csv-01",
+      "category": "csv",
+      "system": "agent",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "csv-02",
+      "category": "csv",
+      "system": "agent",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "csv-03",
+      "category": "csv",
+      "system": "agent",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "csv-04",
+      "category": "csv",
+      "system": "agent",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "csv-05",
+      "category": "csv",
+      "system": "agent",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "csv-06",
+      "category": "csv",
+      "system": "agent",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "combined-01",
+      "category": "combined",
+      "system": "agent",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "combined-02",
+      "category": "combined",
+      "system": "agent",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "combined-03",
+      "category": "combined",
+      "system": "agent",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "combined-04",
+      "category": "combined",
+      "system": "agent",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "combined-05",
+      "category": "combined",
+      "system": "agent",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "combined-06",
+      "category": "combined",
+      "system": "agent",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "missing-01",
+      "category": "insufficient",
+      "system": "chat",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "missing-02",
+      "category": "insufficient",
+      "system": "agent",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "missing-03",
+      "category": "insufficient",
+      "system": "agent",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "missing-04",
+      "category": "insufficient",
+      "system": "chat",
+      "corpus": "base",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "conflict-01",
+      "category": "ambiguous",
+      "system": "agent",
+      "corpus": "conflict",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "conflict-02",
+      "category": "ambiguous",
+      "system": "agent",
+      "corpus": "conflict",
+      "fixtureCheck": "passed"
+    },
+    {
+      "id": "ambiguous-01",
+      "category": "ambiguous",
+      "system": "agent",
+      "corpus": "ambiguous",
+      "fixtureCheck": "passed"
+    }
+  ],
+  "localEmbeddingRequests": 9,
+  "groqAttempts": 0,
+  "fixtureIsolation": "temporary tables; explicit IDs; rollback; no user account or stored file mutation",
+  "authenticationScope": "existing operator fixture identity; not browser-session replay"
+}

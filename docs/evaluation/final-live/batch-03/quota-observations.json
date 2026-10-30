@@ -1,0 +1,797 @@
+{
+  "dailyTokensRemaining": "unknown; not supplied by documented headers",
+  "observations": [
+    {
+      "caseId": "doc-03",
+      "attemptIndex": 1,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 995,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6486
+      },
+      "usageTokens": 862
+    },
+    {
+      "caseId": "doc-04",
+      "attemptIndex": 1,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 994,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6381
+      },
+      "usageTokens": 944
+    },
+    {
+      "caseId": "doc-05",
+      "attemptIndex": 1,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 993,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 7034
+      },
+      "usageTokens": 930
+    },
+    {
+      "caseId": "doc-06",
+      "attemptIndex": 1,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 992,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 7026
+      },
+      "usageTokens": 942
+    },
+    {
+      "caseId": "csv-03",
+      "attemptIndex": 1,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 991,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 7198
+      },
+      "usageTokens": 769
+    },
+    {
+      "caseId": "csv-03",
+      "attemptIndex": 2,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 990,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6977
+      },
+      "usageTokens": 847
+    },
+    {
+      "caseId": "csv-03",
+      "attemptIndex": 3,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 989,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6680
+      },
+      "usageTokens": 934
+    },
+    {
+      "caseId": "csv-03",
+      "attemptIndex": 4,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 988,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6273
+      },
+      "usageTokens": 1058
+    },
+    {
+      "caseId": "csv-03",
+      "attemptIndex": 5,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 987,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6333
+      },
+      "usageTokens": 702
+    },
+    {
+      "caseId": "csv-04",
+      "attemptIndex": 1,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 986,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6158
+      },
+      "usageTokens": 769
+    },
+    {
+      "caseId": "csv-04",
+      "attemptIndex": 2,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 985,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6988
+      },
+      "usageTokens": 850
+    },
+    {
+      "caseId": "csv-04",
+      "attemptIndex": 3,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 984,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 7068
+      },
+      "usageTokens": 960
+    },
+    {
+      "caseId": "csv-04",
+      "attemptIndex": 4,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 983,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6502
+      },
+      "usageTokens": 1183
+    },
+    {
+      "caseId": "csv-04",
+      "attemptIndex": 5,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 982,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6412
+      },
+      "usageTokens": 784
+    },
+    {
+      "caseId": "csv-05",
+      "attemptIndex": 1,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 981,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 7171
+      },
+      "usageTokens": 771
+    },
+    {
+      "caseId": "csv-05",
+      "attemptIndex": 2,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 980,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6975
+      },
+      "usageTokens": 849
+    },
+    {
+      "caseId": "csv-05",
+      "attemptIndex": 3,
+      "httpStatus": 400,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 979,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 7005
+      },
+      "usageTokens": null
+    },
+    {
+      "caseId": "csv-06",
+      "attemptIndex": 1,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 978,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 7170
+      },
+      "usageTokens": 774
+    },
+    {
+      "caseId": "csv-06",
+      "attemptIndex": 2,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 977,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 7073
+      },
+      "usageTokens": 855
+    },
+    {
+      "caseId": "csv-06",
+      "attemptIndex": 3,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 976,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 7047
+      },
+      "usageTokens": 951
+    },
+    {
+      "caseId": "csv-06",
+      "attemptIndex": 4,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 975,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6900
+      },
+      "usageTokens": 1155
+    },
+    {
+      "caseId": "csv-06",
+      "attemptIndex": 5,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 974,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6802
+      },
+      "usageTokens": 688
+    },
+    {
+      "caseId": "combined-03",
+      "attemptIndex": 1,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 973,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 7171
+      },
+      "usageTokens": 797
+    },
+    {
+      "caseId": "combined-03",
+      "attemptIndex": 2,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 972,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6829
+      },
+      "usageTokens": 1115
+    },
+    {
+      "caseId": "combined-03",
+      "attemptIndex": 3,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 971,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6272
+      },
+      "usageTokens": 1196
+    },
+    {
+      "caseId": "combined-03",
+      "attemptIndex": 4,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 970,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6191
+      },
+      "usageTokens": 1311
+    },
+    {
+      "caseId": "combined-03",
+      "attemptIndex": 5,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 969,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 5391
+      },
+      "usageTokens": 1467
+    },
+    {
+      "caseId": "combined-03",
+      "attemptIndex": 6,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 968,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 5021
+      },
+      "usageTokens": 1052
+    },
+    {
+      "caseId": "combined-04",
+      "attemptIndex": 1,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 967,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 7144
+      },
+      "usageTokens": 788
+    },
+    {
+      "caseId": "combined-04",
+      "attemptIndex": 2,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 966,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6708
+      },
+      "usageTokens": 1100
+    },
+    {
+      "caseId": "combined-04",
+      "attemptIndex": 3,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 965,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6188
+      },
+      "usageTokens": 1180
+    },
+    {
+      "caseId": "combined-04",
+      "attemptIndex": 4,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 964,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6109
+      },
+      "usageTokens": 1279
+    },
+    {
+      "caseId": "combined-04",
+      "attemptIndex": 5,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 963,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 5311
+      },
+      "usageTokens": 1582
+    },
+    {
+      "caseId": "combined-04",
+      "attemptIndex": 6,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 962,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 4697
+      },
+      "usageTokens": 1147
+    },
+    {
+      "caseId": "combined-05",
+      "attemptIndex": 1,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 961,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 7077
+      },
+      "usageTokens": 786
+    },
+    {
+      "caseId": "combined-05",
+      "attemptIndex": 2,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 960,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6835
+      },
+      "usageTokens": 1101
+    },
+    {
+      "caseId": "combined-05",
+      "attemptIndex": 3,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 959,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6235
+      },
+      "usageTokens": 1173
+    },
+    {
+      "caseId": "combined-05",
+      "attemptIndex": 4,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 958,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 5745
+      },
+      "usageTokens": 1457
+    },
+    {
+      "caseId": "combined-05",
+      "attemptIndex": 5,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 957,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 4988
+      },
+      "usageTokens": 1674
+    },
+    {
+      "caseId": "combined-05",
+      "attemptIndex": 6,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 956,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 5103
+      },
+      "usageTokens": 1106
+    },
+    {
+      "caseId": "combined-06",
+      "attemptIndex": 1,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 955,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 7155
+      },
+      "usageTokens": 778
+    },
+    {
+      "caseId": "combined-06",
+      "attemptIndex": 2,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 954,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6733
+      },
+      "usageTokens": 1085
+    },
+    {
+      "caseId": "combined-06",
+      "attemptIndex": 3,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 953,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6648
+      },
+      "usageTokens": 1168
+    },
+    {
+      "caseId": "combined-06",
+      "attemptIndex": 4,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 952,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6182
+      },
+      "usageTokens": 1277
+    },
+    {
+      "caseId": "combined-06",
+      "attemptIndex": 5,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 951,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6564
+      },
+      "usageTokens": 1376
+    },
+    {
+      "caseId": "combined-06",
+      "attemptIndex": 6,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 950,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 5627
+      },
+      "usageTokens": 1547
+    },
+    {
+      "caseId": "combined-06",
+      "attemptIndex": 7,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 949,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 4626
+      },
+      "usageTokens": 1709
+    },
+    {
+      "caseId": "combined-06",
+      "attemptIndex": 8,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 948,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 4002
+      },
+      "usageTokens": 1213
+    },
+    {
+      "caseId": "missing-02",
+      "attemptIndex": 1,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 947,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 4417
+      },
+      "usageTokens": 776
+    },
+    {
+      "caseId": "missing-02",
+      "attemptIndex": 2,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 946,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 7137
+      },
+      "usageTokens": 859
+    },
+    {
+      "caseId": "missing-02",
+      "attemptIndex": 3,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 945,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6871
+      },
+      "usageTokens": 998
+    },
+    {
+      "caseId": "missing-02",
+      "attemptIndex": 4,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 944,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6868
+      },
+      "usageTokens": 559
+    },
+    {
+      "caseId": "missing-03",
+      "attemptIndex": 1,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 943,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 5456
+      },
+      "usageTokens": 781
+    },
+    {
+      "caseId": "missing-03",
+      "attemptIndex": 2,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 942,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 5134
+      },
+      "usageTokens": 859
+    },
+    {
+      "caseId": "missing-03",
+      "attemptIndex": 3,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 941,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6999
+      },
+      "usageTokens": 972
+    },
+    {
+      "caseId": "missing-03",
+      "attemptIndex": 4,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 940,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 7090
+      },
+      "usageTokens": 553
+    },
+    {
+      "caseId": "missing-04",
+      "attemptIndex": 1,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 939,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 7024
+      },
+      "usageTokens": 923
+    },
+    {
+      "caseId": "conflict-02",
+      "attemptIndex": 1,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 938,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 7162
+      },
+      "usageTokens": 798
+    },
+    {
+      "caseId": "conflict-02",
+      "attemptIndex": 2,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 937,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6822
+      },
+      "usageTokens": 1131
+    },
+    {
+      "caseId": "conflict-02",
+      "attemptIndex": 3,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 936,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6726
+      },
+      "usageTokens": 1213
+    },
+    {
+      "caseId": "conflict-02",
+      "attemptIndex": 4,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 935,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6096
+      },
+      "usageTokens": 1318
+    },
+    {
+      "caseId": "conflict-02",
+      "attemptIndex": 5,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 934,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 5266
+      },
+      "usageTokens": 1726
+    },
+    {
+      "caseId": "conflict-02",
+      "attemptIndex": 6,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 933,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 5135
+      },
+      "usageTokens": 1432
+    },
+    {
+      "caseId": "ambiguous-01",
+      "attemptIndex": 1,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 932,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6979
+      },
+      "usageTokens": 777
+    },
+    {
+      "caseId": "ambiguous-01",
+      "attemptIndex": 2,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 931,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6533
+      },
+      "usageTokens": 1161
+    },
+    {
+      "caseId": "ambiguous-01",
+      "attemptIndex": 3,
+      "httpStatus": 200,
+      "headers": {
+        "requestsPerDay": 1000,
+        "remainingRequestsToday": 930,
+        "tokensPerMinute": 8000,
+        "remainingTokensThisMinute": 6724
+      },
+      "usageTokens": 1019
+    }
+  ]
+}

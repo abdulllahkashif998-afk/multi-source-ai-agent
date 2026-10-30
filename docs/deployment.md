@@ -41,11 +41,11 @@ Webpack is the supported verified production build: `npm run build -- --webpack`
 3. **Secrets:** server-only DATABASE_URL and the selected provider key through private environment/secret management. No NEXT_PUBLIC credentials, copied .env files in public artifacts or secrets in logs. Only one provider is selected; check its account permissions and quota before live use.
 4. **HTTPS/session origin:** NODE_ENV=production, explicit HTTPS APP_ORIGIN with exact host/port, no trailing slash. Confirm browser Origin reaches the backend and Secure __Host-knowledge-session is set with HttpOnly/SameSite=Strict/Path=/. No permissive CORS or CSRF bypass.
 5. **Persistent private storage:** writable storage/uploads beneath a stable working directory, access permissions and encrypted backup policy. Do not expose it as a static directory. Back up file and metadata states consistently; database-only restore is insufficient for original documents.
-6. **Quota ownership:** single-process pacing is not a shared quota service. Account for other workers/apps using the same provider credentials and its RPM, token and daily limits. Conservative RPM does not guarantee token/daily allowance. No sustained load test has been completed.
+6. **Quota ownership:** single-process pacing is not a shared quota service. Account for other workers/apps using the same provider credentials and its RPM, token and daily limits. The Groq ledger reserves estimated tokens and settles reported/unknown usage against the supplied RPM/TPM/RPD/TPD caps. Same-host workers must share private persistent GROQ_QUOTA_DIRECTORY with the same UID; unshared hosts and unrelated applications are not coordinated. Conservative estimates can reject requests earlier than Groq. No sustained load test has been completed.
 7. **Request limits and budgets:** align proxy body/time limits with 10 MiB uploads, 120-second upload signal, 45-second chat and 60-second agent budgets. Individual provider/model calls are bounded at 30 seconds and embeddings at 15 seconds. Do not blindly raise application timeouts to hide slow calls.
 8. **Operations:** request-ID log access, safe alerting, file cleanup/reconciliation procedures, expired-session/rate-key retention policy, rollback/recovery owner and a staged release procedure. No scheduled cleanup worker or reconciliation command is supplied.
 9. **Identity controls:** decide account access policy. No email verification, password recovery/change UI, MFA, administrative user management or account-deletion endpoint exists. Duplicate signup returns 409 and reveals registration status. Database operators remain privileged.
-10. **Quality sign-off:** complete an explicitly authorized live sample and human semantic review before claiming answer-quality coverage. Full live 25-case evaluation is incomplete. Never market exact-quote checks as proof that all claims are true.
+10. **Quality sign-off:** complete an explicitly authorized live sample and human semantic review before claiming answer-quality coverage. Original 25-case live execution is complete; human semantic review and human-reviewed accuracy remain pending. Later three-operation browser passes are separate deterministic acceptance, not revised Groq scores. Never market exact-quote checks as proof that all claims are true.
 
 ## Staging acceptance checklist
 
@@ -64,10 +64,30 @@ Use isolated fictional accounts/files; preserve other users' records. These oper
 
 ## Known operational risks
 
-The transport allows at most eight active/waiting attempt operations and up to ten seconds of queue wait, bounded further by request deadlines. Only HTTP 429 may retry once; long Retry-After or insufficient time stops sooner. HTTP 403/5xx/network errors are not automatically retried. SDK retries are disabled. Multiple tools/model steps can make a single answer consume several paced calls; a locally rejected queue is not proof of remote quota exhaustion.
+The transport allows at most eight active/waiting attempt operations and up to ten seconds of queue wait, bounded further by request deadlines. Only HTTP 429 may retry once; exhausted quota headers stop sooner; long Retry-After or insufficient time stops sooner. HTTP 403/5xx/network errors are not automatically retried. SDK retries are disabled. Multiple tools/model steps can make a single answer consume several paced calls; a locally rejected queue is not proof of remote quota exhaustion.
 
-Rate state is process-local, provider-local and nondurable. Multi-worker coordination, proactive token/daily accounting and distributed fairness are absent. SQL cancellation is cooperative: CSV reads rely on statement timeout rather than a caller AbortSignal, and retrieval's client query timeout does not prove server cancellation. Local CPU scheduling and clock changes can affect measurements/pacing.
+Dispatch spacing is process-local and provider-local. Groq budget/cooldown state is persistent and shared across same-host workers using the same private directory; global/distributed quota enforcement and per-user fairness are absent. Corrupt/lost initialized state and uncertain locks fail closed; do not clear state to bypass budgets. See [ledger deployment and recovery](agent-quota-evidence-sla-reliability.md#deployment-and-persistence). SQL cancellation is cooperative: CSV reads check cancellation at boundaries but rely on statement timeout for already-running PostgreSQL work, and retrieval's client query timeout does not prove server cancellation. Local CPU scheduling and clock changes can affect measurements/pacing.
 
 Lifecycle transactions hold an owner lock while preparing documents and calling Ollama. Concurrent writes for that owner can return DOCUMENT_BUSY. Unpublished file cleanup failure/uncertain COMMIT can leave an orphan requiring reconciliation; legacy CSV files have no management cleanup API. Cleanup batches are not a global queue-depth metric.
 
-The application is not a certified high-availability service: there is no deployment automation, infrastructure health endpoint, production-scale load test, distributed limiter, complete retention policy or full live semantic-quality sign-off in the repository. A controlled staging release remains conditional on the prerequisites above. No Day 10 work is part of this guide.
+The application is not a certified high-availability service: there is no deployment automation, infrastructure health endpoint, production-scale load test, distributed limiter, complete retention policy or full live semantic-quality sign-off in the repository. A controlled staging release remains conditional on the prerequisites above. Current evidence and repository-release limits are in the [final delivery report](final-delivery-readiness.md).
+
+
+## Final verification scope
+
+The [authenticated browser acceptance](evaluation/authenticated-operations-acceptance/report.md) passed csv-05, combined-04 and combined-05 with real production cookies/CSRF, UI uploads, API responses, ownership checks and source excerpts. It used a disposable database and blocked Groq; it is not a public deployment or a human-reviewed accuracy score. General Groq failures, nondeterministic reasoning and the specialized harness preparation/replay gap remain documented. Web crawling is not implemented and was not required.
+
+
+## Shared-host quota ledger requirement
+
+Provision GROQ_QUOTA_DIRECTORY as private, runtime-owned mode 0700, writable and persistent across normal restarts. All same-host workers must use the same directory; ephemeral instances are not globally coordinated. The ledger contains no secrets or content and uses no application database tables. Preserve its initialization marker and state together. Stranded locks require a reviewed recovery with all workers stopped; power-loss and distributed-filesystem durability are not certified. See [current reliability behavior and verification](agent-quota-evidence-sla-reliability.md).
+
+## Quota-aware admission deployment
+
+Both Groq modes can wait for a short known quota expiry without holding a reservation or ledger lock. Current request/step/browser deadlines are unchanged; a fresh full-minute reset normally cannot fit. See the [implementation and deadline limits](evaluation/quota-aware-admission/report.md). Honor API `Retry-After` as current-snapshot guidance rather than a reserved future slot.
+
+Drain/restart workers before acceptance to avoid mixed transport implementations. Keep the private ledger directory across restarts, and share it across same-host workers; never delete it to retry. Supporting full-minute waiting requires a coherent change to outer request, Agent planning/final, SDK/transport step, browser and hosting/proxy timeouts. No such timeout increase is included in this bounded change.
+
+## Submission caveat — 30 October 2026
+
+[Current review](submission-final/report.md) documents a local daily-token rejection after successful upstream calls. Rolling daily limits do not clear after a one-minute pause. Provider availability must be checked for a live demonstration; do not reset the ledger or raise documented limits to force a result. Controlled staging still requires private storage, correct cookie/origin configuration and a valid provider entitlement.

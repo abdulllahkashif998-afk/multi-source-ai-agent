@@ -1,4 +1,5 @@
 import "server-only";
+import {modelInvocation} from './provider-usage';
 import { generateText, Output } from "ai";
 import { ChatError } from "./chat-errors";
 import { type EvidenceSource } from "./rag-answer";
@@ -6,7 +7,7 @@ import { documentQuoteChoices, documentReferenceSchema, resolveDocumentAnswer } 
 
 // Existing import paths remain compatible for RAG and regression callers.
 export { GEMINI_MODEL, getChatConfig } from './ai-provider';
-import { selectedLanguageModel } from './ai-provider';
+import { selectedLanguageModel,getChatConfig } from './ai-provider';
 import { measure } from './reliability';
 
 export async function generateEvidenceAnswer(
@@ -14,8 +15,10 @@ export async function generateEvidenceAnswer(
   evidence: EvidenceSource[],
   signal: AbortSignal
 ) {
-  const selected = selectedLanguageModel();
+  const config=getChatConfig();
+  const selected = selectedLanguageModel(config);
   const quoteChoices=documentQuoteChoices(evidence);
+  modelInvocation(config.provider,'generation');
   const { output, finishReason } = await generateText({
     ...selected,
     output: Output.object({ schema: documentReferenceSchema }),
@@ -32,7 +35,7 @@ When facts occur in separate locations, use separate statements or multiple quot
 Do not invent quoteIds or pair a quoteId with a different sourceId. If no offered excerpt supports a claim, omit it or return answerable=false.
 Use only supplied source IDs. Do not put citation markers, filenames, or a sources list in statement text.
 Do not invent page numbers or other source metadata.`,
-    prompt: JSON.stringify({ question, evidence, quoteChoices }),
+    prompt: JSON.stringify({ question, sources:evidence.map(({id,filename,documentId,chunkId,chunkIndex,pageNumber})=>({id,filename,documentId,chunkId,chunkIndex,pageNumber})), quoteChoices }),
     maxOutputTokens: 3000,
     maxRetries: 0,
     abortSignal: signal,

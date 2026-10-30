@@ -1,0 +1,893 @@
+{
+  "kind": "real-postgres-and-bge-deterministic-not-groq-inference",
+  "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+  "configuredProvider": "groq",
+  "configuredModel": "openai/gpt-oss-20b",
+  "startedAt": "2026-10-29T12:08:40.940Z",
+  "completedAt": "2026-10-29T12:08:42.624Z",
+  "summary": {
+    "executed": 3,
+    "returnedGrounded": 3,
+    "executionErrors": 0,
+    "automaticPass": 3,
+    "humanReviewed": 0,
+    "actualGroqRequests": 0,
+    "blockedProviderAttempts": 0,
+    "localEmbeddingCalls": 15
+  },
+  "preservation": {
+    "historicalFilesUnchanged": true,
+    "publicDatabaseRecordsUnchanged": true
+  },
+  "results": [
+    {
+      "id": "csv-05",
+      "category": "csv",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 87.198126,
+      "answerDurationMs": 41.63885100000016,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [],
+        "refusalCorrect": false
+      },
+      "retrieval": [],
+      "stages": [
+        {
+          "stage": "postgres",
+          "durationMs": 0.6,
+          "outcome": "ok",
+          "requestId": "2c1061e8-3e8a-4866-a680-3287e765d0ca"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.4,
+          "outcome": "ok",
+          "requestId": "2c1061e8-3e8a-4866-a680-3287e765d0ca"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 1.4,
+          "outcome": "ok",
+          "requestId": "2c1061e8-3e8a-4866-a680-3287e765d0ca"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.3,
+          "outcome": "ok",
+          "requestId": "2c1061e8-3e8a-4866-a680-3287e765d0ca"
+        },
+        {
+          "stage": "tool",
+          "durationMs": 7.2,
+          "outcome": "ok",
+          "tool": "discoverDatasets",
+          "requestId": "2c1061e8-3e8a-4866-a680-3287e765d0ca"
+        },
+        {
+          "stage": "tool",
+          "durationMs": 0.8,
+          "outcome": "ok",
+          "tool": "inspectDataset",
+          "requestId": "2c1061e8-3e8a-4866-a680-3287e765d0ca"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.4,
+          "outcome": "ok",
+          "requestId": "2c1061e8-3e8a-4866-a680-3287e765d0ca"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.3,
+          "outcome": "ok",
+          "requestId": "2c1061e8-3e8a-4866-a680-3287e765d0ca"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.5,
+          "outcome": "ok",
+          "requestId": "2c1061e8-3e8a-4866-a680-3287e765d0ca"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 1.1,
+          "outcome": "ok",
+          "requestId": "2c1061e8-3e8a-4866-a680-3287e765d0ca"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.3,
+          "outcome": "ok",
+          "requestId": "2c1061e8-3e8a-4866-a680-3287e765d0ca"
+        },
+        {
+          "stage": "csv-query",
+          "durationMs": 3.7,
+          "outcome": "ok",
+          "requestId": "2c1061e8-3e8a-4866-a680-3287e765d0ca"
+        },
+        {
+          "stage": "tool",
+          "durationMs": 23.2,
+          "outcome": "ok",
+          "tool": "queryDataset",
+          "requestId": "2c1061e8-3e8a-4866-a680-3287e765d0ca"
+        },
+        {
+          "stage": "structured-operation",
+          "durationMs": 33.1,
+          "outcome": "ok",
+          "requestId": "2c1061e8-3e8a-4866-a680-3287e765d0ca"
+        },
+        {
+          "stage": "citation-verification",
+          "durationMs": 4.6,
+          "outcome": "ok",
+          "requestId": "2c1061e8-3e8a-4866-a680-3287e765d0ca"
+        },
+        {
+          "stage": "agent",
+          "durationMs": 38.4,
+          "outcome": "grounded",
+          "requestId": "2c1061e8-3e8a-4866-a680-3287e765d0ca"
+        },
+        {
+          "stage": "request",
+          "durationMs": 40.7,
+          "outcome": "ok",
+          "requestId": "2c1061e8-3e8a-4866-a680-3287e765d0ca"
+        },
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 41.63885100000016,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "East-region sales amount: 20. [C1]\n\nEast-region sales amount: 10. [C1]",
+        "sources": [
+          {
+            "id": "C1",
+            "filename": "sales.csv",
+            "type": "csv",
+            "datasetId": "201",
+            "text": "[{\"team\":\"Alpha\",\"amount\":20,\"region\":\"East\"},{\"team\":\"Alpha\",\"amount\":10,\"region\":\"East\"}]",
+            "quotes": [
+              "[{\"team\":\"Alpha\",\"amount\":20,\"region\":\"East\"},{\"team\":\"Alpha\",\"amount\":10,\"region\":\"East\"}]"
+            ],
+            "rows": [
+              {
+                "team": "Alpha",
+                "amount": 20,
+                "region": "East"
+              },
+              {
+                "team": "Alpha",
+                "amount": 10,
+                "region": "East"
+              }
+            ],
+            "plan": {
+              "datasetId": "201",
+              "filters": [
+                {
+                  "column": "region",
+                  "op": "eq",
+                  "value": "East"
+                }
+              ],
+              "groupBy": [],
+              "sort": {
+                "column": "amount",
+                "direction": "desc"
+              },
+              "limit": 100
+            },
+            "possiblyTruncated": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "combined-04",
+      "category": "combined",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 287.7476590000001,
+      "answerDurationMs": 86.8834509999997,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [
+          {
+            "label": "Beta shortfall",
+            "expected": 9,
+            "tolerance": 0.000001,
+            "observed": [
+              9
+            ],
+            "correct": true
+          }
+        ],
+        "refusalCorrect": false
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "101",
+            "104",
+            "105"
+          ],
+          "durationMs": 76.13709000000017,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "101",
+            "102",
+            "104"
+          ],
+          "durationMs": 78.32903099999976,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 73,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 2.5,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 75.8,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 71,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 6.6,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 78.3,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 72.3,
+          "outcome": "ok",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 3.8,
+          "outcome": "ok",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 76.8,
+          "outcome": "ok",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "tool",
+          "durationMs": 78.1,
+          "outcome": "ok",
+          "tool": "searchDocuments",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.3,
+          "outcome": "ok",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.2,
+          "outcome": "ok",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.9,
+          "outcome": "ok",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.4,
+          "outcome": "ok",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "tool",
+          "durationMs": 2.3,
+          "outcome": "ok",
+          "tool": "discoverDatasets",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "tool",
+          "durationMs": 0.1,
+          "outcome": "ok",
+          "tool": "inspectDataset",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.4,
+          "outcome": "ok",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.2,
+          "outcome": "ok",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.4,
+          "outcome": "ok",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 1.1,
+          "outcome": "ok",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.2,
+          "outcome": "ok",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "csv-query",
+          "durationMs": 2.8,
+          "outcome": "ok",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "tool",
+          "durationMs": 3.6,
+          "outcome": "ok",
+          "tool": "queryDataset",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "structured-operation",
+          "durationMs": 85.7,
+          "outcome": "ok",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "citation-verification",
+          "durationMs": 0.4,
+          "outcome": "ok",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "agent",
+          "durationMs": 86.3,
+          "outcome": "grounded",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "request",
+          "durationMs": 86.6,
+          "outcome": "ok",
+          "requestId": "054c1933-fbaf-4ae6-9f02-68ae66384c88"
+        },
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 86.8834509999997,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "Alpha total is 30 units; the policy minimum is 15 units; meets the target; surplus is 15 units. [D1] [C1]\n\nBeta total is 6 units; the policy minimum is 15 units; shortfall is 9 units. [D1] [C1]\n\nGamma total is 15 units; the policy minimum is 15 units; meets the target; surplus is 0 units. [D1] [C1]",
+        "sources": [
+          {
+            "id": "D1",
+            "filename": "team-policy.docx",
+            "type": "document",
+            "documentId": "1",
+            "chunkId": "101",
+            "chunkIndex": 0,
+            "pageNumber": null,
+            "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units.",
+            "quotes": [
+              "Orion team policy: the minimum monthly total sales target for each team is 15 units."
+            ]
+          },
+          {
+            "id": "C1",
+            "filename": "sales.csv",
+            "type": "csv",
+            "datasetId": "201",
+            "text": "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]",
+            "quotes": [
+              "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]"
+            ],
+            "rows": [
+              {
+                "team": "Alpha",
+                "value": 30
+              },
+              {
+                "team": "Beta",
+                "value": 6
+              },
+              {
+                "team": "Gamma",
+                "value": 15
+              }
+            ],
+            "plan": {
+              "datasetId": "201",
+              "filters": [],
+              "groupBy": [
+                "team"
+              ],
+              "aggregate": {
+                "op": "sum",
+                "column": "amount"
+              },
+              "sort": {
+                "column": "team",
+                "direction": "asc"
+              },
+              "limit": 100
+            },
+            "possiblyTruncated": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "combined-05",
+      "category": "combined",
+      "system": "agent",
+      "expectedRefusal": false,
+      "executed": true,
+      "status": "needs-review",
+      "durationMs": 335.3227930000003,
+      "answerDurationMs": 101.2593179999999,
+      "score": {
+        "status": "needs-review",
+        "automatedStatus": "pass",
+        "failures": [],
+        "review": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "citationPrecision": 1,
+        "sourceRecall": 1,
+        "quoteValidity": 1,
+        "numeric": [
+          {
+            "label": "Jon cost",
+            "expected": 620,
+            "tolerance": 0.000001,
+            "observed": [
+              620
+            ],
+            "correct": true
+          },
+          {
+            "label": "excess",
+            "expected": 120,
+            "tolerance": 0.000001,
+            "observed": [
+              120
+            ],
+            "correct": true
+          }
+        ],
+        "refusalCorrect": false
+      },
+      "retrieval": [
+        {
+          "mode": "semantic",
+          "ranked": [
+            "104",
+            "105",
+            "101"
+          ],
+          "durationMs": 89.4341300000001,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        },
+        {
+          "mode": "hybrid",
+          "ranked": [
+            "104",
+            "106",
+            "105"
+          ],
+          "durationMs": 96.08866100000023,
+          "k": 3,
+          "hits": 1,
+          "relevant": 1,
+          "returned": 3,
+          "recall": 1,
+          "precision": 0.3333333333333333
+        }
+      ],
+      "stages": [
+        {
+          "stage": "embedding",
+          "durationMs": 87.1,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 2,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 89.4,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 89.4,
+          "outcome": "ok"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 6,
+          "outcome": "ok"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 96,
+          "outcome": "ok"
+        },
+        {
+          "stage": "embedding",
+          "durationMs": 87.5,
+          "outcome": "ok",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 6.4,
+          "outcome": "ok",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "retrieval",
+          "durationMs": 94.4,
+          "outcome": "ok",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "tool",
+          "durationMs": 94.7,
+          "outcome": "ok",
+          "tool": "searchDocuments",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.4,
+          "outcome": "ok",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.2,
+          "outcome": "ok",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.6,
+          "outcome": "ok",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.2,
+          "outcome": "ok",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "tool",
+          "durationMs": 2,
+          "outcome": "ok",
+          "tool": "discoverDatasets",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "tool",
+          "durationMs": 0.1,
+          "outcome": "ok",
+          "tool": "inspectDataset",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.2,
+          "outcome": "ok",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.2,
+          "outcome": "ok",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.4,
+          "outcome": "ok",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.5,
+          "outcome": "ok",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "postgres",
+          "durationMs": 0.2,
+          "outcome": "ok",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "csv-query",
+          "durationMs": 1.8,
+          "outcome": "ok",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "tool",
+          "durationMs": 2.1,
+          "outcome": "ok",
+          "tool": "queryDataset",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "structured-operation",
+          "durationMs": 100.1,
+          "outcome": "ok",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "citation-verification",
+          "durationMs": 0.5,
+          "outcome": "ok",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "agent",
+          "durationMs": 100.8,
+          "outcome": "grounded",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "request",
+          "durationMs": 101,
+          "outcome": "ok",
+          "requestId": "d24663e1-2e61-400f-b767-155dcf4fae31"
+        },
+        {
+          "stage": "answer-end-to-end",
+          "durationMs": 101.2593179999999,
+          "outcome": "ok"
+        }
+      ],
+      "error": null,
+      "answer": {
+        "grounded": true,
+        "answer": "Mira cost is 450 credits; the approval limit is 500 credits; approval is not required because the amount is at or below the limit. [D1] [C1]\n\nJon cost is 620 credits; the approval limit is 500 credits; approval required; excess is 120 credits. [D1] [C1]\n\nSol cost is 500 credits; the approval limit is 500 credits; approval is not required because the amount is at or below the limit. [D1] [C1]",
+        "sources": [
+          {
+            "id": "D1",
+            "filename": "travel-policy.docx",
+            "type": "document",
+            "documentId": "4",
+            "chunkId": "104",
+            "chunkIndex": 0,
+            "pageNumber": null,
+            "text": "Travel expenses above 500 credits require manager approval.",
+            "quotes": [
+              "Travel expenses above 500 credits require manager approval."
+            ]
+          },
+          {
+            "id": "C1",
+            "filename": "expenses.csv",
+            "type": "csv",
+            "datasetId": "202",
+            "text": "[{\"cost\":450,\"employee\":\"Mira\"},{\"cost\":620,\"employee\":\"Jon\"},{\"cost\":500,\"employee\":\"Sol\"}]",
+            "quotes": [
+              "[{\"cost\":450,\"employee\":\"Mira\"},{\"cost\":620,\"employee\":\"Jon\"},{\"cost\":500,\"employee\":\"Sol\"}]"
+            ],
+            "rows": [
+              {
+                "cost": 450,
+                "employee": "Mira"
+              },
+              {
+                "cost": 620,
+                "employee": "Jon"
+              },
+              {
+                "cost": 500,
+                "employee": "Sol"
+              }
+            ],
+            "plan": {
+              "datasetId": "202",
+              "filters": [],
+              "groupBy": [],
+              "limit": 100
+            },
+            "possiblyTruncated": false
+          }
+        ]
+      }
+    }
+  ],
+  "judgments": [
+    {
+      "id": "csv-05",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [
+        {
+          "sourceId": "C1",
+          "matches": true,
+          "expectedRows": [
+            {
+              "team": "Alpha",
+              "amount": 20,
+              "region": "East"
+            },
+            {
+              "team": "Alpha",
+              "amount": 10,
+              "region": "East"
+            }
+          ]
+        }
+      ],
+      "human": "not-reviewed",
+      "answerHash": "39f63348d5306774a8452bde4653643d829f9df50290ceb563ec5e8638283472"
+    },
+    {
+      "id": "combined-04",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [
+        {
+          "sourceId": "C1",
+          "matches": true,
+          "expectedRows": [
+            {
+              "team": "Alpha",
+              "value": 30
+            },
+            {
+              "team": "Beta",
+              "value": 6
+            },
+            {
+              "team": "Gamma",
+              "value": 15
+            }
+          ]
+        }
+      ],
+      "human": "not-reviewed",
+      "answerHash": "0986891961b508f9e61f897c72228d289f36054165f6b355458f76a58da21057"
+    },
+    {
+      "id": "combined-05",
+      "executed": true,
+      "status": "needs-review",
+      "automatic": "pass",
+      "reasons": [],
+      "uncertainty": [
+        "free_text_entailment_units_conditions_and_completeness_require_human_review"
+      ],
+      "categories": [],
+      "suspects": [],
+      "checkedCSV": [
+        {
+          "sourceId": "C1",
+          "matches": true,
+          "expectedRows": [
+            {
+              "employee": "Mira",
+              "cost": 450
+            },
+            {
+              "employee": "Jon",
+              "cost": 620
+            },
+            {
+              "employee": "Sol",
+              "cost": 500
+            }
+          ]
+        }
+      ],
+      "human": "not-reviewed",
+      "answerHash": "b84905c9823fe9ee8640cebc6afd70ff15cec4629e23753c4c1519f4119e5517"
+    }
+  ]
+}

@@ -1,6 +1,31 @@
 # Evaluation evidence and current quality limits
 
-This summary distinguishes evidence types. Source reports and their machine-readable artifacts remain the primary records. No new live AI, retrieval or performance run was made for the documentation pass.
+This summary distinguishes evidence types. Source reports and their machine-readable artifacts remain the primary records. No new live AI, retrieval or performance run was made for the final documentation pass (29 October 2026). Current non-live checks are listed in the [delivery-readiness report](final-delivery-readiness.md).
+
+## Current evidence timeline — 29 October 2026
+
+| Evidence stream | Actual retained outcome | Limit |
+| --- | --- | --- |
+| Original 25-case live Groq benchmark | 25 executed, 24 responses/one HTTP 400; automatic 22 pass/3 fail; formal 4 pass/3 fail/18 needs-review; 95 HTTP attempts/97,440 known tokens | Original classifications remain unchanged; failed-call usage unavailable; human-reviewed 0 |
+| [Six-case live Groq retest](evaluation/final-live/retest-01/report.md) | 6 executed, 5 responses/one tool_use_failed HTTP 400; automatic 5 pass/1 fail; formal 0 pass/1 fail/5 needs-review; 24 attempts/28,393 known tokens | Separate later run; one unknown-usage failure; no blanket semantic pass |
+| [Offline evaluator correction](evaluation/live-weakness-remediation.md) | conflict-02's genuine supplemental CSV no longer causes an allowlist false positive | Does not rewrite historical Fail or approve its reasoning |
+| [Deterministic operation verification](evaluation/structured-operations-verification/report.md) | csv-05, combined-04, combined-05 grounded with real BGE/PostgreSQL; 0 Groq requests | Backend computation and citations, not LLM inference |
+| [Authenticated browser acceptance](evaluation/authenticated-operations-acceptance/report.md) | csv-05, combined-04, combined-05 **PASSED** via real UI/API; source excerpts, ownership/CSRF, desktop/mobile screenshots | Codex automation; isolated fresh database; no original-user mutation or Groq requests |
+| Human semantic review | Pending; all response review slots remain unfilled | No human-reviewed accuracy percentage |
+
+The live retest still produced an incorrect grouped total for csv-05 and an incomplete combined-04 answer; combined-05 failed before CSV execution. Subsequent deterministic operations resolve those supported forms using typed data, explicit arithmetic and complete bounded rendering. The browser passes are recorded only in their own stream, never retroactively in the original benchmark.
+
+General Groq tool-use failures may still occur. Prompt-based reasoning guardrails are not deterministic semantic verification. Source/quote membership is not entailment. The exact historical failed_generation tool structure was not retained; diagnostics now classify only safely recognizable structure without executing rejected arguments.
+
+## Original real benchmark execution — 28 October 2026
+
+**All 25 original cases were executed once across the separately approved runs.** There are 24 returned structured responses and one HTTP 400 provider failure without a final answer. Automatic checks: **22 pass / 3 fail**. Formal evaluator outcomes: **4 canonical-refusal-contract passes / 3 fail / 18 needs-review**. Actual human-reviewed: **0**. These counts are not a claim of 88% answer accuracy.
+
+Usage: **95 native HTTP attempts / 97,440 known reported tokens**, with usage unknown for the failed HTTP 400. No automatic retry or model/application/user-data change occurred. Earlier eight executions and conflict-01 artifacts were preserved. Daily token quota remained unknown; permitted response headers were recorded, and no quota/access/deadline stop occurred.
+
+Important findings: conflict-01 invented a higher-target-wins rule; ambiguous-01 assigned 15 without a known department; combined-05 did not explicitly provide the requested 120-credit excess. csv-05 failed at provider planning. conflict-02's genuine extra CSV evidence triggered the unchanged evaluator's policy-only source whitelist; that raw Fail is retained as a scoring limitation, not called fabrication. All subjective review remains pending actual human decisions.
+
+See [actual responses, citations, latencies and findings](evaluation/final-live/batch-03/report.md), [all-original-case cumulative results](evaluation/final-live/batch-03/cumulative-results.json) and [24 unfilled response-bound human review templates](evaluation/final-live/batch-03/all-review-template.json). Earlier counts below are dated snapshots superseded by this execution status. **Execution is complete; human-reviewed quality acceptance is not.**
 
 ## Evidence types
 
@@ -10,7 +35,9 @@ This summary distinguishes evidence types. Source reports and their machine-read
 | Scripted answer benchmark | Numeric/citation evaluator plumbing using authored outputs | Semantic AI accuracy, factual completeness or hallucination rate |
 | Real retrieval | BGE/PostgreSQL ranking against known chunk labels | Correct final answers or real generation latency |
 | Real local performance | Warm serial local component timings | Production throughput, capacity, cold starts or live planning/generation performance |
-| Limited live provider acceptance | Two recorded Day 8 Groq workflows completed with evidence | Full live 25-case answer quality, CSV-only live LLM quality or human-review coverage |
+| Original live Groq + separate retests | Real provider answers, usage, errors and automatic checks for explicitly approved cases | Human semantic correctness or production reliability certification |
+| Deterministic backend verification | Validated operations over real retrieved/queried evidence | Broad natural-language coverage or a new Groq accuracy score |
+| Authenticated browser acceptance | Real UI/session/CSRF/ownership/answers/citations in the tested isolated environment | User manual sign-off, historical score revision or full benchmark human review |
 
 ## Original 25-case framework
 
@@ -94,3 +121,20 @@ node --env-file=.env.local --conditions=react-server --import tsx \
 ```
 
 Use the [answer report's live opt-in commands](evaluation/answer-quality.md#optional-live-groq-evaluation) only after explicit authorization and quota review. Record selected cases, provider/model, raw safe results and human judgments. Do not compute a live success rate from unexecuted cases. More representative data, independent labels, human review and controlled-staging HTTP/provider traces are needed before making quality or capacity claims.
+
+## Later approved live pilot — 28 October 2026
+
+[Real Groq pilot](evaluation/final-live/report.md) executed only doc-01, csv-01 and combined-01 from the unchanged 25-case benchmark. All three passed automatic checks; final classifications remain **0 pass, 0 fail, 3 needs-review**, with zero actual human reviews. Usage: **13 HTTP attempts and 13,225 reported tokens**, no automatic retries/provider failures. Native request counts, actual answers/citations, numeric/oracle checks and timings are in [results.json](evaluation/final-live/results.json).
+
+This supplied real CSV-only COUNT evidence at the pilot cutoff. Later batches completed the original 25 executions; human semantic review remains pending. Earlier Step 3 mock outcomes and Day 8 live results above remain separate dated runs. Further live execution needs new explicit approval.
+
+
+## Live batch 02 follow-up
+
+[Batch 02](evaluation/final-live/batch-02/report.md) adds five unchanged original cases: doc-02, csv-02, combined-02, missing-01 and conflict-01. Actual batch usage: 16 HTTP attempts/16,319 reported tokens. At the batch-02 cutoff, cumulative original cases executed were **8/25**, with 17 then remaining; usage **29 attempts/29,544 tokens**. Formal outcomes: 1 canonical-refusal-contract pass, 0 fail, 7 needs-review; human-reviewed zero.
+
+The conflict answer selected 22 using a precedence rule not present in the two policies. Provenance checks passed, but this does not establish semantic correctness. The AI-assisted concern and actual answer are retained for human judgment. No pilot case was rerun, no automatic retry was made and no full-benchmark completion is claimed.
+
+## Submission update — 30 October 2026
+
+[Final submission review](submission-final/report.md) records the latest local quota traces and validation. The owner reports subsequent live Tests 16–19 passed, with a retry for 18; Test 20 remains blocked by 429. These are user-reported acceptance outcomes, separate from original 25-case results, later Groq retests, deterministic tests and authenticated browser evidence. Human semantic review remains pending. No benchmark or live provider call was repeated in this finalization.

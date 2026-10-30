@@ -5,7 +5,7 @@ import { requireUserId } from './identity';
 import { ChatError } from './chat-errors';
 
 const id = z.string().regex(/^[1-9]\d{0,18}$/).refine(value => /^[1-9]\d{0,18}$/.test(value) && BigInt(value) <= BigInt('9223372036854775807'));
-const pagination = z.object({ limit: z.string().regex(/^\d{1,2}$/).transform(Number).pipe(z.number().int().min(1).max(50)).default(20), before: id.optional() }).strict();
+const pagination = z.object({ limit: z.string().regex(/^\d{1,2}$/).transform(Number).pipe(z.number().int().min(1).max(50)).default(10), before: id.optional() }).strict();
 export function readDocumentPagination(url: string) {
   const params = new URL(url).searchParams;
   if ([...params.keys()].some(key => params.getAll(key).length !== 1)) throw new ChatError('INVALID_PAGINATION', 'Invalid document pagination.', 400);

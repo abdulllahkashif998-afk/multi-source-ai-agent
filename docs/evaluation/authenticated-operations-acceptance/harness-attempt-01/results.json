@@ -1,0 +1,77 @@
+{
+  "kind": "real-authenticated-browser-acceptance-no-mocks",
+  "startedAt": "2026-10-29T12:19:52.239Z",
+  "completedAt": "2026-10-29T12:20:19.838Z",
+  "environment": {
+    "production": true,
+    "https": true,
+    "isolatedDatabase": true,
+    "originalDatabaseAccessed": false,
+    "configuredProvider": "groq",
+    "configuredModel": "openai/gpt-oss-20b",
+    "providerHTTP": "blocked at server"
+  },
+  "results": [
+    {
+      "id": "csv-05",
+      "status": "Failed",
+      "errorType": "TimeoutError",
+      "reason": "locator.click: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.assistant-message').last().getByText('Exact cited evidence', { exact: true }).first()\u001b[22m\n\u001b[2m    - locator resolved to <summary>Exact cited evidence</summary>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × wait"
+    },
+    {
+      "id": "combined-04",
+      "status": "Blocked",
+      "reason": "Acceptance stopped before this case completed."
+    },
+    {
+      "id": "combined-05",
+      "status": "Blocked",
+      "reason": "Acceptance stopped before this case completed."
+    }
+  ],
+  "security": [
+    {
+      "name": "Real signup and secure production sessions",
+      "status": "Passed",
+      "method": "Real authenticated HTTP/browser"
+    },
+    {
+      "name": "Anonymous and missing-CSRF writes rejected before execution",
+      "status": "Passed",
+      "method": "Real authenticated HTTP/browser"
+    },
+    {
+      "name": "Discovery and structured-query ownership isolation",
+      "status": "Passed",
+      "method": "Real authenticated HTTP/browser"
+    }
+  ],
+  "uploads": {
+    "documents": [
+      {
+        "filename": "team-policy.docx",
+        "id": "1"
+      },
+      {
+        "filename": "travel-policy.docx",
+        "id": "2"
+      }
+    ],
+    "datasets": [
+      {
+        "filename": "sales.csv",
+        "id": "1"
+      },
+      {
+        "filename": "expenses.csv",
+        "id": "2"
+      }
+    ]
+  },
+  "browserErrors": [],
+  "failure": {
+    "stage": "csv-05",
+    "errorType": "TimeoutError",
+    "reason": "locator.click: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.assistant-message').last().getByText('Exact cited evidence', { exact: true }).first()\u001b[22m\n\u001b[2m    - locator resolved to <summary>Exact cited evidence</summary>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × wait"
+  }
+}

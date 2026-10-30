@@ -1,0 +1,9 @@
+{
+  "kind": "real-authenticated-production-browser-no-mocks-no-groq",
+  "status": "Failed",
+  "originalDatabaseAccessed": false,
+  "fictionalThreshold": 2.5,
+  "stage": "agent-question",
+  "errorType": "AssertionError",
+  "reason": "Expected values to be strictly equal:\n\nfalse !== true\n"
+}

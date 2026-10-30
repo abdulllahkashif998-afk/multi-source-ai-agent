@@ -33,7 +33,7 @@ function failure(status: number, body: unknown): never {
 export async function fetchDocuments(before?: string, signal?: AbortSignal) {
   if (before) idSchema.parse(before);
   let response: Response;
-  try { response = await fetch(`/api/documents?limit=20${before ? `&before=${encodeURIComponent(before)}` : ''}`, { credentials: 'same-origin', cache: 'no-store', signal: signal ? AbortSignal.any([signal,AbortSignal.timeout(15_000)]) : AbortSignal.timeout(15_000) }); }
+  try { response = await fetch(`/api/documents?limit=10${before ? `&before=${encodeURIComponent(before)}` : ''}`, { credentials: 'same-origin', cache: 'no-store', signal: signal ? AbortSignal.any([signal,AbortSignal.timeout(15_000)]) : AbortSignal.timeout(15_000) }); }
   catch { throw new DocumentUiError('DOCUMENT_LIST_FAILED'); }
   let body;
   try { body = await response.json(); } catch { throw new DocumentUiError('DOCUMENT_LIST_FAILED'); }

@@ -1,0 +1,44 @@
+[
+  {
+    "caseId": "doc-01",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "c697293eeb2508685e5841e76ee90939ce9d388dc7b7ae7b57284a5ea6f9c047",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "csv-01",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "55427f4b375a7b9da2999fb5df5176c83cadd07b5b8318c418edf0c36ffd60c7",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "combined-01",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "e85de37b0124a717dc9b3d37f05c336439cb3fc4124ca88f5d192471f96a2db2",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  }
+]

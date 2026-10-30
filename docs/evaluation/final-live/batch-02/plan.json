@@ -1,0 +1,185 @@
+{
+  "approvalStatus": "approved-five-case-batch-only",
+  "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "completedCasesExcluded": [
+    "doc-01",
+    "csv-01",
+    "combined-01"
+  ],
+  "selectedOriginalCases": [
+    {
+      "id": "doc-02",
+      "category": "document",
+      "system": "chat",
+      "corpus": "base",
+      "question": "How many paid vacation days does an Orion employee get each year?",
+      "relevantChunks": [
+        "102"
+      ],
+      "expectedSources": [
+        "doc:2:102"
+      ],
+      "refuse": false,
+      "expectedAnswer": "The annual paid leave allowance is 20 days.",
+      "facts": [
+        {
+          "label": "leave allowance",
+          "value": 20,
+          "tolerance": 1e-06,
+          "pattern": "(?:allowance|leave|receive)[^.!?\\n]{0,50}?(-?\\d+(?:\\.\\d+)?)"
+        }
+      ],
+      "reviewNotes": "Review whether the prose states the policy correctly, including conditions, units and scope."
+    },
+    {
+      "id": "csv-02",
+      "category": "csv",
+      "system": "agent",
+      "corpus": "base",
+      "question": "Add up all amounts in sales.csv.",
+      "relevantChunks": [],
+      "expectedSources": [
+        "csv:201"
+      ],
+      "refuse": false,
+      "expectedAnswer": "The total sales amount is 51 units.",
+      "facts": [
+        {
+          "label": "total",
+          "value": 51,
+          "tolerance": 1e-06,
+          "pattern": "(?:total|amount)[^.!?\\n]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+        }
+      ],
+      "plan": {
+        "datasetId": "201",
+        "aggregate": {
+          "op": "sum",
+          "column": "amount"
+        }
+      },
+      "expectedRows": [
+        {
+          "value": 51
+        }
+      ],
+      "reviewNotes": "Review calculation meaning, filters, groups and whether the answer overstates limited evidence."
+    },
+    {
+      "id": "combined-02",
+      "category": "combined",
+      "system": "agent",
+      "corpus": "base",
+      "question": "Using the team policy and sales.csv, by how much does Alpha exceed the target?",
+      "relevantChunks": [
+        "101"
+      ],
+      "expectedSources": [
+        "doc:1:101",
+        "csv:201"
+      ],
+      "refuse": false,
+      "expectedAnswer": "Alpha total is 30 units; the target is 15 units; Alpha surplus is 15 units.",
+      "facts": [
+        {
+          "label": "Alpha total",
+          "value": 30,
+          "tolerance": 1e-06,
+          "pattern": "Alpha total[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+        },
+        {
+          "label": "Alpha surplus",
+          "value": 15,
+          "tolerance": 1e-06,
+          "pattern": "surplus[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+        }
+      ],
+      "plan": {
+        "datasetId": "201",
+        "aggregate": {
+          "op": "sum",
+          "column": "amount"
+        },
+        "groupBy": [
+          "team"
+        ],
+        "sort": {
+          "column": "team",
+          "direction": "asc"
+        }
+      },
+      "expectedRows": [
+        {
+          "team": "Alpha",
+          "value": 30
+        },
+        {
+          "team": "Beta",
+          "value": 6
+        },
+        {
+          "team": "Gamma",
+          "value": 15
+        }
+      ],
+      "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+    },
+    {
+      "id": "missing-01",
+      "system": "chat",
+      "question": "What ocean research grants does Orion offer?",
+      "category": "insufficient",
+      "corpus": "base",
+      "relevantChunks": [],
+      "expectedSources": [],
+      "refuse": true,
+      "expectedAnswer": "Abstain: the fixtures do not contain the requested facts.",
+      "facts": [],
+      "reviewNotes": "Check that absence is not converted into invented facts or zero values."
+    },
+    {
+      "id": "conflict-01",
+      "category": "ambiguous",
+      "system": "agent",
+      "corpus": "conflict",
+      "question": "Which minimum monthly target should we use when the two active Orion policies disagree?",
+      "relevantChunks": [
+        "101",
+        "107"
+      ],
+      "expectedSources": [],
+      "refuse": true,
+      "expectedAnswer": "Abstain or request clarification; do not silently select a policy or department.",
+      "facts": [],
+      "reviewNotes": "Manual review required: confirm conflicts/ambiguity were recognized rather than ignored."
+    }
+  ],
+  "maxNativeHTTPAttempts": 29,
+  "estimatedTotalTokensRange": [
+    15000,
+    35000
+  ],
+  "tokenPlanningAllowance": 60000,
+  "configuredRPM": 12,
+  "minimumInterCasePauseSeconds": 65,
+  "automaticRetries": false,
+  "completedAfterSuccessfulExecution": 8,
+  "remainingAfterSuccessfulExecution": 17,
+  "preservedPilotFileSHA256": {
+    "docs/evaluation/final-live/review-template.json": "accfa4fc6089535fb0982d87b0fe1bf85ef2a54f39527f8a9bb5854665da0d35",
+    "docs/evaluation/final-live/report.md": "fe8ecb72eac09cb4bc89f7c0efba10ad34e1bdab86d6158b307adceaf801dd33",
+    "docs/evaluation/final-live/README.md": "e1c7e0f626c098a91662f8775e31908687bec5d2bac3df6ec1700064ac59303e",
+    "docs/evaluation/final-live/results.json": "d4bfaf6674582c6eea1b7195fd58551f1b04d37d0bb0b8bb30be0942e1dfbc4e",
+    "docs/evaluation/final-live/preflight.json": "1514ab31306cc0f7a0191ca848d0190244962d26f3477d36956f695301e61baa",
+    ".evaluation-results/final-live/run.json": "5b4b30cea5a0ab7853909f9f46e743e00da4b420958e2ac4dfb2ccdb38571d33",
+    ".evaluation-results/final-live/doc-01/results.json": "ba378655fa53bad21c71a1d406f93f6574981469b9e9ba9531ace918ce282926",
+    ".evaluation-results/final-live/doc-01-http.json": "96d032f35ebea4e6943f303d83970875f01982022a119f7a7beed0a0bf6eacea",
+    ".evaluation-results/final-live/csv-01/results.json": "2e21aa1d9068a2fa9b77cf482c7281fefd101df9bb92b4a2dccf2abf94b76a2d",
+    ".evaluation-results/final-live/csv-01-http.json": "8504c14f380817d2d08b6e5b3b3f5ba6606a5e2cd0fc168913eb0b525c7be40e",
+    ".evaluation-results/final-live/combined-01/results.json": "f742ca0e37a67ffa1a8123283a4f0f6e438ebdc0770f6f5e724e30211acc48b5",
+    ".evaluation-results/final-live/combined-01-http.json": "c931f4d6912d4dc93405184fe329b5ed6cf6e91461f9716811342221920183eb"
+  },
+  "approvalNote": "Explicit user approval received for the five listed cases and bounds; no pilot reruns or extra cases authorized."
+}

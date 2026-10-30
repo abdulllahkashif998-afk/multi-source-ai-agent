@@ -18,9 +18,9 @@ async function run(name,work,mobile=false){
  await context.route('**/api/documents?*',async route=>{
   if(state.listDelay)await new Promise(resolve=>setTimeout(resolve,state.listDelay));
   if(state.listError)return route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({success:false,code:'DOCUMENT_LIST_FAILED',error:'private database details'})});
-  const params=new URL(route.request().url()).searchParams;assert.equal(params.has('userId'),false);assert.equal(params.get('limit'),'20');
+  const params=new URL(route.request().url()).searchParams;assert.equal(params.has('userId'),false);assert.equal(params.get('limit'),'10');
   const filtered=state.documents.filter(d=>!params.get('before')||BigInt(d.id)<BigInt(params.get('before')));
-  const documents=filtered.slice(0,20);const nextCursor=filtered.length>20?documents.at(-1).id:null;
+  const documents=filtered.slice(0,10);const nextCursor=filtered.length>10?documents.at(-1).id:null;
   return route.fulfill({contentType:'application/json',body:JSON.stringify({success:true,documents,nextCursor})});
  });
  async function mutate(route){
@@ -47,10 +47,10 @@ async function open(page){await page.goto('/dashboard/documents');await visible(
 async function ready(page){await visible(page.locator('.document-row').first());}
 try {
  await run('List metadata and stable cursor pagination',async(page,state)=>{
-  state.documents=Array.from({length:21},(_,i)=>fixture(String(80-i),`Fictional policy ${i+1}.pdf`));await open(page);await ready(page);
-  assert.equal(await page.locator('.document-row').count(),20);await visible(page.getByText('Version 1',{exact:true}).first());await visible(page.getByText('Ready',{exact:true}).first());
-  await page.getByRole('button',{name:'Next →',exact:true}).click();await visible(page.getByText('Page 2',{exact:true}));await visible(page.getByRole('heading',{name:'Fictional policy 21.pdf',exact:true}));assert.equal(await page.locator('.document-row').count(),1);
-  await page.getByRole('button',{name:'← Previous',exact:true}).click();await visible(page.getByRole('heading',{name:'Fictional policy 1.pdf',exact:true}));assert.equal(await page.locator('.document-row').count(),20);
+  state.documents=Array.from({length:13},(_,i)=>fixture(String(80-i),`Fictional policy ${i+1}.pdf`));await open(page);await ready(page);
+  assert.equal(await page.locator('.document-row').count(),10);await visible(page.getByText('Version 1',{exact:true}).first());await visible(page.getByText('Ready',{exact:true}).first());
+  await page.getByRole('button',{name:'Next →',exact:true}).click();await visible(page.getByText('Page 2',{exact:true}));await visible(page.getByRole('heading',{name:'Fictional policy 11.pdf',exact:true}));assert.equal(await page.locator('.document-row').count(),3);
+  await page.getByRole('button',{name:'← Previous',exact:true}).click();await visible(page.getByRole('heading',{name:'Fictional policy 1.pdf',exact:true}));assert.equal(await page.locator('.document-row').count(),10);
  });
  await run('Empty list, file validation, real HTTP upload processing and refreshed success',async(page,state)=>{
   state.documents=[];

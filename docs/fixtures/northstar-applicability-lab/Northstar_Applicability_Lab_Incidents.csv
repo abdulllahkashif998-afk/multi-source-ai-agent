@@ -1,0 +1,26 @@
+ticket_id,organization,incident_at,region,severity,response_hours,resolution_hours,scheduled_maintenance,maintenance_notice_hours,status,summary
+LAB-001,Northstar Fixture Operations,2026-10-02T09:00:00Z,North,P1,0.5,4.0,no,0,closed,Routine incident
+LAB-002,Northstar Fixture Operations,2026-10-03T09:00:00Z,South,P1,1,8,no,0,closed,Exact deadline boundary
+LAB-003,Northstar Fixture Operations,2026-10-04T09:00:00Z,East,P1,1.5,10,no,0,closed,Late response and resolution
+LAB-004,Northstar Fixture Operations,2026-10-05T09:00:00Z,West,P1,2,12,yes,48,closed,Planned maintenance with sufficient notice
+LAB-005,Northstar Fixture Operations,2026-10-06T09:00:00Z,North,P1,1.5,9,yes,24,closed,Maintenance announced too late
+LAB-006,Northstar Fixture Operations,2026-10-07T09:00:00Z,South,P1,0.75,9,no,0,closed,Timely response but late resolution
+LAB-007,Northstar Fixture Operations,2026-10-08T09:00:00Z,East,P2,2.0,12.0,no,0,closed,Routine incident
+LAB-008,Northstar Fixture Operations,2026-10-09T09:00:00Z,West,P2,4,24,no,0,closed,Exact deadline boundary
+LAB-009,Northstar Fixture Operations,2026-10-10T09:00:00Z,North,P2,6.0,26,no,0,closed,Late response and resolution
+LAB-010,Northstar Fixture Operations,2026-10-11T09:00:00Z,South,P2,8,28,yes,48,closed,Planned maintenance with sufficient notice
+LAB-011,Northstar Fixture Operations,2026-10-12T09:00:00Z,East,P2,4.5,25,yes,24,closed,Maintenance announced too late
+LAB-012,Northstar Fixture Operations,2026-10-13T09:00:00Z,West,P2,3.0,25,no,0,closed,Timely response but late resolution
+LAB-013,Northstar Fixture Operations,2026-10-14T09:00:00Z,North,P3,6.0,36.0,no,0,closed,Routine incident
+LAB-014,Northstar Fixture Operations,2026-10-15T09:00:00Z,South,P3,12,72,no,0,closed,Exact deadline boundary
+LAB-015,Northstar Fixture Operations,2026-10-16T09:00:00Z,East,P3,18.0,74,no,0,closed,Late response and resolution
+LAB-016,Northstar Fixture Operations,2026-10-17T09:00:00Z,West,P3,24,76,yes,48,closed,Planned maintenance with sufficient notice
+LAB-017,Northstar Fixture Operations,2026-10-18T09:00:00Z,North,P3,12.5,73,yes,24,closed,Maintenance announced too late
+LAB-018,Northstar Fixture Operations,2026-10-19T09:00:00Z,South,P3,9.0,73,no,0,closed,Timely response but late resolution
+LAB-019,Harbor Fictional Operations,2026-10-02T09:00:00Z,North,P1,9,99,no,0,closed,Applicability or uncertainty boundary
+LAB-020,Northstar Fixture Operations,2026-09-30T23:59:59Z,North,P2,8,48,no,0,closed,Applicability or uncertainty boundary
+LAB-021,Northstar Fixture Operations,2026-10-01T00:00:00Z,North,P3,13,73,no,0,closed,Applicability or uncertainty boundary
+LAB-022,Northstar Fixture Operations,2027-01-01T00:00:00Z,North,P1,9,99,no,0,closed,Applicability or uncertainty boundary
+LAB-023,,2026-10-02T09:00:00Z,North,P1,9,99,no,0,closed,Applicability or uncertainty boundary
+LAB-024,Northstar Fixture Operations,,North,P2,8,48,no,0,closed,Applicability or uncertainty boundary
+LAB-025,Northstar Fixture Operations,2026-10-02T09:00:00Z,North,P3,20,100,yes,,closed,Applicability or uncertainty boundary

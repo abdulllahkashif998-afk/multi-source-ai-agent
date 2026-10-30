@@ -1,0 +1,2076 @@
+{
+  "kind": "real-groq-pilot-not-full-benchmark",
+  "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "approval": {
+    "cases": [
+      "doc-01",
+      "csv-01",
+      "combined-01"
+    ],
+    "maxHTTPAttempts": 19,
+    "tokenPlanningAllowance": 80000,
+    "automaticRetries": false,
+    "interCasePauseSeconds": 65
+  },
+  "startedAt": "2026-10-28T16:52:17.021Z",
+  "completedAt": "2026-10-28T16:55:26.650Z",
+  "summary": {
+    "originalCases": 25,
+    "approvedPilotCases": 3,
+    "executedCases": 3,
+    "notExecutedCases": 22,
+    "pass": 0,
+    "fail": 0,
+    "needsReview": 3,
+    "automaticPass": 3,
+    "humanReviewed": 0,
+    "providerHTTPAttempts": 13,
+    "knownPromptTokens": 12515,
+    "knownCompletionTokens": 710,
+    "knownTotalTokens": 13225,
+    "unknownUsageAttempts": 0,
+    "stopReason": null
+  },
+  "cases": [
+    {
+      "benchmark": {
+        "id": "doc-01",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "What is the minimum monthly sales target for a team?",
+        "relevantChunks": [
+          "101"
+        ],
+        "expectedSources": [
+          "doc:1:101"
+        ],
+        "refuse": false,
+        "expectedAnswer": "The minimum monthly team total sales target is 15 units.",
+        "facts": [
+          {
+            "label": "target",
+            "value": 15,
+            "tolerance": 1e-06,
+            "pattern": "(?:target|minimum)[^.!?\\n]{0,70}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "reviewNotes": "Review whether the prose states the policy correctly, including conditions, units and scope."
+      },
+      "executed": true,
+      "result": {
+        "id": "doc-01",
+        "category": "document",
+        "system": "chat",
+        "expectedRefusal": false,
+        "executed": true,
+        "status": "needs-review",
+        "durationMs": 973.9765859999998,
+        "answerDurationMs": 732.397293,
+        "score": {
+          "status": "needs-review",
+          "automatedStatus": "pass",
+          "failures": [],
+          "review": [
+            "free_text_entailment_units_conditions_and_completeness_require_human_review"
+          ],
+          "citationPrecision": 1,
+          "sourceRecall": 1,
+          "quoteValidity": 1,
+          "numeric": [
+            {
+              "label": "target",
+              "expected": 15,
+              "tolerance": 1e-06,
+              "observed": [
+                15
+              ],
+              "correct": true
+            }
+          ],
+          "refusalCorrect": false
+        },
+        "retrieval": [
+          {
+            "mode": "semantic",
+            "ranked": [
+              "101",
+              "104",
+              "103"
+            ],
+            "durationMs": 62.67275900000004,
+            "k": 3,
+            "hits": 1,
+            "relevant": 1,
+            "returned": 3,
+            "recall": 1,
+            "precision": 0.3333333333333333
+          },
+          {
+            "mode": "hybrid",
+            "ranked": [
+              "101",
+              "104"
+            ],
+            "durationMs": 60.70849300000009,
+            "k": 3,
+            "hits": 1,
+            "relevant": 1,
+            "returned": 2,
+            "recall": 1,
+            "precision": 0.3333333333333333
+          }
+        ],
+        "stages": [
+          {
+            "stage": "embedding",
+            "durationMs": 57.8,
+            "outcome": "ok"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 3.8,
+            "outcome": "ok"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 62.4,
+            "outcome": "ok"
+          },
+          {
+            "stage": "embedding",
+            "durationMs": 53.6,
+            "outcome": "ok"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 6.1,
+            "outcome": "ok"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 60.6,
+            "outcome": "ok"
+          },
+          {
+            "stage": "embedding",
+            "durationMs": 49.8,
+            "outcome": "ok",
+            "requestId": "5373f250-9f5d-4505-a49f-164d8bbd63b7"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 3.8,
+            "outcome": "ok",
+            "requestId": "5373f250-9f5d-4505-a49f-164d8bbd63b7"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 54.1,
+            "outcome": "ok",
+            "requestId": "5373f250-9f5d-4505-a49f-164d8bbd63b7"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 54.3,
+            "outcome": "ok",
+            "requestId": "5373f250-9f5d-4505-a49f-164d8bbd63b7"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 0,
+            "outcome": "ok",
+            "requestId": "5373f250-9f5d-4505-a49f-164d8bbd63b7"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 608.7,
+            "outcome": "ok",
+            "requestId": "5373f250-9f5d-4505-a49f-164d8bbd63b7"
+          },
+          {
+            "stage": "citation-verification",
+            "durationMs": 3.9,
+            "outcome": "ok",
+            "requestId": "5373f250-9f5d-4505-a49f-164d8bbd63b7"
+          },
+          {
+            "stage": "final-generation",
+            "durationMs": 657.5,
+            "outcome": "ok",
+            "requestId": "5373f250-9f5d-4505-a49f-164d8bbd63b7"
+          },
+          {
+            "stage": "citation-verification",
+            "durationMs": 5.4,
+            "outcome": "ok",
+            "requestId": "5373f250-9f5d-4505-a49f-164d8bbd63b7"
+          },
+          {
+            "stage": "request",
+            "durationMs": 731.3,
+            "outcome": "ok",
+            "requestId": "5373f250-9f5d-4505-a49f-164d8bbd63b7"
+          },
+          {
+            "stage": "answer-end-to-end",
+            "durationMs": 732.397293,
+            "outcome": "ok"
+          }
+        ],
+        "error": null,
+        "answer": {
+          "success": true,
+          "grounded": true,
+          "answer": "The minimum monthly total sales target for each team is 15 units. [S1]",
+          "sources": [
+            {
+              "id": "S1",
+              "filename": "team-policy.docx",
+              "documentId": "1",
+              "chunkId": "101",
+              "chunkIndex": 0,
+              "pageNumber": null,
+              "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units.",
+              "quotes": [
+                "Orion team policy: the minimum monthly total sales target for each team is 15 units."
+              ]
+            }
+          ]
+        }
+      },
+      "judgment": {
+        "id": "doc-01",
+        "executed": true,
+        "status": "needs-review",
+        "automatic": "pass",
+        "reasons": [],
+        "uncertainty": [
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "categories": [],
+        "suspects": [],
+        "checkedCSV": [],
+        "human": "not-reviewed",
+        "answerHash": "c697293eeb2508685e5841e76ee90939ce9d388dc7b7ae7b57284a5ea6f9c047"
+      },
+      "http": {
+        "attempts": [
+          {
+            "status": 200,
+            "inputBytes": 3322,
+            "promptTokens": 772,
+            "completionTokens": 69,
+            "totalTokens": 841,
+            "durationMs": 601.6572319999996
+          }
+        ],
+        "stopReason": null
+      }
+    },
+    {
+      "benchmark": {
+        "id": "doc-02",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "How many paid vacation days does an Orion employee get each year?",
+        "relevantChunks": [
+          "102"
+        ],
+        "expectedSources": [
+          "doc:2:102"
+        ],
+        "refuse": false,
+        "expectedAnswer": "The annual paid leave allowance is 20 days.",
+        "facts": [
+          {
+            "label": "leave allowance",
+            "value": 20,
+            "tolerance": 1e-06,
+            "pattern": "(?:allowance|leave|receive)[^.!?\\n]{0,50}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "reviewNotes": "Review whether the prose states the policy correctly, including conditions, units and scope."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "doc-03",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "How long after delivery can unopened equipment be sent back?",
+        "relevantChunks": [
+          "103"
+        ],
+        "expectedSources": [
+          "doc:3:103"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Unopened equipment may be returned within 30 days of delivery.",
+        "facts": [
+          {
+            "label": "return window",
+            "value": 30,
+            "tolerance": 1e-06,
+            "pattern": "(?:within|window)[^.!?\\n]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "reviewNotes": "Review whether the prose states the policy correctly, including conditions, units and scope."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "doc-04",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "At what travel expense amount is manager sign-off required?",
+        "relevantChunks": [
+          "104"
+        ],
+        "expectedSources": [
+          "doc:4:104"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Travel expenses above 500 credits require manager approval.",
+        "facts": [
+          {
+            "label": "approval threshold",
+            "value": 500,
+            "tolerance": 1e-06,
+            "pattern": "(?:above|threshold)[^.!?\\n]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "reviewNotes": "Review whether the prose states the policy correctly, including conditions, units and scope."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "doc-05",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "What is the acknowledgment deadline for a service incident?",
+        "relevantChunks": [
+          "105"
+        ],
+        "expectedSources": [
+          "doc:5:105"
+        ],
+        "refuse": false,
+        "expectedAnswer": "A service incident must be acknowledged within 2 hours.",
+        "facts": [
+          {
+            "label": "acknowledgment deadline",
+            "value": 2,
+            "tolerance": 1e-06,
+            "pattern": "(?:within|deadline)[^.!?\\n]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "reviewNotes": "Review whether the prose states the policy correctly, including conditions, units and scope."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "doc-06",
+        "category": "document",
+        "system": "chat",
+        "corpus": "base",
+        "question": "Tell me the recorded approval status of ZX-2048.",
+        "relevantChunks": [
+          "106"
+        ],
+        "expectedSources": [
+          "doc:6:106"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Invoice ZX-2048 is approved for the Harbor project.",
+        "facts": [],
+        "reviewNotes": "Review whether the prose states the policy correctly, including conditions, units and scope."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "csv-01",
+        "category": "csv",
+        "system": "agent",
+        "corpus": "base",
+        "question": "How many sales records are in sales.csv?",
+        "relevantChunks": [],
+        "expectedSources": [
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "The sales record count is 5.",
+        "facts": [
+          {
+            "label": "record count",
+            "value": 5,
+            "tolerance": 1e-06,
+            "pattern": "(?:count|records)[^.!?\\n]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "201",
+          "aggregate": {
+            "op": "count"
+          }
+        },
+        "expectedRows": [
+          {
+            "value": 5
+          }
+        ],
+        "reviewNotes": "Review calculation meaning, filters, groups and whether the answer overstates limited evidence."
+      },
+      "executed": true,
+      "result": {
+        "id": "csv-01",
+        "category": "csv",
+        "system": "agent",
+        "expectedRefusal": false,
+        "executed": true,
+        "status": "needs-review",
+        "durationMs": 26552.878240000002,
+        "answerDurationMs": 26459.580068,
+        "score": {
+          "status": "needs-review",
+          "automatedStatus": "pass",
+          "failures": [],
+          "review": [
+            "numeric_fact_not_reliably_extractable",
+            "free_text_entailment_units_conditions_and_completeness_require_human_review"
+          ],
+          "citationPrecision": 1,
+          "sourceRecall": 1,
+          "quoteValidity": 1,
+          "numeric": [
+            {
+              "label": "record count",
+              "expected": 5,
+              "tolerance": 1e-06,
+              "observed": [],
+              "correct": null
+            }
+          ],
+          "refusalCorrect": false
+        },
+        "retrieval": [],
+        "stages": [
+          {
+            "stage": "structured-count",
+            "durationMs": 0.7,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 0,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 525.2,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 738.5,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 29.1,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 0.7,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 2.4,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 0.5,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "tool",
+            "durationMs": 39.2,
+            "outcome": "ok",
+            "tool": "discoverDatasets",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 4212.9,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 703.4,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 4924.4,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "tool",
+            "durationMs": 2.1,
+            "outcome": "error",
+            "tool": "queryDataset",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 4275.1,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 470.6,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 4751.9,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "tool",
+            "durationMs": 2.2,
+            "outcome": "ok",
+            "tool": "inspectDataset",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 4512.7,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 871.3,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 5389.2,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 1.3,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 0.8,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 2.7,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 3.1,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 0.9,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "csv-query",
+            "durationMs": 10.7,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "tool",
+            "durationMs": 66.1,
+            "outcome": "ok",
+            "tool": "queryDataset",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 4049.8,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 576,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 4630.9,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "planning-wall",
+            "durationMs": 20610.7,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 4406.7,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 1408.8,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "final-generation",
+            "durationMs": 5830.3,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "citation-verification",
+            "durationMs": 11.8,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "tool",
+            "durationMs": 0,
+            "outcome": "recovered",
+            "tool": "queryDataset",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "agent",
+            "durationMs": 26454.9,
+            "outcome": "grounded",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "request",
+            "durationMs": 26458.1,
+            "outcome": "ok",
+            "requestId": "3d1a2ec7-3f61-49b0-a708-3267f880605c"
+          },
+          {
+            "stage": "answer-end-to-end",
+            "durationMs": 26459.580068,
+            "outcome": "ok"
+          }
+        ],
+        "error": null,
+        "answer": {
+          "grounded": true,
+          "answer": "There are 5 sales records in sales.csv. [C1]",
+          "sources": [
+            {
+              "id": "C1",
+              "filename": "sales.csv",
+              "type": "csv",
+              "datasetId": "201",
+              "text": "[{\"value\":5}]",
+              "quotes": [
+                "[{\"value\":5}]"
+              ],
+              "rows": [
+                {
+                  "value": 5
+                }
+              ],
+              "plan": {
+                "datasetId": "201",
+                "filters": [],
+                "groupBy": [],
+                "aggregate": {
+                  "op": "count"
+                },
+                "limit": 100
+              },
+              "possiblyTruncated": false
+            }
+          ]
+        }
+      },
+      "judgment": {
+        "id": "csv-01",
+        "executed": true,
+        "status": "needs-review",
+        "automatic": "pass",
+        "reasons": [],
+        "uncertainty": [
+          "numeric_fact_not_reliably_extractable",
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "categories": [],
+        "suspects": [],
+        "checkedCSV": [
+          {
+            "sourceId": "C1",
+            "matches": true,
+            "expectedRows": [
+              {
+                "value": 5
+              }
+            ]
+          }
+        ],
+        "human": "not-reviewed",
+        "answerHash": "55427f4b375a7b9da2999fb5df5176c83cadd07b5b8318c418edf0c36ffd60c7"
+      },
+      "http": {
+        "attempts": [
+          {
+            "status": 200,
+            "inputBytes": 3904,
+            "promptTokens": 738,
+            "completionTokens": 34,
+            "totalTokens": 772,
+            "durationMs": 520.4922190000002
+          },
+          {
+            "status": 200,
+            "inputBytes": 4432,
+            "promptTokens": 828,
+            "completionTokens": 33,
+            "totalTokens": 861,
+            "durationMs": 696.0353150000001
+          },
+          {
+            "status": 200,
+            "inputBytes": 4876,
+            "promptTokens": 893,
+            "completionTokens": 25,
+            "totalTokens": 918,
+            "durationMs": 465.76123499999994
+          },
+          {
+            "status": 200,
+            "inputBytes": 5394,
+            "promptTokens": 974,
+            "completionTokens": 42,
+            "totalTokens": 1016,
+            "durationMs": 863.6974630000004
+          },
+          {
+            "status": 200,
+            "inputBytes": 6037,
+            "promptTokens": 1091,
+            "completionTokens": 19,
+            "totalTokens": 1110,
+            "durationMs": 566.3467830000009
+          },
+          {
+            "status": 200,
+            "inputBytes": 2681,
+            "promptTokens": 609,
+            "completionTokens": 64,
+            "totalTokens": 673,
+            "durationMs": 1400.135685000001
+          }
+        ],
+        "stopReason": null
+      }
+    },
+    {
+      "benchmark": {
+        "id": "csv-02",
+        "category": "csv",
+        "system": "agent",
+        "corpus": "base",
+        "question": "Add up all amounts in sales.csv.",
+        "relevantChunks": [],
+        "expectedSources": [
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "The total sales amount is 51 units.",
+        "facts": [
+          {
+            "label": "total",
+            "value": 51,
+            "tolerance": 1e-06,
+            "pattern": "(?:total|amount)[^.!?\\n]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "201",
+          "aggregate": {
+            "op": "sum",
+            "column": "amount"
+          }
+        },
+        "expectedRows": [
+          {
+            "value": 51
+          }
+        ],
+        "reviewNotes": "Review calculation meaning, filters, groups and whether the answer overstates limited evidence."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "csv-03",
+        "category": "csv",
+        "system": "agent",
+        "corpus": "base",
+        "question": "What is the average amount per sales record?",
+        "relevantChunks": [],
+        "expectedSources": [
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "The average sales amount is 10.2 units.",
+        "facts": [
+          {
+            "label": "mean",
+            "value": 10.2,
+            "tolerance": 1e-06,
+            "pattern": "(?:average|mean)[^!?\\n]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "201",
+          "aggregate": {
+            "op": "avg",
+            "column": "amount"
+          }
+        },
+        "expectedRows": [
+          {
+            "value": 10.2
+          }
+        ],
+        "reviewNotes": "Review calculation meaning, filters, groups and whether the answer overstates limited evidence."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "csv-04",
+        "category": "csv",
+        "system": "agent",
+        "corpus": "base",
+        "question": "Show total sales for Alpha, Beta and Gamma, grouped by team.",
+        "relevantChunks": [],
+        "expectedSources": [
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Alpha total is 30 units; Beta total is 6 units; Gamma total is 15 units.",
+        "facts": [
+          {
+            "label": "Alpha",
+            "value": 30,
+            "tolerance": 1e-06,
+            "pattern": "Alpha[^.!?\\n;]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+          },
+          {
+            "label": "Beta",
+            "value": 6,
+            "tolerance": 1e-06,
+            "pattern": "Beta[^.!?\\n;]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+          },
+          {
+            "label": "Gamma",
+            "value": 15,
+            "tolerance": 1e-06,
+            "pattern": "Gamma[^.!?\\n;]{0,40}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "201",
+          "aggregate": {
+            "op": "sum",
+            "column": "amount"
+          },
+          "groupBy": [
+            "team"
+          ],
+          "sort": {
+            "column": "team",
+            "direction": "asc"
+          }
+        },
+        "expectedRows": [
+          {
+            "team": "Alpha",
+            "value": 30
+          },
+          {
+            "team": "Beta",
+            "value": 6
+          },
+          {
+            "team": "Gamma",
+            "value": 15
+          }
+        ],
+        "reviewNotes": "Review calculation meaning, filters, groups and whether the answer overstates limited evidence."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "csv-05",
+        "category": "csv",
+        "system": "agent",
+        "corpus": "base",
+        "question": "List the East-region sales amounts, largest first.",
+        "relevantChunks": [],
+        "expectedSources": [
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "East amounts in descending order are 20 and 10 units.",
+        "facts": [],
+        "plan": {
+          "datasetId": "201",
+          "filters": [
+            {
+              "column": "region",
+              "op": "eq",
+              "value": "East"
+            }
+          ],
+          "sort": {
+            "column": "amount",
+            "direction": "desc"
+          }
+        },
+        "expectedRows": [
+          {
+            "team": "Alpha",
+            "amount": 20,
+            "region": "East"
+          },
+          {
+            "team": "Alpha",
+            "amount": 10,
+            "region": "East"
+          }
+        ],
+        "reviewNotes": "Review calculation meaning, filters, groups and whether the answer overstates limited evidence."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "csv-06",
+        "category": "csv",
+        "system": "agent",
+        "corpus": "base",
+        "question": "How many employees have expenses strictly above 500 credits?",
+        "relevantChunks": [],
+        "expectedSources": [
+          "csv:202"
+        ],
+        "refuse": false,
+        "expectedAnswer": "The employee expense count above 500 credits is 1.",
+        "facts": [
+          {
+            "label": "expense count",
+            "value": 1,
+            "tolerance": 1e-06,
+            "pattern": "count[^.!?\\n]{0,60}?is\\s+(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "202",
+          "filters": [
+            {
+              "column": "cost",
+              "op": "gt",
+              "value": 500
+            }
+          ],
+          "aggregate": {
+            "op": "count"
+          }
+        },
+        "expectedRows": [
+          {
+            "value": 1
+          }
+        ],
+        "reviewNotes": "Review calculation meaning, filters, groups and whether the answer overstates limited evidence."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "combined-01",
+        "category": "combined",
+        "system": "agent",
+        "corpus": "base",
+        "question": "Compare team totals with the policy minimum. How far below is Beta?",
+        "relevantChunks": [
+          "101"
+        ],
+        "expectedSources": [
+          "doc:1:101",
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Beta total is 6 units; the target is 15 units; Beta shortfall is 9 units.",
+        "facts": [
+          {
+            "label": "Beta total",
+            "value": 6,
+            "tolerance": 1e-06,
+            "pattern": "Beta total[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          },
+          {
+            "label": "Beta shortfall",
+            "value": 9,
+            "tolerance": 1e-06,
+            "pattern": "shortfall[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "201",
+          "aggregate": {
+            "op": "sum",
+            "column": "amount"
+          },
+          "groupBy": [
+            "team"
+          ],
+          "sort": {
+            "column": "team",
+            "direction": "asc"
+          }
+        },
+        "expectedRows": [
+          {
+            "team": "Alpha",
+            "value": 30
+          },
+          {
+            "team": "Beta",
+            "value": 6
+          },
+          {
+            "team": "Gamma",
+            "value": 15
+          }
+        ],
+        "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+      },
+      "executed": true,
+      "result": {
+        "id": "combined-01",
+        "category": "combined",
+        "system": "agent",
+        "expectedRefusal": false,
+        "executed": true,
+        "status": "needs-review",
+        "durationMs": 26238.357672000002,
+        "answerDurationMs": 26031.059674999997,
+        "score": {
+          "status": "needs-review",
+          "automatedStatus": "pass",
+          "failures": [],
+          "review": [
+            "unregistered_valid_query_plan_requires_review",
+            "numeric_fact_not_reliably_extractable",
+            "free_text_entailment_units_conditions_and_completeness_require_human_review"
+          ],
+          "citationPrecision": 1,
+          "sourceRecall": 1,
+          "quoteValidity": 1,
+          "numeric": [
+            {
+              "label": "Beta total",
+              "expected": 6,
+              "tolerance": 1e-06,
+              "observed": [],
+              "correct": null
+            },
+            {
+              "label": "Beta shortfall",
+              "expected": 9,
+              "tolerance": 1e-06,
+              "observed": [],
+              "correct": null
+            }
+          ],
+          "refusalCorrect": false
+        },
+        "retrieval": [
+          {
+            "mode": "semantic",
+            "ranked": [
+              "101",
+              "104",
+              "105"
+            ],
+            "durationMs": 54.785993999999846,
+            "k": 3,
+            "hits": 1,
+            "relevant": 1,
+            "returned": 3,
+            "recall": 1,
+            "precision": 0.3333333333333333
+          },
+          {
+            "mode": "hybrid",
+            "ranked": [
+              "101",
+              "104"
+            ],
+            "durationMs": 57.540287000000035,
+            "k": 3,
+            "hits": 1,
+            "relevant": 1,
+            "returned": 2,
+            "recall": 1,
+            "precision": 0.3333333333333333
+          }
+        ],
+        "stages": [
+          {
+            "stage": "embedding",
+            "durationMs": 50.9,
+            "outcome": "ok"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 3,
+            "outcome": "ok"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 54.5,
+            "outcome": "ok"
+          },
+          {
+            "stage": "embedding",
+            "durationMs": 51.7,
+            "outcome": "ok"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 5.2,
+            "outcome": "ok"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 57.5,
+            "outcome": "ok"
+          },
+          {
+            "stage": "structured-count",
+            "durationMs": 0.6,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 0,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 1122,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 1373.5,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "embedding",
+            "durationMs": 41.9,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 4.8,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "retrieval",
+            "durationMs": 47.8,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "tool",
+            "durationMs": 50.6,
+            "outcome": "ok",
+            "tool": "searchDocuments",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 3568.4,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 920.9,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 4493.8,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 1.1,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 0.9,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 2.1,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 0.9,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "tool",
+            "durationMs": 8.9,
+            "outcome": "ok",
+            "tool": "discoverDatasets",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 4054.1,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 1962.1,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 6021.2,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "tool",
+            "durationMs": 2.2,
+            "outcome": "ok",
+            "tool": "inspectDataset",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 3023.7,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 751.8,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 3780.4,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 1.1,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 0.8,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 1.8,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 3.1,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "postgres",
+            "durationMs": 0.9,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "csv-query",
+            "durationMs": 9.7,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "tool",
+            "durationMs": 63.9,
+            "outcome": "ok",
+            "tool": "queryDataset",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 4170.5,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 1893.1,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "planning-groq",
+            "durationMs": 6069.3,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "planning-wall",
+            "durationMs": 21927.5,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "groq-pacing",
+            "durationMs": 3086.8,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "groq-http",
+            "durationMs": 981.5,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "final-generation",
+            "durationMs": 4084.5,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "citation-verification",
+            "durationMs": 13.5,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "agent",
+            "durationMs": 26027.4,
+            "outcome": "grounded",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "request",
+            "durationMs": 26030.3,
+            "outcome": "ok",
+            "requestId": "888a4203-0dde-42c1-a2f4-94e43f833814"
+          },
+          {
+            "stage": "answer-end-to-end",
+            "durationMs": 26031.059674999997,
+            "outcome": "ok"
+          }
+        ],
+        "error": null,
+        "answer": {
+          "grounded": true,
+          "answer": "Beta\u2019s monthly sales total 6 units, which is 9 units below the team minimum of 15 units set by Orion team policy. [D1] [C1]",
+          "sources": [
+            {
+              "id": "D1",
+              "filename": "team-policy.docx",
+              "type": "document",
+              "documentId": "1",
+              "chunkId": "101",
+              "chunkIndex": 0,
+              "pageNumber": null,
+              "text": "Orion team policy: the minimum monthly total sales target for each team is 15 units.",
+              "quotes": [
+                "Orion team policy: the minimum monthly total sales target for each team is 15 units."
+              ]
+            },
+            {
+              "id": "C1",
+              "filename": "sales.csv",
+              "type": "csv",
+              "datasetId": "201",
+              "text": "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]",
+              "quotes": [
+                "[{\"team\":\"Alpha\",\"value\":30},{\"team\":\"Beta\",\"value\":6},{\"team\":\"Gamma\",\"value\":15}]"
+              ],
+              "rows": [
+                {
+                  "team": "Alpha",
+                  "value": 30
+                },
+                {
+                  "team": "Beta",
+                  "value": 6
+                },
+                {
+                  "team": "Gamma",
+                  "value": 15
+                }
+              ],
+              "plan": {
+                "datasetId": "201",
+                "filters": [],
+                "groupBy": [
+                  "team"
+                ],
+                "aggregate": {
+                  "op": "sum",
+                  "column": "amount"
+                },
+                "limit": 100
+              },
+              "possiblyTruncated": false
+            }
+          ]
+        }
+      },
+      "judgment": {
+        "id": "combined-01",
+        "executed": true,
+        "status": "needs-review",
+        "automatic": "pass",
+        "reasons": [],
+        "uncertainty": [
+          "unregistered_valid_query_plan_requires_review",
+          "numeric_fact_not_reliably_extractable",
+          "free_text_entailment_units_conditions_and_completeness_require_human_review"
+        ],
+        "categories": [],
+        "suspects": [],
+        "checkedCSV": [
+          {
+            "sourceId": "C1",
+            "matches": true,
+            "expectedRows": [
+              {
+                "team": "Alpha",
+                "value": 30
+              },
+              {
+                "team": "Beta",
+                "value": 6
+              },
+              {
+                "team": "Gamma",
+                "value": 15
+              }
+            ]
+          }
+        ],
+        "human": "not-reviewed",
+        "answerHash": "e85de37b0124a717dc9b3d37f05c336439cb3fc4124ca88f5d192471f96a2db2"
+      },
+      "http": {
+        "attempts": [
+          {
+            "status": 200,
+            "inputBytes": 3931,
+            "promptTokens": 743,
+            "completionTokens": 41,
+            "totalTokens": 784,
+            "durationMs": 1118.080684
+          },
+          {
+            "status": 200,
+            "inputBytes": 5322,
+            "promptTokens": 1057,
+            "completionTokens": 39,
+            "totalTokens": 1096,
+            "durationMs": 914.2172520000004
+          },
+          {
+            "status": 200,
+            "inputBytes": 5849,
+            "promptTokens": 1147,
+            "completionTokens": 24,
+            "totalTokens": 1171,
+            "durationMs": 1956.6693779999987
+          },
+          {
+            "status": 200,
+            "inputBytes": 6362,
+            "promptTokens": 1227,
+            "completionTokens": 50,
+            "totalTokens": 1277,
+            "durationMs": 747.1310919999996
+          },
+          {
+            "status": 200,
+            "inputBytes": 7299,
+            "promptTokens": 1405,
+            "completionTokens": 164,
+            "totalTokens": 1569,
+            "durationMs": 1886.464824999999
+          },
+          {
+            "status": 200,
+            "inputBytes": 4418,
+            "promptTokens": 1031,
+            "completionTokens": 106,
+            "totalTokens": 1137,
+            "durationMs": 977.390284000001
+          }
+        ],
+        "stopReason": null
+      }
+    },
+    {
+      "benchmark": {
+        "id": "combined-02",
+        "category": "combined",
+        "system": "agent",
+        "corpus": "base",
+        "question": "Using the team policy and sales.csv, by how much does Alpha exceed the target?",
+        "relevantChunks": [
+          "101"
+        ],
+        "expectedSources": [
+          "doc:1:101",
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Alpha total is 30 units; the target is 15 units; Alpha surplus is 15 units.",
+        "facts": [
+          {
+            "label": "Alpha total",
+            "value": 30,
+            "tolerance": 1e-06,
+            "pattern": "Alpha total[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          },
+          {
+            "label": "Alpha surplus",
+            "value": 15,
+            "tolerance": 1e-06,
+            "pattern": "surplus[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "201",
+          "aggregate": {
+            "op": "sum",
+            "column": "amount"
+          },
+          "groupBy": [
+            "team"
+          ],
+          "sort": {
+            "column": "team",
+            "direction": "asc"
+          }
+        },
+        "expectedRows": [
+          {
+            "team": "Alpha",
+            "value": 30
+          },
+          {
+            "team": "Beta",
+            "value": 6
+          },
+          {
+            "team": "Gamma",
+            "value": 15
+          }
+        ],
+        "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "combined-03",
+        "category": "combined",
+        "system": "agent",
+        "corpus": "base",
+        "question": "Does Gamma meet the minimum monthly team total exactly?",
+        "relevantChunks": [
+          "101"
+        ],
+        "expectedSources": [
+          "doc:1:101",
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Gamma total is 15 units, exactly the target; Gamma difference is 0 units.",
+        "facts": [
+          {
+            "label": "Gamma total",
+            "value": 15,
+            "tolerance": 1e-06,
+            "pattern": "Gamma total[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          },
+          {
+            "label": "difference",
+            "value": 0,
+            "tolerance": 1e-06,
+            "pattern": "difference[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "201",
+          "aggregate": {
+            "op": "sum",
+            "column": "amount"
+          },
+          "groupBy": [
+            "team"
+          ],
+          "sort": {
+            "column": "team",
+            "direction": "asc"
+          }
+        },
+        "expectedRows": [
+          {
+            "team": "Alpha",
+            "value": 30
+          },
+          {
+            "team": "Beta",
+            "value": 6
+          },
+          {
+            "team": "Gamma",
+            "value": 15
+          }
+        ],
+        "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "combined-04",
+        "category": "combined",
+        "system": "agent",
+        "corpus": "base",
+        "question": "According to the policy, which teams fall short when all sales rows are added per team?",
+        "relevantChunks": [
+          "101"
+        ],
+        "expectedSources": [
+          "doc:1:101",
+          "csv:201"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Only Beta falls short: Beta total is 6 units and Beta shortfall is 9 units. Alpha and Gamma meet the target.",
+        "facts": [
+          {
+            "label": "Beta shortfall",
+            "value": 9,
+            "tolerance": 1e-06,
+            "pattern": "shortfall[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "201",
+          "aggregate": {
+            "op": "sum",
+            "column": "amount"
+          },
+          "groupBy": [
+            "team"
+          ],
+          "sort": {
+            "column": "team",
+            "direction": "asc"
+          }
+        },
+        "expectedRows": [
+          {
+            "team": "Alpha",
+            "value": 30
+          },
+          {
+            "team": "Beta",
+            "value": 6
+          },
+          {
+            "team": "Gamma",
+            "value": 15
+          }
+        ],
+        "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "combined-05",
+        "category": "combined",
+        "system": "agent",
+        "corpus": "base",
+        "question": "Apply the travel approval rule to expenses.csv. Who needs approval and by how much is the limit exceeded?",
+        "relevantChunks": [
+          "104"
+        ],
+        "expectedSources": [
+          "doc:4:104",
+          "csv:202"
+        ],
+        "refuse": false,
+        "expectedAnswer": "Only Jon needs approval: Jon cost is 620 credits; the threshold is 500 credits; Jon excess is 120 credits. Sol at exactly 500 does not require approval.",
+        "facts": [
+          {
+            "label": "Jon cost",
+            "value": 620,
+            "tolerance": 1e-06,
+            "pattern": "Jon cost[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          },
+          {
+            "label": "excess",
+            "value": 120,
+            "tolerance": 1e-06,
+            "pattern": "excess[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "202"
+        },
+        "expectedRows": [
+          {
+            "employee": "Mira",
+            "cost": 450
+          },
+          {
+            "employee": "Jon",
+            "cost": 620
+          },
+          {
+            "employee": "Sol",
+            "cost": 500
+          }
+        ],
+        "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "combined-06",
+        "category": "combined",
+        "system": "agent",
+        "corpus": "base",
+        "question": "Using the incident acknowledgment policy and incidents.csv, which ticket missed the deadline?",
+        "relevantChunks": [
+          "105"
+        ],
+        "expectedSources": [
+          "doc:5:105",
+          "csv:203"
+        ],
+        "refuse": false,
+        "expectedAnswer": "INC-B missed the deadline: INC-B hours is 3; the deadline is 2 hours; INC-B delay is 1 hour. INC-A and INC-C meet the deadline.",
+        "facts": [
+          {
+            "label": "late hours",
+            "value": 3,
+            "tolerance": 1e-06,
+            "pattern": "INC-B hours[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          },
+          {
+            "label": "delay",
+            "value": 1,
+            "tolerance": 1e-06,
+            "pattern": "delay[^.!?\\n;]{0,30}?(-?\\d+(?:\\.\\d+)?)"
+          }
+        ],
+        "plan": {
+          "datasetId": "203"
+        },
+        "expectedRows": [
+          {
+            "ticket": "INC-A",
+            "hours": 1
+          },
+          {
+            "ticket": "INC-B",
+            "hours": 3
+          },
+          {
+            "ticket": "INC-C",
+            "hours": 2
+          }
+        ],
+        "reviewNotes": "Manually verify the comparison, boundary conditions and that both policy and actual data support the conclusion."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "missing-01",
+        "system": "chat",
+        "question": "What ocean research grants does Orion offer?",
+        "category": "insufficient",
+        "corpus": "base",
+        "relevantChunks": [],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Abstain: the fixtures do not contain the requested facts.",
+        "facts": [],
+        "reviewNotes": "Check that absence is not converted into invented facts or zero values."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "missing-02",
+        "system": "agent",
+        "question": "What were team sales last year? The provided sales data has no year column.",
+        "category": "insufficient",
+        "corpus": "base",
+        "relevantChunks": [],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Abstain: the fixtures do not contain the requested facts.",
+        "facts": [],
+        "reviewNotes": "Check that absence is not converted into invented facts or zero values."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "missing-03",
+        "system": "agent",
+        "question": "What is the average customer age in sales.csv?",
+        "category": "insufficient",
+        "corpus": "base",
+        "relevantChunks": [],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Abstain: the fixtures do not contain the requested facts.",
+        "facts": [],
+        "reviewNotes": "Check that absence is not converted into invented facts or zero values."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "missing-04",
+        "system": "chat",
+        "question": "What is Orion\u2019s parental leave allowance?",
+        "category": "insufficient",
+        "corpus": "base",
+        "relevantChunks": [],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Abstain: the fixtures do not contain the requested facts.",
+        "facts": [],
+        "reviewNotes": "Check that absence is not converted into invented facts or zero values."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "conflict-01",
+        "category": "ambiguous",
+        "system": "agent",
+        "corpus": "conflict",
+        "question": "Which minimum monthly target should we use when the two active Orion policies disagree?",
+        "relevantChunks": [
+          "101",
+          "107"
+        ],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Abstain or request clarification; do not silently select a policy or department.",
+        "facts": [],
+        "reviewNotes": "Manual review required: confirm conflicts/ambiguity were recognized rather than ignored."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "conflict-02",
+        "category": "ambiguous",
+        "system": "agent",
+        "corpus": "conflict",
+        "question": "Do the sales teams meet policy when one active policy says 15 and another says 22 with no effective dates?",
+        "relevantChunks": [
+          "101",
+          "107"
+        ],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Abstain or request clarification; do not silently select a policy or department.",
+        "facts": [],
+        "reviewNotes": "Manual review required: confirm conflicts/ambiguity were recognized rather than ignored."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    },
+    {
+      "benchmark": {
+        "id": "ambiguous-01",
+        "category": "ambiguous",
+        "system": "agent",
+        "corpus": "ambiguous",
+        "question": "What monthly team target applies to me? My department is not specified.",
+        "relevantChunks": [
+          "108"
+        ],
+        "expectedSources": [],
+        "refuse": true,
+        "expectedAnswer": "Abstain or request clarification; do not silently select a policy or department.",
+        "facts": [],
+        "reviewNotes": "Manual review required: confirm conflicts/ambiguity were recognized rather than ignored."
+      },
+      "executed": false,
+      "result": null,
+      "judgment": null,
+      "http": null
+    }
+  ]
+}

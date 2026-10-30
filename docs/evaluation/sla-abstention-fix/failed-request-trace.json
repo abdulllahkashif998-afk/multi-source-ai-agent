@@ -1,0 +1,117 @@
+{
+  "requestId": "431de335-8b73-4bab-8bd3-fd61795293a1",
+  "source": "existing safe server logs",
+  "events": [
+    {
+      "requestId": "431de335-8b73-4bab-8bd3-fd61795293a1",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 14.3
+    },
+    {
+      "requestId": "431de335-8b73-4bab-8bd3-fd61795293a1",
+      "stage": "embedding",
+      "outcome": "ok",
+      "durationMs": 386.2
+    },
+    {
+      "requestId": "431de335-8b73-4bab-8bd3-fd61795293a1",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 73
+    },
+    {
+      "requestId": "431de335-8b73-4bab-8bd3-fd61795293a1",
+      "stage": "retrieval",
+      "outcome": "ok",
+      "durationMs": 475.8
+    },
+    {
+      "requestId": "431de335-8b73-4bab-8bd3-fd61795293a1",
+      "stage": "retrieval",
+      "outcome": "ok",
+      "durationMs": 487.1
+    },
+    {
+      "requestId": "431de335-8b73-4bab-8bd3-fd61795293a1",
+      "stage": "tool",
+      "tool": "searchDocuments",
+      "outcome": "ok",
+      "durationMs": 507.9
+    },
+    {
+      "requestId": "431de335-8b73-4bab-8bd3-fd61795293a1",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 1.1
+    },
+    {
+      "requestId": "431de335-8b73-4bab-8bd3-fd61795293a1",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 5.1
+    },
+    {
+      "requestId": "431de335-8b73-4bab-8bd3-fd61795293a1",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 4.8
+    },
+    {
+      "requestId": "431de335-8b73-4bab-8bd3-fd61795293a1",
+      "stage": "postgres",
+      "outcome": "ok",
+      "durationMs": 2.8
+    },
+    {
+      "requestId": "431de335-8b73-4bab-8bd3-fd61795293a1",
+      "stage": "dataset-discovery",
+      "outcome": "ok",
+      "durationMs": 59.3
+    },
+    {
+      "requestId": "431de335-8b73-4bab-8bd3-fd61795293a1",
+      "stage": "tool",
+      "tool": "discoverDatasets",
+      "outcome": "ok",
+      "durationMs": 60.9
+    },
+    {
+      "requestId": "431de335-8b73-4bab-8bd3-fd61795293a1",
+      "stage": "tool",
+      "tool": "inspectDataset",
+      "outcome": "ok",
+      "durationMs": 4.5
+    },
+    {
+      "requestId": "431de335-8b73-4bab-8bd3-fd61795293a1",
+      "stage": "agent-abstention",
+      "outcome": "abstained",
+      "reason": "ambiguous_rule"
+    },
+    {
+      "requestId": "431de335-8b73-4bab-8bd3-fd61795293a1",
+      "stage": "structured-operation",
+      "outcome": "ok",
+      "durationMs": 623.9
+    },
+    {
+      "requestId": "431de335-8b73-4bab-8bd3-fd61795293a1",
+      "stage": "citation-verification",
+      "outcome": "ok",
+      "durationMs": 0.3
+    },
+    {
+      "requestId": "431de335-8b73-4bab-8bd3-fd61795293a1",
+      "stage": "agent",
+      "outcome": "abstained",
+      "durationMs": 655.9
+    },
+    {
+      "requestId": "431de335-8b73-4bab-8bd3-fd61795293a1",
+      "stage": "request",
+      "outcome": "ok",
+      "durationMs": 724.4
+    }
+  ]
+}

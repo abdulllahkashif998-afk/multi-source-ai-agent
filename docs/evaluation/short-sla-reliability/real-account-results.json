@@ -1,0 +1,51 @@
+{
+  "kind": "real-account-server-service-verification-not-browser-http",
+  "status": "Passed",
+  "originalRequestId": null,
+  "question": "Which P1 incidents exceeded the policy first-response deadline?",
+  "grounded": true,
+  "answer": "Ticket NS-003 (P1): actual first-response time is 1.5 hours; the documented deadline is 1 hours; difference is 0.5 hours. [D3] [C1]\n\nTicket NS-014 (P1): actual first-response time is 1.5 hours; the documented deadline is 1 hours; difference is 0.5 hours. [D3] [C1]\n\nTicket NS-025 (P1): actual first-response time is 1.5 hours; the documented deadline is 1 hours; difference is 0.5 hours. [D3] [C1]",
+  "citations": [
+    {
+      "id": "D3",
+      "type": "document",
+      "filename": "Northstar_Operations_Policy.pdf",
+      "chunkIndex": 1,
+      "pageNumber": null,
+      "quoteCount": 1,
+      "quotesVerified": true
+    },
+    {
+      "id": "C1",
+      "type": "csv",
+      "filename": "Northstar_Incidents.csv",
+      "quoteCount": 1,
+      "quotesVerified": true
+    }
+  ],
+  "matchedTicketIds": [
+    "NS-003",
+    "NS-014",
+    "NS-025"
+  ],
+  "responseHours": 1.5,
+  "policyDeadlineHours": 1,
+  "validatedFilter": [
+    {
+      "column": "severity",
+      "op": "eq",
+      "value": "P1"
+    },
+    {
+      "column": "response_hours",
+      "op": "gt",
+      "value": 1
+    }
+  ],
+  "localEmbeddingCalls": 1,
+  "externalProviderCalls": 0,
+  "readOnlyEnforced": true,
+  "originalRecordsUnchanged": true,
+  "durationMs": 231,
+  "limitation": "Executed with confirmed server-side account identity; browser session cookies were not accessed and the current browser HTTP request was not replayed."
+}

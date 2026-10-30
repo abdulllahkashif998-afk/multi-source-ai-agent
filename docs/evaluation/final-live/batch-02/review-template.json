@@ -1,0 +1,72 @@
+[
+  {
+    "caseId": "doc-02",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "029430a4221e2ad1dbf3da7f2314e4d00f9e520cb4a8289553e45c214ecb61a3",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "csv-02",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "f8bdb547d5fdbd0314ab28e371eb2204e48f1adccac046c468e5f5c95104c117",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "combined-02",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "c60d1392a09ec2ee73bb1cfd2b622c65625a8d04dfc5b92cfbbe26e42c3eabf4",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "missing-01",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "71d26e9bf7c3a094ab0dabc9f5de902428fe08e49b55b1a1626e64f45c9bf576",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  },
+  {
+    "caseId": "conflict-01",
+    "fixtureHash": "898bad9f79d136390190e4917e07a94812d79346ea82ff59b906a86c68258eec",
+    "answerHash": "9e1183ffcaab753d696c5c1249146ba1ce6e195e5611df467d8b636172c46529",
+    "reviewer": "",
+    "notes": "",
+    "dimensions": {
+      "factualCorrectness": "needs-review",
+      "completeness": "needs-review",
+      "groundedness": "needs-review",
+      "citationSupport": "needs-review",
+      "conflictHandling": "needs-review"
+    }
+  }
+]
