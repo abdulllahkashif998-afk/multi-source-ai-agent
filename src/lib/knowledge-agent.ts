@@ -83,7 +83,7 @@ export async function answerWithAgent(question: string, signal: AbortSignal, ser
    prompt: JSON.stringify({question,preparedDatasets,preparedEvidence}),
    stopWhen: [stepCountIs(8),()=>repeatedSteps>=2||evidenceComplete||applicabilityBlocked||!!completedPolicy],
    onLanguageModelCallStart: () => { modelStart=performance.now();modelInvocation(config.provider,'planning'); },
-   onLanguageModelCallEnd: () => { trace.record(config.provider==='gemini'?'planning-gemini':'planning-groq',modelStart); },
+   onLanguageModelCallEnd: () => { trace.record(config.provider==='ollama'?'planning-ollama':config.provider==='gemini'?'planning-gemini':'planning-groq',modelStart); },
    onStepFinish: step => { evidenceComplete=completionCandidate&&step.toolCalls.length===1&&step.toolCalls[0].toolName==='queryDataset'&&step.toolResults.length===1&&!step.content.some(part=>part.type==='tool-error');completionCandidate=false; repeatedSteps=step.toolCalls.length&&step.toolResults.length===step.toolCalls.length&&!step.content.some(part=>part.type==='tool-error')&&duplicateOnlyStep?repeatedSteps+1:0;duplicateOnlyStep=true;for(const part of step.content) if(part.type === 'tool-error') trace.record('tool-argument-validation',performance.now(),'error', ['searchDocuments','discoverDatasets','inspectDataset','queryDataset'].includes(part.toolName) ? part.toolName : 'unknown',part.error); },
    tools: {
      policyCounts:tool({description:'Render backend-verified qualified policy counts with unknown/outside-scope records and citations. Use only for requested metric count summaries.',inputSchema:agentModelToolInputs.policyCounts,execute:(input,options)=>executeModelTool('policyCounts',input,options.abortSignal)}),

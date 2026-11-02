@@ -1,0 +1,40 @@
+{
+  "kind": "real-local-Qwen-with-injected-fictional-evidence-not-database-or-browser-E2E",
+  "model": "qwen3.5:4b",
+  "paidProviderCalls": 0,
+  "databaseAccess": false,
+  "results": [
+    {
+      "id": "rag",
+      "status": "failed",
+      "durationMs": 30059,
+      "nativeCalls": 1,
+      "errorType": "TimeoutError",
+      "code": 23
+    },
+    {
+      "id": "csv",
+      "status": "failed",
+      "durationMs": 30100,
+      "nativeCalls": 1,
+      "errorType": "TimeoutError",
+      "code": 23
+    },
+    {
+      "id": "combined",
+      "status": "failed",
+      "durationMs": 30015,
+      "nativeCalls": 1,
+      "errorType": "TimeoutError",
+      "code": 23
+    },
+    {
+      "id": "missing",
+      "status": "failed",
+      "durationMs": 30016,
+      "nativeCalls": 1,
+      "errorType": "TimeoutError",
+      "code": 23
+    }
+  ]
+}

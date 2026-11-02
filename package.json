@@ -22,6 +22,7 @@
   "dependencies": {
     "@ai-sdk/google": "^4.0.104",
     "@ai-sdk/groq": "4.0.71",
+    "@ai-sdk/openai-compatible": "3.0.82",
     "ai": "^7.0.150",
     "csv-parse": "^7.0.3",
     "gpt-tokenizer": "4.1.0",

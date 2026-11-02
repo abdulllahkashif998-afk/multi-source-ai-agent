@@ -1,0 +1,105 @@
+{
+  "date": "2026-11-02",
+  "kind": "saved-trace-analysis-and-memory-ledger-replay-no-provider-calls",
+  "originalWireBodiesAvailable": false,
+  "actualPromptCompletionBreakdownAvailable": false,
+  "inputReserveDefinition": "total reservation minus configured output ceiling; includes encoded wire JSON and conservative framing, not measured provider prompt tokens",
+  "calls": [
+    {
+      "requestId": "2ae6242a-433d-4ca1-934a-4655112cac3d",
+      "stage": "planning 1",
+      "inputAndFramingReserve": 2655,
+      "maxOutputTokens": 1536,
+      "totalReserve": 4191,
+      "reportedTotalTokens": 2702,
+      "admitted": true
+    },
+    {
+      "requestId": "2ae6242a-433d-4ca1-934a-4655112cac3d",
+      "stage": "generation 2",
+      "inputAndFramingReserve": 3469,
+      "maxOutputTokens": 3000,
+      "totalReserve": 6469,
+      "reportedTotalTokens": null,
+      "admitted": false,
+      "localRemaining": 5298,
+      "remoteAllowance": 4400
+    },
+    {
+      "requestId": "0f673738-baea-4412-b984-28ae5a1f4e07",
+      "stage": "planning 1",
+      "inputAndFramingReserve": 1772,
+      "maxOutputTokens": 1536,
+      "totalReserve": 3308,
+      "reportedTotalTokens": 1689,
+      "admitted": true
+    },
+    {
+      "requestId": "0f673738-baea-4412-b984-28ae5a1f4e07",
+      "stage": "planning 2",
+      "inputAndFramingReserve": 2297,
+      "maxOutputTokens": 1536,
+      "totalReserve": 3833,
+      "reportedTotalTokens": 1833,
+      "admitted": true
+    },
+    {
+      "requestId": "0f673738-baea-4412-b984-28ae5a1f4e07",
+      "stage": "planning 3",
+      "inputAndFramingReserve": 3169,
+      "maxOutputTokens": 1536,
+      "totalReserve": 4705,
+      "reportedTotalTokens": null,
+      "admitted": false,
+      "localRemaining": 4478,
+      "remoteAllowance": 3293
+    }
+  ],
+  "applicationChange": null,
+  "beforeAfterIdentical": true,
+  "requestCallCounts": [
+    {
+      "requestId": "2ae6242a-433d-4ca1-934a-4655112cac3d",
+      "before": {
+        "successfulHTTP": 1,
+        "logicalCallsIncludingBlocked": 2
+      },
+      "after": {
+        "successfulHTTP": 1,
+        "logicalCallsIncludingBlocked": 2
+      }
+    },
+    {
+      "requestId": "0f673738-baea-4412-b984-28ae5a1f4e07",
+      "before": {
+        "successfulHTTP": 2,
+        "logicalCallsIncludingBlocked": 3
+      },
+      "after": {
+        "successfulHTTP": 2,
+        "logicalCallsIncludingBlocked": 3
+      }
+    }
+  ],
+  "replayTests": {
+    "passed": 3,
+    "failed": 0,
+    "persistentLedgerOpened": false,
+    "providerCalls": 0
+  },
+  "validation": {
+    "standardTests": {
+      "passed": 323,
+      "failed": 0,
+      "skipped": 12,
+      "total": 335
+    },
+    "typeScript": "passed",
+    "eslint": "passed",
+    "webpackBuild": "passed",
+    "gitDiffCheck": "passed",
+    "persistentLedgerHashAndModificationTimeUnchanged": true,
+    "liveProviderCalls": 0,
+    "databaseEnabledTests": false
+  }
+}

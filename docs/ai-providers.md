@@ -1,6 +1,6 @@
-# Configurable Gemini and Groq providers
+# Configurable AI providers
 
-Both POST /api/chat and POST /api/agent now use one server-side provider selector. There is no automatic fallback. Omitting AI_PROVIDER preserves Gemini, its exact model identifier and its existing behavior. Existing question/response formats and the AI Chat modes are unchanged: the UI chooses RAG versus Agent, while the server environment chooses the model provider.
+Both POST /api/chat and POST /api/agent now use one server-side provider selector. There is no automatic fallback. Omitting AI_PROVIDER selects Groq. Explicit Gemini retains its exact model identifier and existing behavior. Optional local Ollama is documented separately and has not passed full local acceptance on the tested CPU. Existing question/response formats and the AI Chat modes are unchanged: the UI chooses RAG versus Agent, while the server environment chooses the model provider.
 
 ## Configuration
 
@@ -104,3 +104,7 @@ RUN_AUTH_DB_TESTS=1 RUN_LIFECYCLE_DB_TESTS=1 RUN_SEARCH_DB_TESTS=1 \
 5. Allow pacing between requests. A response that abstains is not evidence that the requested question was successfully answered. For failures, record only the HTTP status, safe code and X-Request-ID. Do not capture cookies, CSRF tokens or Authorization headers.
 6. Ask an unavailable-information question and confirm abstention. Use mocked tests for repeated quota/failure scenarios rather than exhausting the real account's limits.
 7. Set AI_PROVIDER=gemini and restart to verify deliberate provider selection. Existing Google project billing restrictions can still deny Gemini calls; the application does not switch back to Groq automatically.
+
+## Optional local provider
+
+See [Ollama configuration and limitations](ollama-provider.md). Set `AI_PROVIDER=ollama` only for controlled local testing. No Groq limiter or paid-provider fallback is used. Existing Groq configuration is otherwise unchanged.

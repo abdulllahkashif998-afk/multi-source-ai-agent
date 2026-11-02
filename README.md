@@ -96,7 +96,7 @@ All application settings below are server-side. Restart after changing them; nev
 | `APP_ORIGIN` | Local default `http://localhost:3000`; explicit HTTPS origin required in production, no trailing slash |
 | `OLLAMA_BASE_URL` | `http://localhost:11434` |
 | `EMBEDDING_MODEL` | BGE model identifier shown above; 768 finite values required |
-| `AI_PROVIDER` | `gemini`; supported values `gemini`, `groq` |
+| `AI_PROVIDER` | `groq`; supported values `groq`, `gemini`, `ollama` |
 | `GOOGLE_GENERATIVE_AI_API_KEY` | Required when Gemini is selected |
 | `GROQ_API_KEY` | Required when Groq is selected |
 | `GROQ_MODEL` | `openai/gpt-oss-20b`; allowlisted alternative `openai/gpt-oss-120b` |
@@ -197,3 +197,7 @@ CSV replacement/deletion APIs, browser actions and acceptance steps: [Dataset li
 ## Final submission status — 30 October 2026
 
 See the [final submission review](docs/submission-final/report.md) for current validation, quota evidence, requirement coverage and delivery risks. Document citation excerpts now open by default. Qualified row-policy counts preserve unknown applicability instead of asserting complete totals. Later Tests 16–19 are user-reported passes (18 retried); Test 20 remains blocked by rate limiting. These do not overwrite original benchmark outcomes.
+
+## Optional local Qwen provider
+
+Groq remains the default. See [local Ollama setup and measured limitations](docs/ollama-provider.md) before selecting `AI_PROVIDER=ollama`. No automatic fallback occurs. The existing BGE embedding configuration is separate. Local protocol compatibility does not establish reliable full-agent completion on CPU hardware.

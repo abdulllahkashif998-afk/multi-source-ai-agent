@@ -16,7 +16,7 @@ export function memoryQuotaStore():QuotaStore{
  const state=emptyQuotaState();let tail=Promise.resolve();
  return {async transact(work,signal){let release!:()=>void;const previous=tail;tail=new Promise<void>(r=>release=r);await previous;try{signal?.throwIfAborted();return work(state);}finally{release();}}};
 }
-export function estimateGroqTokens(body:unknown){
+export function estimateGroqTokenBudget(body:unknown){
  if(typeof body!=='string'||Buffer.byteLength(body)>2_000_000)throw new ChatError('PROVIDER_QUOTA_UNAVAILABLE','The answer service cannot safely admit this request.',503);
  let parsed;try{parsed=JSON.parse(body);}catch{throw new ChatError('PROVIDER_QUOTA_UNAVAILABLE','The answer service cannot safely admit this request.',503);}
  if(!parsed||typeof parsed!=='object')throw new ChatError('PROVIDER_QUOTA_UNAVAILABLE','The answer service cannot safely admit this request.',503);
@@ -24,8 +24,12 @@ export function estimateGroqTokens(body:unknown){
  if(!Number.isSafeInteger(output)||output<1||output>3000)throw new RateLimitError('local','request_size');
  // Encode the complete wire JSON (including tools) plus conservative framing.
  // Groq's undisclosed server-side formatting can differ; reconcile actual usage.
- return encode(body,{disallowedSpecial:new Set()}).length+256+32*(Array.isArray(parsed.messages)?parsed.messages.length:0)+output;
+ const wireTokens=encode(body,{disallowedSpecial:new Set()}).length;
+ const framingTokens=256+32*(Array.isArray(parsed.messages)?parsed.messages.length:0);
+ return {wireTokens,framingTokens,estimatedInputTokens:wireTokens+framingTokens,outputReservation:output as number,totalReservedTokens:wireTokens+framingTokens+output};
 }
+export function estimateGroqTokens(body:unknown){return estimateGroqTokenBudget(body).totalReservedTokens;}
+export interface QuotaObservation {admitted:boolean;minuteTokens:number;dayTokens:number;localTPMRemaining:number;providerTPMRemaining?:number;availableTPM:number}
 function normalize(s:QuotaState,time:number){
  const now=Math.max(time,s.lastNow);s.lastNow=now;
  for(const e of s.entries)if(e.pending&&now-e.at>=90_000){e.pending=false;e.charged=null;e.tokenAt=e.at+90_000;}
@@ -42,7 +46,7 @@ function duration(raw:string|null,fallback:number){
 }
 export function createGroqQuota(store:QuotaStore,now:()=>number=Date.now,limits=GROQ_LIMITS){
  return {
-  async reserve(tokens:number,signal?:AbortSignal){return store.transact(s=>{
+  async reserve(tokens:number,signal?:AbortSignal,observe?:(snapshot:QuotaObservation)=>void){return store.transact(s=>{
    const time=normalize(s,now());if(!Number.isSafeInteger(tokens)||tokens<1||tokens>limits.tpm||tokens>limits.tpd)throw new RateLimitError('local','request_size');
    const minute=s.entries.filter(e=>e.pending||time-e.at<60000),day=s.entries.filter(e=>e.pending||time-e.at<86400000);
    const minuteEntries=s.entries.filter(e=>e.pending||time-e.tokenAt<60000),dayEntries=s.entries.filter(e=>e.pending||time-e.tokenAt<86400000);
@@ -50,6 +54,9 @@ export function createGroqQuota(store:QuotaStore,now:()=>number=Date.now,limits=
    const minuteTokens=minuteEntries.reduce((n,e)=>n+amount(e),0),dayTokens=dayEntries.reduce((n,e)=>n+amount(e),0);
    const dailyReason=day.length>=limits.rpd||(s.remoteRequests&&s.remoteRequests.remaining<1)?'rpd' as const:dayTokens+tokens>limits.tpd?'tpd' as const:undefined;
    const reason=time<s.blockedUntil?'cooldown':minute.length>=limits.rpm?'rpm':day.length>=limits.rpd||(s.remoteRequests&&s.remoteRequests.remaining<1)?'rpd':minuteTokens+tokens>limits.tpm||(s.remoteTokens&&s.remoteTokens.remaining<tokens)?'tpm':dayTokens+tokens>limits.tpd?'tpd':undefined;
+   const localTPMRemaining=Math.max(0,limits.tpm-minuteTokens);
+   // Observe the atomic pre-reservation decision. Logging cannot affect admission.
+   try{observe?.({admitted:!reason,minuteTokens,dayTokens,localTPMRemaining,providerTPMRemaining:s.remoteTokens?.remaining,availableTPM:Math.min(localTPMRemaining,s.remoteTokens?.remaining??Infinity)});}catch{}
    if(reason){
     const release=(entries:QuotaEntry[],cap:number,needed:number,token:boolean,window:number)=>{
      let used=entries.reduce((n,e)=>n+(token?amount(e):1),0);if(used+needed<=cap)return time;

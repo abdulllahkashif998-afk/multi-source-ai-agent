@@ -1,8 +1,8 @@
 import {reserveBeforeDeadline} from './quota-admission';
 import {providerDeadline} from './provider-deadline';
 import { ChatError } from './chat-errors';
-import {RateLimitError,estimateGroqTokens,type GroqQuota} from './groq-quota';
-import {providerUsage} from './provider-usage';
+import {RateLimitError,estimateGroqTokenBudget,type GroqQuota} from './groq-quota';
+import {providerUsage,tokenReservation,type TokenDiagnostics} from './provider-usage';
 import {abortable} from './agent-budget';
 import { logEvent, requestContext } from './reliability';
 
@@ -62,12 +62,14 @@ export function createProviderTransport(options:{provider:'gemini'|'groq';rpm:nu
  const signal=init?.signal?AbortSignal.any([init.signal,timeout]):timeout;
  for(let attempt=0;attempt<2;attempt++){
  let start:number|undefined,id:string|undefined;
- const reserved=options.quota?estimateGroqTokens(init?.body):0;
+ const budget=options.quota?estimateGroqTokenBudget(init?.body):undefined;
+ const reserved=budget?.totalReservedTokens??0,phase=requestContext()?.modelPhase;
+ const details:TokenDiagnostics={...budget,reportedPromptTokens:null,reportedCompletionTokens:null,reportedReasoningTokens:null};
  let response:Response,sent=false,settled=false,recorded=false;
  try{
   response=await pace(signal,deadline,async()=>{
    const admissionStart=performance.now();
-   id=options.quota?await reserveBeforeDeadline(options.quota,reserved,{deadline:deadline-10_000,signal,now:timing.now,sleep:timing.sleep}):undefined;if(options.quota)logEvent('groq-admission',admissionStart);return id;
+   id=options.quota?await reserveBeforeDeadline(options.quota,reserved,{deadline:deadline-10_000,signal,now:timing.now,sleep:timing.sleep,observe:snapshot=>tokenReservation({...budget,...snapshot},snapshot.admitted,phase)}):undefined;if(options.quota)logEvent('groq-admission',admissionStart);return id;
   },async()=>{if(id)await options.quota!.settle(id,null,undefined,false,AbortSignal.timeout(1000));id=undefined;},async()=>{
    signal.throwIfAborted();sent=true;start=performance.now();
    const pending=(options.fetch??globalThis.fetch)(input,{...init,signal});
@@ -78,15 +80,15 @@ export function createProviderTransport(options:{provider:'gemini'|'groq';rpm:nu
    let usage:number|null=null;
    if(options.quota){
     const copy=result.clone(),reader=copy.body?.getReader();let text='',size=0;
-    try{if(reader){const decoder=new TextDecoder();while(true){const next=await abortable(()=>reader.read(),signal);if(next.done){text+=decoder.decode();break;}size+=next.value.length;if(size>1_000_000)break;text+=decoder.decode(next.value,{stream:true});}if(size<=1_000_000){const u=JSON.parse(text).usage?.total_tokens;if(Number.isSafeInteger(u)&&u>=0)usage=u;}}}catch{signal.throwIfAborted();}finally{void reader?.cancel().catch(()=>{});}
+    try{if(reader){const decoder=new TextDecoder();while(true){const next=await abortable(()=>reader.read(),signal);if(next.done){text+=decoder.decode();break;}size+=next.value.length;if(size>1_000_000)break;text+=decoder.decode(next.value,{stream:true});}if(size<=1_000_000){const u=JSON.parse(text).usage;const numeric=(value:unknown)=>Number.isSafeInteger(value)&&Number(value)>=0?Number(value):null;usage=numeric(u?.total_tokens);details.reportedPromptTokens=numeric(u?.prompt_tokens);details.reportedCompletionTokens=numeric(u?.completion_tokens);details.reportedReasoningTokens=numeric(u?.completion_tokens_details?.reasoning_tokens);}}}catch{signal.throwIfAborted();}finally{void reader?.cancel().catch(()=>{});}
     await options.quota.settle(id!,usage,result.headers,true,signal);settled=true;
    }
-   providerUsage(options.provider,reserved,usage,result.status);recorded=true;
+   providerUsage(options.provider,reserved,usage,result.status,details,phase);recorded=true;
    return result;
   });logEvent(`${options.provider}-http`,start!,response.ok?'ok':'error',undefined,response.ok?undefined:{name:'Error',status:response.status});
  }catch(error){
   if(id&&!settled)await options.quota!.settle(id,null,undefined,sent,sent?signal:AbortSignal.timeout(1000)).catch(()=>{});
-  if(sent&&!recorded)providerUsage(options.provider,reserved,null);
+  if(sent&&!recorded)providerUsage(options.provider,reserved,null,undefined,details,phase);
   if(start!==undefined)logEvent(`${options.provider}-http`,start,'error',undefined,error);
   else logEvent(`${options.provider}-pacing`,performance.now(),'rejected',undefined,error);
   if(attempt>0&&error instanceof RateLimitError)throw limited('provider',error.retryAfterSeconds);throw error;

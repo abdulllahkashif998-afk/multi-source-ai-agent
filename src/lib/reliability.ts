@@ -3,8 +3,8 @@ import { citationVerificationReason } from './chat-errors';
 import { AsyncLocalStorage } from 'node:async_hooks';
 import { randomUUID } from 'node:crypto';
 
-const context = new AsyncLocalStorage<{ requestId: string; deadline: number; providerCalls?:number;modelCalls?:number;reportedTokens?:number;unknownUsageCalls?:number }>();
-const stages = new Set(['request','postgres','embedding','retrieval','csv-query','dataset-discovery','tool','tool-cache','structured-count','structured-operation','tool-validation','tool-execution','tool-argument-validation','configuration','planning','planning-wall','planning-gemini','final-generation','citation-verification','gemini-http','gemini-pacing','gemini-retry','groq-http','groq-admission','groq-pacing','groq-retry','planning-groq','generation','ingestion','parse-document','file-storage','sdk-warning','question-validation','agent-invocation','agent']);
+const context = new AsyncLocalStorage<{ requestId: string; deadline: number; providerCalls?:number;modelCalls?:number;modelPhase?:'planning'|'generation';reportedTokens?:number;unknownUsageCalls?:number }>();
+const stages = new Set(['request','postgres','embedding','retrieval','csv-query','dataset-discovery','tool','tool-cache','structured-count','structured-operation','tool-validation','tool-execution','tool-argument-validation','configuration','planning','planning-wall','planning-gemini','final-generation','citation-verification','gemini-http','gemini-pacing','gemini-retry','groq-http','groq-admission','groq-pacing','groq-retry','planning-groq','planning-ollama','ollama-http','generation','ingestion','parse-document','file-storage','sdk-warning','question-validation','agent-invocation','agent']);
 const tools = new Set(['searchDocuments','discoverDatasets','inspectDataset','queryDataset']);
 export function requestContext() { return context.getStore(); }
 export function safeProviderCode(error:unknown){

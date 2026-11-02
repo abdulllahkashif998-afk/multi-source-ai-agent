@@ -101,7 +101,7 @@ Create a private `.env.local` from [`.env.example`](../.env.example) only when i
 | `APP_ORIGIN` | Exact allowed origin; local default http://localhost:3000; explicit HTTPS origin required in production |
 | `OLLAMA_BASE_URL` | Existing local default http://localhost:11434 |
 | `EMBEDDING_MODEL` | Existing BGE identifier above; 768 dimensions |
-| `AI_PROVIDER` | `gemini` or `groq`; Gemini is the unset default |
+| `AI_PROVIDER` | `groq`, `gemini` or optional `ollama`; Groq is the unset default |
 | `GOOGLE_GENERATIVE_AI_API_KEY` | Private key required only when Gemini is selected |
 | `GROQ_API_KEY` | Private key required only when Groq is selected |
 | `GROQ_MODEL` | Existing default `openai/gpt-oss-20b`; allowlisted `openai/gpt-oss-120b` alternative |

@@ -15,7 +15,7 @@ export const groqFetch:typeof fetch=async(input,init)=>{
  const injected=override.getStore();if(injected)return await injected(input,init);
  const rpm=Number(process.env.GROQ_REQUESTS_PER_MINUTE??'12');
  const directory=path.resolve(process.env.GROQ_QUOTA_DIRECTORY?.trim()||'storage/groq-quota');
- if(!shared.knowledgeGroqTransport||shared.knowledgeGroqTransport.revision!=='admission-wait-v1'||shared.knowledgeGroqTransport.rpm!==rpm||shared.knowledgeGroqTransport.directory!==directory)shared.knowledgeGroqTransport={rpm,directory,revision:'admission-wait-v1',fetch:createGroqTransport({rpm,quota:createGroqQuota(fileQuotaStore(directory))})};
+ if(!shared.knowledgeGroqTransport||shared.knowledgeGroqTransport.revision!=='token-metrics-v1'||shared.knowledgeGroqTransport.rpm!==rpm||shared.knowledgeGroqTransport.directory!==directory)shared.knowledgeGroqTransport={rpm,directory,revision:'token-metrics-v1',fetch:createGroqTransport({rpm,quota:createGroqQuota(fileQuotaStore(directory))})};
  return await shared.knowledgeGroqTransport.fetch(input,init);
  }catch(error){
   // The process-global transport survives Next development reloads. Recreate
